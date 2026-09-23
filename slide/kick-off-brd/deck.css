@@ -1,0 +1,139 @@
+/* Lo que el SDK no tiene (prefijo dk-): el lienzo 16:9 y la tipografía de slide. Todo en tokens. */
+
+body {
+  --naotech-sdk-font-family-base: -naotech-sdk-google-sans;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--naotech-color-gray-900);
+  font-family: var(--naotech-sdk-font-family);
+}
+
+/* Lienzo fijo de 1920×1080; deck.js lo escala a la ventana. */
+.dk-stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: center center;
+}
+
+.dk-slide {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  padding: 128px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  background: var(--naotech-color-gray-050);
+  color: var(--naotech-color-gray-900);
+  animation: dk-entra 240ms ease-out;
+}
+.dk-slide[hidden] { display: none; }
+.dk-slide--center { justify-content: center; }
+.dk-slide--dark { background: var(--naotech-color-gray-900); color: var(--naotech-color-gray-050); }
+.dk-slide--accent { background: var(--naotech-color-default-500); color: var(--naotech-color-gray-900); }
+
+@keyframes dk-entra { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .dk-slide { animation: none; } }
+
+.dk-slide p, .dk-slide h1, .dk-slide h2, .dk-slide h3, .dk-slide ul { margin: 0; }
+
+.dk-eyebrow {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--naotech-color-default-700);
+}
+.dk-slide--dark .dk-eyebrow { color: var(--naotech-color-default-400); }
+.dk-slide--accent .dk-eyebrow { color: var(--naotech-color-gray-900); }
+
+.dk-h1 { font-size: 128px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+.dk-h2 { font-size: 72px; font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; }
+.dk-lead { font-size: 32px; line-height: 1.45; max-width: 1320px; color: var(--naotech-color-gray-700); }
+.dk-slide--dark .dk-lead { color: var(--naotech-color-gray-300); }
+.dk-slide--accent .dk-lead { color: var(--naotech-color-gray-900); }
+.dk-hl { color: var(--naotech-color-default-700); font-weight: 500; }
+.dk-slide--dark .dk-hl { color: var(--naotech-color-default-400); }
+
+.dk-row { display: flex; gap: 24px; align-items: stretch; }
+.dk-row > * { flex: 1; min-width: 0; }
+.dk-col { display: flex; flex-direction: column; gap: 16px; }
+
+.dk-card {
+  box-sizing: border-box;
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--naotech-color-white-alpha-100);
+  border: 1px solid var(--naotech-color-gray-200);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.dk-card--tight { padding: 28px; }
+.dk-card--primary { background: var(--naotech-color-default-500); border-color: var(--naotech-color-default-500); }
+.dk-card--primary .dk-label, .dk-card--primary .dk-body { color: var(--naotech-color-gray-900); }
+.dk-card--secondary { border: 2px solid var(--naotech-color-indigo-700); }
+.dk-card--secondary .dk-label { color: var(--naotech-color-indigo-700); }
+.dk-card--dashed { background: transparent; border: 2px dashed var(--naotech-color-gray-300); }
+
+.dk-label { font-size: 24px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--naotech-color-gray-700); }
+.dk-title { font-size: 32px; font-weight: 700; line-height: 1.2; }
+.dk-title--big { font-size: 44px; line-height: 1.1; }
+.dk-body { font-size: 24px; line-height: 1.45; color: var(--naotech-color-gray-700); }
+.dk-neg { color: var(--naotech-color-red-700); font-weight: 700; }
+
+.dk-arrow { flex: 0 0 56px; align-self: center; color: var(--naotech-color-default-700); font-size: 56px; text-align: center; }
+
+.dk-num { font-size: 120px; font-weight: 700; line-height: 1; color: var(--naotech-color-default-700); }
+.dk-q { border-top: 4px solid var(--naotech-color-default-500); padding-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+.dk-q .dk-title { font-size: 36px; }
+
+.dk-pills { display: flex; flex-wrap: wrap; gap: 12px; }
+.dk-pill { font-size: 26px; padding: 10px 22px; border-radius: var(--naotech-radius-pill); border: 2px solid var(--naotech-color-gray-300); }
+.dk-pill--ours { background: var(--naotech-color-indigo-100); border-color: var(--naotech-color-indigo-100); color: var(--naotech-color-indigo-900); }
+
+.dk-table { width: 100%; border-collapse: collapse; font-size: 26px; }
+.dk-table th { text-align: left; font-size: 24px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--naotech-color-gray-700); padding: 0 16px 16px 0; border-bottom: 2px solid var(--naotech-color-gray-300); }
+.dk-table td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--naotech-color-gray-200); vertical-align: top; }
+.dk-table td:first-child { font-weight: 700; }
+.dk-table--compact { font-size: 24px; }
+.dk-table--compact td { padding: 12px 16px 12px 0; }
+.dk-letter { color: var(--naotech-color-default-700); }
+
+.dk-steps { display: flex; gap: 16px; }
+.dk-steps > * { flex: 1; min-width: 0; padding: 28px 24px; }
+.dk-steps .dk-title { font-size: 30px; }
+
+.dk-tl { display: flex; gap: 8px; }
+.dk-tl > div { flex: 1; min-width: 0; border-top: 6px solid var(--naotech-color-gray-300); padding: 28px 16px; display: flex; flex-direction: column; gap: 14px; }
+.dk-tl .dk-title { font-size: 28px; }
+.dk-tl .dk-tag { font-size: 24px; font-weight: 700; color: var(--naotech-color-default-700); }
+.dk-tl > .dk-tl__now { border-top-color: var(--naotech-color-default-500); background: var(--naotech-color-default-050); border-radius: 0 0 16px 16px; }
+
+.dk-gate { display: flex; flex-direction: column; }
+.dk-gate > div { display: flex; gap: 24px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--naotech-color-gray-200); font-size: 26px; line-height: 1.4; }
+.dk-gate b { font-size: 44px; color: var(--naotech-color-default-700); width: 40px; flex: none; }
+
+.dk-list { font-size: 30px; line-height: 1.6; color: var(--naotech-color-gray-700); padding-left: 36px; }
+
+/* Navegación: fuera del lienzo, con botones del SDK. */
+.dk-nav {
+  position: fixed;
+  right: 24px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: var(--naotech-radius-pill);
+  background: var(--naotech-color-white-alpha-100);
+  box-shadow: 0 4px 16px rgba(40, 40, 52, 0.18);
+  opacity: 0.25;
+  transition: opacity 160ms;
+}
+.dk-nav:hover, .dk-nav:focus-within { opacity: 1; }
+.dk-counter { font-size: 14px; font-variant-numeric: tabular-nums; min-width: 56px; text-align: center; color: var(--naotech-color-gray-800); }

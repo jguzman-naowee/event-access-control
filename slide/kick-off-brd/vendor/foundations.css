@@ -1,0 +1,3997 @@
+:root {
+  --naotech-color-default-050: #fff3e6;
+  --naotech-color-default-100: #ffedc7;
+  --naotech-color-default-200: #ffdaa3;
+  --naotech-color-default-300: #ffbf75;
+  --naotech-color-default-400: #ff9d47;
+  --naotech-color-default-500: #ff7b24;
+  --naotech-color-default-600: #f05705;
+  --naotech-color-default-700: #d74009;
+  --naotech-color-default-800: #b83100;
+  --naotech-color-default-900: #942700;
+  --naotech-color-default-backdrop: rgba(215, 64, 9, 0.2);
+  --naotech-color-dark-default-050: #281a15;
+  --naotech-color-dark-default-100: #381510;
+  --naotech-color-dark-default-200: #452717;
+  --naotech-color-dark-default-300: #6f3e20;
+  --naotech-color-dark-default-400: #98572f;
+  --naotech-color-dark-default-500: #c8743c;
+  --naotech-color-dark-default-600: #f29050;
+  --naotech-color-dark-default-700: #ffa366;
+  --naotech-color-dark-default-800: #ffb780;
+  --naotech-color-dark-default-900: #ffc894;
+  --naotech-color-dark-default-backdrop: rgba(255, 163, 102, 0.2);
+  --naotech-color-blue-050: #f0fdff;
+  --naotech-color-blue-100: #cef4ff;
+  --naotech-color-blue-200: #ace7ff;
+  --naotech-color-blue-300: #89d6ff;
+  --naotech-color-blue-400: #67c2ff;
+  --naotech-color-blue-500: #45a8ff;
+  --naotech-color-blue-600: #228bff;
+  --naotech-color-blue-700: #006aff;
+  --naotech-color-blue-800: #004edd;
+  --naotech-color-blue-900: #0037ba;
+  --naotech-color-blue-backdrop: rgba(0, 106, 255, 0.2);
+  --naotech-color-dark-blue-050: #002b5b;
+  --naotech-color-dark-blue-100: #005ab3;
+  --naotech-color-dark-blue-200: #006ee6;
+  --naotech-color-dark-blue-300: #0081ff;
+  --naotech-color-dark-blue-400: #008eff;
+  --naotech-color-dark-blue-500: #26bcff;
+  --naotech-color-dark-blue-600: #6bd5ff;
+  --naotech-color-dark-blue-700: #a7e3ff;
+  --naotech-color-dark-blue-800: #ceefff;
+  --naotech-color-dark-blue-900: #e9f8ff;
+  --naotech-color-dark-blue-backdrop: rgba(167, 227, 255, 0.2);
+  --naotech-color-indigo-050: #edf3ff;
+  --naotech-color-indigo-100: #e9f1ff;
+  --naotech-color-indigo-200: #dee9ff;
+  --naotech-color-indigo-300: #c6d8ff;
+  --naotech-color-indigo-400: #a3bcfe;
+  --naotech-color-indigo-500: #7a95ff;
+  --naotech-color-indigo-600: #5c70fa;
+  --naotech-color-indigo-700: #434ce4;
+  --naotech-color-indigo-800: #353ac5;
+  --naotech-color-indigo-900: #2b2fa1;
+  --naotech-color-indigo-backdrop: rgba(67, 76, 228, 0.2);
+  --naotech-color-dark-indigo-050: #1e1f34;
+  --naotech-color-dark-indigo-100: #21254a;
+  --naotech-color-dark-indigo-200: #202546;
+  --naotech-color-dark-indigo-300: #273268;
+  --naotech-color-dark-indigo-400: #304291;
+  --naotech-color-dark-indigo-500: #435dcb;
+  --naotech-color-dark-indigo-600: #4f6de8;
+  --naotech-color-dark-indigo-700: #6382fd;
+  --naotech-color-dark-indigo-800: #7d99fc;
+  --naotech-color-dark-indigo-900: #94aeff;
+  --naotech-color-dark-indigo-backdrop: rgba(99, 130, 253, 0.2);
+  --naotech-color-green-050: #f0fdf0;
+  --naotech-color-green-100: #defade;
+  --naotech-color-green-200: #bdf5be;
+  --naotech-color-green-300: #8bea8d;
+  --naotech-color-green-400: #50d853;
+  --naotech-color-green-500: #28bf2d;
+  --naotech-color-green-600: #14a919;
+  --naotech-color-green-700: #1f8923;
+  --naotech-color-green-800: #17641a;
+  --naotech-color-green-900: #124515;
+  --naotech-color-green-backdrop: rgba(31, 137, 35, 0.2);
+  --naotech-color-dark-green-050: #0f2411;
+  --naotech-color-dark-green-100: #17211b;
+  --naotech-color-dark-green-200: #1d2f1f;
+  --naotech-color-dark-green-300: #2d532f;
+  --naotech-color-dark-green-400: #3c7c3f;
+  --naotech-color-dark-green-500: #469b49;
+  --naotech-color-dark-green-600: #5aba5d;
+  --naotech-color-dark-green-700: #6cd56e;
+  --naotech-color-dark-green-800: #85e587;
+  --naotech-color-dark-green-900: #a0eea2;
+  --naotech-color-dark-green-backdrop: rgba(108, 213, 110, 0.2);
+  --naotech-color-yellow-050: #feffe7;
+  --naotech-color-yellow-100: #fffbd9;
+  --naotech-color-yellow-200: #fff7b9;
+  --naotech-color-yellow-300: #fff394;
+  --naotech-color-yellow-400: #ffee67;
+  --naotech-color-yellow-500: #ffe600;
+  --naotech-color-yellow-600: #fddd00;
+  --naotech-color-yellow-700: #fbd100;
+  --naotech-color-yellow-800: #f9c200;
+  --naotech-color-yellow-900: #f5b800;
+  --naotech-color-yellow-backdrop: rgba(251, 209, 0, 0.2);
+  --naotech-color-dark-yellow-050: #292419;
+  --naotech-color-dark-yellow-100: #332615;
+  --naotech-color-dark-yellow-200: #3d341a;
+  --naotech-color-dark-yellow-300: #4e401d;
+  --naotech-color-dark-yellow-400: #7a662a;
+  --naotech-color-dark-yellow-500: #a38e38;
+  --naotech-color-dark-yellow-600: #ddc44b;
+  --naotech-color-dark-yellow-700: #fae76b;
+  --naotech-color-dark-yellow-800: #fcee92;
+  --naotech-color-dark-yellow-900: #fff5a8;
+  --naotech-color-dark-yellow-backdrop: rgba(250, 231, 107, 0.2);
+  --naotech-color-orange-050: #fff3e6;
+  --naotech-color-orange-100: #ffedc7;
+  --naotech-color-orange-200: #ffdaa3;
+  --naotech-color-orange-300: #ffbf75;
+  --naotech-color-orange-400: #ff9d47;
+  --naotech-color-orange-500: #ff7b24;
+  --naotech-color-orange-600: #f05705;
+  --naotech-color-orange-700: #d74009;
+  --naotech-color-orange-800: #b83100;
+  --naotech-color-orange-900: #942700;
+  --naotech-color-orange-backdrop: rgba(215, 64, 9, 0.2);
+  --naotech-color-dark-orange-050: #281a15;
+  --naotech-color-dark-orange-100: #381510;
+  --naotech-color-dark-orange-200: #452717;
+  --naotech-color-dark-orange-300: #6f3e20;
+  --naotech-color-dark-orange-400: #98572f;
+  --naotech-color-dark-orange-500: #c8743c;
+  --naotech-color-dark-orange-600: #f29050;
+  --naotech-color-dark-orange-700: #ffa366;
+  --naotech-color-dark-orange-800: #ffb780;
+  --naotech-color-dark-orange-900: #ffc894;
+  --naotech-color-dark-orange-backdrop: rgba(255, 163, 102, 0.2);
+  --naotech-color-red-050: #fff0ee;
+  --naotech-color-red-100: #ffe5e9;
+  --naotech-color-red-200: #fecdd4;
+  --naotech-color-red-300: #fcabb6;
+  --naotech-color-red-400: #fe8091;
+  --naotech-color-red-500: #fb5067;
+  --naotech-color-red-600: #ed314a;
+  --naotech-color-red-700: #da1630;
+  --naotech-color-red-800: #c4031d;
+  --naotech-color-red-900: #9e0015;
+  --naotech-color-red-backdrop: rgba(218, 22, 48, 0.2);
+  --naotech-color-dark-red-050: #2b171d;
+  --naotech-color-dark-red-100: #3b161d;
+  --naotech-color-dark-red-200: #3d1a22;
+  --naotech-color-dark-red-300: #672834;
+  --naotech-color-dark-red-400: #9d3f4e;
+  --naotech-color-dark-red-500: #c15767;
+  --naotech-color-dark-red-600: #ec7486;
+  --naotech-color-dark-red-700: #fe94a3;
+  --naotech-color-dark-red-800: #ffa8b4;
+  --naotech-color-dark-red-900: #ffb8c1;
+  --naotech-color-dark-red-backdrop: rgba(254, 148, 163, 0.2);
+  --naotech-color-gray-050: #fafbff;
+  --naotech-color-gray-100: #f4f5f9;
+  --naotech-color-gray-200: #e7e9f3;
+  --naotech-color-gray-300: #d0d4e6;
+  --naotech-color-gray-400: #b5b9d4;
+  --naotech-color-gray-500: #9c9ebf;
+  --naotech-color-gray-600: #8788ab;
+  --naotech-color-gray-700: #646587;
+  --naotech-color-gray-800: #434565;
+  --naotech-color-gray-900: #282834;
+  --naotech-color-gray-backdrop: rgba(100, 101, 135, 0.2);
+  --naotech-color-dark-gray-050: #181820;
+  --naotech-color-dark-gray-100: #1e1e29;
+  --naotech-color-dark-gray-200: #20202c;
+  --naotech-color-dark-gray-300: #292938;
+  --naotech-color-dark-gray-400: #2e2e3d;
+  --naotech-color-dark-gray-500: #45455e;
+  --naotech-color-dark-gray-600: #6d6d8d;
+  --naotech-color-dark-gray-700: #a3a3bd;
+  --naotech-color-dark-gray-800: #c8c8da;
+  --naotech-color-dark-gray-900: #dedfed;
+  --naotech-color-dark-gray-backdrop: rgba(163, 163, 189, 0.2);
+  --naotech-color-turquoise-100: #dbfbff;
+  --naotech-color-turquoise-200: #007b89;
+  --naotech-color-turquoise-300: #22575d;
+  --naotech-color-violet-100: #f9ebff;
+  --naotech-color-violet-200: #9d30d4;
+  --naotech-color-violet-300: #6d3082;
+  --naotech-color-purple-100: #f3edff;
+  --naotech-color-purple-700: #7c3aed;
+  --naotech-color-pink-100: #fce4f0;
+  --naotech-color-pink-700: #db2777;
+  --naotech-color-amber-100: #fef3c7;
+  --naotech-color-amber-700: #b45309;
+  --naotech-color-teal-100: #d8f3ee;
+  --naotech-color-teal-700: #0d9488;
+  --naotech-color-cyan-100: #e0f4ff;
+  --naotech-color-cyan-700: #0284c7;
+  --naotech-color-orange-brand: #ff7500;
+  --naotech-color-default-warm: #ffe4cf;
+  --naotech-color-link-light: #005be6;
+  --naotech-color-link-dark: #83ceff;
+  --naotech-color-white-alpha-10: rgba(255, 255, 255, 0.1);
+  --naotech-color-white-alpha-20: rgba(255, 255, 255, 0.2);
+  --naotech-color-white-alpha-30: rgba(255, 255, 255, 0.3);
+  --naotech-color-white-alpha-40: rgba(255, 255, 255, 0.4);
+  --naotech-color-white-alpha-50: rgba(255, 255, 255, 0.5);
+  --naotech-color-white-alpha-60: rgba(255, 255, 255, 0.6);
+  --naotech-color-white-alpha-70: rgba(255, 255, 255, 0.7);
+  --naotech-color-white-alpha-80: rgba(255, 255, 255, 0.8);
+  --naotech-color-white-alpha-90: rgba(255, 255, 255, 0.9);
+  --naotech-color-white-alpha-100: rgba(255, 255, 255, 1);
+  --naotech-color-black-alpha-10: rgba(40, 40, 52, 0.1);
+  --naotech-color-black-alpha-20: rgba(40, 40, 52, 0.2);
+  --naotech-color-black-alpha-30: rgba(40, 40, 52, 0.3);
+  --naotech-color-black-alpha-40: rgba(40, 40, 52, 0.4);
+  --naotech-color-black-alpha-50: rgba(40, 40, 52, 0.5);
+  --naotech-color-black-alpha-60: rgba(40, 40, 52, 0.6);
+  --naotech-color-black-alpha-70: rgba(40, 40, 52, 0.7);
+  --naotech-color-black-alpha-80: rgba(40, 40, 52, 0.8);
+  --naotech-color-black-alpha-90: rgba(40, 40, 52, 0.9);
+  --naotech-color-black-alpha-100: rgba(40, 40, 52, 1);
+}
+:root {
+  --naotech-sizing-2: 0.125rem;
+  --naotech-sizing-4: 0.25rem;
+  --naotech-sizing-6: 0.375rem;
+  --naotech-sizing-8: 0.5rem;
+  --naotech-sizing-10: 0.625rem;
+  --naotech-sizing-12: 0.75rem;
+  --naotech-sizing-14: 0.875rem;
+  --naotech-sizing-16: 1rem;
+  --naotech-sizing-18: 1.125rem;
+  --naotech-sizing-20: 1.25rem;
+  --naotech-sizing-24: 1.5rem;
+  --naotech-sizing-28: 1.75rem;
+  --naotech-sizing-32: 2rem;
+  --naotech-sizing-36: 2.25rem;
+  --naotech-sizing-40: 2.5rem;
+  --naotech-sizing-48: 3rem;
+  --naotech-sizing-56: 3.5rem;
+  --naotech-sizing-64: 4rem;
+  --naotech-target-size-min: var(--naotech-sizing-24);
+}
+:root {
+  --naotech-radius-xs: 0.125rem;
+  --naotech-radius-sm: 0.25rem;
+  --naotech-radius-md: 0.375rem;
+  --naotech-radius-lg: 0.5rem;
+  --naotech-radius-xl: 0.75rem;
+  --naotech-radius-xxl: 1.25rem;
+  --naotech-radius-pill: 9999px;
+  --naotech-radius-circle: 50%;
+}
+:root {
+  --naotech-sdk-font-family-base: -naotech-sdk-inter;
+  --naotech-sdk-font-family:
+    var(--naotech-sdk-font-family-base), -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  --naotech-font-weight-thin: 100;
+  --naotech-font-weight-extralight: 200;
+  --naotech-font-weight-light: 300;
+  --naotech-font-weight-regular: 400;
+  --naotech-font-weight-medium: 500;
+  --naotech-font-weight-semibold: 600;
+  --naotech-font-weight-bold: 700;
+  --naotech-font-weight-extrabold: 800;
+  --naotech-font-weight-black: 900;
+  --naotech-heading1-font-size: var(--naotech-sizing-40);
+  --naotech-heading1-letter-spacing: 0.04em;
+  --naotech-heading1-line-height: var(--naotech-sizing-48);
+  --naotech-heading1-font-weight: var(--naotech-font-weight-extrabold);
+  --naotech-heading2-font-size: var(--naotech-sizing-36);
+  --naotech-heading2-letter-spacing: 0.04em;
+  --naotech-heading2-line-height: var(--naotech-sizing-40);
+  --naotech-heading2-font-weight: var(--naotech-font-weight-extrabold);
+  --naotech-heading3-font-size: var(--naotech-sizing-32);
+  --naotech-heading3-letter-spacing: 0.03em;
+  --naotech-heading3-line-height: var(--naotech-sizing-36);
+  --naotech-heading3-font-weight: var(--naotech-font-weight-extrabold);
+  --naotech-heading4-font-size: var(--naotech-sizing-28);
+  --naotech-heading4-letter-spacing: 0.03em;
+  --naotech-heading4-line-height: var(--naotech-sizing-32);
+  --naotech-heading4-font-weight: var(--naotech-font-weight-bold);
+  --naotech-heading5-font-size: var(--naotech-sizing-24);
+  --naotech-heading5-letter-spacing: 0.02em;
+  --naotech-heading5-line-height: var(--naotech-sizing-28);
+  --naotech-heading5-font-weight: var(--naotech-font-weight-bold);
+  --naotech-heading6-font-size: var(--naotech-sizing-20);
+  --naotech-heading6-letter-spacing: 0.02em;
+  --naotech-heading6-line-height: var(--naotech-sizing-24);
+  --naotech-heading6-font-weight: var(--naotech-font-weight-bold);
+  --naotech-subtitle-font-size: var(--naotech-sizing-18);
+  --naotech-subtitle-letter-spacing: 0.02em;
+  --naotech-subtitle-line-height: var(--naotech-sizing-20);
+  --naotech-subtitle-font-weight: var(--naotech-font-weight-semibold);
+  --naotech-body-font-size: var(--naotech-sizing-16);
+  --naotech-body-letter-spacing: 0.01em;
+  --naotech-body-line-height: var(--naotech-sizing-18);
+  --naotech-body-font-weight: var(--naotech-font-weight-medium);
+  --naotech-smalltext-font-size: var(--naotech-sizing-14);
+  --naotech-smalltext-letter-spacing: 0.01em;
+  --naotech-smalltext-line-height: var(--naotech-sizing-16);
+  --naotech-smalltext-font-weight: var(--naotech-font-weight-regular);
+  --naotech-caption-font-size: var(--naotech-sizing-12);
+  --naotech-caption-letter-spacing: 0.01em;
+  --naotech-caption-line-height: var(--naotech-sizing-14);
+  --naotech-caption-font-weight: var(--naotech-font-weight-regular);
+  --naotech-overline-font-size: var(--naotech-sizing-10);
+  --naotech-overline-letter-spacing: -0.01em;
+  --naotech-overline-line-height: var(--naotech-sizing-12);
+  --naotech-overline-font-weight: var(--naotech-font-weight-regular);
+  --naotech-app-letter-spacing: 0.01em;
+}
+:root {
+  --naotech-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --naotech-shadow-2: 0 1px 4px rgba(0, 0, 0, 0.08);
+  --naotech-shadow-4: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --naotech-shadow-6: 0 3px 12px rgba(0, 0, 0, 0.11);
+  --naotech-shadow-8: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --naotech-shadow-16: 0 10px 32px rgba(0, 0, 0, 0.18);
+  --naotech-shadow-24: 0 20px 60px rgba(0, 0, 0, 0.25);
+  --naotech-shadow-16-up: 0 -10px 32px rgba(0, 0, 0, 0.18);
+  --naotech-shadow-small: var(--naotech-shadow-2);
+  --naotech-shadow-medium: var(--naotech-shadow-8);
+  --naotech-shadow-large: var(--naotech-shadow-24);
+}
+body[app-theme='dark'] {
+  --naotech-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.14);
+  --naotech-shadow-2: 0 1px 4px rgba(0, 0, 0, 0.18);
+  --naotech-shadow-4: 0 2px 8px rgba(0, 0, 0, 0.22);
+  --naotech-shadow-6: 0 3px 12px rgba(0, 0, 0, 0.24);
+  --naotech-shadow-8: 0 4px 16px rgba(0, 0, 0, 0.26);
+  --naotech-shadow-16: 0 10px 32px rgba(0, 0, 0, 0.38);
+  --naotech-shadow-24: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --naotech-shadow-16-up: 0 -10px 32px rgba(0, 0, 0, 0.38);
+}
+:root {
+  --naotech-focus-ring-width: 2px;
+  --naotech-focus-ring-offset: 2px;
+}
+:root {
+  --naotech-z-toolbar: 40;
+  --naotech-z-menu: 80;
+  --naotech-z-drawer: 160;
+  --naotech-z-dialog: 240;
+  --naotech-z-snackbar: 320;
+}
+body {
+  --naotech-animation-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --naotech-animation-deceleration: cubic-bezier(0, 0, 0.2, 1);
+  --naotech-animation-acceleration: cubic-bezier(0.4, 0, 1, 1);
+  --naotech-animation-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+  --naotech-duration-fast: 160ms;
+  --naotech-duration-base: 240ms;
+  --naotech-duration-slow: 320ms;
+  --naotech-duration-pulse: 1400ms;
+  --naotech-duration-spin: 800ms;
+  --naotech-motion-distance: var(--naotech-sizing-16);
+  --naotech-motion-scale: 0.92;
+}
+body {
+  --naotech-app-background: var(--naotech-color-white-alpha-100);
+  --naotech-app-font-color: var(--naotech-color-gray-900);
+  --naotech-app-link-color: var(--naotech-color-link-light);
+  --naotech-primary-color-disabled: var(--naotech-color-gray-300);
+  --naotech-primary-color-disabled-loading: var(--naotech-color-white-alpha-30);
+  --naotech-primary-color-text-normal: var(--naotech-color-white-alpha-100);
+  --naotech-primary-color-text-disabled: var(--naotech-color-gray-500);
+  --naotech-secondary-color-disabled: var(--naotech-color-gray-300);
+  --naotech-secondary-color-disabled-loading: var(
+    --naotech-color-white-alpha-30
+  );
+  --naotech-secondary-color-text-disabled: var(--naotech-color-gray-500);
+  --naotech-tertiary-color-normal: transparent;
+  --naotech-tertiary-color-disabled: transparent;
+  --naotech-tertiary-color-disabled-loading: var(
+    --naotech-color-white-alpha-30
+  );
+  --naotech-tertiary-color-text-disabled: var(--naotech-color-gray-500);
+  --naotech-app-color-050: var(--naotech-color-gray-050);
+  --naotech-app-color-100: var(--naotech-color-gray-100);
+  --naotech-app-color-200: var(--naotech-color-gray-200);
+  --naotech-app-color-300: var(--naotech-color-gray-300);
+  --naotech-app-color-400: var(--naotech-color-gray-400);
+  --naotech-app-color-500: var(--naotech-color-gray-500);
+  --naotech-app-color-600: var(--naotech-color-gray-600);
+  --naotech-app-color-700: var(--naotech-color-gray-700);
+  --naotech-app-color-800: var(--naotech-color-gray-800);
+  --naotech-app-color-900: var(--naotech-color-gray-900);
+  --naotech-app-color-alpha-10: var(--naotech-color-white-alpha-10);
+  --naotech-app-color-alpha-20: var(--naotech-color-white-alpha-20);
+  --naotech-app-color-alpha-30: var(--naotech-color-white-alpha-30);
+  --naotech-app-color-alpha-40: var(--naotech-color-white-alpha-40);
+  --naotech-app-color-alpha-50: var(--naotech-color-white-alpha-50);
+  --naotech-app-color-alpha-60: var(--naotech-color-white-alpha-60);
+  --naotech-app-color-alpha-70: var(--naotech-color-white-alpha-70);
+  --naotech-app-color-alpha-80: var(--naotech-color-white-alpha-80);
+  --naotech-app-color-alpha-90: var(--naotech-color-white-alpha-90);
+  --naotech-app-color-alpha-100: var(--naotech-color-white-alpha-100);
+  --naotech-app-border-1-100: 1px solid var(--naotech-app-color-100);
+  --naotech-app-border-1-200: 1px solid var(--naotech-app-color-200);
+  --naotech-app-border-1-300: 1px solid var(--naotech-app-color-300);
+  --naotech-app-border-1-400: 1px solid var(--naotech-app-color-400);
+  --naotech-app-border-1-500: 1px solid var(--naotech-app-color-500);
+  --naotech-app-border-1-600: 1px solid var(--naotech-app-color-600);
+  --naotech-app-border-1-700: 1px solid var(--naotech-app-color-700);
+  --naotech-app-border-1-800: 1px solid var(--naotech-app-color-800);
+  --naotech-app-border-1-900: 1px solid var(--naotech-app-color-900);
+  --naotech-app-border-2-100: 2px solid var(--naotech-app-color-100);
+  --naotech-app-border-2-200: 2px solid var(--naotech-app-color-200);
+  --naotech-app-border-2-300: 2px solid var(--naotech-app-color-300);
+  --naotech-app-border-2-400: 2px solid var(--naotech-app-color-400);
+  --naotech-app-border-2-500: 2px solid var(--naotech-app-color-500);
+  --naotech-app-border-2-600: 2px solid var(--naotech-app-color-600);
+  --naotech-app-border-2-700: 2px solid var(--naotech-app-color-700);
+  --naotech-app-border-2-800: 2px solid var(--naotech-app-color-800);
+  --naotech-app-border-2-900: 2px solid var(--naotech-app-color-900);
+  --naotech-app-border-3-100: 3px solid var(--naotech-app-color-100);
+  --naotech-app-border-3-200: 3px solid var(--naotech-app-color-200);
+  --naotech-app-border-3-300: 3px solid var(--naotech-app-color-300);
+  --naotech-app-border-3-400: 3px solid var(--naotech-app-color-400);
+  --naotech-app-border-3-500: 3px solid var(--naotech-app-color-500);
+  --naotech-app-border-3-600: 3px solid var(--naotech-app-color-600);
+  --naotech-app-border-3-700: 3px solid var(--naotech-app-color-700);
+  --naotech-app-border-3-800: 3px solid var(--naotech-app-color-800);
+  --naotech-app-border-3-900: 3px solid var(--naotech-app-color-900);
+  --naotech-app-border-4-100: 4px solid var(--naotech-app-color-100);
+  --naotech-app-border-4-200: 4px solid var(--naotech-app-color-200);
+  --naotech-app-border-4-300: 4px solid var(--naotech-app-color-300);
+  --naotech-app-border-4-400: 4px solid var(--naotech-app-color-400);
+  --naotech-app-border-4-500: 4px solid var(--naotech-app-color-500);
+  --naotech-app-border-4-600: 4px solid var(--naotech-app-color-600);
+  --naotech-app-border-4-700: 4px solid var(--naotech-app-color-700);
+  --naotech-app-border-4-800: 4px solid var(--naotech-app-color-800);
+  --naotech-app-border-4-900: 4px solid var(--naotech-app-color-900);
+  --naotech-primary-color-050: var(--naotech-color-default-050);
+  --naotech-primary-color-100: var(--naotech-color-default-100);
+  --naotech-primary-color-200: var(--naotech-color-default-200);
+  --naotech-primary-color-300: var(--naotech-color-default-300);
+  --naotech-primary-color-400: var(--naotech-color-default-400);
+  --naotech-primary-color-500: var(--naotech-color-default-500);
+  --naotech-primary-color-600: var(--naotech-color-default-600);
+  --naotech-primary-color-700: var(--naotech-color-default-700);
+  --naotech-primary-color-800: var(--naotech-color-default-800);
+  --naotech-primary-color-900: var(--naotech-color-default-900);
+  --naotech-primary-border-1-050: 1px solid var(--naotech-color-default-050);
+  --naotech-primary-border-1-100: 1px solid var(--naotech-color-default-100);
+  --naotech-primary-border-1-200: 1px solid var(--naotech-color-default-200);
+  --naotech-primary-border-1-300: 1px solid var(--naotech-color-default-300);
+  --naotech-primary-border-1-400: 1px solid var(--naotech-color-default-400);
+  --naotech-primary-border-1-500: 1px solid var(--naotech-color-default-500);
+  --naotech-primary-border-1-600: 1px solid var(--naotech-color-default-600);
+  --naotech-primary-border-1-700: 1px solid var(--naotech-color-default-700);
+  --naotech-primary-border-1-800: 1px solid var(--naotech-color-default-800);
+  --naotech-primary-border-1-900: 1px solid var(--naotech-color-default-900);
+  --naotech-primary-border-2-050: 2px solid var(--naotech-color-default-050);
+  --naotech-primary-border-2-100: 2px solid var(--naotech-color-default-100);
+  --naotech-primary-border-2-200: 2px solid var(--naotech-color-default-200);
+  --naotech-primary-border-2-300: 2px solid var(--naotech-color-default-300);
+  --naotech-primary-border-2-400: 2px solid var(--naotech-color-default-400);
+  --naotech-primary-border-2-500: 2px solid var(--naotech-color-default-500);
+  --naotech-primary-border-2-600: 2px solid var(--naotech-color-default-600);
+  --naotech-primary-border-2-700: 2px solid var(--naotech-color-default-700);
+  --naotech-primary-border-2-800: 2px solid var(--naotech-color-default-800);
+  --naotech-primary-border-2-900: 2px solid var(--naotech-color-default-900);
+  --naotech-primary-border-3-050: 3px solid var(--naotech-color-default-050);
+  --naotech-primary-border-3-100: 3px solid var(--naotech-color-default-100);
+  --naotech-primary-border-3-200: 3px solid var(--naotech-color-default-200);
+  --naotech-primary-border-3-300: 3px solid var(--naotech-color-default-300);
+  --naotech-primary-border-3-400: 3px solid var(--naotech-color-default-400);
+  --naotech-primary-border-3-500: 3px solid var(--naotech-color-default-500);
+  --naotech-primary-border-3-600: 3px solid var(--naotech-color-default-600);
+  --naotech-primary-border-3-700: 3px solid var(--naotech-color-default-700);
+  --naotech-primary-border-3-800: 3px solid var(--naotech-color-default-800);
+  --naotech-primary-border-3-900: 3px solid var(--naotech-color-default-900);
+  --naotech-primary-border-4-050: 4px solid var(--naotech-color-default-050);
+  --naotech-primary-border-4-100: 4px solid var(--naotech-color-default-100);
+  --naotech-primary-border-4-200: 4px solid var(--naotech-color-default-200);
+  --naotech-primary-border-4-300: 4px solid var(--naotech-color-default-300);
+  --naotech-primary-border-4-400: 4px solid var(--naotech-color-default-400);
+  --naotech-primary-border-4-500: 4px solid var(--naotech-color-default-500);
+  --naotech-primary-border-4-600: 4px solid var(--naotech-color-default-600);
+  --naotech-primary-border-4-700: 4px solid var(--naotech-color-default-700);
+  --naotech-primary-border-4-800: 4px solid var(--naotech-color-default-800);
+  --naotech-primary-border-4-900: 4px solid var(--naotech-color-default-900);
+  --naotech-primary-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-default-700) 15%, transparent);
+  --naotech-primary-shadow-300: 0 0 0 2px var(--naotech-color-default-300);
+  --naotech-primary-shadow-400: 0 0 0 2px var(--naotech-color-default-400);
+  --naotech-primary-shadow-500: 0 0 0 2px var(--naotech-color-default-500);
+  --naotech-primary-shadow-600: 0 0 0 2px var(--naotech-color-default-600);
+  --naotech-primary-shadow-700: 0 0 0 2px var(--naotech-color-default-700);
+  --naotech-primary-backdrop: var(--naotech-color-default-backdrop);
+  --naotech-primary-font-color: var(--naotech-color-white-alpha-100);
+  --naotech-primary-subtle-text: var(--naotech-color-default-900);
+  --naotech-primary-focus-ring: var(--naotech-color-default-700);
+  --naotech-primary-focus-shadow:
+    0 0 0 2px var(--naotech-primary-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-default-700) 15%, transparent);
+  --naotech-secondary-color-050: var(--naotech-color-indigo-050);
+  --naotech-secondary-color-100: var(--naotech-color-indigo-100);
+  --naotech-secondary-color-200: var(--naotech-color-indigo-200);
+  --naotech-secondary-color-300: var(--naotech-color-indigo-300);
+  --naotech-secondary-color-400: var(--naotech-color-indigo-400);
+  --naotech-secondary-color-500: var(--naotech-color-indigo-500);
+  --naotech-secondary-color-600: var(--naotech-color-indigo-600);
+  --naotech-secondary-color-700: var(--naotech-color-indigo-700);
+  --naotech-secondary-color-800: var(--naotech-color-indigo-800);
+  --naotech-secondary-color-900: var(--naotech-color-indigo-900);
+  --naotech-secondary-border-1-050: 1px solid var(--naotech-color-indigo-050);
+  --naotech-secondary-border-1-100: 1px solid var(--naotech-color-indigo-100);
+  --naotech-secondary-border-1-200: 1px solid var(--naotech-color-indigo-200);
+  --naotech-secondary-border-1-300: 1px solid var(--naotech-color-indigo-300);
+  --naotech-secondary-border-1-400: 1px solid var(--naotech-color-indigo-400);
+  --naotech-secondary-border-1-500: 1px solid var(--naotech-color-indigo-500);
+  --naotech-secondary-border-1-600: 1px solid var(--naotech-color-indigo-600);
+  --naotech-secondary-border-1-700: 1px solid var(--naotech-color-indigo-700);
+  --naotech-secondary-border-1-800: 1px solid var(--naotech-color-indigo-800);
+  --naotech-secondary-border-1-900: 1px solid var(--naotech-color-indigo-900);
+  --naotech-secondary-border-2-050: 2px solid var(--naotech-color-indigo-050);
+  --naotech-secondary-border-2-100: 2px solid var(--naotech-color-indigo-100);
+  --naotech-secondary-border-2-200: 2px solid var(--naotech-color-indigo-200);
+  --naotech-secondary-border-2-300: 2px solid var(--naotech-color-indigo-300);
+  --naotech-secondary-border-2-400: 2px solid var(--naotech-color-indigo-400);
+  --naotech-secondary-border-2-500: 2px solid var(--naotech-color-indigo-500);
+  --naotech-secondary-border-2-600: 2px solid var(--naotech-color-indigo-600);
+  --naotech-secondary-border-2-700: 2px solid var(--naotech-color-indigo-700);
+  --naotech-secondary-border-2-800: 2px solid var(--naotech-color-indigo-800);
+  --naotech-secondary-border-2-900: 2px solid var(--naotech-color-indigo-900);
+  --naotech-secondary-border-3-050: 3px solid var(--naotech-color-indigo-050);
+  --naotech-secondary-border-3-100: 3px solid var(--naotech-color-indigo-100);
+  --naotech-secondary-border-3-200: 3px solid var(--naotech-color-indigo-200);
+  --naotech-secondary-border-3-300: 3px solid var(--naotech-color-indigo-300);
+  --naotech-secondary-border-3-400: 3px solid var(--naotech-color-indigo-400);
+  --naotech-secondary-border-3-500: 3px solid var(--naotech-color-indigo-500);
+  --naotech-secondary-border-3-600: 3px solid var(--naotech-color-indigo-600);
+  --naotech-secondary-border-3-700: 3px solid var(--naotech-color-indigo-700);
+  --naotech-secondary-border-3-800: 3px solid var(--naotech-color-indigo-800);
+  --naotech-secondary-border-3-900: 3px solid var(--naotech-color-indigo-900);
+  --naotech-secondary-border-4-050: 4px solid var(--naotech-color-indigo-050);
+  --naotech-secondary-border-4-100: 4px solid var(--naotech-color-indigo-100);
+  --naotech-secondary-border-4-200: 4px solid var(--naotech-color-indigo-200);
+  --naotech-secondary-border-4-300: 4px solid var(--naotech-color-indigo-300);
+  --naotech-secondary-border-4-400: 4px solid var(--naotech-color-indigo-400);
+  --naotech-secondary-border-4-500: 4px solid var(--naotech-color-indigo-500);
+  --naotech-secondary-border-4-600: 4px solid var(--naotech-color-indigo-600);
+  --naotech-secondary-border-4-700: 4px solid var(--naotech-color-indigo-700);
+  --naotech-secondary-border-4-800: 4px solid var(--naotech-color-indigo-800);
+  --naotech-secondary-border-4-900: 4px solid var(--naotech-color-indigo-900);
+  --naotech-secondary-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-indigo-700) 15%, transparent);
+  --naotech-secondary-shadow-300: 0 0 0 2px var(--naotech-color-indigo-300);
+  --naotech-secondary-shadow-400: 0 0 0 2px var(--naotech-color-indigo-400);
+  --naotech-secondary-shadow-500: 0 0 0 2px var(--naotech-color-indigo-500);
+  --naotech-secondary-shadow-600: 0 0 0 2px var(--naotech-color-indigo-600);
+  --naotech-secondary-shadow-700: 0 0 0 2px var(--naotech-color-indigo-700);
+  --naotech-secondary-backdrop: var(--naotech-color-indigo-backdrop);
+  --naotech-secondary-font-color: var(--naotech-color-white-alpha-100);
+  --naotech-secondary-subtle-text: var(--naotech-color-indigo-900);
+  --naotech-secondary-focus-ring: var(--naotech-color-indigo-700);
+  --naotech-secondary-focus-shadow:
+    0 0 0 2px var(--naotech-secondary-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-indigo-700) 15%, transparent);
+  --naotech-informative-color-050: var(--naotech-color-blue-050);
+  --naotech-informative-color-100: var(--naotech-color-blue-100);
+  --naotech-informative-color-200: var(--naotech-color-blue-200);
+  --naotech-informative-color-300: var(--naotech-color-blue-300);
+  --naotech-informative-color-400: var(--naotech-color-blue-400);
+  --naotech-informative-color-500: var(--naotech-color-blue-500);
+  --naotech-informative-color-600: var(--naotech-color-blue-600);
+  --naotech-informative-color-700: var(--naotech-color-blue-700);
+  --naotech-informative-color-800: var(--naotech-color-blue-800);
+  --naotech-informative-color-900: var(--naotech-color-blue-900);
+  --naotech-informative-border-1-050: 1px solid var(--naotech-color-blue-050);
+  --naotech-informative-border-1-100: 1px solid var(--naotech-color-blue-100);
+  --naotech-informative-border-1-200: 1px solid var(--naotech-color-blue-200);
+  --naotech-informative-border-1-300: 1px solid var(--naotech-color-blue-300);
+  --naotech-informative-border-1-400: 1px solid var(--naotech-color-blue-400);
+  --naotech-informative-border-1-500: 1px solid var(--naotech-color-blue-500);
+  --naotech-informative-border-1-600: 1px solid var(--naotech-color-blue-600);
+  --naotech-informative-border-1-700: 1px solid var(--naotech-color-blue-700);
+  --naotech-informative-border-1-800: 1px solid var(--naotech-color-blue-800);
+  --naotech-informative-border-1-900: 1px solid var(--naotech-color-blue-900);
+  --naotech-informative-border-2-050: 2px solid var(--naotech-color-blue-050);
+  --naotech-informative-border-2-100: 2px solid var(--naotech-color-blue-100);
+  --naotech-informative-border-2-200: 2px solid var(--naotech-color-blue-200);
+  --naotech-informative-border-2-300: 2px solid var(--naotech-color-blue-300);
+  --naotech-informative-border-2-400: 2px solid var(--naotech-color-blue-400);
+  --naotech-informative-border-2-500: 2px solid var(--naotech-color-blue-500);
+  --naotech-informative-border-2-600: 2px solid var(--naotech-color-blue-600);
+  --naotech-informative-border-2-700: 2px solid var(--naotech-color-blue-700);
+  --naotech-informative-border-2-800: 2px solid var(--naotech-color-blue-800);
+  --naotech-informative-border-2-900: 2px solid var(--naotech-color-blue-900);
+  --naotech-informative-border-3-050: 3px solid var(--naotech-color-blue-050);
+  --naotech-informative-border-3-100: 3px solid var(--naotech-color-blue-100);
+  --naotech-informative-border-3-200: 3px solid var(--naotech-color-blue-200);
+  --naotech-informative-border-3-300: 3px solid var(--naotech-color-blue-300);
+  --naotech-informative-border-3-400: 3px solid var(--naotech-color-blue-400);
+  --naotech-informative-border-3-500: 3px solid var(--naotech-color-blue-500);
+  --naotech-informative-border-3-600: 3px solid var(--naotech-color-blue-600);
+  --naotech-informative-border-3-700: 3px solid var(--naotech-color-blue-700);
+  --naotech-informative-border-3-800: 3px solid var(--naotech-color-blue-800);
+  --naotech-informative-border-3-900: 3px solid var(--naotech-color-blue-900);
+  --naotech-informative-border-4-050: 4px solid var(--naotech-color-blue-050);
+  --naotech-informative-border-4-100: 4px solid var(--naotech-color-blue-100);
+  --naotech-informative-border-4-200: 4px solid var(--naotech-color-blue-200);
+  --naotech-informative-border-4-300: 4px solid var(--naotech-color-blue-300);
+  --naotech-informative-border-4-400: 4px solid var(--naotech-color-blue-400);
+  --naotech-informative-border-4-500: 4px solid var(--naotech-color-blue-500);
+  --naotech-informative-border-4-600: 4px solid var(--naotech-color-blue-600);
+  --naotech-informative-border-4-700: 4px solid var(--naotech-color-blue-700);
+  --naotech-informative-border-4-800: 4px solid var(--naotech-color-blue-800);
+  --naotech-informative-border-4-900: 4px solid var(--naotech-color-blue-900);
+  --naotech-informative-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-blue-700) 15%, transparent);
+  --naotech-informative-shadow-300: 0 0 0 2px var(--naotech-color-blue-300);
+  --naotech-informative-shadow-400: 0 0 0 2px var(--naotech-color-blue-400);
+  --naotech-informative-shadow-500: 0 0 0 2px var(--naotech-color-blue-500);
+  --naotech-informative-shadow-600: 0 0 0 2px var(--naotech-color-blue-600);
+  --naotech-informative-shadow-700: 0 0 0 2px var(--naotech-color-blue-700);
+  --naotech-informative-backdrop: var(--naotech-color-blue-backdrop);
+  --naotech-informative-font-color: var(--naotech-color-white-alpha-100);
+  --naotech-informative-subtle-text: var(--naotech-color-blue-900);
+  --naotech-informative-focus-ring: var(--naotech-color-blue-700);
+  --naotech-informative-focus-shadow:
+    0 0 0 2px var(--naotech-informative-focus-ring),
+    0 0 0 5px color-mix(in srgb, var(--naotech-color-blue-700) 15%, transparent);
+  --naotech-positive-color-050: var(--naotech-color-green-050);
+  --naotech-positive-color-100: var(--naotech-color-green-100);
+  --naotech-positive-color-200: var(--naotech-color-green-200);
+  --naotech-positive-color-300: var(--naotech-color-green-300);
+  --naotech-positive-color-400: var(--naotech-color-green-400);
+  --naotech-positive-color-500: var(--naotech-color-green-500);
+  --naotech-positive-color-600: var(--naotech-color-green-600);
+  --naotech-positive-color-700: var(--naotech-color-green-700);
+  --naotech-positive-color-800: var(--naotech-color-green-800);
+  --naotech-positive-color-900: var(--naotech-color-green-900);
+  --naotech-positive-border-1-050: 1px solid var(--naotech-color-green-050);
+  --naotech-positive-border-1-100: 1px solid var(--naotech-color-green-100);
+  --naotech-positive-border-1-200: 1px solid var(--naotech-color-green-200);
+  --naotech-positive-border-1-300: 1px solid var(--naotech-color-green-300);
+  --naotech-positive-border-1-400: 1px solid var(--naotech-color-green-400);
+  --naotech-positive-border-1-500: 1px solid var(--naotech-color-green-500);
+  --naotech-positive-border-1-600: 1px solid var(--naotech-color-green-600);
+  --naotech-positive-border-1-700: 1px solid var(--naotech-color-green-700);
+  --naotech-positive-border-1-800: 1px solid var(--naotech-color-green-800);
+  --naotech-positive-border-1-900: 1px solid var(--naotech-color-green-900);
+  --naotech-positive-border-2-050: 2px solid var(--naotech-color-green-050);
+  --naotech-positive-border-2-100: 2px solid var(--naotech-color-green-100);
+  --naotech-positive-border-2-200: 2px solid var(--naotech-color-green-200);
+  --naotech-positive-border-2-300: 2px solid var(--naotech-color-green-300);
+  --naotech-positive-border-2-400: 2px solid var(--naotech-color-green-400);
+  --naotech-positive-border-2-500: 2px solid var(--naotech-color-green-500);
+  --naotech-positive-border-2-600: 2px solid var(--naotech-color-green-600);
+  --naotech-positive-border-2-700: 2px solid var(--naotech-color-green-700);
+  --naotech-positive-border-2-800: 2px solid var(--naotech-color-green-800);
+  --naotech-positive-border-2-900: 2px solid var(--naotech-color-green-900);
+  --naotech-positive-border-3-050: 3px solid var(--naotech-color-green-050);
+  --naotech-positive-border-3-100: 3px solid var(--naotech-color-green-100);
+  --naotech-positive-border-3-200: 3px solid var(--naotech-color-green-200);
+  --naotech-positive-border-3-300: 3px solid var(--naotech-color-green-300);
+  --naotech-positive-border-3-400: 3px solid var(--naotech-color-green-400);
+  --naotech-positive-border-3-500: 3px solid var(--naotech-color-green-500);
+  --naotech-positive-border-3-600: 3px solid var(--naotech-color-green-600);
+  --naotech-positive-border-3-700: 3px solid var(--naotech-color-green-700);
+  --naotech-positive-border-3-800: 3px solid var(--naotech-color-green-800);
+  --naotech-positive-border-3-900: 3px solid var(--naotech-color-green-900);
+  --naotech-positive-border-4-050: 4px solid var(--naotech-color-green-050);
+  --naotech-positive-border-4-100: 4px solid var(--naotech-color-green-100);
+  --naotech-positive-border-4-200: 4px solid var(--naotech-color-green-200);
+  --naotech-positive-border-4-300: 4px solid var(--naotech-color-green-300);
+  --naotech-positive-border-4-400: 4px solid var(--naotech-color-green-400);
+  --naotech-positive-border-4-500: 4px solid var(--naotech-color-green-500);
+  --naotech-positive-border-4-600: 4px solid var(--naotech-color-green-600);
+  --naotech-positive-border-4-700: 4px solid var(--naotech-color-green-700);
+  --naotech-positive-border-4-800: 4px solid var(--naotech-color-green-800);
+  --naotech-positive-border-4-900: 4px solid var(--naotech-color-green-900);
+  --naotech-positive-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-green-700) 15%, transparent);
+  --naotech-positive-shadow-300: 0 0 0 2px var(--naotech-color-green-300);
+  --naotech-positive-shadow-400: 0 0 0 2px var(--naotech-color-green-400);
+  --naotech-positive-shadow-500: 0 0 0 2px var(--naotech-color-green-500);
+  --naotech-positive-shadow-600: 0 0 0 2px var(--naotech-color-green-600);
+  --naotech-positive-shadow-700: 0 0 0 2px var(--naotech-color-green-700);
+  --naotech-positive-backdrop: var(--naotech-color-green-backdrop);
+  --naotech-positive-font-color: var(--naotech-color-white-alpha-100);
+  --naotech-positive-subtle-text: var(--naotech-color-green-900);
+  --naotech-positive-focus-ring: var(--naotech-color-green-700);
+  --naotech-positive-focus-shadow:
+    0 0 0 2px var(--naotech-positive-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-green-700) 15%, transparent);
+  --naotech-warning-color-050: var(--naotech-color-yellow-050);
+  --naotech-warning-color-100: var(--naotech-color-yellow-100);
+  --naotech-warning-color-200: var(--naotech-color-yellow-200);
+  --naotech-warning-color-300: var(--naotech-color-yellow-300);
+  --naotech-warning-color-400: var(--naotech-color-yellow-400);
+  --naotech-warning-color-500: var(--naotech-color-yellow-500);
+  --naotech-warning-color-600: var(--naotech-color-yellow-600);
+  --naotech-warning-color-700: var(--naotech-color-yellow-700);
+  --naotech-warning-color-800: var(--naotech-color-yellow-800);
+  --naotech-warning-color-900: var(--naotech-color-yellow-900);
+  --naotech-warning-border-1-050: 1px solid var(--naotech-color-yellow-050);
+  --naotech-warning-border-1-100: 1px solid var(--naotech-color-yellow-100);
+  --naotech-warning-border-1-200: 1px solid var(--naotech-color-yellow-200);
+  --naotech-warning-border-1-300: 1px solid var(--naotech-color-yellow-300);
+  --naotech-warning-border-1-400: 1px solid var(--naotech-color-yellow-400);
+  --naotech-warning-border-1-500: 1px solid var(--naotech-color-yellow-500);
+  --naotech-warning-border-1-600: 1px solid var(--naotech-color-yellow-600);
+  --naotech-warning-border-1-700: 1px solid var(--naotech-color-yellow-700);
+  --naotech-warning-border-1-800: 1px solid var(--naotech-color-yellow-800);
+  --naotech-warning-border-1-900: 1px solid var(--naotech-color-yellow-900);
+  --naotech-warning-border-2-050: 2px solid var(--naotech-color-yellow-050);
+  --naotech-warning-border-2-100: 2px solid var(--naotech-color-yellow-100);
+  --naotech-warning-border-2-200: 2px solid var(--naotech-color-yellow-200);
+  --naotech-warning-border-2-300: 2px solid var(--naotech-color-yellow-300);
+  --naotech-warning-border-2-400: 2px solid var(--naotech-color-yellow-400);
+  --naotech-warning-border-2-500: 2px solid var(--naotech-color-yellow-500);
+  --naotech-warning-border-2-600: 2px solid var(--naotech-color-yellow-600);
+  --naotech-warning-border-2-700: 2px solid var(--naotech-color-yellow-700);
+  --naotech-warning-border-2-800: 2px solid var(--naotech-color-yellow-800);
+  --naotech-warning-border-2-900: 2px solid var(--naotech-color-yellow-900);
+  --naotech-warning-border-3-050: 3px solid var(--naotech-color-yellow-050);
+  --naotech-warning-border-3-100: 3px solid var(--naotech-color-yellow-100);
+  --naotech-warning-border-3-200: 3px solid var(--naotech-color-yellow-200);
+  --naotech-warning-border-3-300: 3px solid var(--naotech-color-yellow-300);
+  --naotech-warning-border-3-400: 3px solid var(--naotech-color-yellow-400);
+  --naotech-warning-border-3-500: 3px solid var(--naotech-color-yellow-500);
+  --naotech-warning-border-3-600: 3px solid var(--naotech-color-yellow-600);
+  --naotech-warning-border-3-700: 3px solid var(--naotech-color-yellow-700);
+  --naotech-warning-border-3-800: 3px solid var(--naotech-color-yellow-800);
+  --naotech-warning-border-3-900: 3px solid var(--naotech-color-yellow-900);
+  --naotech-warning-border-4-050: 4px solid var(--naotech-color-yellow-050);
+  --naotech-warning-border-4-100: 4px solid var(--naotech-color-yellow-100);
+  --naotech-warning-border-4-200: 4px solid var(--naotech-color-yellow-200);
+  --naotech-warning-border-4-300: 4px solid var(--naotech-color-yellow-300);
+  --naotech-warning-border-4-400: 4px solid var(--naotech-color-yellow-400);
+  --naotech-warning-border-4-500: 4px solid var(--naotech-color-yellow-500);
+  --naotech-warning-border-4-600: 4px solid var(--naotech-color-yellow-600);
+  --naotech-warning-border-4-700: 4px solid var(--naotech-color-yellow-700);
+  --naotech-warning-border-4-800: 4px solid var(--naotech-color-yellow-800);
+  --naotech-warning-border-4-900: 4px solid var(--naotech-color-yellow-900);
+  --naotech-warning-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-yellow-700) 15%, transparent);
+  --naotech-warning-shadow-300: 0 0 0 2px var(--naotech-color-yellow-300);
+  --naotech-warning-shadow-400: 0 0 0 2px var(--naotech-color-yellow-400);
+  --naotech-warning-shadow-500: 0 0 0 2px var(--naotech-color-yellow-500);
+  --naotech-warning-shadow-600: 0 0 0 2px var(--naotech-color-yellow-600);
+  --naotech-warning-shadow-700: 0 0 0 2px var(--naotech-color-yellow-700);
+  --naotech-warning-backdrop: var(--naotech-color-yellow-backdrop);
+  --naotech-warning-font-color: var(--naotech-color-black-alpha-100);
+  --naotech-warning-subtle-text: var(--naotech-color-yellow-900);
+  --naotech-warning-focus-ring: var(--naotech-color-yellow-700);
+  --naotech-warning-focus-shadow:
+    0 0 0 2px var(--naotech-warning-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-yellow-700) 15%, transparent);
+  --naotech-caution-color-050: var(--naotech-color-orange-050);
+  --naotech-caution-color-100: var(--naotech-color-orange-100);
+  --naotech-caution-color-200: var(--naotech-color-orange-200);
+  --naotech-caution-color-300: var(--naotech-color-orange-300);
+  --naotech-caution-color-400: var(--naotech-color-orange-400);
+  --naotech-caution-color-500: var(--naotech-color-orange-500);
+  --naotech-caution-color-600: var(--naotech-color-orange-600);
+  --naotech-caution-color-700: var(--naotech-color-orange-700);
+  --naotech-caution-color-800: var(--naotech-color-orange-800);
+  --naotech-caution-color-900: var(--naotech-color-orange-900);
+  --naotech-caution-border-1-050: 1px solid var(--naotech-color-orange-050);
+  --naotech-caution-border-1-100: 1px solid var(--naotech-color-orange-100);
+  --naotech-caution-border-1-200: 1px solid var(--naotech-color-orange-200);
+  --naotech-caution-border-1-300: 1px solid var(--naotech-color-orange-300);
+  --naotech-caution-border-1-400: 1px solid var(--naotech-color-orange-400);
+  --naotech-caution-border-1-500: 1px solid var(--naotech-color-orange-500);
+  --naotech-caution-border-1-600: 1px solid var(--naotech-color-orange-600);
+  --naotech-caution-border-1-700: 1px solid var(--naotech-color-orange-700);
+  --naotech-caution-border-1-800: 1px solid var(--naotech-color-orange-800);
+  --naotech-caution-border-1-900: 1px solid var(--naotech-color-orange-900);
+  --naotech-caution-border-2-050: 2px solid var(--naotech-color-orange-050);
+  --naotech-caution-border-2-100: 2px solid var(--naotech-color-orange-100);
+  --naotech-caution-border-2-200: 2px solid var(--naotech-color-orange-200);
+  --naotech-caution-border-2-300: 2px solid var(--naotech-color-orange-300);
+  --naotech-caution-border-2-400: 2px solid var(--naotech-color-orange-400);
+  --naotech-caution-border-2-500: 2px solid var(--naotech-color-orange-500);
+  --naotech-caution-border-2-600: 2px solid var(--naotech-color-orange-600);
+  --naotech-caution-border-2-700: 2px solid var(--naotech-color-orange-700);
+  --naotech-caution-border-2-800: 2px solid var(--naotech-color-orange-800);
+  --naotech-caution-border-2-900: 2px solid var(--naotech-color-orange-900);
+  --naotech-caution-border-3-050: 3px solid var(--naotech-color-orange-050);
+  --naotech-caution-border-3-100: 3px solid var(--naotech-color-orange-100);
+  --naotech-caution-border-3-200: 3px solid var(--naotech-color-orange-200);
+  --naotech-caution-border-3-300: 3px solid var(--naotech-color-orange-300);
+  --naotech-caution-border-3-400: 3px solid var(--naotech-color-orange-400);
+  --naotech-caution-border-3-500: 3px solid var(--naotech-color-orange-500);
+  --naotech-caution-border-3-600: 3px solid var(--naotech-color-orange-600);
+  --naotech-caution-border-3-700: 3px solid var(--naotech-color-orange-700);
+  --naotech-caution-border-3-800: 3px solid var(--naotech-color-orange-800);
+  --naotech-caution-border-3-900: 3px solid var(--naotech-color-orange-900);
+  --naotech-caution-border-4-050: 4px solid var(--naotech-color-orange-050);
+  --naotech-caution-border-4-100: 4px solid var(--naotech-color-orange-100);
+  --naotech-caution-border-4-200: 4px solid var(--naotech-color-orange-200);
+  --naotech-caution-border-4-300: 4px solid var(--naotech-color-orange-300);
+  --naotech-caution-border-4-400: 4px solid var(--naotech-color-orange-400);
+  --naotech-caution-border-4-500: 4px solid var(--naotech-color-orange-500);
+  --naotech-caution-border-4-600: 4px solid var(--naotech-color-orange-600);
+  --naotech-caution-border-4-700: 4px solid var(--naotech-color-orange-700);
+  --naotech-caution-border-4-800: 4px solid var(--naotech-color-orange-800);
+  --naotech-caution-border-4-900: 4px solid var(--naotech-color-orange-900);
+  --naotech-caution-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-orange-700) 15%, transparent);
+  --naotech-caution-shadow-300: 0 0 0 2px var(--naotech-color-orange-300);
+  --naotech-caution-shadow-400: 0 0 0 2px var(--naotech-color-orange-400);
+  --naotech-caution-shadow-500: 0 0 0 2px var(--naotech-color-orange-500);
+  --naotech-caution-shadow-600: 0 0 0 2px var(--naotech-color-orange-600);
+  --naotech-caution-shadow-700: 0 0 0 2px var(--naotech-color-orange-700);
+  --naotech-caution-backdrop: var(--naotech-color-orange-backdrop);
+  --naotech-caution-font-color: var(--naotech-color-white-alpha-100);
+  --naotech-caution-subtle-text: var(--naotech-color-orange-900);
+  --naotech-caution-focus-ring: var(--naotech-color-orange-700);
+  --naotech-caution-focus-shadow:
+    0 0 0 2px var(--naotech-caution-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-orange-700) 15%, transparent);
+  --naotech-negative-color-050: var(--naotech-color-red-050);
+  --naotech-negative-color-100: var(--naotech-color-red-100);
+  --naotech-negative-color-200: var(--naotech-color-red-200);
+  --naotech-negative-color-300: var(--naotech-color-red-300);
+  --naotech-negative-color-400: var(--naotech-color-red-400);
+  --naotech-negative-color-500: var(--naotech-color-red-500);
+  --naotech-negative-color-600: var(--naotech-color-red-600);
+  --naotech-negative-color-700: var(--naotech-color-red-700);
+  --naotech-negative-color-800: var(--naotech-color-red-800);
+  --naotech-negative-color-900: var(--naotech-color-red-900);
+  --naotech-negative-border-1-050: 1px solid var(--naotech-color-red-050);
+  --naotech-negative-border-1-100: 1px solid var(--naotech-color-red-100);
+  --naotech-negative-border-1-200: 1px solid var(--naotech-color-red-200);
+  --naotech-negative-border-1-300: 1px solid var(--naotech-color-red-300);
+  --naotech-negative-border-1-400: 1px solid var(--naotech-color-red-400);
+  --naotech-negative-border-1-500: 1px solid var(--naotech-color-red-500);
+  --naotech-negative-border-1-600: 1px solid var(--naotech-color-red-600);
+  --naotech-negative-border-1-700: 1px solid var(--naotech-color-red-700);
+  --naotech-negative-border-1-800: 1px solid var(--naotech-color-red-800);
+  --naotech-negative-border-1-900: 1px solid var(--naotech-color-red-900);
+  --naotech-negative-border-2-050: 2px solid var(--naotech-color-red-050);
+  --naotech-negative-border-2-100: 2px solid var(--naotech-color-red-100);
+  --naotech-negative-border-2-200: 2px solid var(--naotech-color-red-200);
+  --naotech-negative-border-2-300: 2px solid var(--naotech-color-red-300);
+  --naotech-negative-border-2-400: 2px solid var(--naotech-color-red-400);
+  --naotech-negative-border-2-500: 2px solid var(--naotech-color-red-500);
+  --naotech-negative-border-2-600: 2px solid var(--naotech-color-red-600);
+  --naotech-negative-border-2-700: 2px solid var(--naotech-color-red-700);
+  --naotech-negative-border-2-800: 2px solid var(--naotech-color-red-800);
+  --naotech-negative-border-2-900: 2px solid var(--naotech-color-red-900);
+  --naotech-negative-border-3-050: 3px solid var(--naotech-color-red-050);
+  --naotech-negative-border-3-100: 3px solid var(--naotech-color-red-100);
+  --naotech-negative-border-3-200: 3px solid var(--naotech-color-red-200);
+  --naotech-negative-border-3-300: 3px solid var(--naotech-color-red-300);
+  --naotech-negative-border-3-400: 3px solid var(--naotech-color-red-400);
+  --naotech-negative-border-3-500: 3px solid var(--naotech-color-red-500);
+  --naotech-negative-border-3-600: 3px solid var(--naotech-color-red-600);
+  --naotech-negative-border-3-700: 3px solid var(--naotech-color-red-700);
+  --naotech-negative-border-3-800: 3px solid var(--naotech-color-red-800);
+  --naotech-negative-border-3-900: 3px solid var(--naotech-color-red-900);
+  --naotech-negative-border-4-050: 4px solid var(--naotech-color-red-050);
+  --naotech-negative-border-4-100: 4px solid var(--naotech-color-red-100);
+  --naotech-negative-border-4-200: 4px solid var(--naotech-color-red-200);
+  --naotech-negative-border-4-300: 4px solid var(--naotech-color-red-300);
+  --naotech-negative-border-4-400: 4px solid var(--naotech-color-red-400);
+  --naotech-negative-border-4-500: 4px solid var(--naotech-color-red-500);
+  --naotech-negative-border-4-600: 4px solid var(--naotech-color-red-600);
+  --naotech-negative-border-4-700: 4px solid var(--naotech-color-red-700);
+  --naotech-negative-border-4-800: 4px solid var(--naotech-color-red-800);
+  --naotech-negative-border-4-900: 4px solid var(--naotech-color-red-900);
+  --naotech-negative-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-red-700) 15%, transparent);
+  --naotech-negative-shadow-300: 0 0 0 2px var(--naotech-color-red-300);
+  --naotech-negative-shadow-400: 0 0 0 2px var(--naotech-color-red-400);
+  --naotech-negative-shadow-500: 0 0 0 2px var(--naotech-color-red-500);
+  --naotech-negative-shadow-600: 0 0 0 2px var(--naotech-color-red-600);
+  --naotech-negative-shadow-700: 0 0 0 2px var(--naotech-color-red-700);
+  --naotech-negative-backdrop: var(--naotech-color-red-backdrop);
+  --naotech-negative-font-color: var(--naotech-color-white-alpha-100);
+  --naotech-negative-subtle-text: var(--naotech-color-red-900);
+  --naotech-negative-focus-ring: var(--naotech-color-red-700);
+  --naotech-negative-focus-shadow:
+    0 0 0 2px var(--naotech-negative-focus-ring),
+    0 0 0 5px color-mix(in srgb, var(--naotech-color-red-700) 15%, transparent);
+  --naotech-neutral-color-050: var(--naotech-color-gray-050);
+  --naotech-neutral-color-100: var(--naotech-color-gray-100);
+  --naotech-neutral-color-200: var(--naotech-color-gray-200);
+  --naotech-neutral-color-300: var(--naotech-color-gray-300);
+  --naotech-neutral-color-400: var(--naotech-color-gray-400);
+  --naotech-neutral-color-500: var(--naotech-color-gray-500);
+  --naotech-neutral-color-600: var(--naotech-color-gray-600);
+  --naotech-neutral-color-700: var(--naotech-color-gray-700);
+  --naotech-neutral-color-800: var(--naotech-color-gray-800);
+  --naotech-neutral-color-900: var(--naotech-color-gray-900);
+  --naotech-neutral-border-1-050: 1px solid var(--naotech-color-gray-050);
+  --naotech-neutral-border-1-100: 1px solid var(--naotech-color-gray-100);
+  --naotech-neutral-border-1-200: 1px solid var(--naotech-color-gray-200);
+  --naotech-neutral-border-1-300: 1px solid var(--naotech-color-gray-300);
+  --naotech-neutral-border-1-400: 1px solid var(--naotech-color-gray-400);
+  --naotech-neutral-border-1-500: 1px solid var(--naotech-color-gray-500);
+  --naotech-neutral-border-1-600: 1px solid var(--naotech-color-gray-600);
+  --naotech-neutral-border-1-700: 1px solid var(--naotech-color-gray-700);
+  --naotech-neutral-border-1-800: 1px solid var(--naotech-color-gray-800);
+  --naotech-neutral-border-1-900: 1px solid var(--naotech-color-gray-900);
+  --naotech-neutral-border-2-050: 2px solid var(--naotech-color-gray-050);
+  --naotech-neutral-border-2-100: 2px solid var(--naotech-color-gray-100);
+  --naotech-neutral-border-2-200: 2px solid var(--naotech-color-gray-200);
+  --naotech-neutral-border-2-300: 2px solid var(--naotech-color-gray-300);
+  --naotech-neutral-border-2-400: 2px solid var(--naotech-color-gray-400);
+  --naotech-neutral-border-2-500: 2px solid var(--naotech-color-gray-500);
+  --naotech-neutral-border-2-600: 2px solid var(--naotech-color-gray-600);
+  --naotech-neutral-border-2-700: 2px solid var(--naotech-color-gray-700);
+  --naotech-neutral-border-2-800: 2px solid var(--naotech-color-gray-800);
+  --naotech-neutral-border-2-900: 2px solid var(--naotech-color-gray-900);
+  --naotech-neutral-border-3-050: 3px solid var(--naotech-color-gray-050);
+  --naotech-neutral-border-3-100: 3px solid var(--naotech-color-gray-100);
+  --naotech-neutral-border-3-200: 3px solid var(--naotech-color-gray-200);
+  --naotech-neutral-border-3-300: 3px solid var(--naotech-color-gray-300);
+  --naotech-neutral-border-3-400: 3px solid var(--naotech-color-gray-400);
+  --naotech-neutral-border-3-500: 3px solid var(--naotech-color-gray-500);
+  --naotech-neutral-border-3-600: 3px solid var(--naotech-color-gray-600);
+  --naotech-neutral-border-3-700: 3px solid var(--naotech-color-gray-700);
+  --naotech-neutral-border-3-800: 3px solid var(--naotech-color-gray-800);
+  --naotech-neutral-border-3-900: 3px solid var(--naotech-color-gray-900);
+  --naotech-neutral-border-4-050: 4px solid var(--naotech-color-gray-050);
+  --naotech-neutral-border-4-100: 4px solid var(--naotech-color-gray-100);
+  --naotech-neutral-border-4-200: 4px solid var(--naotech-color-gray-200);
+  --naotech-neutral-border-4-300: 4px solid var(--naotech-color-gray-300);
+  --naotech-neutral-border-4-400: 4px solid var(--naotech-color-gray-400);
+  --naotech-neutral-border-4-500: 4px solid var(--naotech-color-gray-500);
+  --naotech-neutral-border-4-600: 4px solid var(--naotech-color-gray-600);
+  --naotech-neutral-border-4-700: 4px solid var(--naotech-color-gray-700);
+  --naotech-neutral-border-4-800: 4px solid var(--naotech-color-gray-800);
+  --naotech-neutral-border-4-900: 4px solid var(--naotech-color-gray-900);
+  --naotech-neutral-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-gray-700) 15%, transparent);
+  --naotech-neutral-shadow-300: 0 0 0 2px var(--naotech-color-gray-300);
+  --naotech-neutral-shadow-400: 0 0 0 2px var(--naotech-color-gray-400);
+  --naotech-neutral-shadow-500: 0 0 0 2px var(--naotech-color-gray-500);
+  --naotech-neutral-shadow-600: 0 0 0 2px var(--naotech-color-gray-600);
+  --naotech-neutral-shadow-700: 0 0 0 2px var(--naotech-color-gray-700);
+  --naotech-neutral-backdrop: var(--naotech-color-gray-backdrop);
+  --naotech-neutral-font-color: var(--naotech-color-white-alpha-100);
+  --naotech-neutral-subtle-text: var(--naotech-color-gray-900);
+  --naotech-neutral-focus-ring: var(--naotech-color-gray-700);
+  --naotech-neutral-focus-shadow:
+    0 0 0 2px var(--naotech-neutral-focus-ring),
+    0 0 0 5px color-mix(in srgb, var(--naotech-color-gray-700) 15%, transparent);
+  --naotech-warning-focus-ring: var(--naotech-color-gray-900);
+  --naotech-warning-subtle-text: var(--naotech-color-gray-900);
+  --naotech-theme-font-color: var(--naotech-primary-font-color);
+  --naotech-theme-focus-ring: var(--naotech-primary-focus-ring);
+  --naotech-theme-color-050: var(--naotech-primary-color-050);
+  --naotech-theme-color-100: var(--naotech-primary-color-100);
+  --naotech-theme-color-200: var(--naotech-primary-color-200);
+  --naotech-theme-color-300: var(--naotech-primary-color-300);
+  --naotech-theme-color-400: var(--naotech-primary-color-400);
+  --naotech-theme-color-500: var(--naotech-primary-color-500);
+  --naotech-theme-color-600: var(--naotech-primary-color-600);
+  --naotech-theme-color-700: var(--naotech-primary-color-700);
+  --naotech-theme-color-800: var(--naotech-primary-color-800);
+  --naotech-theme-color-900: var(--naotech-primary-color-900);
+  --naotech-theme-backdrop: var(--naotech-primary-backdrop);
+  --naotech-primary-color-text-normal: var(--naotech-primary-font-color);
+  --naotech-primary-color-normal: var(--naotech-primary-color-700);
+  --naotech-primary-color-hover: var(--naotech-primary-color-800);
+  --naotech-primary-color-active: var(--naotech-primary-color-900);
+  --naotech-primary-color-loading: var(--naotech-primary-color-900);
+  --naotech-secondary-color-text-normal: var(--naotech-primary-subtle-text);
+  --naotech-secondary-color-normal: var(--naotech-primary-color-100);
+  --naotech-secondary-color-hover: var(--naotech-primary-color-200);
+  --naotech-secondary-color-active: var(--naotech-primary-color-300);
+  --naotech-secondary-color-loading: var(--naotech-primary-color-300);
+  --naotech-tertiary-color-text-normal: var(--naotech-primary-subtle-text);
+  --naotech-tertiary-color-hover: var(--naotech-primary-color-100);
+  --naotech-tertiary-color-active: var(--naotech-primary-color-200);
+  --naotech-tertiary-color-loading: var(--naotech-primary-color-200);
+  --naotech-theme-border-1-050: 1px solid var(--naotech-primary-color-050);
+  --naotech-theme-border-1-100: 1px solid var(--naotech-primary-color-100);
+  --naotech-theme-border-1-200: 1px solid var(--naotech-primary-color-200);
+  --naotech-theme-border-1-300: 1px solid var(--naotech-primary-color-300);
+  --naotech-theme-border-1-400: 1px solid var(--naotech-primary-color-400);
+  --naotech-theme-border-1-500: 1px solid var(--naotech-primary-color-500);
+  --naotech-theme-border-1-600: 1px solid var(--naotech-primary-color-600);
+  --naotech-theme-border-1-700: 1px solid var(--naotech-primary-color-700);
+  --naotech-theme-border-1-800: 1px solid var(--naotech-primary-color-800);
+  --naotech-theme-border-1-900: 1px solid var(--naotech-primary-color-900);
+  --naotech-theme-border-2-050: 2px solid var(--naotech-primary-color-050);
+  --naotech-theme-border-2-100: 2px solid var(--naotech-primary-color-100);
+  --naotech-theme-border-2-200: 2px solid var(--naotech-primary-color-200);
+  --naotech-theme-border-2-300: 2px solid var(--naotech-primary-color-300);
+  --naotech-theme-border-2-400: 2px solid var(--naotech-primary-color-400);
+  --naotech-theme-border-2-500: 2px solid var(--naotech-primary-color-500);
+  --naotech-theme-border-2-600: 2px solid var(--naotech-primary-color-600);
+  --naotech-theme-border-2-700: 2px solid var(--naotech-primary-color-700);
+  --naotech-theme-border-2-800: 2px solid var(--naotech-primary-color-800);
+  --naotech-theme-border-2-900: 2px solid var(--naotech-primary-color-900);
+  --naotech-theme-border-3-050: 3px solid var(--naotech-primary-color-050);
+  --naotech-theme-border-3-100: 3px solid var(--naotech-primary-color-100);
+  --naotech-theme-border-3-200: 3px solid var(--naotech-primary-color-200);
+  --naotech-theme-border-3-300: 3px solid var(--naotech-primary-color-300);
+  --naotech-theme-border-3-400: 3px solid var(--naotech-primary-color-400);
+  --naotech-theme-border-3-500: 3px solid var(--naotech-primary-color-500);
+  --naotech-theme-border-3-600: 3px solid var(--naotech-primary-color-600);
+  --naotech-theme-border-3-700: 3px solid var(--naotech-primary-color-700);
+  --naotech-theme-border-3-800: 3px solid var(--naotech-primary-color-800);
+  --naotech-theme-border-3-900: 3px solid var(--naotech-primary-color-900);
+  --naotech-theme-border-4-050: 4px solid var(--naotech-primary-color-050);
+  --naotech-theme-border-4-100: 4px solid var(--naotech-primary-color-100);
+  --naotech-theme-border-4-200: 4px solid var(--naotech-primary-color-200);
+  --naotech-theme-border-4-300: 4px solid var(--naotech-primary-color-300);
+  --naotech-theme-border-4-400: 4px solid var(--naotech-primary-color-400);
+  --naotech-theme-border-4-500: 4px solid var(--naotech-primary-color-500);
+  --naotech-theme-border-4-600: 4px solid var(--naotech-primary-color-600);
+  --naotech-theme-border-4-700: 4px solid var(--naotech-primary-color-700);
+  --naotech-theme-border-4-800: 4px solid var(--naotech-primary-color-800);
+  --naotech-theme-border-4-900: 4px solid var(--naotech-primary-color-900);
+  --naotech-theme-focus-shadow: var(--naotech-primary-focus-shadow);
+  --naotech-theme-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-primary-color-700) 15%, transparent);
+  --naotech-theme-shadow-300: 0 0 0 2px var(--naotech-primary-color-300);
+  --naotech-theme-shadow-400: 0 0 0 2px var(--naotech-primary-color-400);
+  --naotech-theme-shadow-500: 0 0 0 2px var(--naotech-primary-color-500);
+  --naotech-theme-shadow-600: 0 0 0 2px var(--naotech-primary-color-600);
+  --naotech-theme-shadow-700: 0 0 0 2px var(--naotech-primary-color-700);
+}
+body *[nwt-theme='primary'] {
+  --naotech-theme-font-color: var(--naotech-primary-font-color);
+  --naotech-theme-focus-ring: var(--naotech-primary-focus-ring);
+  --naotech-theme-color-050: var(--naotech-primary-color-050);
+  --naotech-theme-color-100: var(--naotech-primary-color-100);
+  --naotech-theme-color-200: var(--naotech-primary-color-200);
+  --naotech-theme-color-300: var(--naotech-primary-color-300);
+  --naotech-theme-color-400: var(--naotech-primary-color-400);
+  --naotech-theme-color-500: var(--naotech-primary-color-500);
+  --naotech-theme-color-600: var(--naotech-primary-color-600);
+  --naotech-theme-color-700: var(--naotech-primary-color-700);
+  --naotech-theme-color-800: var(--naotech-primary-color-800);
+  --naotech-theme-color-900: var(--naotech-primary-color-900);
+  --naotech-theme-backdrop: var(--naotech-primary-backdrop);
+  --naotech-primary-color-text-normal: var(--naotech-primary-font-color);
+  --naotech-primary-color-normal: var(--naotech-primary-color-700);
+  --naotech-primary-color-hover: var(--naotech-primary-color-800);
+  --naotech-primary-color-active: var(--naotech-primary-color-900);
+  --naotech-primary-color-loading: var(--naotech-primary-color-900);
+  --naotech-secondary-color-text-normal: var(--naotech-primary-subtle-text);
+  --naotech-secondary-color-normal: var(--naotech-primary-color-100);
+  --naotech-secondary-color-hover: var(--naotech-primary-color-200);
+  --naotech-secondary-color-active: var(--naotech-primary-color-300);
+  --naotech-secondary-color-loading: var(--naotech-primary-color-300);
+  --naotech-tertiary-color-text-normal: var(--naotech-primary-subtle-text);
+  --naotech-tertiary-color-hover: var(--naotech-primary-color-100);
+  --naotech-tertiary-color-active: var(--naotech-primary-color-200);
+  --naotech-tertiary-color-loading: var(--naotech-primary-color-200);
+  --naotech-theme-border-1-050: 1px solid var(--naotech-primary-color-050);
+  --naotech-theme-border-1-100: 1px solid var(--naotech-primary-color-100);
+  --naotech-theme-border-1-200: 1px solid var(--naotech-primary-color-200);
+  --naotech-theme-border-1-300: 1px solid var(--naotech-primary-color-300);
+  --naotech-theme-border-1-400: 1px solid var(--naotech-primary-color-400);
+  --naotech-theme-border-1-500: 1px solid var(--naotech-primary-color-500);
+  --naotech-theme-border-1-600: 1px solid var(--naotech-primary-color-600);
+  --naotech-theme-border-1-700: 1px solid var(--naotech-primary-color-700);
+  --naotech-theme-border-1-800: 1px solid var(--naotech-primary-color-800);
+  --naotech-theme-border-1-900: 1px solid var(--naotech-primary-color-900);
+  --naotech-theme-border-2-050: 2px solid var(--naotech-primary-color-050);
+  --naotech-theme-border-2-100: 2px solid var(--naotech-primary-color-100);
+  --naotech-theme-border-2-200: 2px solid var(--naotech-primary-color-200);
+  --naotech-theme-border-2-300: 2px solid var(--naotech-primary-color-300);
+  --naotech-theme-border-2-400: 2px solid var(--naotech-primary-color-400);
+  --naotech-theme-border-2-500: 2px solid var(--naotech-primary-color-500);
+  --naotech-theme-border-2-600: 2px solid var(--naotech-primary-color-600);
+  --naotech-theme-border-2-700: 2px solid var(--naotech-primary-color-700);
+  --naotech-theme-border-2-800: 2px solid var(--naotech-primary-color-800);
+  --naotech-theme-border-2-900: 2px solid var(--naotech-primary-color-900);
+  --naotech-theme-border-3-050: 3px solid var(--naotech-primary-color-050);
+  --naotech-theme-border-3-100: 3px solid var(--naotech-primary-color-100);
+  --naotech-theme-border-3-200: 3px solid var(--naotech-primary-color-200);
+  --naotech-theme-border-3-300: 3px solid var(--naotech-primary-color-300);
+  --naotech-theme-border-3-400: 3px solid var(--naotech-primary-color-400);
+  --naotech-theme-border-3-500: 3px solid var(--naotech-primary-color-500);
+  --naotech-theme-border-3-600: 3px solid var(--naotech-primary-color-600);
+  --naotech-theme-border-3-700: 3px solid var(--naotech-primary-color-700);
+  --naotech-theme-border-3-800: 3px solid var(--naotech-primary-color-800);
+  --naotech-theme-border-3-900: 3px solid var(--naotech-primary-color-900);
+  --naotech-theme-border-4-050: 4px solid var(--naotech-primary-color-050);
+  --naotech-theme-border-4-100: 4px solid var(--naotech-primary-color-100);
+  --naotech-theme-border-4-200: 4px solid var(--naotech-primary-color-200);
+  --naotech-theme-border-4-300: 4px solid var(--naotech-primary-color-300);
+  --naotech-theme-border-4-400: 4px solid var(--naotech-primary-color-400);
+  --naotech-theme-border-4-500: 4px solid var(--naotech-primary-color-500);
+  --naotech-theme-border-4-600: 4px solid var(--naotech-primary-color-600);
+  --naotech-theme-border-4-700: 4px solid var(--naotech-primary-color-700);
+  --naotech-theme-border-4-800: 4px solid var(--naotech-primary-color-800);
+  --naotech-theme-border-4-900: 4px solid var(--naotech-primary-color-900);
+  --naotech-theme-focus-shadow: var(--naotech-primary-focus-shadow);
+  --naotech-theme-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-primary-color-700) 15%, transparent);
+  --naotech-theme-shadow-300: 0 0 0 2px var(--naotech-primary-color-300);
+  --naotech-theme-shadow-400: 0 0 0 2px var(--naotech-primary-color-400);
+  --naotech-theme-shadow-500: 0 0 0 2px var(--naotech-primary-color-500);
+  --naotech-theme-shadow-600: 0 0 0 2px var(--naotech-primary-color-600);
+  --naotech-theme-shadow-700: 0 0 0 2px var(--naotech-primary-color-700);
+}
+body *[nwt-theme='secondary'] {
+  --naotech-theme-font-color: var(--naotech-secondary-font-color);
+  --naotech-theme-focus-ring: var(--naotech-secondary-focus-ring);
+  --naotech-theme-color-050: var(--naotech-secondary-color-050);
+  --naotech-theme-color-100: var(--naotech-secondary-color-100);
+  --naotech-theme-color-200: var(--naotech-secondary-color-200);
+  --naotech-theme-color-300: var(--naotech-secondary-color-300);
+  --naotech-theme-color-400: var(--naotech-secondary-color-400);
+  --naotech-theme-color-500: var(--naotech-secondary-color-500);
+  --naotech-theme-color-600: var(--naotech-secondary-color-600);
+  --naotech-theme-color-700: var(--naotech-secondary-color-700);
+  --naotech-theme-color-800: var(--naotech-secondary-color-800);
+  --naotech-theme-color-900: var(--naotech-secondary-color-900);
+  --naotech-theme-backdrop: var(--naotech-secondary-backdrop);
+  --naotech-primary-color-text-normal: var(--naotech-secondary-font-color);
+  --naotech-primary-color-normal: var(--naotech-secondary-color-700);
+  --naotech-primary-color-hover: var(--naotech-secondary-color-800);
+  --naotech-primary-color-active: var(--naotech-secondary-color-900);
+  --naotech-primary-color-loading: var(--naotech-secondary-color-900);
+  --naotech-secondary-color-text-normal: var(--naotech-secondary-subtle-text);
+  --naotech-secondary-color-normal: var(--naotech-secondary-color-100);
+  --naotech-secondary-color-hover: var(--naotech-secondary-color-200);
+  --naotech-secondary-color-active: var(--naotech-secondary-color-300);
+  --naotech-secondary-color-loading: var(--naotech-secondary-color-300);
+  --naotech-tertiary-color-text-normal: var(--naotech-secondary-subtle-text);
+  --naotech-tertiary-color-hover: var(--naotech-secondary-color-100);
+  --naotech-tertiary-color-active: var(--naotech-secondary-color-200);
+  --naotech-tertiary-color-loading: var(--naotech-secondary-color-200);
+  --naotech-theme-border-1-050: 1px solid var(--naotech-secondary-color-050);
+  --naotech-theme-border-1-100: 1px solid var(--naotech-secondary-color-100);
+  --naotech-theme-border-1-200: 1px solid var(--naotech-secondary-color-200);
+  --naotech-theme-border-1-300: 1px solid var(--naotech-secondary-color-300);
+  --naotech-theme-border-1-400: 1px solid var(--naotech-secondary-color-400);
+  --naotech-theme-border-1-500: 1px solid var(--naotech-secondary-color-500);
+  --naotech-theme-border-1-600: 1px solid var(--naotech-secondary-color-600);
+  --naotech-theme-border-1-700: 1px solid var(--naotech-secondary-color-700);
+  --naotech-theme-border-1-800: 1px solid var(--naotech-secondary-color-800);
+  --naotech-theme-border-1-900: 1px solid var(--naotech-secondary-color-900);
+  --naotech-theme-border-2-050: 2px solid var(--naotech-secondary-color-050);
+  --naotech-theme-border-2-100: 2px solid var(--naotech-secondary-color-100);
+  --naotech-theme-border-2-200: 2px solid var(--naotech-secondary-color-200);
+  --naotech-theme-border-2-300: 2px solid var(--naotech-secondary-color-300);
+  --naotech-theme-border-2-400: 2px solid var(--naotech-secondary-color-400);
+  --naotech-theme-border-2-500: 2px solid var(--naotech-secondary-color-500);
+  --naotech-theme-border-2-600: 2px solid var(--naotech-secondary-color-600);
+  --naotech-theme-border-2-700: 2px solid var(--naotech-secondary-color-700);
+  --naotech-theme-border-2-800: 2px solid var(--naotech-secondary-color-800);
+  --naotech-theme-border-2-900: 2px solid var(--naotech-secondary-color-900);
+  --naotech-theme-border-3-050: 3px solid var(--naotech-secondary-color-050);
+  --naotech-theme-border-3-100: 3px solid var(--naotech-secondary-color-100);
+  --naotech-theme-border-3-200: 3px solid var(--naotech-secondary-color-200);
+  --naotech-theme-border-3-300: 3px solid var(--naotech-secondary-color-300);
+  --naotech-theme-border-3-400: 3px solid var(--naotech-secondary-color-400);
+  --naotech-theme-border-3-500: 3px solid var(--naotech-secondary-color-500);
+  --naotech-theme-border-3-600: 3px solid var(--naotech-secondary-color-600);
+  --naotech-theme-border-3-700: 3px solid var(--naotech-secondary-color-700);
+  --naotech-theme-border-3-800: 3px solid var(--naotech-secondary-color-800);
+  --naotech-theme-border-3-900: 3px solid var(--naotech-secondary-color-900);
+  --naotech-theme-border-4-050: 4px solid var(--naotech-secondary-color-050);
+  --naotech-theme-border-4-100: 4px solid var(--naotech-secondary-color-100);
+  --naotech-theme-border-4-200: 4px solid var(--naotech-secondary-color-200);
+  --naotech-theme-border-4-300: 4px solid var(--naotech-secondary-color-300);
+  --naotech-theme-border-4-400: 4px solid var(--naotech-secondary-color-400);
+  --naotech-theme-border-4-500: 4px solid var(--naotech-secondary-color-500);
+  --naotech-theme-border-4-600: 4px solid var(--naotech-secondary-color-600);
+  --naotech-theme-border-4-700: 4px solid var(--naotech-secondary-color-700);
+  --naotech-theme-border-4-800: 4px solid var(--naotech-secondary-color-800);
+  --naotech-theme-border-4-900: 4px solid var(--naotech-secondary-color-900);
+  --naotech-theme-focus-shadow: var(--naotech-secondary-focus-shadow);
+  --naotech-theme-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-secondary-color-700) 15%, transparent);
+  --naotech-theme-shadow-300: 0 0 0 2px var(--naotech-secondary-color-300);
+  --naotech-theme-shadow-400: 0 0 0 2px var(--naotech-secondary-color-400);
+  --naotech-theme-shadow-500: 0 0 0 2px var(--naotech-secondary-color-500);
+  --naotech-theme-shadow-600: 0 0 0 2px var(--naotech-secondary-color-600);
+  --naotech-theme-shadow-700: 0 0 0 2px var(--naotech-secondary-color-700);
+}
+body *[nwt-theme='informative'] {
+  --naotech-theme-font-color: var(--naotech-informative-font-color);
+  --naotech-theme-focus-ring: var(--naotech-informative-focus-ring);
+  --naotech-theme-color-050: var(--naotech-informative-color-050);
+  --naotech-theme-color-100: var(--naotech-informative-color-100);
+  --naotech-theme-color-200: var(--naotech-informative-color-200);
+  --naotech-theme-color-300: var(--naotech-informative-color-300);
+  --naotech-theme-color-400: var(--naotech-informative-color-400);
+  --naotech-theme-color-500: var(--naotech-informative-color-500);
+  --naotech-theme-color-600: var(--naotech-informative-color-600);
+  --naotech-theme-color-700: var(--naotech-informative-color-700);
+  --naotech-theme-color-800: var(--naotech-informative-color-800);
+  --naotech-theme-color-900: var(--naotech-informative-color-900);
+  --naotech-theme-backdrop: var(--naotech-informative-backdrop);
+  --naotech-primary-color-text-normal: var(--naotech-informative-font-color);
+  --naotech-primary-color-normal: var(--naotech-informative-color-700);
+  --naotech-primary-color-hover: var(--naotech-informative-color-800);
+  --naotech-primary-color-active: var(--naotech-informative-color-900);
+  --naotech-primary-color-loading: var(--naotech-informative-color-900);
+  --naotech-secondary-color-text-normal: var(--naotech-informative-subtle-text);
+  --naotech-secondary-color-normal: var(--naotech-informative-color-100);
+  --naotech-secondary-color-hover: var(--naotech-informative-color-200);
+  --naotech-secondary-color-active: var(--naotech-informative-color-300);
+  --naotech-secondary-color-loading: var(--naotech-informative-color-300);
+  --naotech-tertiary-color-text-normal: var(--naotech-informative-subtle-text);
+  --naotech-tertiary-color-hover: var(--naotech-informative-color-100);
+  --naotech-tertiary-color-active: var(--naotech-informative-color-200);
+  --naotech-tertiary-color-loading: var(--naotech-informative-color-200);
+  --naotech-theme-border-1-050: 1px solid var(--naotech-informative-color-050);
+  --naotech-theme-border-1-100: 1px solid var(--naotech-informative-color-100);
+  --naotech-theme-border-1-200: 1px solid var(--naotech-informative-color-200);
+  --naotech-theme-border-1-300: 1px solid var(--naotech-informative-color-300);
+  --naotech-theme-border-1-400: 1px solid var(--naotech-informative-color-400);
+  --naotech-theme-border-1-500: 1px solid var(--naotech-informative-color-500);
+  --naotech-theme-border-1-600: 1px solid var(--naotech-informative-color-600);
+  --naotech-theme-border-1-700: 1px solid var(--naotech-informative-color-700);
+  --naotech-theme-border-1-800: 1px solid var(--naotech-informative-color-800);
+  --naotech-theme-border-1-900: 1px solid var(--naotech-informative-color-900);
+  --naotech-theme-border-2-050: 2px solid var(--naotech-informative-color-050);
+  --naotech-theme-border-2-100: 2px solid var(--naotech-informative-color-100);
+  --naotech-theme-border-2-200: 2px solid var(--naotech-informative-color-200);
+  --naotech-theme-border-2-300: 2px solid var(--naotech-informative-color-300);
+  --naotech-theme-border-2-400: 2px solid var(--naotech-informative-color-400);
+  --naotech-theme-border-2-500: 2px solid var(--naotech-informative-color-500);
+  --naotech-theme-border-2-600: 2px solid var(--naotech-informative-color-600);
+  --naotech-theme-border-2-700: 2px solid var(--naotech-informative-color-700);
+  --naotech-theme-border-2-800: 2px solid var(--naotech-informative-color-800);
+  --naotech-theme-border-2-900: 2px solid var(--naotech-informative-color-900);
+  --naotech-theme-border-3-050: 3px solid var(--naotech-informative-color-050);
+  --naotech-theme-border-3-100: 3px solid var(--naotech-informative-color-100);
+  --naotech-theme-border-3-200: 3px solid var(--naotech-informative-color-200);
+  --naotech-theme-border-3-300: 3px solid var(--naotech-informative-color-300);
+  --naotech-theme-border-3-400: 3px solid var(--naotech-informative-color-400);
+  --naotech-theme-border-3-500: 3px solid var(--naotech-informative-color-500);
+  --naotech-theme-border-3-600: 3px solid var(--naotech-informative-color-600);
+  --naotech-theme-border-3-700: 3px solid var(--naotech-informative-color-700);
+  --naotech-theme-border-3-800: 3px solid var(--naotech-informative-color-800);
+  --naotech-theme-border-3-900: 3px solid var(--naotech-informative-color-900);
+  --naotech-theme-border-4-050: 4px solid var(--naotech-informative-color-050);
+  --naotech-theme-border-4-100: 4px solid var(--naotech-informative-color-100);
+  --naotech-theme-border-4-200: 4px solid var(--naotech-informative-color-200);
+  --naotech-theme-border-4-300: 4px solid var(--naotech-informative-color-300);
+  --naotech-theme-border-4-400: 4px solid var(--naotech-informative-color-400);
+  --naotech-theme-border-4-500: 4px solid var(--naotech-informative-color-500);
+  --naotech-theme-border-4-600: 4px solid var(--naotech-informative-color-600);
+  --naotech-theme-border-4-700: 4px solid var(--naotech-informative-color-700);
+  --naotech-theme-border-4-800: 4px solid var(--naotech-informative-color-800);
+  --naotech-theme-border-4-900: 4px solid var(--naotech-informative-color-900);
+  --naotech-theme-focus-shadow: var(--naotech-informative-focus-shadow);
+  --naotech-theme-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-informative-color-700) 15%, transparent);
+  --naotech-theme-shadow-300: 0 0 0 2px var(--naotech-informative-color-300);
+  --naotech-theme-shadow-400: 0 0 0 2px var(--naotech-informative-color-400);
+  --naotech-theme-shadow-500: 0 0 0 2px var(--naotech-informative-color-500);
+  --naotech-theme-shadow-600: 0 0 0 2px var(--naotech-informative-color-600);
+  --naotech-theme-shadow-700: 0 0 0 2px var(--naotech-informative-color-700);
+}
+body *[nwt-theme='positive'] {
+  --naotech-theme-font-color: var(--naotech-positive-font-color);
+  --naotech-theme-focus-ring: var(--naotech-positive-focus-ring);
+  --naotech-theme-color-050: var(--naotech-positive-color-050);
+  --naotech-theme-color-100: var(--naotech-positive-color-100);
+  --naotech-theme-color-200: var(--naotech-positive-color-200);
+  --naotech-theme-color-300: var(--naotech-positive-color-300);
+  --naotech-theme-color-400: var(--naotech-positive-color-400);
+  --naotech-theme-color-500: var(--naotech-positive-color-500);
+  --naotech-theme-color-600: var(--naotech-positive-color-600);
+  --naotech-theme-color-700: var(--naotech-positive-color-700);
+  --naotech-theme-color-800: var(--naotech-positive-color-800);
+  --naotech-theme-color-900: var(--naotech-positive-color-900);
+  --naotech-theme-backdrop: var(--naotech-positive-backdrop);
+  --naotech-primary-color-text-normal: var(--naotech-positive-font-color);
+  --naotech-primary-color-normal: var(--naotech-positive-color-700);
+  --naotech-primary-color-hover: var(--naotech-positive-color-800);
+  --naotech-primary-color-active: var(--naotech-positive-color-900);
+  --naotech-primary-color-loading: var(--naotech-positive-color-900);
+  --naotech-secondary-color-text-normal: var(--naotech-positive-subtle-text);
+  --naotech-secondary-color-normal: var(--naotech-positive-color-100);
+  --naotech-secondary-color-hover: var(--naotech-positive-color-200);
+  --naotech-secondary-color-active: var(--naotech-positive-color-300);
+  --naotech-secondary-color-loading: var(--naotech-positive-color-300);
+  --naotech-tertiary-color-text-normal: var(--naotech-positive-subtle-text);
+  --naotech-tertiary-color-hover: var(--naotech-positive-color-100);
+  --naotech-tertiary-color-active: var(--naotech-positive-color-200);
+  --naotech-tertiary-color-loading: var(--naotech-positive-color-200);
+  --naotech-theme-border-1-050: 1px solid var(--naotech-positive-color-050);
+  --naotech-theme-border-1-100: 1px solid var(--naotech-positive-color-100);
+  --naotech-theme-border-1-200: 1px solid var(--naotech-positive-color-200);
+  --naotech-theme-border-1-300: 1px solid var(--naotech-positive-color-300);
+  --naotech-theme-border-1-400: 1px solid var(--naotech-positive-color-400);
+  --naotech-theme-border-1-500: 1px solid var(--naotech-positive-color-500);
+  --naotech-theme-border-1-600: 1px solid var(--naotech-positive-color-600);
+  --naotech-theme-border-1-700: 1px solid var(--naotech-positive-color-700);
+  --naotech-theme-border-1-800: 1px solid var(--naotech-positive-color-800);
+  --naotech-theme-border-1-900: 1px solid var(--naotech-positive-color-900);
+  --naotech-theme-border-2-050: 2px solid var(--naotech-positive-color-050);
+  --naotech-theme-border-2-100: 2px solid var(--naotech-positive-color-100);
+  --naotech-theme-border-2-200: 2px solid var(--naotech-positive-color-200);
+  --naotech-theme-border-2-300: 2px solid var(--naotech-positive-color-300);
+  --naotech-theme-border-2-400: 2px solid var(--naotech-positive-color-400);
+  --naotech-theme-border-2-500: 2px solid var(--naotech-positive-color-500);
+  --naotech-theme-border-2-600: 2px solid var(--naotech-positive-color-600);
+  --naotech-theme-border-2-700: 2px solid var(--naotech-positive-color-700);
+  --naotech-theme-border-2-800: 2px solid var(--naotech-positive-color-800);
+  --naotech-theme-border-2-900: 2px solid var(--naotech-positive-color-900);
+  --naotech-theme-border-3-050: 3px solid var(--naotech-positive-color-050);
+  --naotech-theme-border-3-100: 3px solid var(--naotech-positive-color-100);
+  --naotech-theme-border-3-200: 3px solid var(--naotech-positive-color-200);
+  --naotech-theme-border-3-300: 3px solid var(--naotech-positive-color-300);
+  --naotech-theme-border-3-400: 3px solid var(--naotech-positive-color-400);
+  --naotech-theme-border-3-500: 3px solid var(--naotech-positive-color-500);
+  --naotech-theme-border-3-600: 3px solid var(--naotech-positive-color-600);
+  --naotech-theme-border-3-700: 3px solid var(--naotech-positive-color-700);
+  --naotech-theme-border-3-800: 3px solid var(--naotech-positive-color-800);
+  --naotech-theme-border-3-900: 3px solid var(--naotech-positive-color-900);
+  --naotech-theme-border-4-050: 4px solid var(--naotech-positive-color-050);
+  --naotech-theme-border-4-100: 4px solid var(--naotech-positive-color-100);
+  --naotech-theme-border-4-200: 4px solid var(--naotech-positive-color-200);
+  --naotech-theme-border-4-300: 4px solid var(--naotech-positive-color-300);
+  --naotech-theme-border-4-400: 4px solid var(--naotech-positive-color-400);
+  --naotech-theme-border-4-500: 4px solid var(--naotech-positive-color-500);
+  --naotech-theme-border-4-600: 4px solid var(--naotech-positive-color-600);
+  --naotech-theme-border-4-700: 4px solid var(--naotech-positive-color-700);
+  --naotech-theme-border-4-800: 4px solid var(--naotech-positive-color-800);
+  --naotech-theme-border-4-900: 4px solid var(--naotech-positive-color-900);
+  --naotech-theme-focus-shadow: var(--naotech-positive-focus-shadow);
+  --naotech-theme-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-positive-color-700) 15%, transparent);
+  --naotech-theme-shadow-300: 0 0 0 2px var(--naotech-positive-color-300);
+  --naotech-theme-shadow-400: 0 0 0 2px var(--naotech-positive-color-400);
+  --naotech-theme-shadow-500: 0 0 0 2px var(--naotech-positive-color-500);
+  --naotech-theme-shadow-600: 0 0 0 2px var(--naotech-positive-color-600);
+  --naotech-theme-shadow-700: 0 0 0 2px var(--naotech-positive-color-700);
+}
+body *[nwt-theme='warning'] {
+  --naotech-theme-font-color: var(--naotech-warning-font-color);
+  --naotech-theme-focus-ring: var(--naotech-warning-focus-ring);
+  --naotech-theme-color-050: var(--naotech-warning-color-050);
+  --naotech-theme-color-100: var(--naotech-warning-color-100);
+  --naotech-theme-color-200: var(--naotech-warning-color-200);
+  --naotech-theme-color-300: var(--naotech-warning-color-300);
+  --naotech-theme-color-400: var(--naotech-warning-color-400);
+  --naotech-theme-color-500: var(--naotech-warning-color-500);
+  --naotech-theme-color-600: var(--naotech-warning-color-600);
+  --naotech-theme-color-700: var(--naotech-warning-color-700);
+  --naotech-theme-color-800: var(--naotech-warning-color-800);
+  --naotech-theme-color-900: var(--naotech-warning-color-900);
+  --naotech-theme-backdrop: var(--naotech-warning-backdrop);
+  --naotech-primary-color-text-normal: var(--naotech-warning-font-color);
+  --naotech-primary-color-normal: var(--naotech-warning-color-700);
+  --naotech-primary-color-hover: var(--naotech-warning-color-800);
+  --naotech-primary-color-active: var(--naotech-warning-color-900);
+  --naotech-primary-color-loading: var(--naotech-warning-color-900);
+  --naotech-secondary-color-text-normal: var(--naotech-warning-subtle-text);
+  --naotech-secondary-color-normal: var(--naotech-warning-color-100);
+  --naotech-secondary-color-hover: var(--naotech-warning-color-200);
+  --naotech-secondary-color-active: var(--naotech-warning-color-300);
+  --naotech-secondary-color-loading: var(--naotech-warning-color-300);
+  --naotech-tertiary-color-text-normal: var(--naotech-warning-subtle-text);
+  --naotech-tertiary-color-hover: var(--naotech-warning-color-100);
+  --naotech-tertiary-color-active: var(--naotech-warning-color-200);
+  --naotech-tertiary-color-loading: var(--naotech-warning-color-200);
+  --naotech-theme-border-1-050: 1px solid var(--naotech-warning-color-050);
+  --naotech-theme-border-1-100: 1px solid var(--naotech-warning-color-100);
+  --naotech-theme-border-1-200: 1px solid var(--naotech-warning-color-200);
+  --naotech-theme-border-1-300: 1px solid var(--naotech-warning-color-300);
+  --naotech-theme-border-1-400: 1px solid var(--naotech-warning-color-400);
+  --naotech-theme-border-1-500: 1px solid var(--naotech-warning-color-500);
+  --naotech-theme-border-1-600: 1px solid var(--naotech-warning-color-600);
+  --naotech-theme-border-1-700: 1px solid var(--naotech-warning-color-700);
+  --naotech-theme-border-1-800: 1px solid var(--naotech-warning-color-800);
+  --naotech-theme-border-1-900: 1px solid var(--naotech-warning-color-900);
+  --naotech-theme-border-2-050: 2px solid var(--naotech-warning-color-050);
+  --naotech-theme-border-2-100: 2px solid var(--naotech-warning-color-100);
+  --naotech-theme-border-2-200: 2px solid var(--naotech-warning-color-200);
+  --naotech-theme-border-2-300: 2px solid var(--naotech-warning-color-300);
+  --naotech-theme-border-2-400: 2px solid var(--naotech-warning-color-400);
+  --naotech-theme-border-2-500: 2px solid var(--naotech-warning-color-500);
+  --naotech-theme-border-2-600: 2px solid var(--naotech-warning-color-600);
+  --naotech-theme-border-2-700: 2px solid var(--naotech-warning-color-700);
+  --naotech-theme-border-2-800: 2px solid var(--naotech-warning-color-800);
+  --naotech-theme-border-2-900: 2px solid var(--naotech-warning-color-900);
+  --naotech-theme-border-3-050: 3px solid var(--naotech-warning-color-050);
+  --naotech-theme-border-3-100: 3px solid var(--naotech-warning-color-100);
+  --naotech-theme-border-3-200: 3px solid var(--naotech-warning-color-200);
+  --naotech-theme-border-3-300: 3px solid var(--naotech-warning-color-300);
+  --naotech-theme-border-3-400: 3px solid var(--naotech-warning-color-400);
+  --naotech-theme-border-3-500: 3px solid var(--naotech-warning-color-500);
+  --naotech-theme-border-3-600: 3px solid var(--naotech-warning-color-600);
+  --naotech-theme-border-3-700: 3px solid var(--naotech-warning-color-700);
+  --naotech-theme-border-3-800: 3px solid var(--naotech-warning-color-800);
+  --naotech-theme-border-3-900: 3px solid var(--naotech-warning-color-900);
+  --naotech-theme-border-4-050: 4px solid var(--naotech-warning-color-050);
+  --naotech-theme-border-4-100: 4px solid var(--naotech-warning-color-100);
+  --naotech-theme-border-4-200: 4px solid var(--naotech-warning-color-200);
+  --naotech-theme-border-4-300: 4px solid var(--naotech-warning-color-300);
+  --naotech-theme-border-4-400: 4px solid var(--naotech-warning-color-400);
+  --naotech-theme-border-4-500: 4px solid var(--naotech-warning-color-500);
+  --naotech-theme-border-4-600: 4px solid var(--naotech-warning-color-600);
+  --naotech-theme-border-4-700: 4px solid var(--naotech-warning-color-700);
+  --naotech-theme-border-4-800: 4px solid var(--naotech-warning-color-800);
+  --naotech-theme-border-4-900: 4px solid var(--naotech-warning-color-900);
+  --naotech-theme-focus-shadow: var(--naotech-warning-focus-shadow);
+  --naotech-theme-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-warning-color-700) 15%, transparent);
+  --naotech-theme-shadow-300: 0 0 0 2px var(--naotech-warning-color-300);
+  --naotech-theme-shadow-400: 0 0 0 2px var(--naotech-warning-color-400);
+  --naotech-theme-shadow-500: 0 0 0 2px var(--naotech-warning-color-500);
+  --naotech-theme-shadow-600: 0 0 0 2px var(--naotech-warning-color-600);
+  --naotech-theme-shadow-700: 0 0 0 2px var(--naotech-warning-color-700);
+}
+body *[nwt-theme='caution'] {
+  --naotech-theme-font-color: var(--naotech-caution-font-color);
+  --naotech-theme-focus-ring: var(--naotech-caution-focus-ring);
+  --naotech-theme-color-050: var(--naotech-caution-color-050);
+  --naotech-theme-color-100: var(--naotech-caution-color-100);
+  --naotech-theme-color-200: var(--naotech-caution-color-200);
+  --naotech-theme-color-300: var(--naotech-caution-color-300);
+  --naotech-theme-color-400: var(--naotech-caution-color-400);
+  --naotech-theme-color-500: var(--naotech-caution-color-500);
+  --naotech-theme-color-600: var(--naotech-caution-color-600);
+  --naotech-theme-color-700: var(--naotech-caution-color-700);
+  --naotech-theme-color-800: var(--naotech-caution-color-800);
+  --naotech-theme-color-900: var(--naotech-caution-color-900);
+  --naotech-theme-backdrop: var(--naotech-caution-backdrop);
+  --naotech-primary-color-text-normal: var(--naotech-caution-font-color);
+  --naotech-primary-color-normal: var(--naotech-caution-color-700);
+  --naotech-primary-color-hover: var(--naotech-caution-color-800);
+  --naotech-primary-color-active: var(--naotech-caution-color-900);
+  --naotech-primary-color-loading: var(--naotech-caution-color-900);
+  --naotech-secondary-color-text-normal: var(--naotech-caution-subtle-text);
+  --naotech-secondary-color-normal: var(--naotech-caution-color-100);
+  --naotech-secondary-color-hover: var(--naotech-caution-color-200);
+  --naotech-secondary-color-active: var(--naotech-caution-color-300);
+  --naotech-secondary-color-loading: var(--naotech-caution-color-300);
+  --naotech-tertiary-color-text-normal: var(--naotech-caution-subtle-text);
+  --naotech-tertiary-color-hover: var(--naotech-caution-color-100);
+  --naotech-tertiary-color-active: var(--naotech-caution-color-200);
+  --naotech-tertiary-color-loading: var(--naotech-caution-color-200);
+  --naotech-theme-border-1-050: 1px solid var(--naotech-caution-color-050);
+  --naotech-theme-border-1-100: 1px solid var(--naotech-caution-color-100);
+  --naotech-theme-border-1-200: 1px solid var(--naotech-caution-color-200);
+  --naotech-theme-border-1-300: 1px solid var(--naotech-caution-color-300);
+  --naotech-theme-border-1-400: 1px solid var(--naotech-caution-color-400);
+  --naotech-theme-border-1-500: 1px solid var(--naotech-caution-color-500);
+  --naotech-theme-border-1-600: 1px solid var(--naotech-caution-color-600);
+  --naotech-theme-border-1-700: 1px solid var(--naotech-caution-color-700);
+  --naotech-theme-border-1-800: 1px solid var(--naotech-caution-color-800);
+  --naotech-theme-border-1-900: 1px solid var(--naotech-caution-color-900);
+  --naotech-theme-border-2-050: 2px solid var(--naotech-caution-color-050);
+  --naotech-theme-border-2-100: 2px solid var(--naotech-caution-color-100);
+  --naotech-theme-border-2-200: 2px solid var(--naotech-caution-color-200);
+  --naotech-theme-border-2-300: 2px solid var(--naotech-caution-color-300);
+  --naotech-theme-border-2-400: 2px solid var(--naotech-caution-color-400);
+  --naotech-theme-border-2-500: 2px solid var(--naotech-caution-color-500);
+  --naotech-theme-border-2-600: 2px solid var(--naotech-caution-color-600);
+  --naotech-theme-border-2-700: 2px solid var(--naotech-caution-color-700);
+  --naotech-theme-border-2-800: 2px solid var(--naotech-caution-color-800);
+  --naotech-theme-border-2-900: 2px solid var(--naotech-caution-color-900);
+  --naotech-theme-border-3-050: 3px solid var(--naotech-caution-color-050);
+  --naotech-theme-border-3-100: 3px solid var(--naotech-caution-color-100);
+  --naotech-theme-border-3-200: 3px solid var(--naotech-caution-color-200);
+  --naotech-theme-border-3-300: 3px solid var(--naotech-caution-color-300);
+  --naotech-theme-border-3-400: 3px solid var(--naotech-caution-color-400);
+  --naotech-theme-border-3-500: 3px solid var(--naotech-caution-color-500);
+  --naotech-theme-border-3-600: 3px solid var(--naotech-caution-color-600);
+  --naotech-theme-border-3-700: 3px solid var(--naotech-caution-color-700);
+  --naotech-theme-border-3-800: 3px solid var(--naotech-caution-color-800);
+  --naotech-theme-border-3-900: 3px solid var(--naotech-caution-color-900);
+  --naotech-theme-border-4-050: 4px solid var(--naotech-caution-color-050);
+  --naotech-theme-border-4-100: 4px solid var(--naotech-caution-color-100);
+  --naotech-theme-border-4-200: 4px solid var(--naotech-caution-color-200);
+  --naotech-theme-border-4-300: 4px solid var(--naotech-caution-color-300);
+  --naotech-theme-border-4-400: 4px solid var(--naotech-caution-color-400);
+  --naotech-theme-border-4-500: 4px solid var(--naotech-caution-color-500);
+  --naotech-theme-border-4-600: 4px solid var(--naotech-caution-color-600);
+  --naotech-theme-border-4-700: 4px solid var(--naotech-caution-color-700);
+  --naotech-theme-border-4-800: 4px solid var(--naotech-caution-color-800);
+  --naotech-theme-border-4-900: 4px solid var(--naotech-caution-color-900);
+  --naotech-theme-focus-shadow: var(--naotech-caution-focus-shadow);
+  --naotech-theme-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-caution-color-700) 15%, transparent);
+  --naotech-theme-shadow-300: 0 0 0 2px var(--naotech-caution-color-300);
+  --naotech-theme-shadow-400: 0 0 0 2px var(--naotech-caution-color-400);
+  --naotech-theme-shadow-500: 0 0 0 2px var(--naotech-caution-color-500);
+  --naotech-theme-shadow-600: 0 0 0 2px var(--naotech-caution-color-600);
+  --naotech-theme-shadow-700: 0 0 0 2px var(--naotech-caution-color-700);
+}
+body *[nwt-theme='negative'] {
+  --naotech-theme-font-color: var(--naotech-negative-font-color);
+  --naotech-theme-focus-ring: var(--naotech-negative-focus-ring);
+  --naotech-theme-color-050: var(--naotech-negative-color-050);
+  --naotech-theme-color-100: var(--naotech-negative-color-100);
+  --naotech-theme-color-200: var(--naotech-negative-color-200);
+  --naotech-theme-color-300: var(--naotech-negative-color-300);
+  --naotech-theme-color-400: var(--naotech-negative-color-400);
+  --naotech-theme-color-500: var(--naotech-negative-color-500);
+  --naotech-theme-color-600: var(--naotech-negative-color-600);
+  --naotech-theme-color-700: var(--naotech-negative-color-700);
+  --naotech-theme-color-800: var(--naotech-negative-color-800);
+  --naotech-theme-color-900: var(--naotech-negative-color-900);
+  --naotech-theme-backdrop: var(--naotech-negative-backdrop);
+  --naotech-primary-color-text-normal: var(--naotech-negative-font-color);
+  --naotech-primary-color-normal: var(--naotech-negative-color-700);
+  --naotech-primary-color-hover: var(--naotech-negative-color-800);
+  --naotech-primary-color-active: var(--naotech-negative-color-900);
+  --naotech-primary-color-loading: var(--naotech-negative-color-900);
+  --naotech-secondary-color-text-normal: var(--naotech-negative-subtle-text);
+  --naotech-secondary-color-normal: var(--naotech-negative-color-100);
+  --naotech-secondary-color-hover: var(--naotech-negative-color-200);
+  --naotech-secondary-color-active: var(--naotech-negative-color-300);
+  --naotech-secondary-color-loading: var(--naotech-negative-color-300);
+  --naotech-tertiary-color-text-normal: var(--naotech-negative-subtle-text);
+  --naotech-tertiary-color-hover: var(--naotech-negative-color-100);
+  --naotech-tertiary-color-active: var(--naotech-negative-color-200);
+  --naotech-tertiary-color-loading: var(--naotech-negative-color-200);
+  --naotech-theme-border-1-050: 1px solid var(--naotech-negative-color-050);
+  --naotech-theme-border-1-100: 1px solid var(--naotech-negative-color-100);
+  --naotech-theme-border-1-200: 1px solid var(--naotech-negative-color-200);
+  --naotech-theme-border-1-300: 1px solid var(--naotech-negative-color-300);
+  --naotech-theme-border-1-400: 1px solid var(--naotech-negative-color-400);
+  --naotech-theme-border-1-500: 1px solid var(--naotech-negative-color-500);
+  --naotech-theme-border-1-600: 1px solid var(--naotech-negative-color-600);
+  --naotech-theme-border-1-700: 1px solid var(--naotech-negative-color-700);
+  --naotech-theme-border-1-800: 1px solid var(--naotech-negative-color-800);
+  --naotech-theme-border-1-900: 1px solid var(--naotech-negative-color-900);
+  --naotech-theme-border-2-050: 2px solid var(--naotech-negative-color-050);
+  --naotech-theme-border-2-100: 2px solid var(--naotech-negative-color-100);
+  --naotech-theme-border-2-200: 2px solid var(--naotech-negative-color-200);
+  --naotech-theme-border-2-300: 2px solid var(--naotech-negative-color-300);
+  --naotech-theme-border-2-400: 2px solid var(--naotech-negative-color-400);
+  --naotech-theme-border-2-500: 2px solid var(--naotech-negative-color-500);
+  --naotech-theme-border-2-600: 2px solid var(--naotech-negative-color-600);
+  --naotech-theme-border-2-700: 2px solid var(--naotech-negative-color-700);
+  --naotech-theme-border-2-800: 2px solid var(--naotech-negative-color-800);
+  --naotech-theme-border-2-900: 2px solid var(--naotech-negative-color-900);
+  --naotech-theme-border-3-050: 3px solid var(--naotech-negative-color-050);
+  --naotech-theme-border-3-100: 3px solid var(--naotech-negative-color-100);
+  --naotech-theme-border-3-200: 3px solid var(--naotech-negative-color-200);
+  --naotech-theme-border-3-300: 3px solid var(--naotech-negative-color-300);
+  --naotech-theme-border-3-400: 3px solid var(--naotech-negative-color-400);
+  --naotech-theme-border-3-500: 3px solid var(--naotech-negative-color-500);
+  --naotech-theme-border-3-600: 3px solid var(--naotech-negative-color-600);
+  --naotech-theme-border-3-700: 3px solid var(--naotech-negative-color-700);
+  --naotech-theme-border-3-800: 3px solid var(--naotech-negative-color-800);
+  --naotech-theme-border-3-900: 3px solid var(--naotech-negative-color-900);
+  --naotech-theme-border-4-050: 4px solid var(--naotech-negative-color-050);
+  --naotech-theme-border-4-100: 4px solid var(--naotech-negative-color-100);
+  --naotech-theme-border-4-200: 4px solid var(--naotech-negative-color-200);
+  --naotech-theme-border-4-300: 4px solid var(--naotech-negative-color-300);
+  --naotech-theme-border-4-400: 4px solid var(--naotech-negative-color-400);
+  --naotech-theme-border-4-500: 4px solid var(--naotech-negative-color-500);
+  --naotech-theme-border-4-600: 4px solid var(--naotech-negative-color-600);
+  --naotech-theme-border-4-700: 4px solid var(--naotech-negative-color-700);
+  --naotech-theme-border-4-800: 4px solid var(--naotech-negative-color-800);
+  --naotech-theme-border-4-900: 4px solid var(--naotech-negative-color-900);
+  --naotech-theme-focus-shadow: var(--naotech-negative-focus-shadow);
+  --naotech-theme-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-negative-color-700) 15%, transparent);
+  --naotech-theme-shadow-300: 0 0 0 2px var(--naotech-negative-color-300);
+  --naotech-theme-shadow-400: 0 0 0 2px var(--naotech-negative-color-400);
+  --naotech-theme-shadow-500: 0 0 0 2px var(--naotech-negative-color-500);
+  --naotech-theme-shadow-600: 0 0 0 2px var(--naotech-negative-color-600);
+  --naotech-theme-shadow-700: 0 0 0 2px var(--naotech-negative-color-700);
+}
+body *[nwt-theme='neutral'] {
+  --naotech-theme-font-color: var(--naotech-neutral-font-color);
+  --naotech-theme-focus-ring: var(--naotech-neutral-focus-ring);
+  --naotech-theme-color-050: var(--naotech-neutral-color-050);
+  --naotech-theme-color-100: var(--naotech-neutral-color-100);
+  --naotech-theme-color-200: var(--naotech-neutral-color-200);
+  --naotech-theme-color-300: var(--naotech-neutral-color-300);
+  --naotech-theme-color-400: var(--naotech-neutral-color-400);
+  --naotech-theme-color-500: var(--naotech-neutral-color-500);
+  --naotech-theme-color-600: var(--naotech-neutral-color-600);
+  --naotech-theme-color-700: var(--naotech-neutral-color-700);
+  --naotech-theme-color-800: var(--naotech-neutral-color-800);
+  --naotech-theme-color-900: var(--naotech-neutral-color-900);
+  --naotech-theme-backdrop: var(--naotech-neutral-backdrop);
+  --naotech-primary-color-text-normal: var(--naotech-neutral-font-color);
+  --naotech-primary-color-normal: var(--naotech-neutral-color-700);
+  --naotech-primary-color-hover: var(--naotech-neutral-color-800);
+  --naotech-primary-color-active: var(--naotech-neutral-color-900);
+  --naotech-primary-color-loading: var(--naotech-neutral-color-900);
+  --naotech-secondary-color-text-normal: var(--naotech-neutral-subtle-text);
+  --naotech-secondary-color-normal: var(--naotech-neutral-color-100);
+  --naotech-secondary-color-hover: var(--naotech-neutral-color-200);
+  --naotech-secondary-color-active: var(--naotech-neutral-color-300);
+  --naotech-secondary-color-loading: var(--naotech-neutral-color-300);
+  --naotech-tertiary-color-text-normal: var(--naotech-neutral-subtle-text);
+  --naotech-tertiary-color-hover: var(--naotech-neutral-color-100);
+  --naotech-tertiary-color-active: var(--naotech-neutral-color-200);
+  --naotech-tertiary-color-loading: var(--naotech-neutral-color-200);
+  --naotech-theme-border-1-050: 1px solid var(--naotech-neutral-color-050);
+  --naotech-theme-border-1-100: 1px solid var(--naotech-neutral-color-100);
+  --naotech-theme-border-1-200: 1px solid var(--naotech-neutral-color-200);
+  --naotech-theme-border-1-300: 1px solid var(--naotech-neutral-color-300);
+  --naotech-theme-border-1-400: 1px solid var(--naotech-neutral-color-400);
+  --naotech-theme-border-1-500: 1px solid var(--naotech-neutral-color-500);
+  --naotech-theme-border-1-600: 1px solid var(--naotech-neutral-color-600);
+  --naotech-theme-border-1-700: 1px solid var(--naotech-neutral-color-700);
+  --naotech-theme-border-1-800: 1px solid var(--naotech-neutral-color-800);
+  --naotech-theme-border-1-900: 1px solid var(--naotech-neutral-color-900);
+  --naotech-theme-border-2-050: 2px solid var(--naotech-neutral-color-050);
+  --naotech-theme-border-2-100: 2px solid var(--naotech-neutral-color-100);
+  --naotech-theme-border-2-200: 2px solid var(--naotech-neutral-color-200);
+  --naotech-theme-border-2-300: 2px solid var(--naotech-neutral-color-300);
+  --naotech-theme-border-2-400: 2px solid var(--naotech-neutral-color-400);
+  --naotech-theme-border-2-500: 2px solid var(--naotech-neutral-color-500);
+  --naotech-theme-border-2-600: 2px solid var(--naotech-neutral-color-600);
+  --naotech-theme-border-2-700: 2px solid var(--naotech-neutral-color-700);
+  --naotech-theme-border-2-800: 2px solid var(--naotech-neutral-color-800);
+  --naotech-theme-border-2-900: 2px solid var(--naotech-neutral-color-900);
+  --naotech-theme-border-3-050: 3px solid var(--naotech-neutral-color-050);
+  --naotech-theme-border-3-100: 3px solid var(--naotech-neutral-color-100);
+  --naotech-theme-border-3-200: 3px solid var(--naotech-neutral-color-200);
+  --naotech-theme-border-3-300: 3px solid var(--naotech-neutral-color-300);
+  --naotech-theme-border-3-400: 3px solid var(--naotech-neutral-color-400);
+  --naotech-theme-border-3-500: 3px solid var(--naotech-neutral-color-500);
+  --naotech-theme-border-3-600: 3px solid var(--naotech-neutral-color-600);
+  --naotech-theme-border-3-700: 3px solid var(--naotech-neutral-color-700);
+  --naotech-theme-border-3-800: 3px solid var(--naotech-neutral-color-800);
+  --naotech-theme-border-3-900: 3px solid var(--naotech-neutral-color-900);
+  --naotech-theme-border-4-050: 4px solid var(--naotech-neutral-color-050);
+  --naotech-theme-border-4-100: 4px solid var(--naotech-neutral-color-100);
+  --naotech-theme-border-4-200: 4px solid var(--naotech-neutral-color-200);
+  --naotech-theme-border-4-300: 4px solid var(--naotech-neutral-color-300);
+  --naotech-theme-border-4-400: 4px solid var(--naotech-neutral-color-400);
+  --naotech-theme-border-4-500: 4px solid var(--naotech-neutral-color-500);
+  --naotech-theme-border-4-600: 4px solid var(--naotech-neutral-color-600);
+  --naotech-theme-border-4-700: 4px solid var(--naotech-neutral-color-700);
+  --naotech-theme-border-4-800: 4px solid var(--naotech-neutral-color-800);
+  --naotech-theme-border-4-900: 4px solid var(--naotech-neutral-color-900);
+  --naotech-theme-focus-shadow: var(--naotech-neutral-focus-shadow);
+  --naotech-theme-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-neutral-color-700) 15%, transparent);
+  --naotech-theme-shadow-300: 0 0 0 2px var(--naotech-neutral-color-300);
+  --naotech-theme-shadow-400: 0 0 0 2px var(--naotech-neutral-color-400);
+  --naotech-theme-shadow-500: 0 0 0 2px var(--naotech-neutral-color-500);
+  --naotech-theme-shadow-600: 0 0 0 2px var(--naotech-neutral-color-600);
+  --naotech-theme-shadow-700: 0 0 0 2px var(--naotech-neutral-color-700);
+}
+body[app-theme='dark'] {
+  --naotech-app-background: var(--naotech-color-gray-900);
+  --naotech-app-font-color: var(--naotech-color-white-alpha-100);
+  --naotech-app-link-color: var(--naotech-color-link-dark);
+  --naotech-primary-color-disabled: var(--naotech-color-dark-gray-300);
+  --naotech-primary-color-disabled-loading: var(--naotech-color-black-alpha-30);
+  --naotech-primary-color-text-normal: var(--naotech-color-black-alpha-100);
+  --naotech-primary-color-text-disabled: var(--naotech-color-dark-gray-500);
+  --naotech-secondary-color-disabled: var(--naotech-color-dark-gray-300);
+  --naotech-secondary-color-disabled-loading: var(
+    --naotech-color-black-alpha-30
+  );
+  --naotech-secondary-color-text-disabled: var(--naotech-color-dark-gray-500);
+  --naotech-tertiary-color-normal: transparent;
+  --naotech-tertiary-color-disabled: transparent;
+  --naotech-tertiary-color-disabled-loading: var(
+    --naotech-color-black-alpha-30
+  );
+  --naotech-tertiary-color-text-disabled: var(--naotech-color-dark-gray-500);
+  --naotech-app-color-050: var(--naotech-color-dark-gray-050);
+  --naotech-app-color-100: var(--naotech-color-dark-gray-100);
+  --naotech-app-color-200: var(--naotech-color-dark-gray-200);
+  --naotech-app-color-300: var(--naotech-color-dark-gray-300);
+  --naotech-app-color-400: var(--naotech-color-dark-gray-400);
+  --naotech-app-color-500: var(--naotech-color-dark-gray-500);
+  --naotech-app-color-600: var(--naotech-color-dark-gray-600);
+  --naotech-app-color-700: var(--naotech-color-dark-gray-700);
+  --naotech-app-color-800: var(--naotech-color-dark-gray-800);
+  --naotech-app-color-900: var(--naotech-color-dark-gray-900);
+  --naotech-app-color-alpha-10: var(--naotech-color-black-alpha-10);
+  --naotech-app-color-alpha-20: var(--naotech-color-black-alpha-20);
+  --naotech-app-color-alpha-30: var(--naotech-color-black-alpha-30);
+  --naotech-app-color-alpha-40: var(--naotech-color-black-alpha-40);
+  --naotech-app-color-alpha-50: var(--naotech-color-black-alpha-50);
+  --naotech-app-color-alpha-60: var(--naotech-color-black-alpha-60);
+  --naotech-app-color-alpha-70: var(--naotech-color-black-alpha-70);
+  --naotech-app-color-alpha-80: var(--naotech-color-black-alpha-80);
+  --naotech-app-color-alpha-90: var(--naotech-color-black-alpha-90);
+  --naotech-app-color-alpha-100: var(--naotech-color-black-alpha-100);
+  --naotech-primary-color-050: var(--naotech-color-dark-default-050);
+  --naotech-primary-color-100: var(--naotech-color-dark-default-100);
+  --naotech-primary-color-200: var(--naotech-color-dark-default-200);
+  --naotech-primary-color-300: var(--naotech-color-dark-default-300);
+  --naotech-primary-color-400: var(--naotech-color-dark-default-400);
+  --naotech-primary-color-500: var(--naotech-color-dark-default-500);
+  --naotech-primary-color-600: var(--naotech-color-dark-default-600);
+  --naotech-primary-color-700: var(--naotech-color-dark-default-700);
+  --naotech-primary-color-800: var(--naotech-color-dark-default-800);
+  --naotech-primary-color-900: var(--naotech-color-dark-default-900);
+  --naotech-primary-border-1-050: 1px solid
+    var(--naotech-color-dark-default-050);
+  --naotech-primary-border-1-100: 1px solid
+    var(--naotech-color-dark-default-100);
+  --naotech-primary-border-1-200: 1px solid
+    var(--naotech-color-dark-default-200);
+  --naotech-primary-border-1-300: 1px solid
+    var(--naotech-color-dark-default-300);
+  --naotech-primary-border-1-400: 1px solid
+    var(--naotech-color-dark-default-400);
+  --naotech-primary-border-1-500: 1px solid
+    var(--naotech-color-dark-default-500);
+  --naotech-primary-border-1-600: 1px solid
+    var(--naotech-color-dark-default-600);
+  --naotech-primary-border-1-700: 1px solid
+    var(--naotech-color-dark-default-700);
+  --naotech-primary-border-1-800: 1px solid
+    var(--naotech-color-dark-default-800);
+  --naotech-primary-border-1-900: 1px solid
+    var(--naotech-color-dark-default-900);
+  --naotech-primary-border-2-050: 2px solid
+    var(--naotech-color-dark-default-050);
+  --naotech-primary-border-2-100: 2px solid
+    var(--naotech-color-dark-default-100);
+  --naotech-primary-border-2-200: 2px solid
+    var(--naotech-color-dark-default-200);
+  --naotech-primary-border-2-300: 2px solid
+    var(--naotech-color-dark-default-300);
+  --naotech-primary-border-2-400: 2px solid
+    var(--naotech-color-dark-default-400);
+  --naotech-primary-border-2-500: 2px solid
+    var(--naotech-color-dark-default-500);
+  --naotech-primary-border-2-600: 2px solid
+    var(--naotech-color-dark-default-600);
+  --naotech-primary-border-2-700: 2px solid
+    var(--naotech-color-dark-default-700);
+  --naotech-primary-border-2-800: 2px solid
+    var(--naotech-color-dark-default-800);
+  --naotech-primary-border-2-900: 2px solid
+    var(--naotech-color-dark-default-900);
+  --naotech-primary-border-3-050: 3px solid
+    var(--naotech-color-dark-default-050);
+  --naotech-primary-border-3-100: 3px solid
+    var(--naotech-color-dark-default-100);
+  --naotech-primary-border-3-200: 3px solid
+    var(--naotech-color-dark-default-200);
+  --naotech-primary-border-3-300: 3px solid
+    var(--naotech-color-dark-default-300);
+  --naotech-primary-border-3-400: 3px solid
+    var(--naotech-color-dark-default-400);
+  --naotech-primary-border-3-500: 3px solid
+    var(--naotech-color-dark-default-500);
+  --naotech-primary-border-3-600: 3px solid
+    var(--naotech-color-dark-default-600);
+  --naotech-primary-border-3-700: 3px solid
+    var(--naotech-color-dark-default-700);
+  --naotech-primary-border-3-800: 3px solid
+    var(--naotech-color-dark-default-800);
+  --naotech-primary-border-3-900: 3px solid
+    var(--naotech-color-dark-default-900);
+  --naotech-primary-border-4-050: 4px solid
+    var(--naotech-color-dark-default-050);
+  --naotech-primary-border-4-100: 4px solid
+    var(--naotech-color-dark-default-100);
+  --naotech-primary-border-4-200: 4px solid
+    var(--naotech-color-dark-default-200);
+  --naotech-primary-border-4-300: 4px solid
+    var(--naotech-color-dark-default-300);
+  --naotech-primary-border-4-400: 4px solid
+    var(--naotech-color-dark-default-400);
+  --naotech-primary-border-4-500: 4px solid
+    var(--naotech-color-dark-default-500);
+  --naotech-primary-border-4-600: 4px solid
+    var(--naotech-color-dark-default-600);
+  --naotech-primary-border-4-700: 4px solid
+    var(--naotech-color-dark-default-700);
+  --naotech-primary-border-4-800: 4px solid
+    var(--naotech-color-dark-default-800);
+  --naotech-primary-border-4-900: 4px solid
+    var(--naotech-color-dark-default-900);
+  --naotech-primary-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-dark-default-700) 15%, transparent);
+  --naotech-primary-shadow-300: 0 0 0 2px var(--naotech-color-dark-default-300);
+  --naotech-primary-shadow-400: 0 0 0 2px var(--naotech-color-dark-default-400);
+  --naotech-primary-shadow-500: 0 0 0 2px var(--naotech-color-dark-default-500);
+  --naotech-primary-shadow-600: 0 0 0 2px var(--naotech-color-dark-default-600);
+  --naotech-primary-shadow-700: 0 0 0 2px var(--naotech-color-dark-default-700);
+  --naotech-primary-backdrop: var(--naotech-color-dark-default-backdrop);
+  --naotech-primary-font-color: var(--naotech-color-black-alpha-100);
+  --naotech-primary-subtle-text: var(--naotech-color-dark-default-900);
+  --naotech-primary-focus-ring: var(--naotech-color-dark-default-700);
+  --naotech-primary-focus-shadow:
+    0 0 0 2px var(--naotech-primary-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-dark-default-700) 15%, transparent);
+  --naotech-secondary-color-050: var(--naotech-color-dark-indigo-050);
+  --naotech-secondary-color-100: var(--naotech-color-dark-indigo-100);
+  --naotech-secondary-color-200: var(--naotech-color-dark-indigo-200);
+  --naotech-secondary-color-300: var(--naotech-color-dark-indigo-300);
+  --naotech-secondary-color-400: var(--naotech-color-dark-indigo-400);
+  --naotech-secondary-color-500: var(--naotech-color-dark-indigo-500);
+  --naotech-secondary-color-600: var(--naotech-color-dark-indigo-600);
+  --naotech-secondary-color-700: var(--naotech-color-dark-indigo-700);
+  --naotech-secondary-color-800: var(--naotech-color-dark-indigo-800);
+  --naotech-secondary-color-900: var(--naotech-color-dark-indigo-900);
+  --naotech-secondary-border-1-050: 1px solid
+    var(--naotech-color-dark-indigo-050);
+  --naotech-secondary-border-1-100: 1px solid
+    var(--naotech-color-dark-indigo-100);
+  --naotech-secondary-border-1-200: 1px solid
+    var(--naotech-color-dark-indigo-200);
+  --naotech-secondary-border-1-300: 1px solid
+    var(--naotech-color-dark-indigo-300);
+  --naotech-secondary-border-1-400: 1px solid
+    var(--naotech-color-dark-indigo-400);
+  --naotech-secondary-border-1-500: 1px solid
+    var(--naotech-color-dark-indigo-500);
+  --naotech-secondary-border-1-600: 1px solid
+    var(--naotech-color-dark-indigo-600);
+  --naotech-secondary-border-1-700: 1px solid
+    var(--naotech-color-dark-indigo-700);
+  --naotech-secondary-border-1-800: 1px solid
+    var(--naotech-color-dark-indigo-800);
+  --naotech-secondary-border-1-900: 1px solid
+    var(--naotech-color-dark-indigo-900);
+  --naotech-secondary-border-2-050: 2px solid
+    var(--naotech-color-dark-indigo-050);
+  --naotech-secondary-border-2-100: 2px solid
+    var(--naotech-color-dark-indigo-100);
+  --naotech-secondary-border-2-200: 2px solid
+    var(--naotech-color-dark-indigo-200);
+  --naotech-secondary-border-2-300: 2px solid
+    var(--naotech-color-dark-indigo-300);
+  --naotech-secondary-border-2-400: 2px solid
+    var(--naotech-color-dark-indigo-400);
+  --naotech-secondary-border-2-500: 2px solid
+    var(--naotech-color-dark-indigo-500);
+  --naotech-secondary-border-2-600: 2px solid
+    var(--naotech-color-dark-indigo-600);
+  --naotech-secondary-border-2-700: 2px solid
+    var(--naotech-color-dark-indigo-700);
+  --naotech-secondary-border-2-800: 2px solid
+    var(--naotech-color-dark-indigo-800);
+  --naotech-secondary-border-2-900: 2px solid
+    var(--naotech-color-dark-indigo-900);
+  --naotech-secondary-border-3-050: 3px solid
+    var(--naotech-color-dark-indigo-050);
+  --naotech-secondary-border-3-100: 3px solid
+    var(--naotech-color-dark-indigo-100);
+  --naotech-secondary-border-3-200: 3px solid
+    var(--naotech-color-dark-indigo-200);
+  --naotech-secondary-border-3-300: 3px solid
+    var(--naotech-color-dark-indigo-300);
+  --naotech-secondary-border-3-400: 3px solid
+    var(--naotech-color-dark-indigo-400);
+  --naotech-secondary-border-3-500: 3px solid
+    var(--naotech-color-dark-indigo-500);
+  --naotech-secondary-border-3-600: 3px solid
+    var(--naotech-color-dark-indigo-600);
+  --naotech-secondary-border-3-700: 3px solid
+    var(--naotech-color-dark-indigo-700);
+  --naotech-secondary-border-3-800: 3px solid
+    var(--naotech-color-dark-indigo-800);
+  --naotech-secondary-border-3-900: 3px solid
+    var(--naotech-color-dark-indigo-900);
+  --naotech-secondary-border-4-050: 4px solid
+    var(--naotech-color-dark-indigo-050);
+  --naotech-secondary-border-4-100: 4px solid
+    var(--naotech-color-dark-indigo-100);
+  --naotech-secondary-border-4-200: 4px solid
+    var(--naotech-color-dark-indigo-200);
+  --naotech-secondary-border-4-300: 4px solid
+    var(--naotech-color-dark-indigo-300);
+  --naotech-secondary-border-4-400: 4px solid
+    var(--naotech-color-dark-indigo-400);
+  --naotech-secondary-border-4-500: 4px solid
+    var(--naotech-color-dark-indigo-500);
+  --naotech-secondary-border-4-600: 4px solid
+    var(--naotech-color-dark-indigo-600);
+  --naotech-secondary-border-4-700: 4px solid
+    var(--naotech-color-dark-indigo-700);
+  --naotech-secondary-border-4-800: 4px solid
+    var(--naotech-color-dark-indigo-800);
+  --naotech-secondary-border-4-900: 4px solid
+    var(--naotech-color-dark-indigo-900);
+  --naotech-secondary-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-dark-indigo-700) 15%, transparent);
+  --naotech-secondary-shadow-300: 0 0 0 2px var(--naotech-color-dark-indigo-300);
+  --naotech-secondary-shadow-400: 0 0 0 2px var(--naotech-color-dark-indigo-400);
+  --naotech-secondary-shadow-500: 0 0 0 2px var(--naotech-color-dark-indigo-500);
+  --naotech-secondary-shadow-600: 0 0 0 2px var(--naotech-color-dark-indigo-600);
+  --naotech-secondary-shadow-700: 0 0 0 2px var(--naotech-color-dark-indigo-700);
+  --naotech-secondary-backdrop: var(--naotech-color-dark-indigo-backdrop);
+  --naotech-secondary-font-color: var(--naotech-color-black-alpha-100);
+  --naotech-secondary-subtle-text: var(--naotech-color-dark-indigo-900);
+  --naotech-secondary-focus-ring: var(--naotech-color-dark-indigo-700);
+  --naotech-secondary-focus-shadow:
+    0 0 0 2px var(--naotech-secondary-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-dark-indigo-700) 15%, transparent);
+  --naotech-informative-color-050: var(--naotech-color-dark-blue-050);
+  --naotech-informative-color-100: var(--naotech-color-dark-blue-100);
+  --naotech-informative-color-200: var(--naotech-color-dark-blue-200);
+  --naotech-informative-color-300: var(--naotech-color-dark-blue-300);
+  --naotech-informative-color-400: var(--naotech-color-dark-blue-400);
+  --naotech-informative-color-500: var(--naotech-color-dark-blue-500);
+  --naotech-informative-color-600: var(--naotech-color-dark-blue-600);
+  --naotech-informative-color-700: var(--naotech-color-dark-blue-700);
+  --naotech-informative-color-800: var(--naotech-color-dark-blue-800);
+  --naotech-informative-color-900: var(--naotech-color-dark-blue-900);
+  --naotech-informative-border-1-050: 1px solid
+    var(--naotech-color-dark-blue-050);
+  --naotech-informative-border-1-100: 1px solid
+    var(--naotech-color-dark-blue-100);
+  --naotech-informative-border-1-200: 1px solid
+    var(--naotech-color-dark-blue-200);
+  --naotech-informative-border-1-300: 1px solid
+    var(--naotech-color-dark-blue-300);
+  --naotech-informative-border-1-400: 1px solid
+    var(--naotech-color-dark-blue-400);
+  --naotech-informative-border-1-500: 1px solid
+    var(--naotech-color-dark-blue-500);
+  --naotech-informative-border-1-600: 1px solid
+    var(--naotech-color-dark-blue-600);
+  --naotech-informative-border-1-700: 1px solid
+    var(--naotech-color-dark-blue-700);
+  --naotech-informative-border-1-800: 1px solid
+    var(--naotech-color-dark-blue-800);
+  --naotech-informative-border-1-900: 1px solid
+    var(--naotech-color-dark-blue-900);
+  --naotech-informative-border-2-050: 2px solid
+    var(--naotech-color-dark-blue-050);
+  --naotech-informative-border-2-100: 2px solid
+    var(--naotech-color-dark-blue-100);
+  --naotech-informative-border-2-200: 2px solid
+    var(--naotech-color-dark-blue-200);
+  --naotech-informative-border-2-300: 2px solid
+    var(--naotech-color-dark-blue-300);
+  --naotech-informative-border-2-400: 2px solid
+    var(--naotech-color-dark-blue-400);
+  --naotech-informative-border-2-500: 2px solid
+    var(--naotech-color-dark-blue-500);
+  --naotech-informative-border-2-600: 2px solid
+    var(--naotech-color-dark-blue-600);
+  --naotech-informative-border-2-700: 2px solid
+    var(--naotech-color-dark-blue-700);
+  --naotech-informative-border-2-800: 2px solid
+    var(--naotech-color-dark-blue-800);
+  --naotech-informative-border-2-900: 2px solid
+    var(--naotech-color-dark-blue-900);
+  --naotech-informative-border-3-050: 3px solid
+    var(--naotech-color-dark-blue-050);
+  --naotech-informative-border-3-100: 3px solid
+    var(--naotech-color-dark-blue-100);
+  --naotech-informative-border-3-200: 3px solid
+    var(--naotech-color-dark-blue-200);
+  --naotech-informative-border-3-300: 3px solid
+    var(--naotech-color-dark-blue-300);
+  --naotech-informative-border-3-400: 3px solid
+    var(--naotech-color-dark-blue-400);
+  --naotech-informative-border-3-500: 3px solid
+    var(--naotech-color-dark-blue-500);
+  --naotech-informative-border-3-600: 3px solid
+    var(--naotech-color-dark-blue-600);
+  --naotech-informative-border-3-700: 3px solid
+    var(--naotech-color-dark-blue-700);
+  --naotech-informative-border-3-800: 3px solid
+    var(--naotech-color-dark-blue-800);
+  --naotech-informative-border-3-900: 3px solid
+    var(--naotech-color-dark-blue-900);
+  --naotech-informative-border-4-050: 4px solid
+    var(--naotech-color-dark-blue-050);
+  --naotech-informative-border-4-100: 4px solid
+    var(--naotech-color-dark-blue-100);
+  --naotech-informative-border-4-200: 4px solid
+    var(--naotech-color-dark-blue-200);
+  --naotech-informative-border-4-300: 4px solid
+    var(--naotech-color-dark-blue-300);
+  --naotech-informative-border-4-400: 4px solid
+    var(--naotech-color-dark-blue-400);
+  --naotech-informative-border-4-500: 4px solid
+    var(--naotech-color-dark-blue-500);
+  --naotech-informative-border-4-600: 4px solid
+    var(--naotech-color-dark-blue-600);
+  --naotech-informative-border-4-700: 4px solid
+    var(--naotech-color-dark-blue-700);
+  --naotech-informative-border-4-800: 4px solid
+    var(--naotech-color-dark-blue-800);
+  --naotech-informative-border-4-900: 4px solid
+    var(--naotech-color-dark-blue-900);
+  --naotech-informative-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-dark-blue-700) 15%, transparent);
+  --naotech-informative-shadow-300: 0 0 0 2px var(--naotech-color-dark-blue-300);
+  --naotech-informative-shadow-400: 0 0 0 2px var(--naotech-color-dark-blue-400);
+  --naotech-informative-shadow-500: 0 0 0 2px var(--naotech-color-dark-blue-500);
+  --naotech-informative-shadow-600: 0 0 0 2px var(--naotech-color-dark-blue-600);
+  --naotech-informative-shadow-700: 0 0 0 2px var(--naotech-color-dark-blue-700);
+  --naotech-informative-backdrop: var(--naotech-color-dark-blue-backdrop);
+  --naotech-informative-font-color: var(--naotech-color-black-alpha-100);
+  --naotech-informative-subtle-text: var(--naotech-color-dark-blue-900);
+  --naotech-informative-focus-ring: var(--naotech-color-dark-blue-700);
+  --naotech-informative-focus-shadow:
+    0 0 0 2px var(--naotech-informative-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-dark-blue-700) 15%, transparent);
+  --naotech-positive-color-050: var(--naotech-color-dark-green-050);
+  --naotech-positive-color-100: var(--naotech-color-dark-green-100);
+  --naotech-positive-color-200: var(--naotech-color-dark-green-200);
+  --naotech-positive-color-300: var(--naotech-color-dark-green-300);
+  --naotech-positive-color-400: var(--naotech-color-dark-green-400);
+  --naotech-positive-color-500: var(--naotech-color-dark-green-500);
+  --naotech-positive-color-600: var(--naotech-color-dark-green-600);
+  --naotech-positive-color-700: var(--naotech-color-dark-green-700);
+  --naotech-positive-color-800: var(--naotech-color-dark-green-800);
+  --naotech-positive-color-900: var(--naotech-color-dark-green-900);
+  --naotech-positive-border-1-050: 1px solid var(--naotech-color-dark-green-050);
+  --naotech-positive-border-1-100: 1px solid var(--naotech-color-dark-green-100);
+  --naotech-positive-border-1-200: 1px solid var(--naotech-color-dark-green-200);
+  --naotech-positive-border-1-300: 1px solid var(--naotech-color-dark-green-300);
+  --naotech-positive-border-1-400: 1px solid var(--naotech-color-dark-green-400);
+  --naotech-positive-border-1-500: 1px solid var(--naotech-color-dark-green-500);
+  --naotech-positive-border-1-600: 1px solid var(--naotech-color-dark-green-600);
+  --naotech-positive-border-1-700: 1px solid var(--naotech-color-dark-green-700);
+  --naotech-positive-border-1-800: 1px solid var(--naotech-color-dark-green-800);
+  --naotech-positive-border-1-900: 1px solid var(--naotech-color-dark-green-900);
+  --naotech-positive-border-2-050: 2px solid var(--naotech-color-dark-green-050);
+  --naotech-positive-border-2-100: 2px solid var(--naotech-color-dark-green-100);
+  --naotech-positive-border-2-200: 2px solid var(--naotech-color-dark-green-200);
+  --naotech-positive-border-2-300: 2px solid var(--naotech-color-dark-green-300);
+  --naotech-positive-border-2-400: 2px solid var(--naotech-color-dark-green-400);
+  --naotech-positive-border-2-500: 2px solid var(--naotech-color-dark-green-500);
+  --naotech-positive-border-2-600: 2px solid var(--naotech-color-dark-green-600);
+  --naotech-positive-border-2-700: 2px solid var(--naotech-color-dark-green-700);
+  --naotech-positive-border-2-800: 2px solid var(--naotech-color-dark-green-800);
+  --naotech-positive-border-2-900: 2px solid var(--naotech-color-dark-green-900);
+  --naotech-positive-border-3-050: 3px solid var(--naotech-color-dark-green-050);
+  --naotech-positive-border-3-100: 3px solid var(--naotech-color-dark-green-100);
+  --naotech-positive-border-3-200: 3px solid var(--naotech-color-dark-green-200);
+  --naotech-positive-border-3-300: 3px solid var(--naotech-color-dark-green-300);
+  --naotech-positive-border-3-400: 3px solid var(--naotech-color-dark-green-400);
+  --naotech-positive-border-3-500: 3px solid var(--naotech-color-dark-green-500);
+  --naotech-positive-border-3-600: 3px solid var(--naotech-color-dark-green-600);
+  --naotech-positive-border-3-700: 3px solid var(--naotech-color-dark-green-700);
+  --naotech-positive-border-3-800: 3px solid var(--naotech-color-dark-green-800);
+  --naotech-positive-border-3-900: 3px solid var(--naotech-color-dark-green-900);
+  --naotech-positive-border-4-050: 4px solid var(--naotech-color-dark-green-050);
+  --naotech-positive-border-4-100: 4px solid var(--naotech-color-dark-green-100);
+  --naotech-positive-border-4-200: 4px solid var(--naotech-color-dark-green-200);
+  --naotech-positive-border-4-300: 4px solid var(--naotech-color-dark-green-300);
+  --naotech-positive-border-4-400: 4px solid var(--naotech-color-dark-green-400);
+  --naotech-positive-border-4-500: 4px solid var(--naotech-color-dark-green-500);
+  --naotech-positive-border-4-600: 4px solid var(--naotech-color-dark-green-600);
+  --naotech-positive-border-4-700: 4px solid var(--naotech-color-dark-green-700);
+  --naotech-positive-border-4-800: 4px solid var(--naotech-color-dark-green-800);
+  --naotech-positive-border-4-900: 4px solid var(--naotech-color-dark-green-900);
+  --naotech-positive-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-dark-green-700) 15%, transparent);
+  --naotech-positive-shadow-300: 0 0 0 2px var(--naotech-color-dark-green-300);
+  --naotech-positive-shadow-400: 0 0 0 2px var(--naotech-color-dark-green-400);
+  --naotech-positive-shadow-500: 0 0 0 2px var(--naotech-color-dark-green-500);
+  --naotech-positive-shadow-600: 0 0 0 2px var(--naotech-color-dark-green-600);
+  --naotech-positive-shadow-700: 0 0 0 2px var(--naotech-color-dark-green-700);
+  --naotech-positive-backdrop: var(--naotech-color-dark-green-backdrop);
+  --naotech-positive-font-color: var(--naotech-color-black-alpha-100);
+  --naotech-positive-subtle-text: var(--naotech-color-dark-green-900);
+  --naotech-positive-focus-ring: var(--naotech-color-dark-green-700);
+  --naotech-positive-focus-shadow:
+    0 0 0 2px var(--naotech-positive-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-dark-green-700) 15%, transparent);
+  --naotech-warning-color-050: var(--naotech-color-dark-yellow-050);
+  --naotech-warning-color-100: var(--naotech-color-dark-yellow-100);
+  --naotech-warning-color-200: var(--naotech-color-dark-yellow-200);
+  --naotech-warning-color-300: var(--naotech-color-dark-yellow-300);
+  --naotech-warning-color-400: var(--naotech-color-dark-yellow-400);
+  --naotech-warning-color-500: var(--naotech-color-dark-yellow-500);
+  --naotech-warning-color-600: var(--naotech-color-dark-yellow-600);
+  --naotech-warning-color-700: var(--naotech-color-dark-yellow-700);
+  --naotech-warning-color-800: var(--naotech-color-dark-yellow-800);
+  --naotech-warning-color-900: var(--naotech-color-dark-yellow-900);
+  --naotech-warning-border-1-050: 1px solid var(--naotech-color-dark-yellow-050);
+  --naotech-warning-border-1-100: 1px solid var(--naotech-color-dark-yellow-100);
+  --naotech-warning-border-1-200: 1px solid var(--naotech-color-dark-yellow-200);
+  --naotech-warning-border-1-300: 1px solid var(--naotech-color-dark-yellow-300);
+  --naotech-warning-border-1-400: 1px solid var(--naotech-color-dark-yellow-400);
+  --naotech-warning-border-1-500: 1px solid var(--naotech-color-dark-yellow-500);
+  --naotech-warning-border-1-600: 1px solid var(--naotech-color-dark-yellow-600);
+  --naotech-warning-border-1-700: 1px solid var(--naotech-color-dark-yellow-700);
+  --naotech-warning-border-1-800: 1px solid var(--naotech-color-dark-yellow-800);
+  --naotech-warning-border-1-900: 1px solid var(--naotech-color-dark-yellow-900);
+  --naotech-warning-border-2-050: 2px solid var(--naotech-color-dark-yellow-050);
+  --naotech-warning-border-2-100: 2px solid var(--naotech-color-dark-yellow-100);
+  --naotech-warning-border-2-200: 2px solid var(--naotech-color-dark-yellow-200);
+  --naotech-warning-border-2-300: 2px solid var(--naotech-color-dark-yellow-300);
+  --naotech-warning-border-2-400: 2px solid var(--naotech-color-dark-yellow-400);
+  --naotech-warning-border-2-500: 2px solid var(--naotech-color-dark-yellow-500);
+  --naotech-warning-border-2-600: 2px solid var(--naotech-color-dark-yellow-600);
+  --naotech-warning-border-2-700: 2px solid var(--naotech-color-dark-yellow-700);
+  --naotech-warning-border-2-800: 2px solid var(--naotech-color-dark-yellow-800);
+  --naotech-warning-border-2-900: 2px solid var(--naotech-color-dark-yellow-900);
+  --naotech-warning-border-3-050: 3px solid var(--naotech-color-dark-yellow-050);
+  --naotech-warning-border-3-100: 3px solid var(--naotech-color-dark-yellow-100);
+  --naotech-warning-border-3-200: 3px solid var(--naotech-color-dark-yellow-200);
+  --naotech-warning-border-3-300: 3px solid var(--naotech-color-dark-yellow-300);
+  --naotech-warning-border-3-400: 3px solid var(--naotech-color-dark-yellow-400);
+  --naotech-warning-border-3-500: 3px solid var(--naotech-color-dark-yellow-500);
+  --naotech-warning-border-3-600: 3px solid var(--naotech-color-dark-yellow-600);
+  --naotech-warning-border-3-700: 3px solid var(--naotech-color-dark-yellow-700);
+  --naotech-warning-border-3-800: 3px solid var(--naotech-color-dark-yellow-800);
+  --naotech-warning-border-3-900: 3px solid var(--naotech-color-dark-yellow-900);
+  --naotech-warning-border-4-050: 4px solid var(--naotech-color-dark-yellow-050);
+  --naotech-warning-border-4-100: 4px solid var(--naotech-color-dark-yellow-100);
+  --naotech-warning-border-4-200: 4px solid var(--naotech-color-dark-yellow-200);
+  --naotech-warning-border-4-300: 4px solid var(--naotech-color-dark-yellow-300);
+  --naotech-warning-border-4-400: 4px solid var(--naotech-color-dark-yellow-400);
+  --naotech-warning-border-4-500: 4px solid var(--naotech-color-dark-yellow-500);
+  --naotech-warning-border-4-600: 4px solid var(--naotech-color-dark-yellow-600);
+  --naotech-warning-border-4-700: 4px solid var(--naotech-color-dark-yellow-700);
+  --naotech-warning-border-4-800: 4px solid var(--naotech-color-dark-yellow-800);
+  --naotech-warning-border-4-900: 4px solid var(--naotech-color-dark-yellow-900);
+  --naotech-warning-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-dark-yellow-700) 15%, transparent);
+  --naotech-warning-shadow-300: 0 0 0 2px var(--naotech-color-dark-yellow-300);
+  --naotech-warning-shadow-400: 0 0 0 2px var(--naotech-color-dark-yellow-400);
+  --naotech-warning-shadow-500: 0 0 0 2px var(--naotech-color-dark-yellow-500);
+  --naotech-warning-shadow-600: 0 0 0 2px var(--naotech-color-dark-yellow-600);
+  --naotech-warning-shadow-700: 0 0 0 2px var(--naotech-color-dark-yellow-700);
+  --naotech-warning-backdrop: var(--naotech-color-dark-yellow-backdrop);
+  --naotech-warning-font-color: var(--naotech-color-black-alpha-100);
+  --naotech-warning-subtle-text: var(--naotech-color-dark-yellow-900);
+  --naotech-warning-focus-ring: var(--naotech-color-dark-yellow-700);
+  --naotech-warning-focus-shadow:
+    0 0 0 2px var(--naotech-warning-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-dark-yellow-700) 15%, transparent);
+  --naotech-caution-color-050: var(--naotech-color-dark-orange-050);
+  --naotech-caution-color-100: var(--naotech-color-dark-orange-100);
+  --naotech-caution-color-200: var(--naotech-color-dark-orange-200);
+  --naotech-caution-color-300: var(--naotech-color-dark-orange-300);
+  --naotech-caution-color-400: var(--naotech-color-dark-orange-400);
+  --naotech-caution-color-500: var(--naotech-color-dark-orange-500);
+  --naotech-caution-color-600: var(--naotech-color-dark-orange-600);
+  --naotech-caution-color-700: var(--naotech-color-dark-orange-700);
+  --naotech-caution-color-800: var(--naotech-color-dark-orange-800);
+  --naotech-caution-color-900: var(--naotech-color-dark-orange-900);
+  --naotech-caution-border-1-050: 1px solid var(--naotech-color-dark-orange-050);
+  --naotech-caution-border-1-100: 1px solid var(--naotech-color-dark-orange-100);
+  --naotech-caution-border-1-200: 1px solid var(--naotech-color-dark-orange-200);
+  --naotech-caution-border-1-300: 1px solid var(--naotech-color-dark-orange-300);
+  --naotech-caution-border-1-400: 1px solid var(--naotech-color-dark-orange-400);
+  --naotech-caution-border-1-500: 1px solid var(--naotech-color-dark-orange-500);
+  --naotech-caution-border-1-600: 1px solid var(--naotech-color-dark-orange-600);
+  --naotech-caution-border-1-700: 1px solid var(--naotech-color-dark-orange-700);
+  --naotech-caution-border-1-800: 1px solid var(--naotech-color-dark-orange-800);
+  --naotech-caution-border-1-900: 1px solid var(--naotech-color-dark-orange-900);
+  --naotech-caution-border-2-050: 2px solid var(--naotech-color-dark-orange-050);
+  --naotech-caution-border-2-100: 2px solid var(--naotech-color-dark-orange-100);
+  --naotech-caution-border-2-200: 2px solid var(--naotech-color-dark-orange-200);
+  --naotech-caution-border-2-300: 2px solid var(--naotech-color-dark-orange-300);
+  --naotech-caution-border-2-400: 2px solid var(--naotech-color-dark-orange-400);
+  --naotech-caution-border-2-500: 2px solid var(--naotech-color-dark-orange-500);
+  --naotech-caution-border-2-600: 2px solid var(--naotech-color-dark-orange-600);
+  --naotech-caution-border-2-700: 2px solid var(--naotech-color-dark-orange-700);
+  --naotech-caution-border-2-800: 2px solid var(--naotech-color-dark-orange-800);
+  --naotech-caution-border-2-900: 2px solid var(--naotech-color-dark-orange-900);
+  --naotech-caution-border-3-050: 3px solid var(--naotech-color-dark-orange-050);
+  --naotech-caution-border-3-100: 3px solid var(--naotech-color-dark-orange-100);
+  --naotech-caution-border-3-200: 3px solid var(--naotech-color-dark-orange-200);
+  --naotech-caution-border-3-300: 3px solid var(--naotech-color-dark-orange-300);
+  --naotech-caution-border-3-400: 3px solid var(--naotech-color-dark-orange-400);
+  --naotech-caution-border-3-500: 3px solid var(--naotech-color-dark-orange-500);
+  --naotech-caution-border-3-600: 3px solid var(--naotech-color-dark-orange-600);
+  --naotech-caution-border-3-700: 3px solid var(--naotech-color-dark-orange-700);
+  --naotech-caution-border-3-800: 3px solid var(--naotech-color-dark-orange-800);
+  --naotech-caution-border-3-900: 3px solid var(--naotech-color-dark-orange-900);
+  --naotech-caution-border-4-050: 4px solid var(--naotech-color-dark-orange-050);
+  --naotech-caution-border-4-100: 4px solid var(--naotech-color-dark-orange-100);
+  --naotech-caution-border-4-200: 4px solid var(--naotech-color-dark-orange-200);
+  --naotech-caution-border-4-300: 4px solid var(--naotech-color-dark-orange-300);
+  --naotech-caution-border-4-400: 4px solid var(--naotech-color-dark-orange-400);
+  --naotech-caution-border-4-500: 4px solid var(--naotech-color-dark-orange-500);
+  --naotech-caution-border-4-600: 4px solid var(--naotech-color-dark-orange-600);
+  --naotech-caution-border-4-700: 4px solid var(--naotech-color-dark-orange-700);
+  --naotech-caution-border-4-800: 4px solid var(--naotech-color-dark-orange-800);
+  --naotech-caution-border-4-900: 4px solid var(--naotech-color-dark-orange-900);
+  --naotech-caution-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-dark-orange-700) 15%, transparent);
+  --naotech-caution-shadow-300: 0 0 0 2px var(--naotech-color-dark-orange-300);
+  --naotech-caution-shadow-400: 0 0 0 2px var(--naotech-color-dark-orange-400);
+  --naotech-caution-shadow-500: 0 0 0 2px var(--naotech-color-dark-orange-500);
+  --naotech-caution-shadow-600: 0 0 0 2px var(--naotech-color-dark-orange-600);
+  --naotech-caution-shadow-700: 0 0 0 2px var(--naotech-color-dark-orange-700);
+  --naotech-caution-backdrop: var(--naotech-color-dark-orange-backdrop);
+  --naotech-caution-font-color: var(--naotech-color-black-alpha-100);
+  --naotech-caution-subtle-text: var(--naotech-color-dark-orange-900);
+  --naotech-caution-focus-ring: var(--naotech-color-dark-orange-700);
+  --naotech-caution-focus-shadow:
+    0 0 0 2px var(--naotech-caution-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-dark-orange-700) 15%, transparent);
+  --naotech-negative-color-050: var(--naotech-color-dark-red-050);
+  --naotech-negative-color-100: var(--naotech-color-dark-red-100);
+  --naotech-negative-color-200: var(--naotech-color-dark-red-200);
+  --naotech-negative-color-300: var(--naotech-color-dark-red-300);
+  --naotech-negative-color-400: var(--naotech-color-dark-red-400);
+  --naotech-negative-color-500: var(--naotech-color-dark-red-500);
+  --naotech-negative-color-600: var(--naotech-color-dark-red-600);
+  --naotech-negative-color-700: var(--naotech-color-dark-red-700);
+  --naotech-negative-color-800: var(--naotech-color-dark-red-800);
+  --naotech-negative-color-900: var(--naotech-color-dark-red-900);
+  --naotech-negative-border-1-050: 1px solid var(--naotech-color-dark-red-050);
+  --naotech-negative-border-1-100: 1px solid var(--naotech-color-dark-red-100);
+  --naotech-negative-border-1-200: 1px solid var(--naotech-color-dark-red-200);
+  --naotech-negative-border-1-300: 1px solid var(--naotech-color-dark-red-300);
+  --naotech-negative-border-1-400: 1px solid var(--naotech-color-dark-red-400);
+  --naotech-negative-border-1-500: 1px solid var(--naotech-color-dark-red-500);
+  --naotech-negative-border-1-600: 1px solid var(--naotech-color-dark-red-600);
+  --naotech-negative-border-1-700: 1px solid var(--naotech-color-dark-red-700);
+  --naotech-negative-border-1-800: 1px solid var(--naotech-color-dark-red-800);
+  --naotech-negative-border-1-900: 1px solid var(--naotech-color-dark-red-900);
+  --naotech-negative-border-2-050: 2px solid var(--naotech-color-dark-red-050);
+  --naotech-negative-border-2-100: 2px solid var(--naotech-color-dark-red-100);
+  --naotech-negative-border-2-200: 2px solid var(--naotech-color-dark-red-200);
+  --naotech-negative-border-2-300: 2px solid var(--naotech-color-dark-red-300);
+  --naotech-negative-border-2-400: 2px solid var(--naotech-color-dark-red-400);
+  --naotech-negative-border-2-500: 2px solid var(--naotech-color-dark-red-500);
+  --naotech-negative-border-2-600: 2px solid var(--naotech-color-dark-red-600);
+  --naotech-negative-border-2-700: 2px solid var(--naotech-color-dark-red-700);
+  --naotech-negative-border-2-800: 2px solid var(--naotech-color-dark-red-800);
+  --naotech-negative-border-2-900: 2px solid var(--naotech-color-dark-red-900);
+  --naotech-negative-border-3-050: 3px solid var(--naotech-color-dark-red-050);
+  --naotech-negative-border-3-100: 3px solid var(--naotech-color-dark-red-100);
+  --naotech-negative-border-3-200: 3px solid var(--naotech-color-dark-red-200);
+  --naotech-negative-border-3-300: 3px solid var(--naotech-color-dark-red-300);
+  --naotech-negative-border-3-400: 3px solid var(--naotech-color-dark-red-400);
+  --naotech-negative-border-3-500: 3px solid var(--naotech-color-dark-red-500);
+  --naotech-negative-border-3-600: 3px solid var(--naotech-color-dark-red-600);
+  --naotech-negative-border-3-700: 3px solid var(--naotech-color-dark-red-700);
+  --naotech-negative-border-3-800: 3px solid var(--naotech-color-dark-red-800);
+  --naotech-negative-border-3-900: 3px solid var(--naotech-color-dark-red-900);
+  --naotech-negative-border-4-050: 4px solid var(--naotech-color-dark-red-050);
+  --naotech-negative-border-4-100: 4px solid var(--naotech-color-dark-red-100);
+  --naotech-negative-border-4-200: 4px solid var(--naotech-color-dark-red-200);
+  --naotech-negative-border-4-300: 4px solid var(--naotech-color-dark-red-300);
+  --naotech-negative-border-4-400: 4px solid var(--naotech-color-dark-red-400);
+  --naotech-negative-border-4-500: 4px solid var(--naotech-color-dark-red-500);
+  --naotech-negative-border-4-600: 4px solid var(--naotech-color-dark-red-600);
+  --naotech-negative-border-4-700: 4px solid var(--naotech-color-dark-red-700);
+  --naotech-negative-border-4-800: 4px solid var(--naotech-color-dark-red-800);
+  --naotech-negative-border-4-900: 4px solid var(--naotech-color-dark-red-900);
+  --naotech-negative-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-dark-red-700) 15%, transparent);
+  --naotech-negative-shadow-300: 0 0 0 2px var(--naotech-color-dark-red-300);
+  --naotech-negative-shadow-400: 0 0 0 2px var(--naotech-color-dark-red-400);
+  --naotech-negative-shadow-500: 0 0 0 2px var(--naotech-color-dark-red-500);
+  --naotech-negative-shadow-600: 0 0 0 2px var(--naotech-color-dark-red-600);
+  --naotech-negative-shadow-700: 0 0 0 2px var(--naotech-color-dark-red-700);
+  --naotech-negative-backdrop: var(--naotech-color-dark-red-backdrop);
+  --naotech-negative-font-color: var(--naotech-color-black-alpha-100);
+  --naotech-negative-subtle-text: var(--naotech-color-dark-red-900);
+  --naotech-negative-focus-ring: var(--naotech-color-dark-red-700);
+  --naotech-negative-focus-shadow:
+    0 0 0 2px var(--naotech-negative-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-dark-red-700) 15%, transparent);
+  --naotech-neutral-color-050: var(--naotech-color-dark-gray-050);
+  --naotech-neutral-color-100: var(--naotech-color-dark-gray-100);
+  --naotech-neutral-color-200: var(--naotech-color-dark-gray-200);
+  --naotech-neutral-color-300: var(--naotech-color-dark-gray-300);
+  --naotech-neutral-color-400: var(--naotech-color-dark-gray-400);
+  --naotech-neutral-color-500: var(--naotech-color-dark-gray-500);
+  --naotech-neutral-color-600: var(--naotech-color-dark-gray-600);
+  --naotech-neutral-color-700: var(--naotech-color-dark-gray-700);
+  --naotech-neutral-color-800: var(--naotech-color-dark-gray-800);
+  --naotech-neutral-color-900: var(--naotech-color-dark-gray-900);
+  --naotech-neutral-border-1-050: 1px solid var(--naotech-color-dark-gray-050);
+  --naotech-neutral-border-1-100: 1px solid var(--naotech-color-dark-gray-100);
+  --naotech-neutral-border-1-200: 1px solid var(--naotech-color-dark-gray-200);
+  --naotech-neutral-border-1-300: 1px solid var(--naotech-color-dark-gray-300);
+  --naotech-neutral-border-1-400: 1px solid var(--naotech-color-dark-gray-400);
+  --naotech-neutral-border-1-500: 1px solid var(--naotech-color-dark-gray-500);
+  --naotech-neutral-border-1-600: 1px solid var(--naotech-color-dark-gray-600);
+  --naotech-neutral-border-1-700: 1px solid var(--naotech-color-dark-gray-700);
+  --naotech-neutral-border-1-800: 1px solid var(--naotech-color-dark-gray-800);
+  --naotech-neutral-border-1-900: 1px solid var(--naotech-color-dark-gray-900);
+  --naotech-neutral-border-2-050: 2px solid var(--naotech-color-dark-gray-050);
+  --naotech-neutral-border-2-100: 2px solid var(--naotech-color-dark-gray-100);
+  --naotech-neutral-border-2-200: 2px solid var(--naotech-color-dark-gray-200);
+  --naotech-neutral-border-2-300: 2px solid var(--naotech-color-dark-gray-300);
+  --naotech-neutral-border-2-400: 2px solid var(--naotech-color-dark-gray-400);
+  --naotech-neutral-border-2-500: 2px solid var(--naotech-color-dark-gray-500);
+  --naotech-neutral-border-2-600: 2px solid var(--naotech-color-dark-gray-600);
+  --naotech-neutral-border-2-700: 2px solid var(--naotech-color-dark-gray-700);
+  --naotech-neutral-border-2-800: 2px solid var(--naotech-color-dark-gray-800);
+  --naotech-neutral-border-2-900: 2px solid var(--naotech-color-dark-gray-900);
+  --naotech-neutral-border-3-050: 3px solid var(--naotech-color-dark-gray-050);
+  --naotech-neutral-border-3-100: 3px solid var(--naotech-color-dark-gray-100);
+  --naotech-neutral-border-3-200: 3px solid var(--naotech-color-dark-gray-200);
+  --naotech-neutral-border-3-300: 3px solid var(--naotech-color-dark-gray-300);
+  --naotech-neutral-border-3-400: 3px solid var(--naotech-color-dark-gray-400);
+  --naotech-neutral-border-3-500: 3px solid var(--naotech-color-dark-gray-500);
+  --naotech-neutral-border-3-600: 3px solid var(--naotech-color-dark-gray-600);
+  --naotech-neutral-border-3-700: 3px solid var(--naotech-color-dark-gray-700);
+  --naotech-neutral-border-3-800: 3px solid var(--naotech-color-dark-gray-800);
+  --naotech-neutral-border-3-900: 3px solid var(--naotech-color-dark-gray-900);
+  --naotech-neutral-border-4-050: 4px solid var(--naotech-color-dark-gray-050);
+  --naotech-neutral-border-4-100: 4px solid var(--naotech-color-dark-gray-100);
+  --naotech-neutral-border-4-200: 4px solid var(--naotech-color-dark-gray-200);
+  --naotech-neutral-border-4-300: 4px solid var(--naotech-color-dark-gray-300);
+  --naotech-neutral-border-4-400: 4px solid var(--naotech-color-dark-gray-400);
+  --naotech-neutral-border-4-500: 4px solid var(--naotech-color-dark-gray-500);
+  --naotech-neutral-border-4-600: 4px solid var(--naotech-color-dark-gray-600);
+  --naotech-neutral-border-4-700: 4px solid var(--naotech-color-dark-gray-700);
+  --naotech-neutral-border-4-800: 4px solid var(--naotech-color-dark-gray-800);
+  --naotech-neutral-border-4-900: 4px solid var(--naotech-color-dark-gray-900);
+  --naotech-neutral-shadow-200: 0 0 0 3px
+    color-mix(in srgb, var(--naotech-color-dark-gray-700) 15%, transparent);
+  --naotech-neutral-shadow-300: 0 0 0 2px var(--naotech-color-dark-gray-300);
+  --naotech-neutral-shadow-400: 0 0 0 2px var(--naotech-color-dark-gray-400);
+  --naotech-neutral-shadow-500: 0 0 0 2px var(--naotech-color-dark-gray-500);
+  --naotech-neutral-shadow-600: 0 0 0 2px var(--naotech-color-dark-gray-600);
+  --naotech-neutral-shadow-700: 0 0 0 2px var(--naotech-color-dark-gray-700);
+  --naotech-neutral-backdrop: var(--naotech-color-dark-gray-backdrop);
+  --naotech-neutral-font-color: var(--naotech-color-black-alpha-100);
+  --naotech-neutral-subtle-text: var(--naotech-color-dark-gray-900);
+  --naotech-neutral-focus-ring: var(--naotech-color-dark-gray-700);
+  --naotech-neutral-focus-shadow:
+    0 0 0 2px var(--naotech-neutral-focus-ring),
+    0 0 0 5px
+      color-mix(in srgb, var(--naotech-color-dark-gray-700) 15%, transparent);
+  --naotech-secondary-font-color: var(--naotech-color-dark-gray-050);
+  --naotech-warning-focus-ring: var(--naotech-color-dark-gray-900);
+  --naotech-warning-subtle-text: var(--naotech-color-dark-gray-900);
+  --naotech-informative-subtle-text: var(--naotech-color-white-alpha-100);
+}
+body *[naotech-container='fill'] {
+  --naotech-primary-color-normal: var(--naotech-color-white-alpha-100);
+  --naotech-primary-color-hover: var(--naotech-color-white-alpha-90);
+  --naotech-primary-color-active: var(--naotech-color-white-alpha-80);
+  --naotech-primary-color-loading: var(--naotech-color-white-alpha-80);
+  --naotech-primary-color-disabled: var(--naotech-color-black-alpha-20);
+  --naotech-primary-color-disabled-loading: var(--naotech-color-black-alpha-30);
+  --naotech-primary-color-text-normal: var(--naotech-color-gray-900);
+  --naotech-primary-color-text-disabled: var(--naotech-color-white-alpha-20);
+  --naotech-secondary-color-normal: var(--naotech-color-black-alpha-30);
+  --naotech-secondary-color-hover: var(--naotech-color-black-alpha-40);
+  --naotech-secondary-color-active: var(--naotech-color-black-alpha-50);
+  --naotech-secondary-color-loading: var(--naotech-color-black-alpha-40);
+  --naotech-secondary-color-disabled: var(--naotech-color-black-alpha-20);
+  --naotech-secondary-color-disabled-loading: var(
+    --naotech-color-black-alpha-30
+  );
+  --naotech-secondary-color-text-normal: var(--naotech-color-white-alpha-100);
+  --naotech-secondary-color-text-disabled: var(--naotech-color-white-alpha-20);
+  --naotech-tertiary-color-normal: transparent;
+  --naotech-tertiary-color-hover: var(--naotech-color-black-alpha-10);
+  --naotech-tertiary-color-active: var(--naotech-color-black-alpha-20);
+  --naotech-tertiary-color-loading: var(--naotech-color-black-alpha-20);
+  --naotech-tertiary-color-disabled: transparent;
+  --naotech-tertiary-color-disabled-loading: var(
+    --naotech-color-black-alpha-10
+  );
+  --naotech-tertiary-color-text-normal: var(--naotech-color-white-alpha-100);
+  --naotech-tertiary-color-text-disabled: var(--naotech-color-white-alpha-20);
+  background: var(--naotech-primary-color-700);
+}
+body *[naotech-container='fill'] *[nwt-theme='primary'],
+body *[naotech-container='fill'] *[nwt-theme='secondary'],
+body *[naotech-container='fill'] *[nwt-theme='informative'],
+body *[naotech-container='fill'] *[nwt-theme='positive'],
+body *[naotech-container='fill'] *[nwt-theme='warning'],
+body *[naotech-container='fill'] *[nwt-theme='caution'],
+body *[naotech-container='fill'] *[nwt-theme='negative'],
+body *[naotech-container='fill'] *[nwt-theme='neutral'] {
+  --naotech-primary-color-normal: var(--naotech-color-white-alpha-100);
+  --naotech-primary-color-hover: var(--naotech-color-white-alpha-90);
+  --naotech-primary-color-active: var(--naotech-color-white-alpha-80);
+  --naotech-primary-color-loading: var(--naotech-color-white-alpha-80);
+  --naotech-primary-color-disabled: var(--naotech-color-black-alpha-20);
+  --naotech-primary-color-disabled-loading: var(--naotech-color-black-alpha-30);
+  --naotech-primary-color-text-normal: var(--naotech-color-gray-900);
+  --naotech-primary-color-text-disabled: var(--naotech-color-white-alpha-20);
+  --naotech-secondary-color-normal: var(--naotech-color-black-alpha-30);
+  --naotech-secondary-color-hover: var(--naotech-color-black-alpha-40);
+  --naotech-secondary-color-active: var(--naotech-color-black-alpha-50);
+  --naotech-secondary-color-loading: var(--naotech-color-black-alpha-40);
+  --naotech-secondary-color-disabled: var(--naotech-color-black-alpha-20);
+  --naotech-secondary-color-disabled-loading: var(
+    --naotech-color-black-alpha-30
+  );
+  --naotech-secondary-color-text-normal: var(--naotech-color-white-alpha-100);
+  --naotech-secondary-color-text-disabled: var(--naotech-color-white-alpha-20);
+  --naotech-tertiary-color-normal: transparent;
+  --naotech-tertiary-color-hover: var(--naotech-color-black-alpha-10);
+  --naotech-tertiary-color-active: var(--naotech-color-black-alpha-20);
+  --naotech-tertiary-color-loading: var(--naotech-color-black-alpha-20);
+  --naotech-tertiary-color-disabled: transparent;
+  --naotech-tertiary-color-disabled-loading: var(
+    --naotech-color-black-alpha-10
+  );
+  --naotech-tertiary-color-text-normal: var(--naotech-color-white-alpha-100);
+  --naotech-tertiary-color-text-disabled: var(--naotech-color-white-alpha-20);
+}
+html[nwt-pref-scale='125'] {
+  font-size: 125%;
+}
+html[nwt-pref-scale='150'] {
+  font-size: 150%;
+}
+html[nwt-pref-scale='175'] {
+  font-size: 175%;
+}
+html[nwt-pref-spacing='wide'] {
+  letter-spacing: 0.12em;
+  word-spacing: 0.16em;
+  --naotech-heading1-line-height: calc(var(--naotech-heading1-font-size) * 1.5);
+  --naotech-heading2-line-height: calc(var(--naotech-heading2-font-size) * 1.5);
+  --naotech-heading3-line-height: calc(var(--naotech-heading3-font-size) * 1.5);
+  --naotech-heading4-line-height: calc(var(--naotech-heading4-font-size) * 1.5);
+  --naotech-heading5-line-height: calc(var(--naotech-heading5-font-size) * 1.5);
+  --naotech-heading6-line-height: calc(var(--naotech-heading6-font-size) * 1.5);
+  --naotech-subtitle-line-height: calc(var(--naotech-subtitle-font-size) * 1.5);
+  --naotech-body-line-height: calc(var(--naotech-body-font-size) * 1.5);
+  --naotech-smalltext-line-height: calc(
+    var(--naotech-smalltext-font-size) * 1.5
+  );
+  --naotech-caption-line-height: calc(var(--naotech-caption-font-size) * 1.5);
+  --naotech-overline-line-height: calc(var(--naotech-overline-font-size) * 1.5);
+}
+html[nwt-pref-spacing='wide'] p {
+  margin-block-end: 2em;
+}
+@media (prefers-reduced-motion: reduce) {
+  html:not([nwt-pref-motion='full']) *,
+  html:not([nwt-pref-motion='full']) *::before,
+  html:not([nwt-pref-motion='full']) *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html[nwt-pref-motion='reduced'] *,
+html[nwt-pref-motion='reduced'] *::before,
+html[nwt-pref-motion='reduced'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+html[nwt-pref-stimulus='reduced'] {
+  filter: saturate(0.6);
+  --naotech-shadow-1: none;
+  --naotech-shadow-2: none;
+  --naotech-shadow-4: none;
+  --naotech-shadow-6: none;
+  --naotech-shadow-8: none;
+  --naotech-shadow-16: none;
+  --naotech-shadow-24: none;
+  --naotech-shadow-16-up: none;
+}
+html[nwt-pref-stimulus='reduced'] .nwt-button--shadow-glow {
+  --pvt-button-shadow: none;
+}
+html[nwt-pref-stimulus='reduced'] .nwt-modal__backdrop,
+html[nwt-pref-stimulus='reduced'] .nwt-view-indicator {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.naotech-grid {
+  --naotech-grid-columns: 12;
+  --naotech-grid-gap: var(--naotech-sizing-16);
+  display: grid;
+  grid-template-columns: repeat(var(--naotech-grid-columns), minmax(0, 1fr));
+  gap: var(--naotech-grid-gap);
+  width: 100%;
+  box-sizing: border-box;
+}
+.naotech-grid > * {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.naotech-col {
+  grid-column: span 1 / span 1;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.naotech-grid--1 {
+  --naotech-grid-columns: 1;
+}
+.naotech-grid--2 {
+  --naotech-grid-columns: 2;
+}
+.naotech-grid--3 {
+  --naotech-grid-columns: 3;
+}
+.naotech-grid--4 {
+  --naotech-grid-columns: 4;
+}
+.naotech-grid--5 {
+  --naotech-grid-columns: 5;
+}
+.naotech-grid--6 {
+  --naotech-grid-columns: 6;
+}
+.naotech-grid--7 {
+  --naotech-grid-columns: 7;
+}
+.naotech-grid--8 {
+  --naotech-grid-columns: 8;
+}
+.naotech-grid--9 {
+  --naotech-grid-columns: 9;
+}
+.naotech-grid--10 {
+  --naotech-grid-columns: 10;
+}
+.naotech-grid--11 {
+  --naotech-grid-columns: 11;
+}
+.naotech-grid--12 {
+  --naotech-grid-columns: 12;
+}
+.naotech-col--1 {
+  grid-column: span 1 / span 1;
+}
+.naotech-col--2 {
+  grid-column: span 2 / span 2;
+}
+.naotech-col--3 {
+  grid-column: span 3 / span 3;
+}
+.naotech-col--4 {
+  grid-column: span 4 / span 4;
+}
+.naotech-col--5 {
+  grid-column: span 5 / span 5;
+}
+.naotech-col--6 {
+  grid-column: span 6 / span 6;
+}
+.naotech-col--7 {
+  grid-column: span 7 / span 7;
+}
+.naotech-col--8 {
+  grid-column: span 8 / span 8;
+}
+.naotech-col--9 {
+  grid-column: span 9 / span 9;
+}
+.naotech-col--10 {
+  grid-column: span 10 / span 10;
+}
+.naotech-col--11 {
+  grid-column: span 11 / span 11;
+}
+.naotech-col--12 {
+  grid-column: span 12 / span 12;
+}
+.naotech-grid--1 > .naotech-col--2,
+.naotech-grid--1 > .naotech-col--3,
+.naotech-grid--1 > .naotech-col--4,
+.naotech-grid--1 > .naotech-col--5,
+.naotech-grid--1 > .naotech-col--6,
+.naotech-grid--1 > .naotech-col--7,
+.naotech-grid--1 > .naotech-col--8,
+.naotech-grid--1 > .naotech-col--9,
+.naotech-grid--1 > .naotech-col--10,
+.naotech-grid--1 > .naotech-col--11,
+.naotech-grid--1 > .naotech-col--12 {
+  grid-column: span 1 / span 1;
+}
+.naotech-grid--2 > .naotech-col--3,
+.naotech-grid--2 > .naotech-col--4,
+.naotech-grid--2 > .naotech-col--5,
+.naotech-grid--2 > .naotech-col--6,
+.naotech-grid--2 > .naotech-col--7,
+.naotech-grid--2 > .naotech-col--8,
+.naotech-grid--2 > .naotech-col--9,
+.naotech-grid--2 > .naotech-col--10,
+.naotech-grid--2 > .naotech-col--11,
+.naotech-grid--2 > .naotech-col--12 {
+  grid-column: span 2 / span 2;
+}
+.naotech-grid--3 > .naotech-col--4,
+.naotech-grid--3 > .naotech-col--5,
+.naotech-grid--3 > .naotech-col--6,
+.naotech-grid--3 > .naotech-col--7,
+.naotech-grid--3 > .naotech-col--8,
+.naotech-grid--3 > .naotech-col--9,
+.naotech-grid--3 > .naotech-col--10,
+.naotech-grid--3 > .naotech-col--11,
+.naotech-grid--3 > .naotech-col--12 {
+  grid-column: span 3 / span 3;
+}
+.naotech-grid--4 > .naotech-col--5,
+.naotech-grid--4 > .naotech-col--6,
+.naotech-grid--4 > .naotech-col--7,
+.naotech-grid--4 > .naotech-col--8,
+.naotech-grid--4 > .naotech-col--9,
+.naotech-grid--4 > .naotech-col--10,
+.naotech-grid--4 > .naotech-col--11,
+.naotech-grid--4 > .naotech-col--12 {
+  grid-column: span 4 / span 4;
+}
+.naotech-grid--5 > .naotech-col--6,
+.naotech-grid--5 > .naotech-col--7,
+.naotech-grid--5 > .naotech-col--8,
+.naotech-grid--5 > .naotech-col--9,
+.naotech-grid--5 > .naotech-col--10,
+.naotech-grid--5 > .naotech-col--11,
+.naotech-grid--5 > .naotech-col--12 {
+  grid-column: span 5 / span 5;
+}
+.naotech-grid--6 > .naotech-col--7,
+.naotech-grid--6 > .naotech-col--8,
+.naotech-grid--6 > .naotech-col--9,
+.naotech-grid--6 > .naotech-col--10,
+.naotech-grid--6 > .naotech-col--11,
+.naotech-grid--6 > .naotech-col--12 {
+  grid-column: span 6 / span 6;
+}
+.naotech-grid--7 > .naotech-col--8,
+.naotech-grid--7 > .naotech-col--9,
+.naotech-grid--7 > .naotech-col--10,
+.naotech-grid--7 > .naotech-col--11,
+.naotech-grid--7 > .naotech-col--12 {
+  grid-column: span 7 / span 7;
+}
+.naotech-grid--8 > .naotech-col--9,
+.naotech-grid--8 > .naotech-col--10,
+.naotech-grid--8 > .naotech-col--11,
+.naotech-grid--8 > .naotech-col--12 {
+  grid-column: span 8 / span 8;
+}
+.naotech-grid--9 > .naotech-col--10,
+.naotech-grid--9 > .naotech-col--11,
+.naotech-grid--9 > .naotech-col--12 {
+  grid-column: span 9 / span 9;
+}
+.naotech-grid--10 > .naotech-col--11,
+.naotech-grid--10 > .naotech-col--12 {
+  grid-column: span 10 / span 10;
+}
+.naotech-grid--11 > .naotech-col--12 {
+  grid-column: span 11 / span 11;
+}
+[nwt-motion] {
+  --pvt-motion-duration: var(--naotech-duration-base);
+  --pvt-motion-easing: var(--naotech-animation-standard);
+  --pvt-motion-distance: var(--naotech-motion-distance);
+  --pvt-motion-scale: var(--naotech-motion-scale);
+}
+[nwt-motion-duration='fast'] {
+  --pvt-motion-duration: var(--naotech-duration-fast);
+}
+[nwt-motion-duration='base'] {
+  --pvt-motion-duration: var(--naotech-duration-base);
+}
+[nwt-motion-duration='slow'] {
+  --pvt-motion-duration: var(--naotech-duration-slow);
+}
+[nwt-motion-easing='standard'] {
+  --pvt-motion-easing: var(--naotech-animation-standard);
+}
+[nwt-motion-easing='deceleration'] {
+  --pvt-motion-easing: var(--naotech-animation-deceleration);
+}
+[nwt-motion-easing='acceleration'] {
+  --pvt-motion-easing: var(--naotech-animation-acceleration);
+}
+[nwt-motion-easing='sharp'] {
+  --pvt-motion-easing: var(--naotech-animation-sharp);
+}
+[nwt-motion='fade'],
+[nwt-motion='scale'],
+[nwt-motion='slide'] {
+  animation-duration: var(--pvt-motion-duration);
+  animation-timing-function: var(--pvt-motion-easing);
+  animation-fill-mode: both;
+}
+[nwt-motion='none'] {
+  animation: none;
+}
+[nwt-motion='fade'][nwt-motion-intent='enter'] {
+  animation-name: naotech-motion-fade-enter;
+}
+[nwt-motion='fade'][nwt-motion-intent='exit'] {
+  animation-name: naotech-motion-fade-exit;
+}
+[nwt-motion='scale'][nwt-motion-intent='enter'] {
+  animation-name: naotech-motion-scale-enter;
+}
+[nwt-motion='scale'][nwt-motion-intent='exit'] {
+  animation-name: naotech-motion-scale-exit;
+}
+[nwt-motion='fade'][nwt-motion-intent='toggle'] {
+  animation-name: naotech-motion-fade-enter;
+}
+[nwt-motion='scale'][nwt-motion-intent='toggle'] {
+  animation-name: naotech-motion-scale-enter;
+}
+[nwt-motion='slide']:not([nwt-motion-direction]) {
+  animation-name: naotech-motion-fade-enter;
+}
+[nwt-motion='slide'][nwt-motion-direction='up'][nwt-motion-intent='enter'],
+[nwt-motion='slide'][nwt-motion-direction='up'][nwt-motion-intent='toggle'] {
+  animation-name: naotech-motion-slide-up-enter;
+}
+[nwt-motion='slide'][nwt-motion-direction='up'][nwt-motion-intent='exit'] {
+  animation-name: naotech-motion-slide-up-exit;
+}
+[nwt-motion='slide'][nwt-motion-direction='down'][nwt-motion-intent='enter'],
+[nwt-motion='slide'][nwt-motion-direction='down'][nwt-motion-intent='toggle'] {
+  animation-name: naotech-motion-slide-down-enter;
+}
+[nwt-motion='slide'][nwt-motion-direction='down'][nwt-motion-intent='exit'] {
+  animation-name: naotech-motion-slide-down-exit;
+}
+[nwt-motion='slide'][nwt-motion-direction='left'],
+[nwt-motion='slide'][nwt-motion-direction='right'] {
+  --pvt-motion-shift: var(--pvt-motion-distance);
+}
+[nwt-motion='slide'][nwt-motion-direction='right'] {
+  --pvt-motion-shift: calc(-1 * var(--pvt-motion-distance));
+}
+[dir='rtl'] [nwt-motion='slide'][nwt-motion-direction='left'] {
+  --pvt-motion-shift: calc(-1 * var(--pvt-motion-distance));
+}
+[dir='rtl'] [nwt-motion='slide'][nwt-motion-direction='right'] {
+  --pvt-motion-shift: var(--pvt-motion-distance);
+}
+[nwt-motion='slide'][nwt-motion-direction='left'][nwt-motion-intent='enter'],
+[nwt-motion='slide'][nwt-motion-direction='left'][nwt-motion-intent='toggle'],
+[nwt-motion='slide'][nwt-motion-direction='right'][nwt-motion-intent='enter'],
+[nwt-motion='slide'][nwt-motion-direction='right'][nwt-motion-intent='toggle'] {
+  animation-name: naotech-motion-slide-x-enter;
+}
+[nwt-motion='slide'][nwt-motion-direction='left'][nwt-motion-intent='exit'],
+[nwt-motion='slide'][nwt-motion-direction='right'][nwt-motion-intent='exit'] {
+  animation-name: naotech-motion-slide-x-exit;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --naotech-motion-distance: 0px;
+    --naotech-motion-scale: 1;
+  }
+}
+@keyframes naotech-motion-fade-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes naotech-motion-fade-exit {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes naotech-motion-scale-enter {
+  from {
+    opacity: 0;
+    scale: var(--pvt-motion-scale, var(--naotech-motion-scale));
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes naotech-motion-scale-exit {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: var(--pvt-motion-scale, var(--naotech-motion-scale));
+  }
+}
+@keyframes naotech-motion-slide-up-enter {
+  from {
+    opacity: 0;
+    translate: 0 var(--pvt-motion-distance, var(--naotech-motion-distance));
+  }
+  to {
+    opacity: 1;
+    translate: 0;
+  }
+}
+@keyframes naotech-motion-slide-up-exit {
+  from {
+    opacity: 1;
+    translate: 0;
+  }
+  to {
+    opacity: 0;
+    translate: 0 var(--pvt-motion-distance, var(--naotech-motion-distance));
+  }
+}
+@keyframes naotech-motion-slide-down-enter {
+  from {
+    opacity: 0;
+    translate: 0
+      calc(-1 * var(--pvt-motion-distance, var(--naotech-motion-distance)));
+  }
+  to {
+    opacity: 1;
+    translate: 0;
+  }
+}
+@keyframes naotech-motion-slide-down-exit {
+  from {
+    opacity: 1;
+    translate: 0;
+  }
+  to {
+    opacity: 0;
+    translate: 0
+      calc(-1 * var(--pvt-motion-distance, var(--naotech-motion-distance)));
+  }
+}
+@keyframes naotech-motion-slide-x-enter {
+  from {
+    opacity: 0;
+    translate: var(--pvt-motion-shift, var(--naotech-motion-distance)) 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0;
+  }
+}
+@keyframes naotech-motion-slide-x-exit {
+  from {
+    opacity: 1;
+    translate: 0;
+  }
+  to {
+    opacity: 0;
+    translate: var(--pvt-motion-shift, var(--naotech-motion-distance)) 0;
+  }
+}
+@keyframes naotech-skeleton-pulse {
+  0%,
+  100% {
+    background: var(--naotech-app-color-200);
+  }
+  50% {
+    background: var(--naotech-app-color-300);
+  }
+}
+h1 {
+  font-size: var(--naotech-heading1-font-size);
+  letter-spacing: var(--naotech-heading1-letter-spacing);
+  min-height: var(--naotech-heading1-line-height);
+  line-height: var(--naotech-heading1-line-height);
+  font-weight: var(--naotech-heading1-font-weight);
+}
+h2 {
+  font-size: var(--naotech-heading2-font-size);
+  letter-spacing: var(--naotech-heading2-letter-spacing);
+  min-height: var(--naotech-heading2-line-height);
+  line-height: var(--naotech-heading2-line-height);
+  font-weight: var(--naotech-heading2-font-weight);
+}
+h3 {
+  font-size: var(--naotech-heading3-font-size);
+  letter-spacing: var(--naotech-heading3-letter-spacing);
+  min-height: var(--naotech-heading3-line-height);
+  line-height: var(--naotech-heading3-line-height);
+  font-weight: var(--naotech-heading3-font-weight);
+}
+h4 {
+  font-size: var(--naotech-heading4-font-size);
+  letter-spacing: var(--naotech-heading4-letter-spacing);
+  min-height: var(--naotech-heading4-line-height);
+  line-height: var(--naotech-heading4-line-height);
+  font-weight: var(--naotech-heading4-font-weight);
+}
+h5 {
+  font-size: var(--naotech-heading5-font-size);
+  letter-spacing: var(--naotech-heading5-letter-spacing);
+  min-height: var(--naotech-heading5-line-height);
+  line-height: var(--naotech-heading5-line-height);
+  font-weight: var(--naotech-heading5-font-weight);
+}
+h6 {
+  font-size: var(--naotech-heading6-font-size);
+  letter-spacing: var(--naotech-heading6-letter-spacing);
+  min-height: var(--naotech-heading6-line-height);
+  line-height: var(--naotech-heading6-line-height);
+  font-weight: var(--naotech-heading6-font-weight);
+}
+.nwt-h1-font-default,
+.nwt-h1-font-black,
+.nwt-h1-font-extrabold,
+.nwt-h1-font-bold,
+.nwt-h1-font-semibold,
+.nwt-h1-font-medium,
+.nwt-h1-font-regular,
+.nwt-h1-font {
+  font-size: var(--naotech-heading1-font-size);
+  letter-spacing: var(--naotech-heading1-letter-spacing);
+  min-height: var(--naotech-heading1-line-height);
+  line-height: var(--naotech-heading1-line-height);
+}
+.nwt-h1-font {
+  font-weight: var(--naotech-heading1-font-weight);
+}
+.nwt-h1-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-h1-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-h1-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-h1-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-h1-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-h1-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-h2-font-default,
+.nwt-h2-font-black,
+.nwt-h2-font-extrabold,
+.nwt-h2-font-bold,
+.nwt-h2-font-semibold,
+.nwt-h2-font-medium,
+.nwt-h2-font-regular,
+.nwt-h2-font {
+  font-size: var(--naotech-heading2-font-size);
+  letter-spacing: var(--naotech-heading2-letter-spacing);
+  min-height: var(--naotech-heading2-line-height);
+  line-height: var(--naotech-heading2-line-height);
+}
+.nwt-h2-font {
+  font-weight: var(--naotech-heading2-font-weight);
+}
+.nwt-h2-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-h2-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-h2-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-h2-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-h2-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-h2-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-h3-font-default,
+.nwt-h3-font-black,
+.nwt-h3-font-extrabold,
+.nwt-h3-font-bold,
+.nwt-h3-font-semibold,
+.nwt-h3-font-medium,
+.nwt-h3-font-regular,
+.nwt-h3-font {
+  font-size: var(--naotech-heading3-font-size);
+  letter-spacing: var(--naotech-heading3-letter-spacing);
+  min-height: var(--naotech-heading3-line-height);
+  line-height: var(--naotech-heading3-line-height);
+}
+.nwt-h3-font {
+  font-weight: var(--naotech-heading3-font-weight);
+}
+.nwt-h3-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-h3-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-h3-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-h3-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-h3-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-h3-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-h4-font-default,
+.nwt-h4-font-black,
+.nwt-h4-font-extrabold,
+.nwt-h4-font-bold,
+.nwt-h4-font-semibold,
+.nwt-h4-font-medium,
+.nwt-h4-font-regular,
+.nwt-h4-font {
+  font-size: var(--naotech-heading4-font-size);
+  letter-spacing: var(--naotech-heading4-letter-spacing);
+  min-height: var(--naotech-heading4-line-height);
+  line-height: var(--naotech-heading4-line-height);
+}
+.nwt-h4-font {
+  font-weight: var(--naotech-heading4-font-weight);
+}
+.nwt-h4-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-h4-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-h4-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-h4-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-h4-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-h4-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-h5-font-default,
+.nwt-h5-font-black,
+.nwt-h5-font-extrabold,
+.nwt-h5-font-bold,
+.nwt-h5-font-semibold,
+.nwt-h5-font-medium,
+.nwt-h5-font-regular,
+.nwt-h5-font {
+  font-size: var(--naotech-heading5-font-size);
+  letter-spacing: var(--naotech-heading5-letter-spacing);
+  min-height: var(--naotech-heading5-line-height);
+  line-height: var(--naotech-heading5-line-height);
+}
+.nwt-h5-font {
+  font-weight: var(--naotech-heading5-font-weight);
+}
+.nwt-h5-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-h5-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-h5-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-h5-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-h5-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-h5-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-h6-font-default,
+.nwt-h6-font-black,
+.nwt-h6-font-extrabold,
+.nwt-h6-font-bold,
+.nwt-h6-font-semibold,
+.nwt-h6-font-medium,
+.nwt-h6-font-regular,
+.nwt-h6-font {
+  font-size: var(--naotech-heading6-font-size);
+  letter-spacing: var(--naotech-heading6-letter-spacing);
+  min-height: var(--naotech-heading6-line-height);
+  line-height: var(--naotech-heading6-line-height);
+}
+.nwt-h6-font {
+  font-weight: var(--naotech-heading6-font-weight);
+}
+.nwt-h6-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-h6-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-h6-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-h6-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-h6-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-h6-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-subtitle-font-default,
+.nwt-subtitle-font-black,
+.nwt-subtitle-font-extrabold,
+.nwt-subtitle-font-bold,
+.nwt-subtitle-font-semibold,
+.nwt-subtitle-font-medium,
+.nwt-subtitle-font-regular,
+.nwt-subtitle-font {
+  font-size: var(--naotech-subtitle-font-size);
+  letter-spacing: var(--naotech-subtitle-letter-spacing);
+  min-height: var(--naotech-subtitle-line-height);
+  line-height: var(--naotech-subtitle-line-height);
+}
+.nwt-subtitle-font {
+  font-weight: var(--naotech-subtitle-font-weight);
+}
+.nwt-subtitle-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-subtitle-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-subtitle-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-subtitle-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-subtitle-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-subtitle-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-body-font-default,
+.nwt-body-font-black,
+.nwt-body-font-extrabold,
+.nwt-body-font-bold,
+.nwt-body-font-semibold,
+.nwt-body-font-medium,
+.nwt-body-font-regular,
+.nwt-body-font {
+  font-size: var(--naotech-body-font-size);
+  letter-spacing: var(--naotech-body-letter-spacing);
+  min-height: var(--naotech-body-line-height);
+  line-height: var(--naotech-body-line-height);
+}
+.nwt-body-font {
+  font-weight: var(--naotech-body-font-weight);
+}
+.nwt-body-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-body-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-body-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-body-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-body-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-body-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-smalltext-font-default,
+.nwt-smalltext-font-black,
+.nwt-smalltext-font-extrabold,
+.nwt-smalltext-font-bold,
+.nwt-smalltext-font-semibold,
+.nwt-smalltext-font-medium,
+.nwt-smalltext-font-regular,
+.nwt-smalltext-font {
+  font-size: var(--naotech-smalltext-font-size);
+  letter-spacing: var(--naotech-smalltext-letter-spacing);
+  min-height: var(--naotech-smalltext-line-height);
+  line-height: var(--naotech-smalltext-line-height);
+}
+.nwt-smalltext-font {
+  font-weight: var(--naotech-smalltext-font-weight);
+}
+.nwt-smalltext-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-smalltext-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-smalltext-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-smalltext-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-smalltext-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-smalltext-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-caption-font-default,
+.nwt-caption-font-black,
+.nwt-caption-font-extrabold,
+.nwt-caption-font-bold,
+.nwt-caption-font-semibold,
+.nwt-caption-font-medium,
+.nwt-caption-font-regular,
+.nwt-caption-font {
+  font-size: var(--naotech-caption-font-size);
+  letter-spacing: var(--naotech-caption-letter-spacing);
+  min-height: var(--naotech-caption-line-height);
+  line-height: var(--naotech-caption-line-height);
+}
+.nwt-caption-font {
+  font-weight: var(--naotech-caption-font-weight);
+}
+.nwt-caption-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-caption-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-caption-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-caption-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-caption-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-caption-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-overline-font-default,
+.nwt-overline-font-black,
+.nwt-overline-font-extrabold,
+.nwt-overline-font-bold,
+.nwt-overline-font-semibold,
+.nwt-overline-font-medium,
+.nwt-overline-font-regular,
+.nwt-overline-font {
+  font-size: var(--naotech-overline-font-size);
+  letter-spacing: var(--naotech-overline-letter-spacing);
+  min-height: var(--naotech-overline-line-height);
+  line-height: var(--naotech-overline-line-height);
+}
+.nwt-overline-font {
+  font-weight: var(--naotech-overline-font-weight);
+}
+.nwt-overline-font-regular {
+  font-weight: var(--naotech-font-weight-regular);
+}
+.nwt-overline-font-medium {
+  font-weight: var(--naotech-font-weight-medium);
+}
+.nwt-overline-font-semibold {
+  font-weight: var(--naotech-font-weight-semibold);
+}
+.nwt-overline-font-bold {
+  font-weight: var(--naotech-font-weight-bold);
+}
+.nwt-overline-font-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold);
+}
+.nwt-overline-font-black {
+  font-weight: var(--naotech-font-weight-black);
+}
+.nwt-align-center {
+  --naotech-amount-text-align: center;
+  --naotech-input-text-align: center;
+  --naotech-datatable-justify-content: center;
+  text-align: center !important;
+}
+.nwt-align-justify {
+  --naotech-amount-text-align: flex-start;
+  --naotech-input-text-align: justify;
+  --naotech-poster-text-align: flex-start;
+  text-align: justify !important;
+}
+.nwt-align-left {
+  --naotech-amount-text-align: flex-start;
+  --naotech-input-text-align: left;
+  --naotech-datatable-justify-content: flex-start;
+  text-align: left !important;
+}
+.nwt-align-right {
+  --naotech-amount-text-align: flex-end;
+  --naotech-input-text-align: right;
+  --naotech-datatable-justify-content: flex-end;
+  text-align: right !important;
+}
+.nwt-weight-light {
+  font-weight: var(--naotech-font-weight-light) !important;
+}
+.nwt-weight-medium {
+  font-weight: var(--naotech-font-weight-medium) !important;
+}
+.nwt-weight-semibold {
+  font-weight: var(--naotech-font-weight-semibold) !important;
+}
+.nwt-weight-bold {
+  font-weight: var(--naotech-font-weight-bold) !important;
+}
+.nwt-weight-extrabold {
+  font-weight: var(--naotech-font-weight-extrabold) !important;
+}
+.nwt-weight-black {
+  font-weight: var(--naotech-font-weight-black) !important;
+}
+.nwt-truncate {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+span.nwt-truncate,
+p.nwt-truncate {
+  width: 100%;
+  display: block;
+}
+.nwt-width-xs-2-5 {
+  width: 2.5% !important;
+}
+.nwt-width-xs-5 {
+  width: 5% !important;
+}
+.nwt-width-xs-7-5 {
+  width: 7.5% !important;
+}
+.nwt-width-xs-10 {
+  width: 10% !important;
+}
+.nwt-width-xs-12-5 {
+  width: 12.5% !important;
+}
+.nwt-width-xs-15 {
+  width: 15% !important;
+}
+.nwt-width-xs-16 {
+  width: 16.66% !important;
+}
+.nwt-width-xs-17-5 {
+  width: 17.5% !important;
+}
+.nwt-width-xs-20 {
+  width: 20% !important;
+}
+.nwt-width-xs-22-5 {
+  width: 22.5% !important;
+}
+.nwt-width-xs-25 {
+  width: 25% !important;
+}
+.nwt-width-xs-27-5 {
+  width: 27.5% !important;
+}
+.nwt-width-xs-30 {
+  width: 30% !important;
+}
+.nwt-width-xs-32-5 {
+  width: 32.5% !important;
+}
+.nwt-width-xs-33 {
+  width: 33.33% !important;
+}
+.nwt-width-xs-35 {
+  width: 35% !important;
+}
+.nwt-width-xs-37-5 {
+  width: 37.5% !important;
+}
+.nwt-width-xs-40 {
+  width: 40% !important;
+}
+.nwt-width-xs-42-5 {
+  width: 42.5% !important;
+}
+.nwt-width-xs-45 {
+  width: 45% !important;
+}
+.nwt-width-xs-47-5 {
+  width: 47.5% !important;
+}
+.nwt-width-xs-50 {
+  width: 50% !important;
+}
+.nwt-width-xs-52-5 {
+  width: 52.5% !important;
+}
+.nwt-width-xs-55 {
+  width: 55% !important;
+}
+.nwt-width-xs-57-5 {
+  width: 57.5% !important;
+}
+.nwt-width-xs-60 {
+  width: 60% !important;
+}
+.nwt-width-xs-62-5 {
+  width: 62.5% !important;
+}
+.nwt-width-xs-65 {
+  width: 65% !important;
+}
+.nwt-width-xs-66 {
+  width: 66.66% !important;
+}
+.nwt-width-xs-67-5 {
+  width: 67.5% !important;
+}
+.nwt-width-xs-70 {
+  width: 70% !important;
+}
+.nwt-width-xs-72-5 {
+  width: 72.5% !important;
+}
+.nwt-width-xs-75 {
+  width: 75% !important;
+}
+.nwt-width-xs-77-5 {
+  width: 77.5% !important;
+}
+.nwt-width-xs-80 {
+  width: 80% !important;
+}
+.nwt-width-xs-82-5 {
+  width: 82.5% !important;
+}
+.nwt-width-xs-85 {
+  width: 85% !important;
+}
+.nwt-width-xs-87-5 {
+  width: 87.5% !important;
+}
+.nwt-width-xs-90 {
+  width: 90% !important;
+}
+.nwt-width-xs-92-5 {
+  width: 92.5% !important;
+}
+.nwt-width-xs-95 {
+  width: 95% !important;
+}
+.nwt-width-xs-97-5 {
+  width: 97.5% !important;
+}
+.nwt-width-xs {
+  width: 100% !important;
+}
+@media only screen and (min-width: 361px) {
+  .nwt-width-sm-2-5 {
+    width: 2.5% !important;
+  }
+  .nwt-width-sm-5 {
+    width: 5% !important;
+  }
+  .nwt-width-sm-7-5 {
+    width: 7.5% !important;
+  }
+  .nwt-width-sm-10 {
+    width: 10% !important;
+  }
+  .nwt-width-sm-12-5 {
+    width: 12.5% !important;
+  }
+  .nwt-width-sm-15 {
+    width: 15% !important;
+  }
+  .nwt-width-sm-16 {
+    width: 16.66% !important;
+  }
+  .nwt-width-sm-17-5 {
+    width: 17.5% !important;
+  }
+  .nwt-width-sm-20 {
+    width: 20% !important;
+  }
+  .nwt-width-sm-22-5 {
+    width: 22.5% !important;
+  }
+  .nwt-width-sm-25 {
+    width: 25% !important;
+  }
+  .nwt-width-sm-27-5 {
+    width: 27.5% !important;
+  }
+  .nwt-width-sm-30 {
+    width: 30% !important;
+  }
+  .nwt-width-sm-32-5 {
+    width: 32.5% !important;
+  }
+  .nwt-width-sm-33 {
+    width: 33.33% !important;
+  }
+  .nwt-width-sm-35 {
+    width: 35% !important;
+  }
+  .nwt-width-sm-37-5 {
+    width: 37.5% !important;
+  }
+  .nwt-width-sm-40 {
+    width: 40% !important;
+  }
+  .nwt-width-sm-42-5 {
+    width: 42.5% !important;
+  }
+  .nwt-width-sm-45 {
+    width: 45% !important;
+  }
+  .nwt-width-sm-47-5 {
+    width: 47.5% !important;
+  }
+  .nwt-width-sm-50 {
+    width: 50% !important;
+  }
+  .nwt-width-sm-52-5 {
+    width: 52.5% !important;
+  }
+  .nwt-width-sm-55 {
+    width: 55% !important;
+  }
+  .nwt-width-sm-57-5 {
+    width: 57.5% !important;
+  }
+  .nwt-width-sm-60 {
+    width: 60% !important;
+  }
+  .nwt-width-sm-62-5 {
+    width: 62.5% !important;
+  }
+  .nwt-width-sm-65 {
+    width: 65% !important;
+  }
+  .nwt-width-sm-66 {
+    width: 66.66% !important;
+  }
+  .nwt-width-sm-67-5 {
+    width: 67.5% !important;
+  }
+  .nwt-width-sm-70 {
+    width: 70% !important;
+  }
+  .nwt-width-sm-72-5 {
+    width: 72.5% !important;
+  }
+  .nwt-width-sm-75 {
+    width: 75% !important;
+  }
+  .nwt-width-sm-77-5 {
+    width: 77.5% !important;
+  }
+  .nwt-width-sm-80 {
+    width: 80% !important;
+  }
+  .nwt-width-sm-82-5 {
+    width: 82.5% !important;
+  }
+  .nwt-width-sm-85 {
+    width: 85% !important;
+  }
+  .nwt-width-sm-87-5 {
+    width: 87.5% !important;
+  }
+  .nwt-width-sm-90 {
+    width: 90% !important;
+  }
+  .nwt-width-sm-92-5 {
+    width: 92.5% !important;
+  }
+  .nwt-width-sm-95 {
+    width: 95% !important;
+  }
+  .nwt-width-sm-97-5 {
+    width: 97.5% !important;
+  }
+  .nwt-width-sm {
+    width: 100% !important;
+  }
+}
+@media only screen and (min-width: 641px) {
+  .nwt-width-md-2-5 {
+    width: 2.5% !important;
+  }
+  .nwt-width-md-5 {
+    width: 5% !important;
+  }
+  .nwt-width-md-7-5 {
+    width: 7.5% !important;
+  }
+  .nwt-width-md-10 {
+    width: 10% !important;
+  }
+  .nwt-width-md-12-5 {
+    width: 12.5% !important;
+  }
+  .nwt-width-md-15 {
+    width: 15% !important;
+  }
+  .nwt-width-md-16 {
+    width: 16.66% !important;
+  }
+  .nwt-width-md-17-5 {
+    width: 17.5% !important;
+  }
+  .nwt-width-md-20 {
+    width: 20% !important;
+  }
+  .nwt-width-md-22-5 {
+    width: 22.5% !important;
+  }
+  .nwt-width-md-25 {
+    width: 25% !important;
+  }
+  .nwt-width-md-27-5 {
+    width: 27.5% !important;
+  }
+  .nwt-width-md-30 {
+    width: 30% !important;
+  }
+  .nwt-width-md-32-5 {
+    width: 32.5% !important;
+  }
+  .nwt-width-md-33 {
+    width: 33.33% !important;
+  }
+  .nwt-width-md-35 {
+    width: 35% !important;
+  }
+  .nwt-width-md-37-5 {
+    width: 37.5% !important;
+  }
+  .nwt-width-md-40 {
+    width: 40% !important;
+  }
+  .nwt-width-md-42-5 {
+    width: 42.5% !important;
+  }
+  .nwt-width-md-45 {
+    width: 45% !important;
+  }
+  .nwt-width-md-47-5 {
+    width: 47.5% !important;
+  }
+  .nwt-width-md-50 {
+    width: 50% !important;
+  }
+  .nwt-width-md-52-5 {
+    width: 52.5% !important;
+  }
+  .nwt-width-md-55 {
+    width: 55% !important;
+  }
+  .nwt-width-md-57-5 {
+    width: 57.5% !important;
+  }
+  .nwt-width-md-60 {
+    width: 60% !important;
+  }
+  .nwt-width-md-62-5 {
+    width: 62.5% !important;
+  }
+  .nwt-width-md-65 {
+    width: 65% !important;
+  }
+  .nwt-width-md-66 {
+    width: 66.66% !important;
+  }
+  .nwt-width-md-67-5 {
+    width: 67.5% !important;
+  }
+  .nwt-width-md-70 {
+    width: 70% !important;
+  }
+  .nwt-width-md-72-5 {
+    width: 72.5% !important;
+  }
+  .nwt-width-md-75 {
+    width: 75% !important;
+  }
+  .nwt-width-md-77-5 {
+    width: 77.5% !important;
+  }
+  .nwt-width-md-80 {
+    width: 80% !important;
+  }
+  .nwt-width-md-82-5 {
+    width: 82.5% !important;
+  }
+  .nwt-width-md-85 {
+    width: 85% !important;
+  }
+  .nwt-width-md-87-5 {
+    width: 87.5% !important;
+  }
+  .nwt-width-md-90 {
+    width: 90% !important;
+  }
+  .nwt-width-md-92-5 {
+    width: 92.5% !important;
+  }
+  .nwt-width-md-95 {
+    width: 95% !important;
+  }
+  .nwt-width-md-97-5 {
+    width: 97.5% !important;
+  }
+  .nwt-width-md {
+    width: 100% !important;
+  }
+}
+@media only screen and (min-width: 961px) {
+  .nwt-width-lg-2-5 {
+    width: 2.5% !important;
+  }
+  .nwt-width-lg-5 {
+    width: 5% !important;
+  }
+  .nwt-width-lg-7-5 {
+    width: 7.5% !important;
+  }
+  .nwt-width-lg-10 {
+    width: 10% !important;
+  }
+  .nwt-width-lg-12-5 {
+    width: 12.5% !important;
+  }
+  .nwt-width-lg-15 {
+    width: 15% !important;
+  }
+  .nwt-width-lg-16 {
+    width: 16.66% !important;
+  }
+  .nwt-width-lg-17-5 {
+    width: 17.5% !important;
+  }
+  .nwt-width-lg-20 {
+    width: 20% !important;
+  }
+  .nwt-width-lg-22-5 {
+    width: 22.5% !important;
+  }
+  .nwt-width-lg-25 {
+    width: 25% !important;
+  }
+  .nwt-width-lg-27-5 {
+    width: 27.5% !important;
+  }
+  .nwt-width-lg-30 {
+    width: 30% !important;
+  }
+  .nwt-width-lg-32-5 {
+    width: 32.5% !important;
+  }
+  .nwt-width-lg-33 {
+    width: 33.33% !important;
+  }
+  .nwt-width-lg-35 {
+    width: 35% !important;
+  }
+  .nwt-width-lg-37-5 {
+    width: 37.5% !important;
+  }
+  .nwt-width-lg-40 {
+    width: 40% !important;
+  }
+  .nwt-width-lg-42-5 {
+    width: 42.5% !important;
+  }
+  .nwt-width-lg-45 {
+    width: 45% !important;
+  }
+  .nwt-width-lg-47-5 {
+    width: 47.5% !important;
+  }
+  .nwt-width-lg-50 {
+    width: 50% !important;
+  }
+  .nwt-width-lg-52-5 {
+    width: 52.5% !important;
+  }
+  .nwt-width-lg-55 {
+    width: 55% !important;
+  }
+  .nwt-width-lg-57-5 {
+    width: 57.5% !important;
+  }
+  .nwt-width-lg-60 {
+    width: 60% !important;
+  }
+  .nwt-width-lg-62-5 {
+    width: 62.5% !important;
+  }
+  .nwt-width-lg-65 {
+    width: 65% !important;
+  }
+  .nwt-width-lg-66 {
+    width: 66.66% !important;
+  }
+  .nwt-width-lg-67-5 {
+    width: 67.5% !important;
+  }
+  .nwt-width-lg-70 {
+    width: 70% !important;
+  }
+  .nwt-width-lg-72-5 {
+    width: 72.5% !important;
+  }
+  .nwt-width-lg-75 {
+    width: 75% !important;
+  }
+  .nwt-width-lg-77-5 {
+    width: 77.5% !important;
+  }
+  .nwt-width-lg-80 {
+    width: 80% !important;
+  }
+  .nwt-width-lg-82-5 {
+    width: 82.5% !important;
+  }
+  .nwt-width-lg-85 {
+    width: 85% !important;
+  }
+  .nwt-width-lg-87-5 {
+    width: 87.5% !important;
+  }
+  .nwt-width-lg-90 {
+    width: 90% !important;
+  }
+  .nwt-width-lg-92-5 {
+    width: 92.5% !important;
+  }
+  .nwt-width-lg-95 {
+    width: 95% !important;
+  }
+  .nwt-width-lg-97-5 {
+    width: 97.5% !important;
+  }
+  .nwt-width-lg {
+    width: 100% !important;
+  }
+}
+@media only screen and (min-width: 1241px) {
+  .nwt-width-xl-2-5 {
+    width: 2.5% !important;
+  }
+  .nwt-width-xl-5 {
+    width: 5% !important;
+  }
+  .nwt-width-xl-7-5 {
+    width: 7.5% !important;
+  }
+  .nwt-width-xl-10 {
+    width: 10% !important;
+  }
+  .nwt-width-xl-12-5 {
+    width: 12.5% !important;
+  }
+  .nwt-width-xl-15 {
+    width: 15% !important;
+  }
+  .nwt-width-xl-16 {
+    width: 16.66% !important;
+  }
+  .nwt-width-xl-17-5 {
+    width: 17.5% !important;
+  }
+  .nwt-width-xl-20 {
+    width: 20% !important;
+  }
+  .nwt-width-xl-22-5 {
+    width: 22.5% !important;
+  }
+  .nwt-width-xl-25 {
+    width: 25% !important;
+  }
+  .nwt-width-xl-27-5 {
+    width: 27.5% !important;
+  }
+  .nwt-width-xl-30 {
+    width: 30% !important;
+  }
+  .nwt-width-xl-32-5 {
+    width: 32.5% !important;
+  }
+  .nwt-width-xl-33 {
+    width: 33.33% !important;
+  }
+  .nwt-width-xl-35 {
+    width: 35% !important;
+  }
+  .nwt-width-xl-37-5 {
+    width: 37.5% !important;
+  }
+  .nwt-width-xl-40 {
+    width: 40% !important;
+  }
+  .nwt-width-xl-42-5 {
+    width: 42.5% !important;
+  }
+  .nwt-width-xl-45 {
+    width: 45% !important;
+  }
+  .nwt-width-xl-47-5 {
+    width: 47.5% !important;
+  }
+  .nwt-width-xl-50 {
+    width: 50% !important;
+  }
+  .nwt-width-xl-52-5 {
+    width: 52.5% !important;
+  }
+  .nwt-width-xl-55 {
+    width: 55% !important;
+  }
+  .nwt-width-xl-57-5 {
+    width: 57.5% !important;
+  }
+  .nwt-width-xl-60 {
+    width: 60% !important;
+  }
+  .nwt-width-xl-62-5 {
+    width: 62.5% !important;
+  }
+  .nwt-width-xl-65 {
+    width: 65% !important;
+  }
+  .nwt-width-xl-66 {
+    width: 66.66% !important;
+  }
+  .nwt-width-xl-67-5 {
+    width: 67.5% !important;
+  }
+  .nwt-width-xl-70 {
+    width: 70% !important;
+  }
+  .nwt-width-xl-72-5 {
+    width: 72.5% !important;
+  }
+  .nwt-width-xl-75 {
+    width: 75% !important;
+  }
+  .nwt-width-xl-77-5 {
+    width: 77.5% !important;
+  }
+  .nwt-width-xl-80 {
+    width: 80% !important;
+  }
+  .nwt-width-xl-82-5 {
+    width: 82.5% !important;
+  }
+  .nwt-width-xl-85 {
+    width: 85% !important;
+  }
+  .nwt-width-xl-87-5 {
+    width: 87.5% !important;
+  }
+  .nwt-width-xl-90 {
+    width: 90% !important;
+  }
+  .nwt-width-xl-92-5 {
+    width: 92.5% !important;
+  }
+  .nwt-width-xl-95 {
+    width: 95% !important;
+  }
+  .nwt-width-xl-97-5 {
+    width: 97.5% !important;
+  }
+  .nwt-width-xl {
+    width: 100% !important;
+  }
+}
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0rem;
+  padding: 0rem;
+  letter-spacing: var(--naotech-app-letter-spacing, 0em);
+}
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--naotech-sdk-font-family);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+p {
+  margin: 0;
+} /*# sourceMappingURL=styles.css.map */

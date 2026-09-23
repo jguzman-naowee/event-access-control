@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Event Access Control · Kick-off</title>
+<meta name="description" content="Kick-off del sistema nacional de control de acceso a eventos deportivos: modelo de dominio v0, superficies y ciclo del evento.">
+
+<!--
+  vendor/ = copia de sdk-frontend-foundations (la misma que usa uaesp-rutas-alta).
+  Google Sans sale de foundations/fonts, recortada a latín por peso.
+  deck.css = lo que el SDK no tiene (prefijo dk-). publicar.py genera index.html.
+-->
+
+<link rel="stylesheet" href="vendor/fonts.css">
+<link rel="stylesheet" href="vendor/foundations.css">
+<link rel="stylesheet" href="vendor/components.css">
+<link rel="stylesheet" href="vendor/icons.css">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<main class="dk-stage">
+
+<section class="dk-slide dk-slide--dark dk-slide--center" aria-label="Portada">
+<p class="dk-eyebrow">Event Access Control · Kick-off · Septiembre 2026</p>
+<h1 class="dk-h1">Control de acceso nacional para el fútbol profesional</h1>
+<p class="dk-lead">Un solo sistema decide quién puede comprar, recibir, transferir y entrar a cada evento. La comercializadora vende; nosotros respondemos <span class="dk-hl">sí o no</span>.</p>
+</section>
+
+<section class="dk-slide dk-slide--center" aria-label="La pregunta central" hidden>
+<p class="dk-eyebrow">La pregunta central</p>
+<h1 class="dk-h1">¿Esta persona puede estar en este evento, en este lugar?</h1>
+<p class="dk-lead">Todo el sistema existe para responder esa pregunta o para cumplir su respuesta. Se hace cuatro veces: al comprar, al recibir, al transferir y en la puerta.</p>
+</section>
+
+<section class="dk-slide" aria-label="Tres ejes" hidden>
+<p class="dk-eyebrow">Tres ejes separados</p>
+<h2 class="dk-h2">Tres preguntas distintas sobre la misma persona</h2>
+<div class="dk-row">
+<div class="dk-card"><p class="dk-label">Conducta</p><h3 class="dk-title dk-title--big">¿Puede entrar?</h3><p class="dk-body">Tres fuentes de restricciones. Manda el peor estado: basta con que una bloquee.</p></div>
+<div class="dk-card"><p class="dk-label">Confianza de identidad</p><h3 class="dk-title dk-title--big">¿Es quien dice ser?</h3><p class="dk-body">Un porcentaje actualizable. Decide si la puerta pide solo la cédula o también el rostro. Nunca niega por sí solo.</p></div>
+<div class="dk-card"><p class="dk-label">Afinidad</p><h3 class="dk-title dk-title--big">¿De qué club es?</h3><p class="dk-body">Inferida solo del historial de asistencia. Pesa en partidos sin hinchada visitante; si no es concluyente, deja pasar.</p></div>
+</div>
+</section>
+
+<section class="dk-slide dk-slide--accent dk-slide--center" aria-label="La regla dura" hidden>
+<p class="dk-eyebrow">La regla dura</p>
+<h1 class="dk-h1">1 boleta = 1 persona = 1 documento</h1>
+<p class="dk-lead">Obligatorio y para cada evento. Se compra en cantidad, pero cada boleta se asigna a un solo titular y un solo puesto.</p>
+</section>
+
+<section class="dk-slide" aria-label="De las bases a la decisión" hidden>
+<p class="dk-eyebrow">01 · De las bases actuales a la decisión</p>
+<h2 class="dk-h2">Tres fuentes, un estado, una respuesta</h2>
+<div class="dk-row">
+<div class="dk-col" style="flex: 1.2">
+<div class="dk-card dk-card--tight"><h3 class="dk-title">Policía Nacional</h3><p class="dk-body">Su base de restricciones</p></div>
+<div class="dk-card dk-card--tight"><h3 class="dk-title">IVC del SUID · MinDeporte</h3><p class="dk-body">Módulo de Naowee Suite</p></div>
+<div class="dk-card dk-card--tight"><h3 class="dk-title">Clubes y entidades</h3><p class="dk-body">Entidades deportivas formales</p></div>
+</div>
+<span class="dk-arrow" aria-hidden="true">→</span>
+<div class="dk-card"><p class="dk-label">Consolidado</p><h3 class="dk-title dk-title--big">Estado de conducta</h3><p class="dk-body">El peor de las tres fuentes. Cada fuente escribe solo en su base y lee las otras dos; todo cambio queda en un historial que no se edita.</p></div>
+<span class="dk-arrow" aria-hidden="true">→</span>
+<div class="dk-card dk-card--primary"><p class="dk-label">El core</p><h3 class="dk-title dk-title--big">Motor de elegibilidad</h3><p class="dk-body">Cruza conducta, confianza, afinidad y las reglas del evento. La comercializadora recibe solo sí o no; el motivo queda interno y auditado.</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="Estado de conducta" hidden>
+<p class="dk-eyebrow">01 · Estado de conducta</p>
+<h2 class="dk-h2">El estado cambia con el tiempo y deja rastro</h2>
+<table class="dk-table">
+<tr><th style="width: 25%">Registro</th><th style="width: 30%">¿Bloquea?</th><th>Vigencia</th></tr>
+<tr><td>Anotación</td><td>No</td><td>Permanente, es una observación</td></tr>
+<tr><td>Advertencia</td><td>No, pero es antecedente</td><td>Permanente</td></tr>
+<tr><td>Sanción</td><td>Sí</td><td>Desde y hasta una fecha</td></tr>
+<tr><td>Veto</td><td>Sí</td><td>Sin fecha de fin</td></tr>
+<tr><td>Saneamiento</td><td>Levanta el bloqueo</td><td>Anotaciones y advertencias siguen visibles</td></tr>
+</table>
+<p class="dk-body">Alcance: nacional, club, escenario o evento. Sanear solo lo hace la fuente que puso el registro, con aprobación de las otras entidades (exploratorio).</p>
+</section>
+
+<section class="dk-slide" aria-label="Cinco módulos" hidden>
+<p class="dk-eyebrow">02 · Cinco módulos</p>
+<h2 class="dk-h2">Un core rodeado de cuatro módulos</h2>
+<div class="dk-row" style="gap: 20px">
+<div class="dk-card dk-card--tight"><p class="dk-label">M1</p><h3 class="dk-title">Restricciones</h3><p class="dk-body">Las 3 fuentes, los registros y su historial.</p></div>
+<div class="dk-card dk-card--tight dk-card--primary"><p class="dk-label">M2 · Core</p><h3 class="dk-title">Identidad y elegibilidad</h3><p class="dk-body">Personas, confianza, afinidad, decisión.</p></div>
+<div class="dk-card dk-card--tight"><p class="dk-label">M3</p><h3 class="dk-title">Escenarios y eventos</h3><p class="dk-body">Sectores, puertas, puestos, partidos.</p></div>
+<div class="dk-card dk-card--tight"><p class="dk-label">M4</p><h3 class="dk-title">Boletería y asignación</h3><p class="dk-body">Cupos, órdenes, invitaciones.</p></div>
+<div class="dk-card dk-card--tight"><p class="dk-label">M5</p><h3 class="dk-title">Control de acceso</h3><p class="dk-body">Dispositivos, ingresos, sin conexión.</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="Cuatro puntos de validación" hidden>
+<p class="dk-eyebrow">02 · Cuatro puntos de validación</p>
+<h2 class="dk-h2">La misma pregunta, cuatro veces</h2>
+<div class="dk-row" style="gap: 40px">
+<div class="dk-q"><p class="dk-num">1</p><h3 class="dk-title">¿Puede comprar?</h3><p class="dk-body">Se valida al comprador, con los mismos filtros que para asistir.</p></div>
+<div class="dk-q"><p class="dk-num">2</p><h3 class="dk-title">¿Puede recibir?</h3><p class="dk-body">Al titular: conducta, una boleta por evento, afinidad, sector.</p></div>
+<div class="dk-q"><p class="dk-num">3</p><h3 class="dk-title">¿Puede transferir?</h3><p class="dk-body">A quien entrega y a quien recibe.</p></div>
+<div class="dk-q"><p class="dk-num">4</p><h3 class="dk-title">¿Puede entrar?</h3><p class="dk-body">En la puerta, con el estado de ese momento, contra el documento.</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="El hincha y la comercializadora" hidden>
+<p class="dk-eyebrow">03 · Superficies</p>
+<h2 class="dk-h2">El hincha vive en la comercializadora</h2>
+<div class="dk-row" style="gap: 32px">
+<div class="dk-card"><p class="dk-label">En la comercializadora</p>
+<div class="dk-pills"><span class="dk-pill">Comprar</span><span class="dk-pill">Ver sus boletas</span><span class="dk-pill">Invitar</span><span class="dk-pill">Aceptar</span><span class="dk-pill">Transferir</span><span class="dk-pill">Credencial QR</span></div>
+<p class="dk-body">Solo maneja el número de documento y el @usuario. Nunca biometría, nunca el motivo de un no.</p></div>
+<div class="dk-card dk-card--secondary"><p class="dk-label">Lo que es nuestro</p>
+<div class="dk-pills"><span class="dk-pill dk-pill--ours">Ingresar con [plataforma]</span><span class="dk-pill dk-pill--ours">Validación con foto</span><span class="dk-pill dk-pill--ours">Portal de la persona</span></div>
+<p class="dk-body">Componentes embebibles o solo API: ella elige. La foto nos llega directo, sin pasar por sus servidores.</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="Ocho superficies" hidden style="gap: 40px">
+<p class="dk-eyebrow">03 · Ocho superficies</p>
+<h2 class="dk-h2">Quién usa qué, desde dónde y cuándo</h2>
+<table class="dk-table dk-table--compact">
+<tr><th style="width: 5%"></th><th style="width: 30%">Superficie</th><th style="width: 40%">Quién</th><th>Cuándo</th></tr>
+<tr><td class="dk-letter">A</td><td>API + embebibles</td><td>Comercializadora y el hincha</td><td>Hasta el inicio</td></tr>
+<tr><td class="dk-letter">B</td><td>Consola de restricciones</td><td>Policía, IVC, clubes</td><td>Continuo</td></tr>
+<tr><td class="dk-letter">C</td><td>Backoffice de eventos</td><td>Organizador, admin. del escenario</td><td>Semanas antes</td></tr>
+<tr><td class="dk-letter">D</td><td>Acceso en puerta</td><td>Operador; Policía con vista ampliada</td><td>Día del evento</td></tr>
+<tr><td class="dk-letter">E</td><td>Centro de control</td><td>Supervisor; Policía (reportes)</td><td>Día del evento</td></tr>
+<tr><td class="dk-letter">F</td><td>Consola de soporte</td><td>Soporte</td><td>Pico antes del plazo</td></tr>
+<tr><td class="dk-letter">G</td><td>Administración</td><td>Admin. de la plataforma</td><td>Al incorporar</td></tr>
+<tr><td class="dk-letter">H</td><td>Portal de la persona</td><td>La persona</td><td>Cuando recibe un no</td></tr>
+</table>
+</section>
+
+<section class="dk-slide" aria-label="La boleta" hidden style="gap: 40px">
+<p class="dk-eyebrow">04 · La boleta</p>
+<h2 class="dk-h2">Se compra en cantidad, se asigna una por una</h2>
+<div class="dk-row">
+<div class="dk-card dk-card--tight"><h3 class="dk-title dk-title--big" style="color: var(--naotech-color-default-700)">Propietario</h3><p class="dk-body">Quien compró y controla la boleta: invita, asigna y transfiere.</p></div>
+<div class="dk-card dk-card--tight"><h3 class="dk-title dk-title--big" style="color: var(--naotech-color-indigo-700)">Titular</h3><p class="dk-body">Quien entra. Acepta la invitación y tiene que ser elegible.</p></div>
+</div>
+<div class="dk-steps">
+<div class="dk-card"><p class="dk-label">1</p><h3 class="dk-title">Cupo</h3><p class="dk-body">Por comercializadora</p></div>
+<div class="dk-card"><p class="dk-label">2</p><h3 class="dk-title">Reserva</h3><p class="dk-body">Vence sola</p></div>
+<div class="dk-card"><p class="dk-label">3</p><h3 class="dk-title">Orden</h3><p class="dk-body">N boletas sin titular</p></div>
+<div class="dk-card"><p class="dk-label">4</p><h3 class="dk-title">Invitación</h3><p class="dk-body">Cédula o @usuario</p></div>
+<div class="dk-card dk-card--secondary"><p class="dk-label">5</p><h3 class="dk-title">Aceptación</h3><p class="dk-body">Foto la primera vez</p></div>
+<div class="dk-card dk-card--primary"><p class="dk-label">6</p><h3 class="dk-title">Asignada</h3><p class="dk-body">Se emite credencial</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="Estados y cambios" hidden>
+<p class="dk-eyebrow">04 · Estados y cambios</p>
+<h2 class="dk-h2">Lo que le puede pasar a una boleta</h2>
+<div class="dk-row" style="gap: 32px">
+<div class="dk-card"><p class="dk-label">Estados</p>
+<p class="dk-title">sin titular → invitada → asignada → usada</p>
+<p class="dk-body"><span class="dk-neg">Perdida:</span> sin titular al vencer el plazo. Sin devolución ni reventa; la silla queda vacía.</p>
+<p class="dk-body"><span class="dk-neg">Anulada:</span> su titular quedó restringido.</p>
+<p class="dk-body"><span class="dk-neg">Congelada:</span> su propietario quedó restringido.</p></div>
+<div class="dk-card"><p class="dk-label">Plazo y transferencias</p>
+<p class="dk-body"><b>Plazo configurable</b> por evento, como máximo hasta el inicio. La invitación vence con él.</p>
+<p class="dk-body"><b>Transferir</b> valida a los dos lados, y quien recibe acepta.</p>
+<p class="dk-body"><b>Restricción después de comprar:</b> efecto individual. Lo asignado a otros sigue válido; soporte puede transferir lo congelado.</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="El ciclo de un evento" hidden>
+<p class="dk-eyebrow">05 · El ciclo de un evento</p>
+<h2 class="dk-h2">De semanas antes a después del pitazo</h2>
+<div class="dk-tl">
+<div><p class="dk-label">Semanas</p><h3 class="dk-title">Configuración</h3><p class="dk-body">Silletería, sectores, cupos, plazo.</p><p class="dk-tag">C · G</p></div>
+<div><p class="dk-label">Días</p><h3 class="dk-title">Venta</h3><p class="dk-body">Invitaciones, transferencias, reclamos.</p><p class="dk-tag">A · F · H</p></div>
+<div><p class="dk-label">Horas</p><h3 class="dk-title">Vence el plazo</h3><p class="dk-body">Puertas descargan su paquete.</p><p class="dk-tag">C · D</p></div>
+<div class="dk-tl__now"><p class="dk-label" style="color: var(--naotech-color-default-700)">Inicio</p><h3 class="dk-title">Todo se congela</h3><p class="dk-body">Solo se entra, incluso tarde.</p><p class="dk-tag">D · E</p></div>
+<div><p class="dk-label">Durante</p><h3 class="dk-title">Ingresos</h3><p class="dk-body">En vivo por sector y puerta.</p><p class="dk-tag">D · E</p></div>
+<div><p class="dk-label">Después</p><h3 class="dk-title">Sincronía</h3><p class="dk-body">Reportes y nuevos registros.</p><p class="dk-tag">B · E</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="La puerta" hidden>
+<p class="dk-eyebrow">06 · La puerta</p>
+<h2 class="dk-h2">Siempre contra el documento</h2>
+<div class="dk-row" style="gap: 40px">
+<div class="dk-gate" style="flex: 1.4">
+<div><b>1</b><span>Se identifica a la persona: QR, documento, rostro o huella.</span></div>
+<div><b>2</b><span>Se busca su asignación. Su confianza dice si basta la cédula o va el rostro.</span></div>
+<div><b>3</b><span>Puerta de su sector, que no haya entrado, conducta habilitada ahora.</span></div>
+<div><b>4</b><span>Entra o no. Todo queda registrado.</span></div>
+</div>
+<div class="dk-card"><p class="dk-label">Contingencia</p><h3 class="dk-title dk-title--big">Sin conexión</h3><p class="dk-body">Cada puerta descarga su paquete del evento: asignaciones de su sector, bloqueados, nivel de verificación y referencias. Se sincroniza al volver la red.</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="Casos especiales" hidden>
+<p class="dk-eyebrow">07 · Casos que el modelo contempla</p>
+<h2 class="dk-h2">Cuando la regla general no alcanza</h2>
+<div class="dk-row">
+<div class="dk-card"><h3 class="dk-title" style="font-size: 36px">Asignación a cargo</h3><p class="dk-body">“Le asigno a mi hijo.” El propietario acepta en su nombre y responde. La foto se toma en la puerta en su primer ingreso.</p></div>
+<div class="dk-card"><h3 class="dk-title" style="font-size: 36px">Flexibilidad por edad</h3><p class="dk-body">Menores de 14 y mayores desde 70 a 80 (configurable): basta el documento físico. La conducta aplica igual.</p></div>
+<div class="dk-card"><h3 class="dk-title" style="font-size: 36px">Vista policial</h3><p class="dk-body">Solo el rol Policía, en la puerta: historial, afinidad e indicadores. Cada consulta queda auditada. Exploratorio.</p></div>
+</div>
+</section>
+
+<section class="dk-slide dk-slide--dark" aria-label="Todavía abierto" hidden>
+<p class="dk-eyebrow">Todavía abierto</p>
+<h2 class="dk-h2">Lo que falta decidir</h2>
+<ul class="dk-list" style="color: var(--naotech-color-gray-300)">
+<li>La norma que da base legal a la foto obligatoria</li>
+<li>Quórum y plazos del saneamiento</li>
+<li>App propia o gateway abierto para el hardware de puerta</li>
+<li>Los indicadores de la vista policial</li>
+<li>Si la comercializadora recibe el número de documento</li>
+<li>Cómo se revoca el vínculo con una comercializadora</li>
+</ul>
+</section>
+
+</main>
+
+<nav class="dk-nav" aria-label="Navegación de slides">
+<span class="nwt-icon-button" nwt-theme="neutral" nwt-variant="quiet" nwt-size="medium"><button class="nwt-icon-button__content" type="button" aria-label="Slide anterior" data-prev><div class="nwt-icon"><i class="naotech-icon-chevron-left"></i></div></button></span>
+<span class="dk-counter" data-counter aria-live="polite">1 / 16</span>
+<span class="nwt-icon-button" nwt-theme="neutral" nwt-variant="quiet" nwt-size="medium"><button class="nwt-icon-button__content" type="button" aria-label="Slide siguiente" data-next><div class="nwt-icon"><i class="naotech-icon-chevron-right"></i></div></button></span>
+<button class="nwt-button" type="button" nwt-theme="neutral" nwt-variant="mute" nwt-size="small" data-fullscreen><span class="nwt-button__content">Pantalla completa</span></button>
+</nav>
+
+<script src="deck.js"></script>
+</body>
+</html>
