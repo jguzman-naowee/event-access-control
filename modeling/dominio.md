@@ -102,7 +102,8 @@ Habilitado → Con advertencia → Sancionado / Vetado → Saneado
   un usuario requiere el consentimiento del usuario. Junto con el sí o no, la comercializadora recibe
   **pocos datos, casi todos de identidad** (identificador público, @usuario, nombre), y **nunca el
   estado de conducta ni el motivo de un no**.
-- **Biometría**: la plantilla de huella o de rostro, con el consentimiento de la persona. Es un dato sensible (Ley 1581).
+- **Referencia biométrica**: la foto contra la cual se compara en la puerta. **Todo titular debe tenerla**; se obtiene la primera vez que acepta una boleta (ver abajo). Es un dato sensible (Ley 1581).
+- **Confianza de identidad**: un porcentaje que dice cuánto confiamos en que la persona es quien dice ser (ver abajo).
 - **Historial de asistencia**: se construye con los ingresos reales (módulo 5).
 - **Perfil de afinidad**: **se infiere solo de los datos**: partidos a los que fue, de local o de
   visitante, y en qué sectores. **La persona no declara su club.**
@@ -118,6 +119,29 @@ Negar un acceso a partir de un perfil inferido es perfilamiento automático. Por
 - La afinidad tiene tres resultados: **afín**, **no afín** o **no concluyente**. Si no es concluyente (por ejemplo, sin historial), se deja pasar.
 - El motivo queda en la auditoría y la persona puede apelar.
 - La comercializadora sigue viendo solo sí o no.
+
+### Confianza de identidad *(exploratorio)*
+
+Un **porcentaje de confianza por persona, actualizable**, que define **cuánta verificación se le pide**.
+
+- **Sube o baja con varios factores**, por ejemplo: ingresos exitosos, validaciones fallidas, si hay
+  referencia biométrica y qué tan reciente es, y si el documento ya se usó en otro intento.
+- **Define la verificación que se le pide en la puerta**: con confianza alta basta con la cédula; con
+  confianza baja, o en un evento de alto riesgo, se exige validar el rostro.
+- **La referencia es obligatoria para todo titular y se obtiene al aceptar su primera boleta**,
+  incluida la que el comprador se asigna a sí mismo. Si la cuenta no tiene referencia, la aceptación
+  pide primero una validación con foto y prueba de vida. Sin esa validación la boleta no queda asignada.
+  Una vez capturada, la referencia se reutiliza en las siguientes boletas.
+- **Excepción, titular a cargo** (ver módulo 4): quien no tiene cuenta no puede validar nada antes.
+  Su referencia se captura **en la puerta, en su primer ingreso**, y sirve desde el siguiente.
+- **Por qué en ese momento:** es cuando la persona pasa a ser quien va a entrar. Quien solo compra y
+  no asiste nunca entrega biometría (se pide lo mínimo necesario), y todo el que llega a la puerta ya la tiene.
+- **La confianza solo decide si la puerta usa la referencia**, no si se captura. Así la foto ya existe
+  cuando se necesita, sin depender de que alguien la registre por iniciativa propia.
+- **No es una sanción:** una confianza baja pide más verificación, pero nunca niega el acceso por sí sola.
+  Esa decisión sigue siendo de los registros de conducta.
+- La confianza de identidad (¿es quien dice ser?) es distinta de la conducta (¿puede entrar?) y de la
+  afinidad (¿de qué club es?). Son tres ejes separados.
 
 ---
 
@@ -189,6 +213,28 @@ Invitación:  enviada → aceptada
 4. La invitación **no tiene plazo propio**: vence con el plazo de asignación del evento. El
    propietario y la comercializadora pueden consultar en todo momento si está enviada, aceptada o rechazada.
 
+### Asignación a cargo (titular sin cuenta) *(exploratorio)*
+
+Para quien no va a validar nada por su cuenta: un hijo, un adulto mayor, alguien sin celular.
+
+- **El propietario asigna por documento y acepta en nombre del titular**, declarando la relación
+  (por ejemplo, padre o acompañante). Queda como **responsable** de esa asignación.
+- **La elegibilidad se valida igual**, contra el documento del titular. Las restricciones aplican
+  aunque el titular no tenga cuenta.
+- **En su primer ingreso, la puerta captura la foto de referencia.** Ese día la verificación se hace
+  con el documento físico y el operador; desde el siguiente evento ya hay con qué comparar.
+- **El titular puede reclamar su cuenta después**, con el mismo documento, y hereda su historial y su referencia.
+- **Menores de edad:** el responsable tiene que ser su representante legal, que es quien autoriza
+  la captura de su biometría (Ley 1581, art. 7). Si el documento no tiene foto (registro civil), el
+  menor entra solo con su responsable presente.
+- **Para que no sea un atajo:** un límite de asignaciones a cargo por propietario y por evento, y la
+  confianza de identidad arranca baja hasta que haya una referencia.
+- **Flexibilidad por edad:** para menores de 14 años y adultos mayores (desde un umbral configurable,
+  entre 70 y 80 años) el modelo afloja la verificación: la asignación a cargo no cuenta contra el
+  límite, la foto de referencia no es obligatoria y basta con el documento físico, más el responsable
+  presente en el caso de los menores. **La flexibilidad es solo de verificación:** las restricciones
+  de conducta aplican igual. Los umbrales de edad se configuran, no van fijos en el código.
+
 ### Plazo para asignar
 
 Es **configurable por evento**, con un máximo: el inicio del encuentro.
@@ -239,6 +285,7 @@ Se valida **siempre cruzando con el documento**:
 1. Se identifica a la persona con cualquiera de los dispositivos.
 2. Se busca su asignación para el evento.
 3. Se revisa que esté en una puerta de su sector, que no haya entrado ya y que su estado de conducta siga habilitado.
+   Si es un titular a cargo sin referencia, se verifica con el documento físico y se captura su foto en ese momento.
 4. Se deja entrar o no, y todo queda registrado.
 
 ### Entidades
@@ -251,7 +298,7 @@ Se valida **siempre cruzando con el documento**:
 ### Sin conexión (contingencia)
 
 - Antes del evento, cada puerta descarga su **paquete del evento**: las asignaciones de su sector, la
-  lista de documentos bloqueados y, si la puerta tiene huella o cámara, las plantillas de los titulares esperados.
+  lista de documentos bloqueados, el nivel de verificación exigido a cada titular y, si la puerta tiene huella o cámara, las referencias biométricas de quienes deban validar rostro o huella.
 - Las validaciones se guardan localmente y se sincronizan al volver la red. Los conflictos, como una
   misma boleta usada en dos puertas, quedan marcados para revisión.
 - Como cada puerta pertenece a un solo sector, una boleta solo sirve en las puertas de ese sector. Eso achica el riesgo de doble ingreso.
@@ -281,10 +328,10 @@ Se valida **siempre cruzando con el documento**:
 ## Flujo completo
 
 1. **Preparación**: se da de alta el escenario con sectores, puertas y puestos; se crea el evento, se configura y se reparten los cupos.
-2. **Enrolamiento**: la persona crea su cuenta con documento verificado y, si aplica, biometría con consentimiento.
+2. **Enrolamiento**: la persona crea su cuenta con su documento.
 3. **Antes de la compra**: la comercializadora pregunta si el comprador puede comprar y recibe sí o no.
 4. **Compra en cantidad**: reserva, pago en la comercializadora y orden con N boletas sin titular.
-5. **Invitación y aceptación**: se valida a cada titular y la boleta queda asignada.
+5. **Invitación y aceptación**: se valida a cada titular; si no tiene referencia biométrica, la captura al aceptar; la boleta queda asignada.
 6. **Transferencias**: se valida a los dos lados y la persona que recibe acepta.
 7. **Revisión continua**: una restricción nueva anula o congela solo las boletas de esa persona.
 8. **Vence el plazo de asignación**: las boletas sin titular se pierden.
@@ -295,6 +342,11 @@ Se valida **siempre cruzando con el documento**:
 
 ## Preguntas abiertas
 
+- **Base legal de la referencia obligatoria.** La normativa de datos personales (Ley 1581 y Decreto
+  1377 de 2013) prohíbe condicionar una actividad a que la persona entregue datos sensibles, **salvo
+  que una ley lo exija**. Si la ley o el decreto que crea este sistema exige la identificación
+  biométrica, esa es la base y la captura puede ser obligatoria. Falta citar esa norma en el modelo.
+  La validación tiene que decir explícitamente que captura biometría.
 - Saneamiento: quórum, plazos y qué pasa si una entidad no responde. *(exploratorio)*
 - ¿Los datos de identidad que recibe la comercializadora incluyen el número de documento?
 - ¿Cómo revoca el usuario su vínculo con una comercializadora, y qué pasa con sus boletas vigentes?
