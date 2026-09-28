@@ -6,6 +6,21 @@
   var next = document.querySelector('[data-next]');
   var i = 0;
 
+  // Numeral de sección y pie de página: salen del contenido, no se escriben a mano en cada slide.
+  slides.forEach(function (s, k) {
+    var eb = s.querySelector('.dk-eyebrow');
+    var m = eb && eb.textContent.match(/^\s*(\d{2})\s*·/);
+    if (m) s.setAttribute('data-num', m[1]);
+    [].forEach.call(s.querySelectorAll('.dk-table tr'), function (tr, n) { tr.style.setProperty('--dk-i', n); });
+    if (k === 0) return;
+    var f = document.createElement('footer');
+    f.className = 'dk-foot';
+    f.setAttribute('aria-hidden', 'true');
+    f.innerHTML = '<span class="dk-foot__brand">Sistema de Validación Nacional · Kick-off</span>' +
+      '<span class="dk-foot__page"><b>' + String(k + 1).padStart(2, '0') + '</b> / ' + String(slides.length).padStart(2, '0') + '</span>';
+    s.appendChild(f);
+  });
+
   function fit() {
     var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
     stage.style.transform = 'translate(-50%, -50%) scale(' + s + ')';

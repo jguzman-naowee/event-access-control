@@ -33,8 +33,11 @@ body {
 }
 .dk-slide[hidden] { display: none; }
 .dk-slide--center { justify-content: center; }
+.dk-slide--middle { align-items: center; text-align: center; }
 .dk-slide--dark { background: var(--naotech-color-gray-900); color: var(--naotech-color-gray-050); }
-.dk-slide--accent { background: var(--naotech-color-default-500); color: var(--naotech-color-gray-900); }
+/* El blanco sobre el naranja 500 no llega a 3:1; por eso el fondo baja a 800→900. */
+.dk-slide--accent { background: linear-gradient(135deg, var(--naotech-color-default-800), var(--naotech-color-default-900)); color: var(--naotech-color-white-alpha-100); }
+.dk-slide--accent .dk-h1 { text-transform: uppercase; }
 
 @keyframes dk-entra { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .dk-slide { animation: none; } }
@@ -49,13 +52,13 @@ body {
   color: var(--naotech-color-default-700);
 }
 .dk-slide--dark .dk-eyebrow { color: var(--naotech-color-default-400); }
-.dk-slide--accent .dk-eyebrow { color: var(--naotech-color-gray-900); }
+.dk-slide--accent .dk-eyebrow { color: var(--naotech-color-default-200); }
 
 .dk-h1 { font-size: 128px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
 .dk-h2 { font-size: 72px; font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; }
 .dk-lead { font-size: 32px; line-height: 1.45; max-width: 1320px; color: var(--naotech-color-gray-700); }
 .dk-slide--dark .dk-lead { color: var(--naotech-color-gray-300); }
-.dk-slide--accent .dk-lead { color: var(--naotech-color-gray-900); }
+.dk-slide--accent .dk-lead { color: var(--naotech-color-default-100); }
 .dk-hl { color: var(--naotech-color-default-700); font-weight: 500; }
 .dk-slide--dark .dk-hl { color: var(--naotech-color-default-400); }
 
@@ -86,6 +89,54 @@ body {
 .dk-body { font-size: 24px; line-height: 1.45; color: var(--naotech-color-gray-700); }
 .dk-neg { color: var(--naotech-color-red-700); font-weight: 700; }
 
+.dk-row > .dk-card--wide { flex: 1.5; }
+
+/* Ilustraciones inline: el color sale de tokens, no del SVG. */
+.dk-art { border-radius: 14px; background: var(--naotech-color-default-050); padding: 16px; display: flex; justify-content: center; }
+.dk-art svg { width: 100%; max-width: 320px; height: 130px; }
+.dk-art--people svg { height: 120px; }
+.dk-art__ok { fill: var(--naotech-color-green-600); }
+.dk-art__no { fill: var(--naotech-color-red-600); }
+.dk-art__ink { fill: var(--naotech-color-gray-900); }
+.dk-art__mark { fill: none; stroke: var(--naotech-color-white-alpha-100); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.dk-art__line { fill: none; stroke: var(--naotech-color-gray-700); stroke-width: 3; }
+.dk-art__card { fill: var(--naotech-color-white-alpha-100); stroke: var(--naotech-color-gray-300); stroke-width: 2; }
+.dk-art__bar { fill: var(--naotech-color-gray-300); }
+.dk-art__scan { fill: none; stroke: var(--naotech-color-default-600); stroke-width: 4; stroke-linecap: round; }
+.dk-art__track { fill: var(--naotech-color-gray-200); }
+.dk-art__fill { fill: var(--naotech-color-green-600); }
+.dk-art__track-line { stroke: var(--naotech-color-gray-300); stroke-width: 3; }
+.dk-art__home { fill: var(--naotech-color-default-500); }
+.dk-art__away { fill: var(--naotech-color-indigo-700); }
+.dk-art__text { font-family: inherit; font-size: 16px; font-weight: 500; fill: var(--naotech-color-gray-900); }
+.dk-art__text--soft { fill: var(--naotech-color-gray-700); font-weight: 400; }
+
+.dk-equation { display: flex; align-items: center; gap: 24px; }
+.dk-equation__item { width: 120px; height: 120px; border-radius: 50%; display: grid; place-items: center; background: var(--naotech-color-white-alpha-100); color: var(--naotech-color-default-800); font-size: 60px; }
+.dk-equation__eq { font-size: 64px; font-weight: 700; color: var(--naotech-color-default-200); }
+
+.dk-src { flex-direction: row; align-items: center; gap: 20px; }
+.dk-src__logo { width: 72px; height: 72px; flex: none; object-fit: contain; }
+.dk-crest { fill: var(--naotech-color-gray-200); stroke: var(--naotech-color-gray-700); stroke-width: 3; }
+.dk-crest__band { fill: var(--naotech-color-gray-700); }
+.dk-crest__ball { fill: var(--naotech-color-white-alpha-100); stroke: var(--naotech-color-gray-700); stroke-width: 3; }
+
+.dk-gauge { display: flex; align-items: center; gap: 24px; padding: 20px 24px; border-radius: 16px; background: var(--naotech-color-white-alpha-100); }
+.dk-gauge__dial { width: 220px; height: 121px; flex: none; }
+.dk-gauge__dial path:not(.dk-gauge__needle) { fill: none; stroke-width: 28; }
+.dk-gauge__no { stroke: var(--naotech-color-red-600); }
+.dk-gauge__mid { stroke: var(--naotech-color-yellow-800); }
+.dk-gauge__ok { stroke: var(--naotech-color-green-600); }
+.dk-gauge__needle { stroke: var(--naotech-color-gray-900); stroke-width: 6; stroke-linecap: round; }
+.dk-gauge__hub { fill: var(--naotech-color-gray-900); }
+.dk-gauge__legend { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 18px; line-height: 1.35; color: var(--naotech-color-gray-800); }
+.dk-gauge__legend b { color: var(--naotech-color-gray-900); }
+.dk-gauge__legend .dk-gauge__age { border-top: 1px solid var(--naotech-color-gray-200); padding-top: 8px; }
+.dk-dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 10px; }
+.dk-dot--no { background: var(--naotech-color-red-600); }
+.dk-dot--mid { background: var(--naotech-color-yellow-800); }
+.dk-dot--ok { background: var(--naotech-color-green-600); }
+
 .dk-arrow { flex: 0 0 56px; align-self: center; color: var(--naotech-color-default-700); font-size: 56px; text-align: center; }
 
 .dk-num { font-size: 120px; font-weight: 700; line-height: 1; color: var(--naotech-color-default-700); }
@@ -94,6 +145,8 @@ body {
 
 .dk-pills { display: flex; flex-wrap: wrap; gap: 12px; }
 .dk-pill { font-size: 26px; padding: 10px 22px; border-radius: var(--naotech-radius-pill); border: 2px solid var(--naotech-color-gray-300); }
+.dk-slide--dark .dk-pill { border-color: var(--naotech-color-gray-600); color: var(--naotech-color-gray-100); }
+.dk-pill--hero, .dk-slide--dark .dk-pill--hero { background: var(--naotech-color-default-500); border-color: var(--naotech-color-default-500); color: var(--naotech-color-gray-900); font-weight: 500; }
 .dk-pill--ours { background: var(--naotech-color-indigo-100); border-color: var(--naotech-color-indigo-100); color: var(--naotech-color-indigo-900); }
 
 .dk-table { width: 100%; border-collapse: collapse; font-size: 26px; }
@@ -120,6 +173,94 @@ body {
 
 .dk-list { font-size: 30px; line-height: 1.6; color: var(--naotech-color-gray-700); padding-left: 36px; }
 
+/* Íconos del SDK sueltos en la slide: sin el wrapper .nwt-icon no traen la fuente. */
+.dk-slide i[class^="naotech-icon-"] { font-family: -naotech-icons; font-style: normal; }
+
+.dk-reg { display: inline-flex; align-items: center; gap: 16px; }
+.dk-reg__icon { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-size: 24px; font-weight: 400; background: var(--naotech-color-gray-100); color: var(--naotech-color-gray-800); }
+.dk-reg__icon--warn { background: var(--naotech-color-yellow-200); color: var(--naotech-color-gray-900); }
+.dk-reg__icon--no { background: var(--naotech-color-red-100); color: var(--naotech-color-red-800); }
+.dk-reg__icon--veto { background: var(--naotech-color-red-700); color: var(--naotech-color-white-alpha-100); }
+.dk-reg__icon--clean { background: var(--naotech-color-green-600); color: var(--naotech-color-white-alpha-100); }
+.dk-reg__icon--ok { background: var(--naotech-color-green-100); color: var(--naotech-color-green-800); }
+
+/* Mapa de módulos: el tiempo corre de izquierda a derecha y todo baja al core. */
+.dk-map { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto auto 88px auto; column-gap: 40px; row-gap: 16px;
+  grid-template-areas: "w1 w2 w3 w4" "m1 m3 m4 m5" "m1 l3 l4 l5" "m1 core core core"; }
+.dk-map__when { font-size: 22px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--naotech-color-default-700); border-top: 4px solid var(--naotech-color-default-500); padding-top: 12px; }
+.dk-map__when--always { color: var(--naotech-color-gray-700); border-top-style: dashed; border-top-color: var(--naotech-color-gray-300); }
+.dk-map__when--event { border-top-color: var(--naotech-color-default-700); }
+.dk-map__step { position: relative; }
+.dk-map__step::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); font-size: 32px; color: var(--naotech-color-default-700); }
+.dk-map__feed { position: relative; }
+.dk-map__feed .dk-map__out { margin-top: auto; margin-bottom: 64px; }
+/* El conector cruza el gap de la grilla hasta el borde del core, a la altura del texto. */
+.dk-map__feed::after { content: ''; position: absolute; right: -42px; bottom: 116px; width: 36px; height: 4px; background: var(--naotech-color-default-500); }
+.dk-map__feed::before { content: ''; position: absolute; right: -42px; bottom: 108px; border-left: 12px solid var(--naotech-color-default-500); border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
+.dk-map__out { font-size: 22px; font-weight: 500; color: var(--naotech-color-default-700); }
+.dk-map__link { display: flex; align-items: center; justify-content: center; background: linear-gradient(var(--naotech-color-default-500), var(--naotech-color-default-500)) center / 3px 100% no-repeat; }
+.dk-map__link span { font-size: 20px; font-weight: 500; padding: 6px 14px; border-radius: var(--naotech-radius-pill); background: var(--naotech-color-gray-050); border: 2px solid var(--naotech-color-default-500); text-align: center; }
+.dk-map__core { justify-content: center; }
+
+.dk-journey { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; padding-top: 8px; margin-top: 40px; }
+.dk-journey::before { content: ''; position: absolute; left: 36px; right: 36px; top: 42px; border-top: 4px solid var(--naotech-color-default-500); }
+.dk-journey__stop { position: relative; display: flex; flex-direction: column; gap: 14px; }
+.dk-journey__dot { width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center; font-size: 36px; font-weight: 700; background: var(--naotech-color-gray-050); border: 4px solid var(--naotech-color-default-500); color: var(--naotech-color-default-700); margin-bottom: 12px; }
+.dk-journey__dot { order: -1; }
+.dk-journey__stop--event .dk-journey__dot { background: var(--naotech-color-default-500); color: var(--naotech-color-gray-900); }
+.dk-journey__stop .dk-title { font-size: 36px; }
+.dk-journey__icon { width: 72px; height: 72px; fill: none; stroke: var(--naotech-color-gray-900); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.dk-journey__in { stroke: var(--naotech-color-default-600); }
+.dk-journey__stop--event .dk-journey__icon { stroke: var(--naotech-color-default-700); }
+
+.dk-kind { display: inline-block; font-size: 20px; font-weight: 500; padding: 4px 14px; border-radius: var(--naotech-radius-pill); background: var(--naotech-color-indigo-100); color: var(--naotech-color-indigo-900); }
+.dk-kind--host { background: transparent; border: 2px solid var(--naotech-color-gray-300); color: var(--naotech-color-gray-800); }
+/* Ancho fijo por ícono: los chips de "Qué es" quedan alineados con uno o dos dispositivos. */
+.dk-dev { display: inline-flex; width: 80px; vertical-align: middle; color: var(--naotech-color-gray-800); }
+.dk-dev i { width: 36px; font-size: 28px; text-align: center; }
+.dk-feats { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.dk-feats li { display: flex; flex-direction: column; gap: 2px; padding-left: 20px; border-left: 4px solid var(--naotech-color-indigo-700); }
+.dk-feats b { font-size: 26px; color: var(--naotech-color-indigo-900); }
+.dk-feats span { font-size: 22px; line-height: 1.4; color: var(--naotech-color-gray-700); }
+.dk-count { display: inline-block; margin-left: 8px; font-size: 18px; font-weight: 500; padding: 2px 10px; border-radius: var(--naotech-radius-pill); background: var(--naotech-color-default-050); color: var(--naotech-color-default-800); }
+.dk-count--one { background: var(--naotech-color-gray-100); color: var(--naotech-color-gray-700); }
+.dk-table td:first-child .dk-reg, .dk-table--compact td { font-weight: inherit; }
+
+.dk-role--owner .dk-title { color: var(--naotech-color-default-700); }
+.dk-role--holder .dk-title { color: var(--naotech-color-indigo-700); }
+.dk-check { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 500; color: var(--naotech-color-gray-900); padding-top: 12px; border-top: 1px solid var(--naotech-color-gray-200); }
+.dk-check i { font-size: 26px; color: var(--naotech-color-green-700); }
+.dk-steps .dk-body { font-size: 22px; flex: 1; }
+.dk-steps .dk-label { font-size: 20px; }
+.dk-who { font-size: 18px; font-weight: 500; padding: 4px 12px; border-radius: 8px; background: var(--naotech-color-gray-100); color: var(--naotech-color-gray-800); align-self: flex-start; }
+.dk-who--owner { background: var(--naotech-color-default-050); color: var(--naotech-color-default-800); }
+.dk-who--holder { background: var(--naotech-color-indigo-100); color: var(--naotech-color-indigo-900); }
+.dk-who--core { background: var(--naotech-color-default-500); color: var(--naotech-color-gray-900); }
+.dk-card--primary .dk-who--holder { background: var(--naotech-color-white-alpha-100); }
+
+.dk-sf { display: inline-block; font-size: 18px; font-weight: 500; padding: 3px 12px; margin: 0 6px 6px 0; border-radius: var(--naotech-radius-pill); background: var(--naotech-color-indigo-100); color: var(--naotech-color-indigo-900); }
+.dk-sf--host { background: transparent; border: 2px solid var(--naotech-color-gray-300); color: var(--naotech-color-gray-800); padding: 1px 10px; }
+.dk-sfs { margin-top: auto; }
+.dk-where { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--naotech-color-gray-200); display: flex; flex-direction: column; gap: 8px; font-size: 22px; line-height: 1.4; color: var(--naotech-color-gray-800); }
+.dk-where b { color: var(--naotech-color-gray-900); margin-right: 8px; }
+.dk-legend { font-size: 20px; color: var(--naotech-color-gray-700); }
+.dk-tl > div { position: relative; }
+.dk-tl > div::before { content: ''; position: absolute; top: -13px; left: 16px; width: 20px; height: 20px; border-radius: 50%; background: var(--naotech-color-gray-300); }
+.dk-tl > .dk-tl__now::before { background: var(--naotech-color-default-500); }
+
+.dk-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 56px; }
+.dk-flow > .dk-card { position: relative; }
+.dk-flow > .dk-card:not(:last-child)::after { content: '→'; position: absolute; right: -46px; top: 50%; transform: translateY(-50%); font-size: 40px; color: var(--naotech-color-default-700); }
+.dk-flow .dk-label { color: var(--naotech-color-gray-900); font-weight: 700; }
+.dk-flow .dk-body { flex: 1; }
+.dk-flow__end { border: 2px solid var(--naotech-color-default-500); }
+.dk-flow__out { display: flex; gap: 10px; }
+.dk-flow__yes, .dk-flow__no { font-size: 22px; font-weight: 700; padding: 6px 16px; border-radius: var(--naotech-radius-pill); }
+.dk-flow__yes { background: var(--naotech-color-green-100); color: var(--naotech-color-green-800); }
+.dk-flow__no { background: var(--naotech-color-red-100); color: var(--naotech-color-red-800); }
+.dk-flow__fallback { flex-direction: row; align-items: baseline; gap: 24px; padding: 28px; }
+.dk-flow__fallback .dk-label { flex: none; }
+
 /* Navegación: fuera del lienzo, con botones del SDK. */
 .dk-nav {
   position: fixed;
@@ -137,3 +278,229 @@ body {
 }
 .dk-nav:hover, .dk-nav:focus-within { opacity: 1; }
 .dk-counter { font-size: 14px; font-variant-numeric: tabular-nums; min-width: 56px; text-align: center; color: var(--naotech-color-gray-800); }
+
+/* ── Capa de presentación: luz, profundidad y ritmo. Todo sale de tokens. ── */
+
+.dk-slide {
+  overflow: hidden;
+  background:
+    radial-gradient(1100px 680px at 100% 0%, var(--naotech-color-default-050), transparent 62%),
+    radial-gradient(900px 620px at 0% 100%, var(--naotech-color-indigo-050), transparent 60%),
+    var(--naotech-color-gray-050);
+}
+.dk-slide > * { position: relative; z-index: 1; }
+
+/* Retícula de puntos solo en la esquina alta, para no competir con el texto. */
+.dk-slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--naotech-color-gray-300) 1.5px, transparent 1.8px) 0 0 / 36px 36px;
+  -webkit-mask-image: radial-gradient(700px 460px at 100% 0%, #000, transparent 70%);
+  mask-image: radial-gradient(700px 460px at 100% 0%, #000, transparent 70%);
+  opacity: 0.55;
+}
+
+/* Numeral de sección: deck.js lo toma del «0N ·» del eyebrow. */
+.dk-slide[data-num]::after {
+  content: attr(data-num);
+  position: absolute;
+  top: -64px;
+  right: 72px;
+  z-index: 0;
+  pointer-events: none;
+  font-size: 340px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: color-mix(in srgb, var(--naotech-color-default-100) 60%, transparent);
+}
+
+.dk-slide--dark {
+  background:
+    radial-gradient(1000px 640px at 88% 4%, color-mix(in srgb, var(--naotech-color-default-500) 30%, transparent), transparent 62%),
+    radial-gradient(900px 640px at 4% 100%, color-mix(in srgb, var(--naotech-color-indigo-700) 34%, transparent), transparent 60%),
+    linear-gradient(160deg, var(--naotech-color-gray-900), var(--naotech-color-dark-indigo-050));
+}
+.dk-slide--dark::before { background-image: radial-gradient(circle, var(--naotech-color-gray-700) 1.5px, transparent 1.8px); opacity: 0.6; }
+.dk-slide--accent {
+  background:
+    radial-gradient(900px 600px at 50% 0%, color-mix(in srgb, var(--naotech-color-default-500) 55%, transparent), transparent 65%),
+    linear-gradient(135deg, var(--naotech-color-default-800), var(--naotech-color-default-900));
+}
+.dk-slide--accent::before { background-image: radial-gradient(circle, var(--naotech-color-default-600) 1.5px, transparent 1.8px); -webkit-mask-image: none; mask-image: none; opacity: 0.35; }
+
+.dk-eyebrow { display: flex; align-items: center; gap: 16px; }
+.dk-eyebrow::before { content: ''; width: 48px; height: 4px; border-radius: 2px; background: currentColor; flex: none; }
+.dk-slide--middle .dk-eyebrow { justify-content: center; }
+
+.dk-card {
+  border-color: color-mix(in srgb, var(--naotech-color-gray-200) 70%, transparent);
+  box-shadow: var(--naotech-shadow-8);
+}
+.dk-card--primary {
+  background: linear-gradient(145deg, var(--naotech-color-default-400), var(--naotech-color-default-500));
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--naotech-color-default-600) 38%, transparent);
+}
+.dk-card--secondary { box-shadow: 0 14px 40px color-mix(in srgb, var(--naotech-color-indigo-700) 18%, transparent); }
+.dk-card--dashed { box-shadow: none; }
+.dk-slide--dark .dk-card { box-shadow: var(--naotech-shadow-24); color: var(--naotech-color-gray-900); }
+.dk-open { align-self: center; }
+
+.dk-grad {
+  background: linear-gradient(100deg, var(--naotech-color-default-600), var(--naotech-color-default-800));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.dk-slide--dark .dk-grad { background-image: linear-gradient(100deg, var(--naotech-color-default-300), var(--naotech-color-default-500)); }
+
+/* Portada: el estadio visto desde arriba, a la derecha. */
+.dk-cover { max-width: 1180px; }
+.dk-cover-art { position: absolute; z-index: 0; right: -380px; top: 50%; width: 1080px; height: 1080px; transform: translateY(-50%); pointer-events: none; }
+.dk-cover-art .bowl { fill: none; stroke: var(--naotech-color-gray-700); stroke-width: 2; }
+.dk-cover-art .bowl--hot { stroke: var(--naotech-color-default-500); stroke-width: 3; }
+.dk-cover-art .pitch { fill: color-mix(in srgb, var(--naotech-color-default-500) 10%, transparent); stroke: var(--naotech-color-default-400); stroke-width: 2; }
+.dk-cover-art .line { fill: none; stroke: var(--naotech-color-default-400); stroke-width: 2; }
+.dk-cover-art .gate { fill: var(--naotech-color-default-500); }
+.dk-cover-art .gate--off { fill: var(--naotech-color-gray-700); }
+
+/* La pregunta: un halo detrás, como un reflector sobre la cancha. */
+.dk-halo { position: absolute; z-index: 0; left: 50%; top: 50%; width: 1100px; height: 1100px; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, color-mix(in srgb, var(--naotech-color-default-200) 55%, transparent), transparent 62%); }
+.dk-halo::before, .dk-halo::after { content: ''; position: absolute; inset: 180px; border-radius: 50%; border: 2px solid var(--naotech-color-default-200); }
+.dk-halo::after { inset: 60px; border-style: dashed; border-color: var(--naotech-color-default-100); }
+
+/* La regla dura: cada término con su propio halo. */
+.dk-equation__item { box-shadow: 0 0 0 14px color-mix(in srgb, var(--naotech-color-white-alpha-100) 14%, transparent), 0 24px 48px color-mix(in srgb, var(--naotech-color-default-900) 50%, transparent); }
+
+/* Cierre: decisiones con marca de cerrada, la abierta resaltada. */
+.dk-decisions { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 22px; }
+.dk-decisions li { position: relative; padding-left: 56px; }
+.dk-decisions li::before { content: ''; position: absolute; left: 0; top: 4px; width: 36px; height: 36px; border-radius: 50%; background: var(--naotech-color-green-600); }
+.dk-decisions li::after { content: ''; position: absolute; left: 12px; top: 11px; width: 9px; height: 16px; border: solid var(--naotech-color-white-alpha-100); border-width: 0 4px 4px 0; transform: rotate(45deg); }
+.dk-open { border: 2px dashed var(--naotech-color-default-400); background: color-mix(in srgb, var(--naotech-color-white-alpha-100) 96%, transparent); box-shadow: 0 0 0 10px color-mix(in srgb, var(--naotech-color-default-500) 16%, transparent), var(--naotech-shadow-24); }
+.dk-open .dk-label { color: var(--naotech-color-default-800); }
+
+/* Pie de página: lo pone deck.js en todas menos la portada. */
+.dk-foot { position: absolute !important; left: 128px; right: 128px; bottom: 44px; display: flex; justify-content: flex-start; gap: 32px; align-items: center; font-size: 18px; font-weight: 500; letter-spacing: 0.04em; color: var(--naotech-color-gray-700); }
+.dk-foot__brand { display: flex; align-items: center; gap: 12px; }
+.dk-foot__brand::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--naotech-color-default-500); }
+.dk-foot__page { font-variant-numeric: tabular-nums; }
+.dk-foot__page b { color: var(--naotech-color-gray-900); }
+.dk-slide--dark .dk-foot { color: var(--naotech-color-gray-400); }
+.dk-slide--dark .dk-foot__page b, .dk-slide--accent .dk-foot__page b { color: var(--naotech-color-white-alpha-100); }
+.dk-slide--accent .dk-foot { color: var(--naotech-color-default-200); }
+
+/* Entrada escalonada: primero el encabezado, después el contenido y sus piezas. */
+@keyframes dk-sube { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+.dk-slide:not([hidden]) > :not(.dk-foot):not(.dk-halo):not(.dk-cover-art) { animation: dk-sube 560ms cubic-bezier(.2, .7, .2, 1) both; }
+.dk-slide:not([hidden]) > :nth-child(2) { animation-delay: 70ms; }
+.dk-slide:not([hidden]) > :nth-child(3) { animation-delay: 150ms; }
+.dk-slide:not([hidden]) > :nth-child(4) { animation-delay: 230ms; }
+.dk-slide:not([hidden]) > :nth-child(5) { animation-delay: 300ms; }
+.dk-slide:not([hidden]) :is(.dk-row, .dk-steps, .dk-tl, .dk-flow, .dk-journey) > * { animation: dk-sube 520ms cubic-bezier(.2, .7, .2, 1) both; }
+.dk-slide:not([hidden]) :is(.dk-row, .dk-steps, .dk-tl, .dk-flow, .dk-journey) > :nth-child(1) { animation-delay: 220ms; }
+.dk-slide:not([hidden]) :is(.dk-row, .dk-steps, .dk-tl, .dk-flow, .dk-journey) > :nth-child(2) { animation-delay: 300ms; }
+.dk-slide:not([hidden]) :is(.dk-row, .dk-steps, .dk-tl, .dk-flow, .dk-journey) > :nth-child(3) { animation-delay: 380ms; }
+.dk-slide:not([hidden]) :is(.dk-row, .dk-steps, .dk-tl, .dk-flow, .dk-journey) > :nth-child(4) { animation-delay: 460ms; }
+.dk-slide:not([hidden]) :is(.dk-row, .dk-steps, .dk-tl, .dk-flow, .dk-journey) > :nth-child(5) { animation-delay: 540ms; }
+.dk-slide:not([hidden]) :is(.dk-row, .dk-steps, .dk-tl, .dk-flow, .dk-journey) > :nth-child(6) { animation-delay: 620ms; }
+.dk-slide:not([hidden]) .dk-table tr { animation: dk-sube 480ms cubic-bezier(.2, .7, .2, 1) both; }
+.dk-slide:not([hidden]) .dk-table tr:nth-child(n+2) { animation-delay: calc(var(--dk-i, 0) * 60ms + 200ms); }
+@keyframes dk-halo { from { opacity: 0; transform: translate(-50%, -50%) scale(.85); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+.dk-slide:not([hidden]) .dk-halo { animation: dk-halo 900ms ease-out both; }
+@keyframes dk-gira { to { transform: translateY(-50%) rotate(360deg); } }
+.dk-slide:not([hidden]) .dk-cover-art .spin { transform-origin: 540px 540px; animation: dk-gira 90s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .dk-slide *, .dk-slide::after { animation: none !important; }
+}
+
+/* Casos: tarjetas altas con su ícono, para que la slide respire en vez de quedar a medias. */
+.dk-case { min-height: 460px; padding: 48px 40px; gap: 24px; border-top: 6px solid var(--naotech-color-default-500); }
+.dk-case__icon { width: 96px; height: 96px; border-radius: 28px; display: grid; place-items: center; font-size: 48px; background: var(--naotech-color-default-050); color: var(--naotech-color-default-700); }
+.dk-case .dk-body { font-size: 26px; }
+
+/* ── Minimal: menos capas por tarjeta. Una superficie, sin cajas dentro de cajas. ── */
+
+.dk-card {
+  border: 0;
+  border-radius: 24px;
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--naotech-color-gray-900) 6%, transparent), 0 12px 32px color-mix(in srgb, var(--naotech-color-gray-900) 5%, transparent);
+}
+.dk-card--primary { background: var(--naotech-color-default-500); box-shadow: 0 16px 40px color-mix(in srgb, var(--naotech-color-default-600) 22%, transparent); }
+.dk-card--secondary { border: 0; box-shadow: inset 0 0 0 2px var(--naotech-color-indigo-200), 0 12px 32px color-mix(in srgb, var(--naotech-color-gray-900) 5%, transparent); }
+.dk-card--dashed { background: transparent; box-shadow: none; border: 0; border-top: 2px dashed var(--naotech-color-gray-300); border-radius: 0; padding-left: 0; padding-right: 0; }
+.dk-label { font-size: 20px; letter-spacing: 0.1em; }
+
+/* Ilustraciones e indicador: sin caja propia, apoyados en la tarjeta. */
+.dk-art { background: transparent; padding: 8px 0; justify-content: flex-start; }
+.dk-gauge { background: transparent; padding: 20px 0 0; border-top: 1px solid color-mix(in srgb, var(--naotech-color-gray-900) 18%, transparent); border-radius: 0; }
+
+/* Fuentes: una lista con divisores, no tres tarjetas apiladas. */
+.dk-col > .dk-src { background: transparent; box-shadow: none; border-radius: 0; padding: 20px 0; border-bottom: 1px solid var(--naotech-color-gray-200); }
+.dk-col > .dk-src:last-child { border-bottom: 0; }
+
+/* Chips → texto con un punto de color: la categoría se lee sin sumar cajas. */
+.dk-who, .dk-sf, .dk-kind, .dk-count {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 16px 4px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--naotech-color-gray-700);
+}
+.dk-who::before, .dk-sf::before, .dk-kind::before { content: ''; width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--naotech-color-indigo-600); }
+.dk-who--owner::before { background: var(--naotech-color-default-600); }
+.dk-who--holder::before { background: var(--naotech-color-indigo-600); }
+.dk-who--core::before { background: var(--naotech-color-default-500); }
+.dk-who::before { background: var(--naotech-color-gray-500); }
+.dk-who--owner::before { background: var(--naotech-color-default-600); }
+.dk-who--holder::before, .dk-who--core::before { background: var(--naotech-color-indigo-600); }
+.dk-who--core::before { background: var(--naotech-color-default-500); }
+.dk-sf--host::before, .dk-kind--host::before { background: transparent; box-shadow: inset 0 0 0 2px var(--naotech-color-gray-500); }
+.dk-kind { font-size: 22px; color: var(--naotech-color-gray-800); }
+.dk-count { color: var(--naotech-color-gray-600); font-weight: 400; margin-left: 8px; }
+.dk-count::before { content: '·'; }
+.dk-card--primary .dk-who { color: var(--naotech-color-gray-900); }
+.dk-card--primary .dk-who::before { background: var(--naotech-color-gray-900); }
+
+/* Pasos y flujo: el número manda, la descripción acompaña. */
+.dk-steps > .dk-card { padding: 32px 24px; gap: 12px; }
+.dk-flow .dk-label { font-size: 22px; }
+.dk-flow__end { border: 0; box-shadow: inset 0 0 0 2px var(--naotech-color-default-400), 0 12px 32px color-mix(in srgb, var(--naotech-color-gray-900) 5%, transparent); }
+.dk-flow__yes, .dk-flow__no { background: transparent; padding: 0; }
+.dk-flow__yes::before, .dk-flow__no::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+.dk-flow__yes::before { background: var(--naotech-color-green-600); }
+.dk-flow__no::before { background: var(--naotech-color-red-600); }
+.dk-flow__out { gap: 24px; }
+
+/* Rol y verificación: una línea, sin separador pesado. */
+.dk-check { border-top: 0; padding-top: 0; font-weight: 400; color: var(--naotech-color-gray-700); }
+.dk-where { border-top: 1px solid var(--naotech-color-gray-100); }
+.dk-case { border-top: 0; }
+.dk-case__icon { border-radius: 50%; width: 80px; height: 80px; font-size: 40px; }
+
+/* Semáforo de la puerta: tres salidas, una por línea. */
+.dk-flow__out--col { flex-direction: column; gap: 10px; }
+.dk-flow__warn { font-size: 22px; font-weight: 700; color: var(--naotech-color-gray-900); }
+.dk-flow__warn::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: middle; background: var(--naotech-color-yellow-900); }
+.dk-open .dk-feats li { border-left-color: var(--naotech-color-default-500); }
+.dk-open .dk-feats b { color: var(--naotech-color-gray-900); }
+
+/* Estado frente al demo: lo que falta se distingue por forma (anillo) además del color. */
+.dk-kind--new { color: var(--naotech-color-default-800); }
+.dk-kind--new::before { background: transparent; box-shadow: inset 0 0 0 2px var(--naotech-color-default-600); }
+
+/* Cuatro fuentes en la columna: filas más apretadas para que quepan sin recortar. */
+.dk-col > .dk-src { padding: 14px 0; }
+.dk-col > .dk-src .dk-title { font-size: 28px; }
+.dk-col > .dk-src .dk-src__logo { width: 60px; height: 60px; }
+.dk-decisions { gap: 16px; }

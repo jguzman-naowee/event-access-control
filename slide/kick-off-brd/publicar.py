@@ -42,6 +42,11 @@ hojas  = re.findall(r'<link rel="stylesheet" href="([^"]+)">', head)
 scripts = re.findall(r'<script src="([^"]+)"></script>', body)
 resto = re.sub(r'\s*<script src="[^"]+"></script>', '', body).strip()
 
+# Las imágenes locales (logos/) también van como data URI: el visor no sirve archivos sueltos.
+resto = re.sub(r'(src|href)="(logos/[^"]+)"',
+               lambda m: '%s="%s"' % (m.group(1), data_uri(m.group(2), {'.png': 'image/png', '.svg': 'image/svg+xml'}[pathlib.Path(m.group(2)).suffix])),
+               resto)
+
 # El charset va PRIMERO y explícito: sin él, servido por http sin cabecera
 # (python -m http.server, un hosting cualquiera) el navegador adivina la
 # codificación y las tildes y los glifos del set de iconos salen rotos.
