@@ -1,10 +1,13 @@
-# Modelo de dominio · Event Access Control
+# Modelo de dominio · Sistema de Validación Nacional (SVN)
 
-Control de acceso nacional a eventos deportivos, principalmente fútbol profesional. Gestiona el
-flujo boleta-persona completo: desde antes de la compra hasta el ingreso al estadio. Funciona como
-producto digital y como API.
+Control de acceso nacional a eventos deportivos, principalmente fútbol profesional, bajo el
+**Decreto 1622 de 2022**. Es un módulo transaccional del **SUID**, en el IVC del Ministerio del
+Deporte. Gestiona el flujo boleta-persona completo: desde antes de la compra hasta el ingreso al
+estadio. Funciona como producto digital y como API.
 
-> Estado: **borrador v0** (23-sep-2026). Lo marcado *exploratorio* todavía no es decisión.
+> Estado: **v1** (25-sep-2026). Las fuentes de verdad están en [`fuentes.md`](fuentes.md): donde
+> contradicen este modelo, ganan ellas. Lo que no cubren va marcado *(decisión de producto)*, y lo
+> que todavía no es decisión, *(exploratorio)*.
 
 ---
 
@@ -17,12 +20,13 @@ puntos de validación:
 
 | # | Validación | A quién se valida |
 |---|---|---|
-| 1 | ¿Puede comprar? | Al comprador |
-| 2 | ¿Puede recibir esta boleta? | Al titular: su estado, una boleta por evento, su afinidad y el sector |
+| 1 | ¿Puede comprar? | Al comprador: identidad, sanción vigente y límite de boletas |
+| 2 | ¿Puede recibir esta boleta? | Al titular: identidad, sanción vigente, una boleta por evento, afinidad y sector |
 | 3 | ¿Puede transferir? | A quien entrega y a quien recibe |
 | 4 | ¿Puede entrar? | Al titular, en la puerta y con el estado de ese momento |
 
-Para la comercializadora esto es **transparente**: solo recibe **sí o no**, nunca el motivo.
+Para la comercializadora es una **consulta ciega**: solo recibe **sí o no** y un código de motivo
+genérico, nunca el expediente ni los hechos.
 
 ---
 
@@ -30,60 +34,64 @@ Para la comercializadora esto es **transparente**: solo recibe **sí o no**, nun
 
 | # | Módulo | De qué se encarga |
 |---|---|---|
-| 1 | **Restricciones** | Las 3 fuentes de personas advertidas, sancionadas o vetadas, con su historial |
-| 2 | **Identidad y elegibilidad** (el core) | Personas, cuentas de usuario, afinidad y la decisión de sí o no |
+| 1 | **Medidas correctivas** | La base nacional de personas con prohibición de ingreso, en el SUID-IVC |
+| 2 | **Identidad y elegibilidad** (el core) | Personas, verificación con la Registraduría, afinidad y la decisión de sí o no |
 | 3 | **Escenarios y eventos** | Escenario, sectores, puertas, puestos, competencia, evento, partido y su configuración |
-| 4 | **Boletería y asignación** | Cupos, reservas, órdenes, boletas, invitaciones, asignaciones y transferencias |
-| 5 | **Control de acceso** | Dispositivos, validación en la puerta, ingresos y operación sin conexión |
+| 4 | **Boletería y asignación** | Comercializadoras homologadas, cupos, órdenes, boletas, invitaciones y transferencias |
+| 5 | **Control de acceso** | Dispositivos, validación en la puerta con semáforo, ingresos y operación sin conexión |
 
 ---
 
-## 1 · Restricciones
+## 1 · Medidas correctivas
 
-### Fuentes
+### Quién emite y quién registra
 
-Hay tres fuentes. Cada una **escribe solo en su propia base**, pero **puede leer el detalle de las
-otras dos**, aunque no haya registrado nada propio.
-
-| Fuente | Actor |
+| Actor | Papel |
 |---|---|
-| Policía | Policía Nacional |
-| IVC | IVC del SUID, del Ministerio del Deporte (módulo propio de Naowee Suite, integración interna) |
-| Deportiva | Clubes y entidades deportivas formales |
+| **Autoridades de policía** (inspecciones de policía, alcaldías) | **Emiten** la medida correctiva mediante un acto administrativo, en audiencia |
+| **IVC del SUID (Mindeporte)** | **Registra** la medida a partir del oficio de entrada (radicado en GESDOC) y la mantiene |
+| **Policía Nacional** | **Consulta**: recibe las alertas rojas de la puerta en el PMU y ve el detalle en la vista policial |
 
-### Estado de conducta
+Hay **una sola base** de medidas correctivas, en el SUID-IVC. Los clubes no son fuente de
+restricciones: reportan qué comercializadora usan (módulo 4).
 
-El estado de cada persona cambia con el tiempo y deja rastro. El estado vigente es **el peor entre
-las tres fuentes**: basta con que una fuente bloquee.
+### La medida correctiva
 
-```
-Habilitado → Con advertencia → Sancionado / Vetado → Saneado
-     ↑_______________________________________________|
-```
+Es una **prohibición de ingreso a escenarios deportivos**, por las conductas de la Ley 1445 de 2011
+(arts. 14 y 15), modificada por la Ley 1453 de 2011 (arts. 97 y 98).
 
-| Registro | ¿Bloquea? | Vigencia |
-|---|---|---|
-| Anotación | No | Permanente, es una observación |
-| Advertencia | No, pero cuenta como antecedente | Permanente |
-| Sanción | Sí | Desde y hasta una fecha |
-| Veto | Sí | Sin fecha de fin |
-| Saneamiento | Levanta el bloqueo | Las anotaciones y advertencias siguen visibles |
-
-**Alcance de una sanción o un veto:** nacional, un club, un escenario o un evento.
+- **Vigencia:** empieza el día siguiente a la **fecha de constancia de ejecutoria** y dura los
+  **meses de sanción**. El fin de vigencia se calcula, no se digita.
+- **Alcance: nacional.** Rige en todos los escenarios del país donde haya espectáculos deportivos
+  profesionales con público (Decreto 079 de 2012, art. 6, par. 4).
+- **Estado automático:** **vigente** mientras no pase el fin de vigencia; después, **cumplida**. La
+  persona queda habilitada sola, sin trámite.
+- Puede llevar **multa** (valor de la sanción, en pesos).
 
 ### Entidades
 
-- **Fuente de restricción**: una de las 3 fuentes, con su actor dueño.
-- **Registro de conducta**: la persona, la fuente, el tipo, el alcance, la vigencia, el soporte legal y el estado.
-- **Historial**: cada cambio queda registrado y nunca se edita: quién, cuándo, por qué y con qué soporte.
+- **Medida correctiva**, con los grupos de campos del registro oficial (detalle en `fuentes.md`):
+  - **Infractor:** tipo y número de identificación, nombre, residencia, contacto, fecha de nacimiento,
+    edad y si es menor (calculados), sexo.
+  - **Representante legal:** obligatorio si el infractor es menor de edad (Ley 1098 de 2006).
+  - **Hechos:** fecha, evento, competición, ciudad, **conductas** (catálogo, selección múltiple),
+    **agravantes** y descripción breve.
+  - **Sanción:** acto administrativo, fecha de ejecutoria, meses, fin de vigencia, valor, estado.
+  - **Gestión interna:** radicados de GESDOC (entrada, respuesta, financiera, jurídica), profesional
+    responsable y observaciones.
+- **Catálogo de conductas:** art. 97 (6 conductas), art. 98 (3) y agravantes (3).
+- **Historial:** cada registro y cada cambio queda con quién, cuándo y con qué soporte. No se edita.
 
-### Saneamiento *(exploratorio)*
+### Menores de edad
 
-- Solo puede sanear la fuente que impuso el registro.
-- Requiere un proceso formal: una solicitud con soporte, **la aprobación de las otras entidades** y
-  la resolución. Todo queda en el historial.
-- Por definir: quórum, plazos, qué pasa si una entidad no responde, y si una apelación de la persona
-  arranca este mismo proceso.
+Un menor **puede ser sancionado**. Su registro exige el representante legal y tiene **reserva
+reforzada**: sus datos solo los ven los roles que los necesitan, y cada consulta queda auditada.
+
+### Correcciones y levantamiento anticipado *(exploratorio)*
+
+Los documentos no cubren cómo se corrige un registro con error o se levanta una medida antes de su
+fin de vigencia. Si hace falta, será un trámite formal del IVC con su soporte (un nuevo acto
+administrativo), y queda en el historial.
 
 ---
 
@@ -91,57 +99,75 @@ Habilitado → Con advertencia → Sancionado / Vetado → Saneado
 
 ### Regla dura
 
-**Una boleta = una persona = un documento**, obligatorio y verificado, para cada evento.
+**Una boleta = una persona = un documento**, obligatorio y verificado, para cada evento. El documento
+es **tipo más número**. Tipos válidos: cédula de ciudadanía (CC), cédula de extranjería (CE),
+tarjeta de identidad (TI), pasaporte, PPT, PEP y RUMV (Decreto 1622 de 2022).
+
+### Verificación con la Registraduría
+
+Cada documento se verifica contra el **Archivo Nacional de Identificación (ANI)** de la Registraduría:
+
+- **Existe y está vigente.** Una cédula **cancelada** (por muerte o por doble cedulación) se deniega.
+- **Nombre oficial.** El nombre que envía la comercializadora se coteja con el del ANI. Un nombre
+  distinto es posible suplantación y se deniega; uno incompleto (una sola palabra) se pide completo.
 
 ### Entidades
 
-- **Persona**: tipo y número de documento verificado y datos básicos. Es la llave de todo el sistema.
-- **Cuenta de usuario**: la persona dentro de la plataforma, con un **@usuario** único (ej. `@junattt`).
-- **Identidad hacia las comercializadoras**: un identificador público de nuestros usuarios, para
-  que las comercializadoras los reconozcan entre ellas. La vinculación entre una comercializadora y
-  un usuario requiere el consentimiento del usuario. Junto con el sí o no, la comercializadora recibe
-  **pocos datos, casi todos de identidad** (identificador público, @usuario, nombre), y **nunca el
-  estado de conducta ni el motivo de un no**.
-- **Referencia biométrica**: la foto contra la cual se compara en la puerta. **Todo titular debe tenerla**; se obtiene la primera vez que acepta una boleta (ver abajo). Es un dato sensible (Ley 1581).
-- **Confianza de identidad**: un porcentaje que dice cuánto confiamos en que la persona es quien dice ser (ver abajo).
+- **Persona**: tipo y número de documento, verificados con el ANI. Es la llave de todo el sistema.
+- **Cuenta de usuario** *(decisión de producto)*: la persona dentro de la plataforma, con un
+  **@usuario** único (ej. `@junattt`), para identificarse entre comercializadoras. La vinculación con
+  una comercializadora requiere su consentimiento.
+- **Nosotros no le enviamos identidad a la comercializadora.** Ella nos envía lo que ya tiene
+  (el documento y el nombre que capturó, o el @usuario) y nosotros respondemos sí o no.
+- **Revocar el vínculo es un trámite formal, sin cortes a mitad de camino** *(decisión de producto)*.
+  Desde la solicitud no se inician operaciones nuevas; las que están en curso terminan normalmente,
+  y la revocación se hace efectiva cuando se cierra la última.
+- **Referencia biométrica** *(decisión de producto, sujeta a base legal)*: la foto contra la cual se
+  compara en la puerta. Ver *Confianza de identidad*.
+- **Confianza de identidad** *(exploratorio)*: cuánto confiamos en que la persona es quien dice ser.
 - **Historial de asistencia**: se construye con los ingresos reales (módulo 5).
-- **Perfil de afinidad**: **se infiere solo de los datos**: partidos a los que fue, de local o de
-  visitante, y en qué sectores. **La persona no declara su club.**
-- **Regla de elegibilidad**: por ejemplo, una boleta por persona, un sector solo para visitantes, o
-  un partido sin hinchada visitante que niega el acceso a quien tenga afinidad alta con el visitante.
+- **Perfil de afinidad** *(decisión de producto)*: se infiere solo de los datos (partidos, local o
+  visitante, sector). La persona no declara su club.
+- **Regla de elegibilidad**: sanción vigente, documento vigente, límite de boletas, una boleta por
+  persona por evento, sector visitante, partido sin hinchada visitante.
 - **Decisión de elegibilidad**: quién preguntó, sobre quién, para qué evento y en qué punto de
-  validación, con la respuesta y el motivo interno. Cada decisión queda auditada.
+  validación, con el resultado, el **código de motivo** y el detalle interno. Cada decisión queda auditada.
 
-### Salvaguardas de la afinidad
+### Códigos de motivo
+
+La comercializadora recibe el resultado y un código de motivo genérico, sin el expediente:
+
+| Resultado | Código de motivo | Cuándo |
+|---|---|---|
+| Autorizado | — | Pasa todas las reglas; se emite un token del SVN |
+| Denegado | Límite de venta excedido | Pide más de 5 boletas por el canal normal |
+| Denegado | Medida restrictiva vigente | Tiene una medida correctiva vigente |
+| Denegado | Documento no válido | No existe en el ANI o está cancelado *(nombre del código por definir)* |
+| Denegado | Identidad no coincide | El nombre no corresponde al documento *(nombre del código por definir)* |
+
+### Salvaguardas de la afinidad *(decisión de producto)*
 
 Negar un acceso a partir de un perfil inferido es perfilamiento automático. Por eso:
 
-- La afinidad tiene tres resultados: **afín**, **no afín** o **no concluyente**. Si no es concluyente (por ejemplo, sin historial), se deja pasar.
+- La afinidad tiene tres resultados: **afín**, **no afín** o **no concluyente**. Si no es concluyente, se deja pasar.
 - El motivo queda en la auditoría y la persona puede apelar.
 - La comercializadora sigue viendo solo sí o no.
 
 ### Confianza de identidad *(exploratorio)*
 
-Un **porcentaje de confianza por persona, actualizable**, que define **cuánta verificación se le pide**.
+Un **porcentaje por persona, actualizable**, que define **cuánta verificación se le pide en la puerta**:
+solo el documento, o el documento más el rostro.
 
-- **Sube o baja con varios factores**, por ejemplo: ingresos exitosos, validaciones fallidas, si hay
-  referencia biométrica y qué tan reciente es, y si el documento ya se usó en otro intento.
-- **Define la verificación que se le pide en la puerta**: con confianza alta basta con la cédula; con
-  confianza baja, o en un evento de alto riesgo, se exige validar el rostro.
-- **La referencia es obligatoria para todo titular y se obtiene al aceptar su primera boleta**,
-  incluida la que el comprador se asigna a sí mismo. Si la cuenta no tiene referencia, la aceptación
-  pide primero una validación con foto y prueba de vida. Sin esa validación la boleta no queda asignada.
-  Una vez capturada, la referencia se reutiliza en las siguientes boletas.
-- **Excepción, titular a cargo** (ver módulo 4): quien no tiene cuenta no puede validar nada antes.
-  Su referencia se captura **en la puerta, en su primer ingreso**, y sirve desde el siguiente.
-- **Por qué en ese momento:** es cuando la persona pasa a ser quien va a entrar. Quien solo compra y
-  no asiste nunca entrega biometría (se pide lo mínimo necesario), y todo el que llega a la puerta ya la tiene.
-- **La confianza solo decide si la puerta usa la referencia**, no si se captura. Así la foto ya existe
-  cuando se necesita, sin depender de que alguien la registre por iniciativa propia.
-- **No es una sanción:** una confianza baja pide más verificación, pero nunca niega el acceso por sí sola.
-  Esa decisión sigue siendo de los registros de conducta.
-- La confianza de identidad (¿es quien dice ser?) es distinta de la conducta (¿puede entrar?) y de la
-  afinidad (¿de qué club es?). Son tres ejes separados.
+- **Factores:** el estado del documento en el ANI, el resultado del cotejo nominal, los ingresos
+  exitosos, las validaciones fallidas y si el documento ya se usó en otro intento.
+- **No es una sanción:** una confianza baja pide más verificación, pero nunca niega el acceso por sí
+  sola. Negar es cosa de las medidas correctivas y de las reglas.
+- **La foto de referencia** se toma al aceptar la primera boleta, o en la puerta en el primer ingreso
+  del titular a cargo. Queda **sujeta a la base legal**: los documentos recibidos no usan biometría;
+  verifican identidad con el ANI. Ver *Preguntas abiertas*.
+
+Confianza (¿es quien dice ser?), medida correctiva (¿puede entrar?) y afinidad (¿de qué club es?)
+son tres ejes separados.
 
 ---
 
@@ -157,12 +183,12 @@ Competencia → Evento → Partido
 ```
 
 - **Escenario**, **sector**, **puerta** (cada puerta pertenece a un solo sector) y **puesto**.
-- **Competencia**: por ejemplo, la liga o el torneo.
+- **Competencia**: por ejemplo, la Liga BetPlay Dimayor o la Copa Libertadores.
 - **Evento**: lo que abre puertas y tiene aforo. Es a lo que da acceso una boleta.
 - **Partido**: la contienda deportiva dentro de un evento. Un evento puede tener varios partidos.
-- **Configuración del evento**: toma la base del escenario y la ajusta para ese evento, con control total:
+- **Configuración del evento**: toma la base del escenario y la ajusta para ese evento:
   - Por sector: habilitado, visitante, cerrado o con aforo reducido.
-  - Por puerta: abierta o cerrada, y su horario.
+  - Por puerta: abierta o cerrada, su horario y **el partido para el que está configurado su torniquete**.
   - Por silla: bloqueada, con motivo (prensa, seguridad, dañada o reservada).
   - El plazo límite para asignar boletas (módulo 4).
   - Si el partido es sin hinchada visitante (activa la regla de afinidad).
@@ -174,134 +200,161 @@ Competencia → Evento → Partido
 
 ## 4 · Boletería y asignación
 
+### Comercializadoras homologadas
+
+- Cada **club** carga en el SVN, **por semestre**, qué comercializadora vende para su estadio.
+- Mindeporte **homologa** esa comercializadora: **pendiente → en pruebas → homologada**. En pruebas
+  trabaja contra un ambiente de pruebas; homologada recibe su **llave de API** de producción.
+- Mindeporte **condiciona la aprobación** del reporte del club a que su comercializadora tenga la
+  certificación de interoperabilidad activa.
+- Solo una comercializadora homologada consulta el SVN en producción.
+
 ### Qué hace la comercializadora y qué hacemos nosotros
 
-- **La comercializadora** vende por su canal: su página, su pasarela y el pago son suyos. Integra
-  nuestra API para las validaciones, la compra, la asignación y la transferencia.
-- **Nosotros** le entregamos el estado del escenario en vivo: la silletería, la disponibilidad y el
-  avance de la venta.
+- **La comercializadora** vende por su canal: su página, su pasarela y el pago son suyos. Consulta
+  el SVN en tiempo real antes de vender, asignar o transferir.
+- **Nosotros** respondemos sí o no y le entregamos el estado del escenario en vivo: silletería,
+  disponibilidad y avance de la venta *(decisión de producto)*.
 
-### Propietario y titular
+### Límite de boletas
+
+- **Máximo 5 boletas por aficionado** (Decreto 1622 de 2022, art. 2.17.16, num. 7).
+- **Más de 5** no se vende por el canal normal: requiere un **canal especial con verificación
+  reforzada (KYC)**. Por ejemplo, palcos o compras institucionales *(el flujo de ese canal está por definir)*.
+
+### Propietario y titular *(decisión de producto)*
 
 - **Propietario**: quien compró la boleta y la controla.
-- **Titular**: la persona que entra al estadio con esa boleta.
+- **Titular**: la persona que entra al estadio con esa boleta. La boleta es **nominalizada**: va a su nombre y documento.
 
-Se compra en cantidad (un propietario, N boletas), pero **cada boleta se asigna a un solo titular y un solo puesto**.
+Se compra hasta 5 (un propietario, N boletas), pero **cada boleta se asigna a un solo titular y un solo puesto**.
 
 ### Entidades
 
-- **Comercializadora**: el cliente de la API.
-- **Cupo**: la parte del inventario del evento que tiene cada comercializadora, en sillas concretas o en cantidad de un sector de aforo libre.
+- **Comercializadora** y su **homologación** (club, estadio, semestre, estado, llave de API).
+- **Cupo**: la parte del inventario del evento que tiene cada comercializadora.
 - **Reserva**: bloquea el inventario mientras se paga y vence sola.
-- **Orden**: la hace el comprador, que tiene que ser elegible, y se crea con el pago ya confirmado por la comercializadora.
-- **Boleta**: la unidad de acceso a un evento, en un sector y un puesto.
-- **Invitación de asignación**: la oferta de una boleta a una persona, por cédula o por @usuario.
+- **Orden**: la hace el comprador, que tiene que ser elegible, con el pago ya confirmado por la comercializadora.
+- **Boleta**: código, evento, sector o tribuna, fila y silla, titular y **token del SVN** que prueba
+  que la venta pasó por la validación.
+- **Invitación de asignación** *(decisión de producto)*: la oferta de una boleta a una persona, por documento o por @usuario.
 - **Asignación**: la boleta ligada a su titular y a su puesto.
 - **Transferencia**: un cambio de propietario o de titular, con su historial.
-- **Límites**: un máximo de boletas por comprador en cada evento, configurable.
 
-### Asignar requiere aceptación
+### Asignar requiere aceptación *(decisión de producto)*
 
 ```
 Invitación:  enviada → aceptada
                     ↘ rechazada / vencida / cancelada
 ```
 
-1. El propietario invita a una persona, por cédula o por @usuario.
+1. El propietario invita a una persona, por documento o por @usuario.
 2. **Se valida la elegibilidad al enviar la invitación**, y de nuevo cuando la persona acepta.
-3. Si la persona acepta, la boleta queda asignada. Si la persona rechaza, la boleta vuelve a estar sin titular.
-4. La invitación **no tiene plazo propio**: vence con el plazo de asignación del evento. El
-   propietario y la comercializadora pueden consultar en todo momento si está enviada, aceptada o rechazada.
+3. Si acepta, la boleta queda asignada y se emite su token. Si rechaza, vuelve a estar sin titular.
+4. La invitación vence con el plazo de asignación del evento.
 
 ### Asignación a cargo (titular sin cuenta) *(exploratorio)*
 
 Para quien no va a validar nada por su cuenta: un hijo, un adulto mayor, alguien sin celular.
 
-- **El propietario asigna por documento y acepta en nombre del titular**, declarando la relación
-  (por ejemplo, padre o acompañante). Queda como **responsable** de esa asignación.
-- **La elegibilidad se valida igual**, contra el documento del titular. Las restricciones aplican
-  aunque el titular no tenga cuenta.
-- **En su primer ingreso, la puerta captura la foto de referencia.** Ese día la verificación se hace
-  con el documento físico y el operador; desde el siguiente evento ya hay con qué comparar.
-- **El titular puede reclamar su cuenta después**, con el mismo documento, y hereda su historial y su referencia.
-- **Menores de edad:** el responsable tiene que ser su representante legal, que es quien autoriza
-  la captura de su biometría (Ley 1581, art. 7). Si el documento no tiene foto (registro civil), el
-  menor entra solo con su responsable presente.
-- **Para que no sea un atajo:** un límite de asignaciones a cargo por propietario y por evento, y la
-  confianza de identidad arranca baja hasta que haya una referencia.
-- **Flexibilidad por edad:** para menores de 14 años y adultos mayores (desde un umbral configurable,
-  entre 70 y 80 años) el modelo afloja la verificación: la asignación a cargo no cuenta contra el
-  límite, la foto de referencia no es obligatoria y basta con el documento físico, más el responsable
-  presente en el caso de los menores. **La flexibilidad es solo de verificación:** las restricciones
-  de conducta aplican igual. Los umbrales de edad se configuran, no van fijos en el código.
+- **El propietario asigna por documento y acepta en nombre del titular**, declarando la relación.
+  Queda como **responsable** de esa asignación.
+- **La elegibilidad se valida igual**, contra el documento del titular.
+- **Menores de edad:** el responsable tiene que ser su representante legal.
+- **Flexibilidad por edad:** para menores de 14 años y adultos mayores (umbral configurable, entre 70
+  y 80 años) se afloja **solo la verificación de identidad**. Las medidas correctivas aplican igual:
+  un menor sancionado no entra.
 
-### Plazo para asignar
+### Plazo para asignar *(decisión de producto)*
 
 Es **configurable por evento**, con un máximo: el inicio del encuentro.
 
 - **Cuando empieza el encuentro ya no se puede hacer nada**: ni invitar, ni aceptar, ni transferir.
-  Solo se puede entrar, incluso tarde, con una boleta ya asignada y sin problemas.
-- **Una boleta sin titular cuando vence el plazo se pierde**: queda comprada y sin usar, sin
-  devolución y sin reventa. Su silla queda vacía. Las invitaciones pendientes vencen con ella.
+  Solo se puede entrar, incluso tarde, con una boleta ya asignada.
+- **Una boleta sin titular cuando vence el plazo se pierde**: sin devolución ni reventa.
 
 ### Estados de la boleta
 
+Los documentos definen **emitida → ingresada**, o **anulada**. El modelo los detalla así:
+
 ```
-sin titular → invitada → asignada → usada
+sin titular → invitada → asignada (emitida) → usada (ingresada)
      │            │           │
      └────────────┴───────────┴──→ perdida (venció el plazo)
                                   anulada
                                   congelada (su propietario quedó restringido)
 ```
 
-### Transferencias
+### Transferencias *(decisión de producto)*
 
-Tanto **quien entrega como quien recibe** tienen que pasar la validación de elegibilidad. Recibir
-una transferencia pasa por el mismo flujo de aceptación.
+Tanto **quien entrega como quien recibe** tienen que pasar la validación. Quien recibe acepta.
 
-### Si aparece una restricción después de comprar
+### Si aparece una medida correctiva después de comprar
 
 El efecto es **individual**:
 
 | Situación | Resultado |
 |---|---|
 | Boleta asignada a otra persona elegible | Sigue válida |
-| Boleta asignada a la persona restringida | Se anula |
-| Boletas sin titular de un propietario restringido | Se congelan: el propietario ya no puede asignarlas |
+| Boleta asignada a la persona sancionada | Se anula |
+| Boletas sin titular de un propietario sancionado | Se congelan: ya no puede asignarlas |
 | Reclamación | **Soporte** puede transferir la propiedad de las boletas congeladas a otra persona elegible |
 
 ---
 
 ## 5 · Control de acceso
 
-### Dispositivos
+### Qué lee la puerta
 
-Hay cuatro tipos: **verificador de boleta** (QR), **lector de documento**, **huella** y **cámara**.
+| Documento | Cómo se lee |
+|---|---|
+| Cédula digital | QR y zona de lectura mecánica (MRZ) |
+| Cédula tradicional (amarilla) | Código PDF417 y OCR del reverso |
+| Boleta digital | QR con el código de la boleta o el token del SVN |
+| Cualquiera | Número digitado a mano |
+
+Rostro y huella son extensiones *(decisión de producto, sujetas a base legal)*.
 
 ### Validación en la puerta
 
 Se valida **siempre cruzando con el documento**:
 
-1. Se identifica a la persona con cualquiera de los dispositivos.
-2. Se busca su asignación para el evento.
-3. Se revisa que esté en una puerta de su sector, que no haya entrado ya y que su estado de conducta siga habilitado.
-   Si es un titular a cargo sin referencia, se verifica con el documento físico y se captura su foto en ese momento.
-4. Se deja entrar o no, y todo queda registrado.
+1. Se identifica a la persona o su boleta, con cualquiera de las formas de arriba.
+2. Se busca su boleta para **el partido configurado en ese torniquete**.
+3. Se revisa que no tenga una medida correctiva vigente, que la boleta no se haya usado y que la
+   puerta sea de su sector.
+4. El resultado sale en **semáforo**, y todo queda registrado.
+
+### El semáforo
+
+| Color | Qué significa | Qué pasa |
+|---|---|---|
+| **Verde** | Entra | Se marca la boleta como usada |
+| **Amarillo** | Boleta de otro partido, sin boleta asociada o boleta ya usada | **El operador decide** si entra o no, con su motivo; queda registrado |
+| **Rojo** | Medida correctiva vigente | No entra y **se notifica al PMU** de la Policía Nacional. Nadie en la puerta lo puede autorizar |
 
 ### Entidades
 
-- **Dispositivo**: tiene un tipo y está ubicado en una puerta.
-- **Credencial**: el token o QR que liga una boleta con su titular.
-- **Validación**: la persona, el método, la puerta, la hora, el resultado y el motivo.
+- **Dispositivo**: tiene un tipo, está en una puerta y se configura para un partido.
+- **Validación**: la persona, el método, la puerta, la hora, el color, el motivo y si se notificó al PMU.
+- **Decisión del operador**: ante un amarillo, si dejó entrar o no, el motivo, el operador, la puerta y la hora.
 - **Ingreso**: impide el doble ingreso y alimenta el historial de asistencia.
 
-### Sin conexión (contingencia)
+### Sin conexión (contingencia) *(decisión de producto)*
 
-- Antes del evento, cada puerta descarga su **paquete del evento**: las asignaciones de su sector, la
-  lista de documentos bloqueados, el nivel de verificación exigido a cada titular y, si la puerta tiene huella o cámara, las referencias biométricas de quienes deban validar rostro o huella.
-- Las validaciones se guardan localmente y se sincronizan al volver la red. Los conflictos, como una
-  misma boleta usada en dos puertas, quedan marcados para revisión.
-- Como cada puerta pertenece a un solo sector, una boleta solo sirve en las puertas de ese sector. Eso achica el riesgo de doble ingreso.
+- Antes del evento, cada puerta descarga su **paquete del evento**: las boletas de su sector, la
+  lista de documentos con medida vigente y el nivel de verificación de cada titular.
+- Las validaciones se guardan localmente y se sincronizan al volver la red. Los conflictos quedan
+  marcados para revisión, y las alertas rojas se envían al PMU en cuanto hay red.
+
+---
+
+## Auditoría
+
+Toda consulta queda como una **transacción** en un registro **inmutable**: fecha y hora, **origen**
+(comercializadora, torniquete, registro del IVC), endpoint, documento, resultado y detalle. Lo usan
+la Superintendencia de Industria y Comercio (SIC), Mindeporte y la Policía Nacional, y es la base del
+monitor del PMU y de los reportes.
 
 ---
 
@@ -309,44 +362,55 @@ Se valida **siempre cruzando con el documento**:
 
 | Rol | Qué hace |
 |---|---|
-| **Policía Nacional** | Escribe su fuente de restricciones y lee las otras dos |
-| **IVC (MinDeporte)** | Escribe su fuente de restricciones y lee las otras dos |
-| **Clubes o entidades deportivas** | Escriben su fuente de restricciones y leen las otras dos |
-| **Comercializadora** | Consulta sí o no para comprar, asignar y transferir; vende y cobra por su canal |
-| **Comprador o propietario** | Tiene que ser elegible para comprar; invita, asigna y transfiere |
+| **Autoridad de policía** (inspección, alcaldía) | Emite la medida correctiva por acto administrativo |
+| **Profesional del IVC** (Mindeporte) | Radica la medida en el SUID desde el oficio de entrada y gestiona sus radicados |
+| **Policía Nacional** | Recibe las alertas rojas en el PMU y consulta en la vista policial |
+| **Club** | Carga cada semestre en el SVN qué comercializadora vende para su estadio; configura sus eventos; ve la auditoría integral de sus eventos |
+| **Mindeporte** (homologación) | Homologa comercializadoras y entrega sus llaves de API |
+| **Comercializadora** | Consulta el SVN antes de vender, asignar y transferir; vende y cobra por su canal |
+| **Comprador o propietario** | Tiene que ser elegible para comprar; compra hasta 5; invita, asigna y transfiere |
 | **Titular** | Acepta la invitación, tiene que ser elegible y es quien entra |
 | **Soporte** | Atiende reclamaciones y transfiere la propiedad de boletas congeladas |
-| **Organizador o club local** | Configura el evento y reparte los cupos |
 | **Administrador del escenario** | Mantiene sectores, puertas, sillas y dispositivos |
-| **Operador de puerta** | Opera la validación y resuelve excepciones |
-| **Supervisor del evento** | Sigue los ingresos y los incidentes en vivo |
-| **Administrador de la plataforma** | Da de alta a comercializadoras y actores, y gestiona sus credenciales |
+| **Operador de puerta** | Opera la validación y decide los amarillos; su decisión queda registrada |
+| **Supervisor del evento** | Sigue los ingresos y las alertas en vivo |
+| **Administrador de la plataforma** | Gestiona actores, credenciales y configuración |
 | **Persona** | Consulta su estado y apela |
 
 ---
 
 ## Flujo completo
 
-1. **Preparación**: se da de alta el escenario con sectores, puertas y puestos; se crea el evento, se configura y se reparten los cupos.
-2. **Enrolamiento**: la persona crea su cuenta con su documento.
-3. **Antes de la compra**: la comercializadora pregunta si el comprador puede comprar y recibe sí o no.
-4. **Compra en cantidad**: reserva, pago en la comercializadora y orden con N boletas sin titular.
-5. **Invitación y aceptación**: se valida a cada titular; si no tiene referencia biométrica, la captura al aceptar; la boleta queda asignada.
-6. **Transferencias**: se valida a los dos lados y la persona que recibe acepta.
-7. **Revisión continua**: una restricción nueva anula o congela solo las boletas de esa persona.
-8. **Vence el plazo de asignación**: las boletas sin titular se pierden.
-9. **Día del evento**: se valida en la puerta cruzando con el documento, con o sin conexión.
-10. **Después del evento**: el historial de asistencia se actualiza y alimenta la afinidad; los incidentes pueden generar registros de conducta nuevos.
+1. **Cada semestre**: el club carga su comercializadora en el SVN y Mindeporte la homologa.
+2. **Continuo**: las autoridades de policía emiten medidas correctivas; el IVC las radica en el SUID.
+   Cada medida vence sola al cumplir sus meses.
+3. **Preparación del evento**: escenario, sectores, puertas y puestos; se configura el evento y los torniquetes, y se reparten los cupos.
+4. **Antes de la compra**: la comercializadora consulta el SVN con el documento y el nombre del
+   comprador. El SVN verifica con el ANI, revisa medidas vigentes y el límite de 5, y responde sí o no.
+5. **Compra**: reserva, pago en la comercializadora y orden con hasta 5 boletas.
+6. **Invitación y aceptación**: se valida a cada titular; la boleta queda nominalizada y con su token.
+7. **Transferencias**: se valida a los dos lados y quien recibe acepta.
+8. **Revisión continua**: una medida nueva anula o congela solo las boletas de esa persona.
+9. **Vence el plazo de asignación**: las boletas sin titular se pierden.
+10. **Día del evento**: cada torniquete, configurado para su partido, valida contra el documento y
+    responde en semáforo. Los amarillos los decide el operador y quedan registrados; los rojos van al PMU.
+11. **Después del evento**: se sincroniza lo validado sin conexión, se actualiza el historial de
+    asistencia y los incidentes pueden terminar en medidas correctivas nuevas.
 
 ---
 
 ## Preguntas abiertas
 
-- **Base legal de la referencia obligatoria.** La normativa de datos personales (Ley 1581 y Decreto
-  1377 de 2013) prohíbe condicionar una actividad a que la persona entregue datos sensibles, **salvo
-  que una ley lo exija**. Si la ley o el decreto que crea este sistema exige la identificación
-  biométrica, esa es la base y la captura puede ser obligatoria. Falta citar esa norma en el modelo.
-  La validación tiene que decir explícitamente que captura biometría.
-- Saneamiento: quórum, plazos y qué pasa si una entidad no responde. *(exploratorio)*
-- ¿Los datos de identidad que recibe la comercializadora incluyen el número de documento?
-- ¿Cómo revoca el usuario su vínculo con una comercializadora, y qué pasa con sus boletas vigentes?
+- **Biometría (a confirmar con legal).** Los documentos recibidos verifican identidad con el ANI y
+  el cotejo nominal, **sin biometría**. La foto de referencia y el rostro en la puerta son una
+  extensión nuestra. La Ley 1581 y el Decreto 1377 de 2013 prohíben condicionar una actividad a que
+  la persona entregue datos sensibles, salvo que una ley lo exija. Falta confirmar si el Decreto 1622
+  de 2022 u otra norma lo exige. El modelo contempla los dos casos:
+  - **Si hay norma:** la foto de referencia es obligatoria para todo titular.
+  - **Si no hay norma:** la foto es voluntaria, con consentimiento explícito; quien no la dé entra
+    con documento y más verificación en la puerta.
+- **Canal especial de más de 5 boletas:** quién lo opera y qué pide la verificación reforzada (KYC).
+- **Documentos válidos:** el Excel cita el art. 2.17.3 y el art. 2.17.4 del Decreto 1622 para lo
+  mismo; confirmar cuál.
+- **Correcciones y levantamiento anticipado de una medida:** no están en los documentos.
+- **Integración real con el ANI:** el demo la simula; falta el convenio y el mecanismo con la Registraduría.
