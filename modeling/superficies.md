@@ -2,7 +2,7 @@
 
 Quién usa qué, desde dónde, en qué momento y con qué datos. Complementa a [`dominio.md`](dominio.md).
 
-> Estado: **v2.2** (28-sep-2026), rehecha a partir del demo SVN (`content-supplies/demo-svn`, ver
+> Estado: **v2.3** (28-sep-2026), rehecha a partir del demo SVN (`content-supplies/demo-svn`, ver
 > [`fuentes.md`](fuentes.md)). Cada superficie dice si **ya existe en el demo**, si es **nueva** o si
 > es una *(decisión de producto)*.
 
@@ -23,23 +23,24 @@ El SVN es infraestructura del Estado: **valida, registra y audita**. No vende bo
 
 ## Mapa de superficies
 
-Agrupadas por quién las opera.
+Agrupadas por quién las opera. **Origen:** *Del demo* son las que trajo Mindeporte en su demo, y
+nosotros las ampliamos; *Nuestra* son las que identificamos nosotros. Todas las construimos y operamos nosotros.
 
-| # | Superficie | Quién la usa | Dispositivo | Cuándo | En el demo |
+| # | Superficie | Quién la usa | Dispositivo | Cuándo | Origen |
 |---|---|---|---|---|---|
 | **Estado · Mindeporte** |||||
-| 1 | **Registro de medidas correctivas** | Profesional del IVC | Web de escritorio | Continuo, con cada oficio de entrada | Sí · *Panel Mindeporte* |
-| 2 | **Entidades deportivas y comercializadoras** | Clubes y entidades (reportan); Mindeporte (homologa) | Web de escritorio | Cada semestre, y después de cada evento | Parcial · *Panel Mindeporte*, segunda tabla; sin la vista de la entidad ni sus reportes de incidentes |
-| 3 | **Monitor PMU y auditoría** | Policía Nacional, Mindeporte, supervisor del evento | Pantallas del PMU y escritorio | El día del evento, y consulta posterior | Sí · *Monitor en vivo* |
+| 1 | **Registro de medidas correctivas** | Profesional del IVC | Web de escritorio | Continuo, con cada oficio de entrada | **Del demo** · *Panel Mindeporte*; sumamos el registro completo, historial y reserva de menores |
+| 2 | **Entidades deportivas y comercializadoras** | Clubes y entidades (reportan); Mindeporte (homologa) | Web de escritorio | Cada semestre, y después de cada evento | **Del demo** · *Panel Mindeporte*, segunda tabla; sumamos la vista de la entidad y sus reportes de incidentes |
+| 3 | **Monitor PMU y auditoría** | Policía Nacional, Mindeporte, supervisor del evento | Pantallas del PMU y escritorio | El día del evento, y consulta posterior | **Del demo** · *Monitor en vivo*; sumamos filtros y vistas por rol |
 | **Operación del evento** |||||
-| 4 | **Backoffice de eventos** | Club u organizador, administrador del escenario | Web de escritorio | Semanas y días antes | **No**: los partidos vienen sembrados |
-| 5 | **Acceso en puerta** | Operador de puerta; Policía con vista ampliada | Celular o tablet (web móvil); consola de escritorio en el torniquete | Horas antes y durante el evento | Sí · *Control de acceso* y *SVN Móvil* |
+| 4 | **Backoffice de eventos** | Club u organizador, administrador del escenario | Web de escritorio | Semanas y días antes | **Nuestra** · en el demo los partidos vienen sembrados |
+| 5 | **Acceso en puerta** | Operador de puerta; Policía con vista ampliada | Celular o tablet (web móvil); consola de escritorio en el torniquete | Horas antes y durante el evento | **Del demo** · *Control de acceso* y *SVN Móvil*; sumamos sin conexión, vista policial y decisión en amarillo |
 | **Integración** |||||
-| 6 | **API del SVN y portal de integración** | Comercializadoras (equipos técnicos) | Sus sistemas; portal web | Al homologarse, y en cada venta | API sí; portal **no** (la traza vive en el simulador) |
-| 7 | **Componentes embebibles** | El hincha, dentro del canal de la comercializadora | Su web o app | Al registrarse y al aceptar una boleta | **No** · *(decisión de producto)* |
+| 6 | **API del SVN y portal de integración** | Comercializadoras (equipos técnicos) | Sus sistemas; portal web | Al homologarse, y en cada venta | **Del demo** la API; **nuestro** el portal de integración y el ambiente de pruebas |
+| 7 | **Componentes embebibles** | El hincha, dentro del canal de la comercializadora | Su web o app | Al registrarse y al aceptar una boleta | **Nuestra** · *(decisión de producto)* |
 | **Persona y soporte** |||||
-| 8 | **Portal de la persona** | La persona | Web móvil | Cuando recibe un no | **No** |
-| 9 | **Consola de soporte** | Soporte | Web de escritorio | Continuo, con pico antes del plazo de asignación | **No** · *(decisión de producto)* |
+| 8 | **Portal de la persona** | La persona | Web móvil | Cuando recibe un no | **Nuestra** |
+| 9 | **Consola de soporte** | Soporte | Web de escritorio | Continuo, con pico antes del plazo de asignación | **Nuestra** · *(decisión de producto)* |
 
 > El **simulador de tiquetera** del demo (web y móvil) no es una superficie nuestra: representa el
 > canal de venta de la comercializadora. Sirve para ver qué nos envía ella: evento, documento, nombre
@@ -180,7 +181,7 @@ de interoperabilidad (consulta ciega)* del simulador muestra la traza de cada co
 **Quién:** el hincha, dentro del canal de la comercializadora. **En el demo:** no existen.
 
 - **"Ingresar con [plataforma]"**: registro e inicio de sesión con el @usuario compartido entre comercializadoras.
-- **Validación con foto**: solo si se confirma la base legal de la biometría (ver `dominio.md`).
+- **Validación con foto**: parte del módulo biométrico, que va pegado pero desacoplable: se enciende por configuración cuando la base legal lo permite (ver `dominio.md`).
 
 ---
 

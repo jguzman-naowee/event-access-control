@@ -1,0 +1,454 @@
+﻿@font-face {
+  font-family: -naotech-icons;
+  src:
+    url('./icons.woff') format('woff'),
+    url('./icons.ttf')
+      format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^='nwt-icon'],
+[class*=' nwt-icon'] {
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.naotech-icon-arrow-down:before {
+  content: '';
+}
+.naotech-icon-arrow-left:before {
+  content: '';
+}
+.naotech-icon-arrow-right-up:before {
+  content: '';
+}
+.naotech-icon-arrow-right:before {
+  content: '';
+}
+.naotech-icon-arrow-up:before {
+  content: '';
+}
+.naotech-icon-chevron-down:before {
+  content: '';
+}
+.naotech-icon-chevron-left:before {
+  content: '';
+}
+.naotech-icon-chevron-right:before {
+  content: '';
+}
+.naotech-icon-chevron-up:before {
+  content: '';
+}
+.naotech-icon-close:before {
+  content: '';
+}
+.naotech-icon-drawer:before {
+  content: '';
+}
+.naotech-icon-fallback:before {
+  content: '';
+}
+.naotech-icon-helper:before {
+  content: '';
+}
+.naotech-icon-info:before {
+  content: '';
+}
+.naotech-icon-overflow-menu-horizontal:before {
+  content: '';
+}
+.naotech-icon-overflow-menu-vertical:before {
+  content: '';
+}
+.naotech-icon-placeholder-image:before {
+  content: '';
+}
+.naotech-icon-refresh:before {
+  content: '';
+}
+.naotech-icon-cbt:before {
+  content: '';
+}
+.naotech-icon-delivery:before {
+  content: '';
+}
+.naotech-icon-dispatch-time:before {
+  content: '';
+}
+.naotech-icon-fast-shipping:before {
+  content: '';
+}
+.naotech-icon-gps-pin-filled:before {
+  content: '';
+}
+.naotech-icon-gps-pin:before {
+  content: '';
+}
+.naotech-icon-package:before {
+  content: '';
+}
+.naotech-icon-pick-up:before {
+  content: '';
+}
+.naotech-icon-pin-pick-up:before {
+  content: '';
+}
+.naotech-icon-post-office-shipping:before {
+  content: '';
+}
+.naotech-icon-return:before {
+  content: '';
+}
+.naotech-icon-shipping-agreement:before {
+  content: '';
+}
+.naotech-icon-shipping:before {
+  content: '';
+}
+.naotech-icon-avatar-new:before {
+  content: '';
+}
+.naotech-icon-avatar:before {
+  content: '';
+}
+.naotech-icon-contact-new:before {
+  content: '';
+}
+.naotech-icon-mercado-lider:before {
+  content: '';
+}
+.naotech-icon-privacy:before {
+  content: '';
+}
+.naotech-icon-user:before {
+  content: '';
+}
+.naotech-icon-bank-transfer:before {
+  content: '';
+}
+.naotech-icon-bill:before {
+  content: '';
+}
+.naotech-icon-boleto:before {
+  content: '';
+}
+.naotech-icon-cash:before {
+  content: '';
+}
+.naotech-icon-charge:before {
+  content: '';
+}
+.naotech-icon-credit-card:before {
+  content: '';
+}
+.naotech-icon-debit-card:before {
+  content: '';
+}
+.naotech-icon-deposit:before {
+  content: '';
+}
+.naotech-icon-express-point:before {
+  content: '';
+}
+.naotech-icon-mercado-pago-card:before {
+  content: '';
+}
+.naotech-icon-payment:before {
+  content: '';
+}
+.naotech-icon-phone-top-up:before {
+  content: '';
+}
+.naotech-icon-point-2:before {
+  content: '';
+}
+.naotech-icon-point-smart:before {
+  content: '';
+}
+.naotech-icon-point:before {
+  content: '';
+}
+.naotech-icon-qr-code-charge:before {
+  content: '';
+}
+.naotech-icon-qr-code:before {
+  content: '';
+}
+.naotech-icon-recurring-payments:before {
+  content: '';
+}
+.naotech-icon-to-agree:before {
+  content: '';
+}
+.naotech-icon-wallet:before {
+  content: '';
+}
+.naotech-icon-withdrawal:before {
+  content: '';
+}
+.naotech-icon-calendar:before {
+  content: '';
+}
+.naotech-icon-camera:before {
+  content: '';
+}
+.naotech-icon-donation:before {
+  content: '';
+}
+.naotech-icon-file:before {
+  content: '';
+}
+.naotech-icon-leaf:before {
+  content: '';
+}
+.naotech-icon-megaphone:before {
+  content: '';
+}
+.naotech-icon-movies-and-series:before {
+  content: '';
+}
+.naotech-icon-padlock-close:before {
+  content: '';
+}
+.naotech-icon-padlock-open:before {
+  content: '';
+}
+.naotech-icon-present:before {
+  content: '';
+}
+.naotech-icon-protected-purchase:before {
+  content: '';
+}
+.naotech-icon-thunder:before {
+  content: '';
+}
+.naotech-icon-warranty:before {
+  content: '';
+}
+.naotech-icon-cart-add:before {
+  content: '';
+}
+.naotech-icon-cart-empty:before {
+  content: '';
+}
+.naotech-icon-categories:before {
+  content: '';
+}
+.naotech-icon-deals:before {
+  content: '';
+}
+.naotech-icon-history:before {
+  content: '';
+}
+.naotech-icon-home:before {
+  content: '';
+}
+.naotech-icon-link:before {
+  content: '';
+}
+.naotech-icon-mercado-credit:before {
+  content: '';
+}
+.naotech-icon-mercado-puntos:before {
+  content: '';
+}
+.naotech-icon-notification:before {
+  content: '';
+}
+.naotech-icon-official-stores:before {
+  content: '';
+}
+.naotech-icon-purchases:before {
+  content: '';
+}
+.naotech-icon-real-estate:before {
+  content: '';
+}
+.naotech-icon-sales:before {
+  content: '';
+}
+.naotech-icon-settings:before {
+  content: '';
+}
+.naotech-icon-supermarket:before {
+  content: '';
+}
+.naotech-icon-vehicles:before {
+  content: '';
+}
+.naotech-icon-caution:before {
+  content: '';
+}
+.naotech-icon-info1:before {
+  content: '';
+}
+.naotech-icon-positive:before {
+  content: '';
+}
+.naotech-icon-negative:before {
+  content: '';
+}
+.naotech-icon-add:before {
+  content: '';
+}
+.naotech-icon-attach:before {
+  content: '';
+}
+.naotech-icon-bookmark-filled:before {
+  content: '';
+}
+.naotech-icon-bookmark:before {
+  content: '';
+}
+.naotech-icon-copy:before {
+  content: '';
+}
+.naotech-icon-delete:before {
+  content: '';
+}
+.naotech-icon-download:before {
+  content: '';
+}
+.naotech-icon-edit:before {
+  content: '';
+}
+.naotech-icon-favorite-filled:before {
+  content: '';
+}
+.naotech-icon-favorite:before {
+  content: '';
+}
+.naotech-icon-filter:before {
+  content: '';
+}
+.naotech-icon-logout:before {
+  content: '';
+}
+.naotech-icon-microphone:before {
+  content: '';
+}
+.naotech-icon-pause-filled:before {
+  content: '';
+}
+.naotech-icon-play-filled:before {
+  content: '';
+}
+.naotech-icon-play:before {
+  content: '';
+}
+.naotech-icon-price-highest:before {
+  content: '';
+}
+.naotech-icon-price-lowest:before {
+  content: '';
+}
+.naotech-icon-search:before {
+  content: '';
+}
+.naotech-icon-share:before {
+  content: '';
+}
+.naotech-icon-sort:before {
+  content: '';
+}
+.naotech-icon-sound-off:before {
+  content: '';
+}
+.naotech-icon-sound-on:before {
+  content: '';
+}
+.naotech-icon-star-filled:before {
+  content: '';
+}
+.naotech-icon-star-half-filled:before {
+  content: '';
+}
+.naotech-icon-star:before {
+  content: '';
+}
+.naotech-icon-thumb-down-filled:before {
+  content: '';
+}
+.naotech-icon-thumb-down:before {
+  content: '';
+}
+.naotech-icon-thumb-up-filled:before {
+  content: '';
+}
+.naotech-icon-thumb-up:before {
+  content: '';
+}
+.naotech-icon-upload:before {
+  content: '';
+}
+.naotech-icon-view-columns:before {
+  content: '';
+}
+.naotech-icon-view-galery:before {
+  content: '';
+}
+.naotech-icon-view-grid:before {
+  content: '';
+}
+.naotech-icon-view-list:before {
+  content: '';
+}
+.naotech-icon-view-mosaic:before {
+  content: '';
+}
+.naotech-icon-view-relevant:before {
+  content: '';
+}
+.naotech-icon-visibility-off:before {
+  content: '';
+}
+.naotech-icon-visibility-on:before {
+  content: '';
+}
+.naotech-icon-zoom-in:before {
+  content: '';
+}
+.naotech-icon-zoom-out:before {
+  content: '';
+}
+.naotech-icon-answer:before {
+  content: '';
+}
+.naotech-icon-attention:before {
+  content: '';
+}
+.naotech-icon-laptop:before {
+  content: '';
+}
+.naotech-icon-mail:before {
+  content: '';
+}
+.naotech-icon-phone-add:before {
+  content: '';
+}
+.naotech-icon-phone:before {
+  content: '';
+}
+.naotech-icon-question:before {
+  content: '';
+}
+.naotech-icon-smartphone:before {
+  content: '';
+}
+.naotech-icon-tablet:before {
+  content: '';
+}
+.naotech-icon-moon:before {
+  content: '';
+}
+.naotech-icon-sun:before {
+  content: '';
+}
+.naotech-icon-accessibility:before {
+  content: '';
+} /*# sourceMappingURL=icons.css.map */

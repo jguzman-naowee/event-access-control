@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVN · Kick-off (versión corta)</title>
+<meta name="description" content="Kick-off del sistema nacional de control de acceso a eventos deportivos: modelo de dominio v0, superficies y ciclo del evento.">
+
+<!--
+  vendor/ = copia de sdk-frontend-foundations (la misma que usa uaesp-rutas-alta).
+  Google Sans sale de foundations/fonts, recortada a latín por peso.
+  deck.css = lo que el SDK no tiene (prefijo dk-). publicar.py genera index.html.
+-->
+
+<link rel="stylesheet" href="vendor/fonts.css">
+<link rel="stylesheet" href="vendor/foundations.css">
+<link rel="stylesheet" href="vendor/components.css">
+<link rel="stylesheet" href="vendor/icons.css">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<main class="dk-stage">
+
+<section class="dk-slide dk-slide--dark dk-slide--center" aria-label="Portada">
+<svg class="dk-cover-art" viewBox="0 0 1080 1080" aria-hidden="true">
+<g class="spin"><ellipse class="bowl bowl--hot" cx="540" cy="540" rx="500" ry="420" stroke-dasharray="4 18"/></g>
+<ellipse class="bowl" cx="540" cy="540" rx="450" ry="370"/>
+<ellipse class="bowl" cx="540" cy="540" rx="390" ry="312"/>
+<ellipse class="bowl" cx="540" cy="540" rx="330" ry="256"/>
+<rect class="pitch" x="330" y="400" width="420" height="280" rx="6"/>
+<path class="line" d="M540 400 V680 M330 470 H390 V610 H330 M750 470 H690 V610 H750"/>
+<circle class="line" cx="540" cy="540" r="46"/>
+<rect class="gate" x="532" y="112" width="16" height="30" rx="4"/><rect class="gate" x="532" y="938" width="16" height="30" rx="4"/>
+<rect class="gate" x="82" y="532" width="30" height="16" rx="4"/><rect class="gate--off" x="968" y="532" width="30" height="16" rx="4"/>
+<rect class="gate" x="208" y="236" width="24" height="16" rx="4" transform="rotate(-38 220 244)"/><rect class="gate--off" x="848" y="236" width="24" height="16" rx="4" transform="rotate(38 860 244)"/>
+<rect class="gate" x="208" y="828" width="24" height="16" rx="4" transform="rotate(38 220 836)"/><rect class="gate" x="848" y="828" width="24" height="16" rx="4" transform="rotate(-38 860 836)"/>
+</svg>
+<p class="dk-eyebrow">Sistema de Validación Nacional (SVN) · Kick-off · Septiembre 2026</p>
+<h1 class="dk-h1 dk-cover">Control de acceso nacional para <span class="dk-grad">eventos deportivos</span></h1>
+<div class="dk-pills dk-cover" aria-label="Dónde aplica">
+<span class="dk-pill dk-pill--hero">Fútbol profesional</span>
+<span class="dk-pill">Selección Colombia</span>
+<span class="dk-pill">Copa Libertadores y Sudamericana</span>
+<span class="dk-pill">Baloncesto profesional</span>
+<span class="dk-pill">Conciertos en estadios</span>
+</div>
+<p class="dk-lead dk-cover">Un solo sistema decide quién puede comprar, recibir, transferir y entrar a cada evento. La comercializadora vende; nosotros respondemos <span class="dk-hl">sí o no</span>.</p>
+</section>
+
+<section class="dk-slide dk-slide--center dk-slide--middle" aria-label="La pregunta central" hidden>
+<div class="dk-halo" aria-hidden="true"></div>
+<p class="dk-eyebrow">La pregunta central</p>
+<h1 class="dk-h1" style="font-size: 104px">¿Esta persona puede estar<br><span class="dk-grad">en este evento,<br>en este lugar?</span></h1>
+<div class="dk-moments">
+<div><span class="dk-journey__dot">1</span><b>¿Puede comprar?</b><span>En la venta</span></div>
+<div><span class="dk-journey__dot">2</span><b>¿Puede recibir?</b><span>Hasta el plazo</span></div>
+<div><span class="dk-journey__dot">3</span><b>¿Puede transferir?</b><span>Hasta el plazo</span></div>
+<div class="dk-moments__event"><span class="dk-journey__dot">4</span><b>¿Puede entrar?</b><span>En la puerta</span></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="Marco normativo" hidden>
+<p class="dk-eyebrow">Marco normativo</p>
+<h2 class="dk-h2">El SVN existe por decreto</h2>
+<table class="dk-table">
+<tr><th style="width: 30%">Norma</th><th>Qué fija</th></tr>
+<tr><td>Decreto 1622 de 2022</td><td>Crea el SVN como módulo del SUID. Máximo 5 boletas por aficionado y documentos válidos</td></tr>
+<tr><td>Leyes 1445 y 1453 de 2011</td><td>Las conductas sancionables (arts. 97 y 98), los meses de prohibición y las multas</td></tr>
+<tr><td>Decreto 079 de 2012</td><td>La prohibición cuenta desde el día siguiente a la ejecutoria y rige en todo el país</td></tr>
+<tr><td>Decreto 1007 de 2012</td><td>Toda exclusión de un aficionado debe indicar su causal</td></tr>
+<tr><td>Ley 1098 de 2006 · Ley 1581 de 2012</td><td>Menores con representante legal y reserva reforzada · protección de datos personales</td></tr>
+</table>
+</section>
+
+<section class="dk-slide dk-slide--accent dk-slide--center" aria-label="La regla dura" hidden>
+<p class="dk-eyebrow">La regla dura</p>
+<div class="dk-equation" aria-hidden="true">
+<span class="dk-equation__item"><i class="naotech-icon-boleto"></i></span><span class="dk-equation__eq">=</span>
+<span class="dk-equation__item"><i class="naotech-icon-user"></i></span><span class="dk-equation__eq">=</span>
+<span class="dk-equation__item"><i class="naotech-icon-file"></i></span>
+</div>
+<h1 class="dk-h1">1 boleta = 1 persona = 1 documento</h1>
+<p class="dk-lead">Obligatorio y para cada evento. Hasta 5 boletas por aficionado (Decreto 1622); cada una a un solo titular y un solo puesto.</p>
+</section>
+
+<section class="dk-slide" aria-label="Tres ejes" hidden>
+<p class="dk-eyebrow">01.1 · Tres ejes separados</p>
+<h2 class="dk-h2">Tres preguntas distintas sobre la misma persona</h2>
+<div class="dk-row">
+<div class="dk-card"><p class="dk-label">Conducta</p><h3 class="dk-title dk-title--big">¿Puede entrar?</h3>
+<div class="dk-art" aria-hidden="true"><svg viewBox="0 0 320 130" role="img" aria-label="Policía e IVC alimentan la medida; la entidad deportiva reporta">
+<image href="logos/policia.png" x="4" y="13" width="34" height="34"/>
+<image href="logos/mindeporte.png" x="4" y="48" width="34" height="34"/>
+<g transform="translate(4 83) scale(0.47)"><path class="dk-crest" d="M36 4 L64 14 V36 C64 54 52 64 36 70 C20 64 8 54 8 36 V14 Z"/><path class="dk-crest__band" d="M8 30 H64 V42 H8 Z"/><circle class="dk-crest__ball" cx="36" cy="36" r="10"/></g>
+<path class="dk-art__line" d="M46 30 C120 30 130 65 190 65 M46 65 H190"/>
+<path class="dk-art__line dk-art__line--dash" d="M46 100 C100 100 110 80 150 72"/>
+<path class="dk-art__no" d="M240 14 L286 30 V64 C286 92 266 108 240 118 C214 108 194 92 194 64 V30 Z"/>
+<path class="dk-art__mark" d="M226 52 L254 80 M254 52 L226 80"/>
+</svg></div>
+<p class="dk-body">La policía emite, el IVC radica y las entidades deportivas reportan. Si tiene una medida vigente, no entra.</p></div>
+<div class="dk-card"><p class="dk-label">Confianza de identidad</p><h3 class="dk-title dk-title--big">¿Es quien dice ser?</h3>
+<div class="dk-art" aria-hidden="true"><svg viewBox="0 0 320 130">
+<rect class="dk-art__card" x="20" y="18" width="150" height="96" rx="10"/>
+<circle class="dk-art__ink" cx="62" cy="56" r="14"/><path class="dk-art__ink" d="M40 96 a22 22 0 0 1 44 0 Z"/>
+<rect class="dk-art__bar" x="98" y="44" width="54" height="8" rx="4"/><rect class="dk-art__bar" x="98" y="62" width="40" height="8" rx="4"/><rect class="dk-art__bar" x="98" y="80" width="48" height="8" rx="4"/>
+<path class="dk-art__scan" d="M206 30 V18 H218 M270 18 H282 V30 M282 90 V102 H270 M218 102 H206 V90"/>
+<circle class="dk-art__line" cx="244" cy="52" r="14"/><path class="dk-art__line" d="M222 90 a22 22 0 0 1 44 0"/>
+<rect class="dk-art__track" x="196" y="116" width="96" height="8" rx="4"/><rect class="dk-art__fill" x="196" y="116" width="78" height="8" rx="4"/>
+</svg></div>
+<p class="dk-body">La Registraduría corre en paralelo: la consulta todo el que valida un documento. Decide cuánta verificación pide la puerta.</p></div>
+<div class="dk-card"><p class="dk-label">Datos cruzados</p><h3 class="dk-title dk-title--big">¿Qué dicen sus datos?</h3>
+<ul class="dk-signals" aria-label="Señales de ejemplo">
+<li><span>Club afín</span><b>Club A · 86%</b></li>
+<li><span>Tribuna habitual</span><b>Norte, la de su barra</b></li>
+<li><span>Asistencia</span><b>7 partidos en 6 meses</b></li>
+<li><span>De visitante</span><b>2 viajes</b></li>
+<li><span>Con quién va</span><b>1 acompañante con medida</b></li>
+<li><span>En la puerta</span><b>0 intentos fallidos</b></li>
+</ul>
+<p class="dk-body">Señales explicables que salen de su historial. Solo el club decide, y solo en partidos sin hinchada visitante.</p></div></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="De las bases a la medida" hidden>
+<p class="dk-eyebrow">01.2 · De las bases a la medida</p>
+<h2 class="dk-h2">Quién reporta, emite, radica y verifica</h2>
+<div class="dk-flow dk-chain">
+<div class="dk-card dk-card--tight"><svg class="dk-src__logo" viewBox="0 0 72 72" aria-hidden="true"><path class="dk-crest" d="M36 4 L64 14 V36 C64 54 52 64 36 70 C20 64 8 54 8 36 V14 Z"/><path class="dk-crest__band" d="M8 30 H64 V42 H8 Z"/><circle class="dk-crest__ball" cx="36" cy="36" r="10"/></svg><p class="dk-label">Reportan</p><h3 class="dk-title">Entidades deportivas</h3><p class="dk-body">Los incidentes de sus eventos, con evidencia. El reporte no bloquea.</p></div>
+<div class="dk-card dk-card--tight"><img class="dk-src__logo" src="logos/policia.png" alt="Escudo de la Policía Nacional"><p class="dk-label">Emiten</p><h3 class="dk-title">Autoridades de policía</h3><p class="dk-body">Deciden y emiten la medida por acto administrativo.</p></div>
+<div class="dk-card dk-card--tight"><img class="dk-src__logo" src="logos/mindeporte.png" alt="Logo del Ministerio del Deporte"><p class="dk-label">Radica</p><h3 class="dk-title">IVC del SUID</h3><p class="dk-body">Registra la medida y mantiene la base nacional.</p></div>
+<div class="dk-card dk-card--tight dk-card--primary"><p class="dk-label">La única que bloquea</p><h3 class="dk-title">Medida correctiva</h3><p class="dk-body">Vigente desde la ejecutoria, por sus meses. Rige en todo el país y se cumple sola.</p></div>
+</div>
+<div class="dk-card dk-card--dashed dk-flow__fallback dk-src"><svg class="dk-src__logo" viewBox="0 0 72 72" aria-hidden="true"><rect class="dk-crest" x="6" y="14" width="60" height="44" rx="6"/><circle class="dk-crest__band" cx="24" cy="32" r="7"/><path class="dk-crest__band" d="M13 50 a11 11 0 0 1 22 0 Z"/><path class="dk-crest__band" d="M42 28 H58 V32 H42 Z M42 38 H54 V42 H42 Z"/></svg><p class="dk-label">Verifica · eje aparte</p><p class="dk-body"><b>Registraduría (ANI):</b> confirma que el documento está vigente y que el nombre coincide. Alimenta la confianza de identidad, no la medida.</p></div>
+</section>
+
+<section class="dk-slide" aria-label="Estados de la medida" hidden style="gap: 28px">
+<p class="dk-eyebrow">01.3 · Estados de la medida</p>
+<h2 class="dk-h2">Vigente o cumplida, y lo que sugerimos sumar</h2>
+<p class="dk-grouplabel">Del documento</p>
+<div class="dk-states">
+<div class="dk-state"><span class="dk-reg__icon dk-reg__icon--clean"><i class="naotech-icon-positive"></i></span><h3 class="dk-title">Sin medidas</h3><p class="dk-verdict dk-verdict--ok">Entra</p><p class="dk-body">Estado de partida de toda persona.</p></div>
+<div class="dk-state"><span class="dk-reg__icon dk-reg__icon--veto"><i class="naotech-icon-padlock-close"></i></span><h3 class="dk-title">Vigente</h3><p class="dk-verdict dk-verdict--no">No entra, en todo el país</p><p class="dk-body">Desde el día siguiente a la ejecutoria, por los meses de la sanción.</p></div>
+<div class="dk-state"><span class="dk-reg__icon dk-reg__icon--ok"><i class="naotech-icon-padlock-open"></i></span><h3 class="dk-title">Cumplida</h3><p class="dk-verdict dk-verdict--ok">Entra, sin trámite</p><p class="dk-body">Al vencer se habilita sola; los datos de un menor, con reserva reforzada.</p></div>
+</div>
+<p class="dk-grouplabel dk-grouplabel--sub">Sugeridos · decisión de producto</p>
+<div class="dk-states dk-states--sub">
+<div class="dk-state dk-state--sub"><p class="dk-state__head"><span class="dk-reg__icon "><i class="naotech-icon-edit"></i></span>Anotación</p><p class="dk-verdict dk-verdict--ok">Entra</p><p>Observación interna del IVC</p></div>
+<div class="dk-state dk-state--sub"><p class="dk-state__head"><span class="dk-reg__icon dk-reg__icon--warn"><i class="naotech-icon-caution"></i></span>Advertencia</p><p class="dk-verdict ">Entra; es antecedente</p><p>Falta definir quién la emite</p></div>
+<div class="dk-state dk-state--sub"><p class="dk-state__head"><span class="dk-reg__icon "><i class="naotech-icon-calendar"></i></span>Reporte en trámite</p><p class="dk-verdict dk-verdict--ok">Entra</p><p>Reporte de una entidad aún sin decisión</p></div>
+<div class="dk-state dk-state--sub"><p class="dk-state__head"><span class="dk-reg__icon dk-reg__icon--ok"><i class="naotech-icon-padlock-open"></i></span>Levantada</p><p class="dk-verdict dk-verdict--ok">Entra antes de tiempo</p><p>Por un nuevo acto administrativo</p></div>
+<div class="dk-state dk-state--sub"><p class="dk-state__head"><span class="dk-reg__icon dk-reg__icon--veto"><i class="naotech-icon-padlock-close"></i></span>Veto sin fecha</p><p class="dk-verdict dk-verdict--no">No entra, indefinido</p><p>Necesita soporte legal: hoy la ley fija meses</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="Nueve superficies" hidden style="gap: 28px">
+<p class="dk-eyebrow">02.1 · Nueve superficies</p>
+<h2 class="dk-h2">Cinco vienen del demo, cuatro las sumamos</h2>
+<p class="dk-body" style="margin-top: -12px">Todas las construimos y operamos nosotros. El hincha compra en la comercializadora; ella envía lo que tiene y recibe sí o no.</p>
+<p class="dk-grouplabel">Del demo de Mindeporte · las ampliamos</p>
+<div class="dk-surfs">
+<div class="dk-surf"><p class="dk-surf__num">1</p><h3 class="dk-surf__name">Registro de medidas</h3><p class="dk-surf__who">Profesional del IVC</p><p class="dk-surf__what">El registro oficial completo, historial y reserva de menores</p></div>
+<div class="dk-surf"><p class="dk-surf__num">2</p><h3 class="dk-surf__name">Entidades deportivas y comercializadoras</h3><p class="dk-surf__who">Entidades, Mindeporte</p><p class="dk-surf__what">La vista de la entidad y sus reportes de incidentes</p></div>
+<div class="dk-surf"><p class="dk-surf__num">3</p><h3 class="dk-surf__name">Monitor PMU y auditoría</h3><p class="dk-surf__who">Policía, Mindeporte, entidad</p><p class="dk-surf__what">Filtros y vistas por rol</p></div>
+<div class="dk-surf"><p class="dk-surf__num">5</p><h3 class="dk-surf__name">Acceso en puerta</h3><p class="dk-surf__who">Operador; Policía</p><p class="dk-surf__what">Sin conexión, vista policial y decisión en amarillo</p></div>
+<div class="dk-surf"><p class="dk-surf__num">6</p><h3 class="dk-surf__name">API del SVN</h3><p class="dk-surf__who">Comercializadoras</p><p class="dk-surf__what">Portal de integración y ambiente de pruebas</p></div>
+</div>
+<p class="dk-grouplabel dk-grouplabel--ours">Identificadas por nosotros · nuevas</p>
+<div class="dk-surfs dk-surfs--ours">
+<div class="dk-surf dk-surf--ours"><p class="dk-surf__num">4</p><h3 class="dk-surf__name">Backoffice de eventos</h3><p class="dk-surf__who">Entidad, admin. del escenario</p><p class="dk-surf__what">En el demo los partidos vienen sembrados</p></div>
+<div class="dk-surf dk-surf--ours"><p class="dk-surf__num">7</p><h3 class="dk-surf__name">Componentes embebibles</h3><p class="dk-surf__who">El hincha, en su canal</p><p class="dk-surf__what">El @usuario compartido entre comercializadoras</p></div>
+<div class="dk-surf dk-surf--ours"><p class="dk-surf__num">8</p><h3 class="dk-surf__name">Portal de la persona</h3><p class="dk-surf__who">La persona</p><p class="dk-surf__what">Que pueda ver su estado cuando recibe un no</p></div>
+<div class="dk-surf dk-surf--ours"><p class="dk-surf__num">9</p><h3 class="dk-surf__name">Consola de soporte</h3><p class="dk-surf__who">Soporte</p><p class="dk-surf__what">Reclamaciones y boletas congeladas</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="Qué construir primero" hidden>
+<p class="dk-eyebrow">02.2 · Del demo al producto</p>
+<h2 class="dk-h2">Qué construir primero</h2>
+<div class="dk-journey">
+<div class="dk-journey__stop"><span class="dk-journey__dot">1</span><p class="dk-label">Base</p><h3 class="dk-title">Registro de medidas</h3><p class="dk-body">El registro oficial completo, con historial y reserva de menores.</p></div>
+<div class="dk-journey__stop"><span class="dk-journey__dot">2</span><p class="dk-label">Venta</p><h3 class="dk-title">API del SVN</h3><p class="dk-body">Llaves por comercializadora homologada y consulta ciega.</p></div>
+<div class="dk-journey__stop"><span class="dk-journey__dot">3</span><p class="dk-label">Puerta</p><h3 class="dk-title">Acceso en puerta</h3><p class="dk-body">Semáforo, torniquete por partido y decisión del operador registrada.</p></div>
+<div class="dk-journey__stop dk-journey__stop--event"><span class="dk-journey__dot">4</span><p class="dk-label">Control</p><h3 class="dk-title">Monitor PMU</h3><p class="dk-body">Filtros, vistas por rol y auditoría integral.</p></div>
+</div>
+<p class="dk-body">Después: clubes y portal de integración, backoffice de eventos, y por último portal de la persona, soporte y componentes embebibles. Orden propuesto, para discutir.</p>
+</section>
+
+<section class="dk-slide" aria-label="La boleta" hidden style="gap: 32px">
+<p class="dk-eyebrow">03.1 · La boleta</p>
+<h2 class="dk-h2">Quién la tiene, quién entra y qué le puede pasar</h2>
+<div class="dk-row">
+<div class="dk-card dk-card--tight dk-role dk-role--owner"><h3 class="dk-title dk-title--big">Propietario</h3><p class="dk-body">Quien compró y controla la boleta: invita, asigna y transfiere.</p><p class="dk-check"><i class="naotech-icon-privacy"></i>Pasa por el control: ¿puede comprar? ¿puede transferir?</p></div>
+<div class="dk-card dk-card--tight dk-role dk-role--holder"><h3 class="dk-title dk-title--big">Titular</h3><p class="dk-body">Quien entra. Acepta la invitación y tiene que ser elegible.</p><p class="dk-check"><i class="naotech-icon-privacy"></i>Pasa por el control: ¿puede recibir? ¿puede entrar?</p></div>
+</div>
+<div class="dk-row" style="gap: 24px">
+<div class="dk-card"><p class="dk-label">Estados</p>
+<p class="dk-title">sin titular → invitada → asignada → usada</p>
+<p class="dk-body"><span class="dk-neg">Perdida:</span> sin titular al vencer el plazo. Sin devolución ni reventa; la silla queda vacía.</p>
+<p class="dk-body"><span class="dk-neg">Anulada:</span> su titular quedó restringido.</p>
+<p class="dk-body"><span class="dk-neg">Congelada:</span> su propietario quedó restringido.</p>
+</div>
+<div class="dk-card"><p class="dk-label">Plazo y transferencias</p>
+<p class="dk-body"><b>Plazo configurable</b> por evento, como máximo hasta el inicio. La invitación vence con él.</p>
+<p class="dk-body"><b>Transferir</b> valida a los dos lados, y quien recibe acepta.</p>
+<p class="dk-body"><b>Restricción después de comprar:</b> efecto individual. Lo asignado a otros sigue válido; soporte puede transferir lo congelado.</p>
+</div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="El ciclo de un evento" hidden>
+<p class="dk-eyebrow">03.2 · El ciclo del evento y su boleta</p>
+<h2 class="dk-h2">Lo que pasa con el evento y con cada boleta</h2>
+<p class="dk-lane">El evento</p>
+<div class="dk-tl">
+<div><p class="dk-label">Semanas</p><h3 class="dk-title">Configuración</h3><p class="dk-body">Silletería, sectores, cupos, plazo.</p><p class="dk-sfs"><span class="dk-sf">Backoffice</span><span class="dk-sf">Clubes y comercializadoras</span></p></div>
+<div><p class="dk-label">Días</p><h3 class="dk-title">Venta</h3><p class="dk-body">Invitaciones, transferencias, reclamos.</p><p class="dk-sfs"><span class="dk-sf dk-sf--host">Comercializadora</span><span class="dk-sf">Soporte</span><span class="dk-sf">Portal</span></p></div>
+<div><p class="dk-label">Horas</p><h3 class="dk-title">Vence el plazo</h3><p class="dk-body">Puertas descargan su paquete.</p><p class="dk-sfs"><span class="dk-sf">Backoffice</span><span class="dk-sf">Puerta</span></p></div>
+<div class="dk-tl__now"><p class="dk-label" style="color: var(--naotech-color-default-700)">Inicio</p><h3 class="dk-title">Todo se congela</h3><p class="dk-body">Solo se entra, incluso tarde.</p><p class="dk-sfs"><span class="dk-sf">Puerta</span><span class="dk-sf">Monitor PMU</span></p></div>
+<div><p class="dk-label">Durante</p><h3 class="dk-title">Ingresos</h3><p class="dk-body">En vivo por sector y puerta.</p><p class="dk-sfs"><span class="dk-sf">Puerta</span><span class="dk-sf">Monitor PMU</span></p></div>
+<div><p class="dk-label">Después</p><h3 class="dk-title">Sincronía</h3><p class="dk-body">Reportes y nuevos registros.</p><p class="dk-sfs"><span class="dk-sf">Registro de medidas</span><span class="dk-sf">Monitor PMU</span></p></div>
+</div>
+<p class="dk-lane">La boleta</p>
+<div class="dk-tl dk-tl--ticket">
+<div><p class="dk-body"><b>Cupo</b> para cada comercializadora homologada</p></div>
+<div><p class="dk-body"><b>Reserva y orden</b> de hasta 5; <b>invitación</b> a cada titular</p></div>
+<div><p class="dk-body"><b>Aceptación</b> y token; las sin titular <b>se pierden</b></p></div>
+<div class="dk-tl__now"><p class="dk-body"><b>Asignada</b>: ya no cambia</p></div>
+<div><p class="dk-body"><b>Usada</b> al pasar la puerta</p></div>
+<div><p class="dk-body">Queda en el <b>historial</b> de asistencia</p></div>
+</div>
+</section>
+
+<section class="dk-slide" aria-label="La puerta" hidden>
+<p class="dk-eyebrow">04 · La puerta</p>
+<h2 class="dk-h2">Accediendo al evento</h2>
+<div class="dk-flow">
+<div class="dk-card dk-card--tight"><p class="dk-label">1 · Identificar</p><p class="dk-body">Cédula digital, cédula amarilla, QR de la boleta o número digitado.</p><p class="dk-who">Operador · app de puerta</p></div>
+<div class="dk-card dk-card--tight"><p class="dk-label">2 · Buscar su boleta</p><p class="dk-body">Para el partido configurado en ese torniquete.</p><p class="dk-who dk-who--core">Core · automático</p></div>
+<div class="dk-card dk-card--tight"><p class="dk-label">3 · Validar</p><p class="dk-body">Sin medida vigente, boleta sin usar, puerta de su sector.</p><p class="dk-who dk-who--core">Core · automático</p><p class="dk-who">Policía · vista ampliada</p></div>
+<div class="dk-card dk-card--tight dk-flow__end"><p class="dk-label">4 · Decidir</p><p class="dk-flow__out dk-flow__out--col"><span class="dk-flow__yes">Verde · entra</span><span class="dk-flow__warn">Amarillo · decide el operador, queda registrado</span><span class="dk-flow__no">Rojo · alerta al PMU</span></p><p class="dk-who">Supervisor · monitor PMU</p></div>
+</div>
+<div class="dk-card dk-card--dashed dk-flow__fallback"><p class="dk-label">Contingencia · sin conexión</p><p class="dk-body">Cada puerta descarga su paquete del evento: asignaciones de su sector, bloqueados, nivel de verificación y referencias. Se sincroniza al volver la red.</p></div>
+</section>
+
+<section class="dk-slide" aria-label="Casos especiales" hidden>
+<p class="dk-eyebrow">05 · Casos que el modelo contempla</p>
+<h2 class="dk-h2">Cuando la regla general no alcanza</h2>
+<div class="dk-row">
+<div class="dk-card dk-case"><span class="dk-case__icon" aria-hidden="true"><i class="naotech-icon-user"></i></span><h3 class="dk-title" style="font-size: 36px">Asignación a cargo</h3><p class="dk-body">“Le asigno a mi hijo.” El propietario acepta en su nombre y responde. La foto se toma en la puerta en su primer ingreso.</p></div>
+<div class="dk-card dk-case"><span class="dk-case__icon" aria-hidden="true"><i class="naotech-icon-calendar"></i></span><h3 class="dk-title" style="font-size: 36px">Flexibilidad por edad</h3><p class="dk-body">Menores de 14 y mayores desde 70 a 80 (configurable): basta el documento físico. La conducta aplica igual.</p></div>
+
+</div>
+</section>
+
+
+
+</main>
+
+<nav class="dk-nav" aria-label="Navegación de slides">
+<span class="nwt-icon-button" nwt-theme="neutral" nwt-variant="quiet" nwt-size="medium"><button class="nwt-icon-button__content" type="button" aria-label="Slide anterior" data-prev><div class="nwt-icon"><i class="naotech-icon-chevron-left"></i></div></button></span>
+<span class="dk-counter" data-counter aria-live="polite">1 / 13</span>
+<span class="nwt-icon-button" nwt-theme="neutral" nwt-variant="quiet" nwt-size="medium"><button class="nwt-icon-button__content" type="button" aria-label="Slide siguiente" data-next><div class="nwt-icon"><i class="naotech-icon-chevron-right"></i></div></button></span>
+<button class="nwt-button" type="button" nwt-theme="neutral" nwt-variant="mute" nwt-size="small" data-fullscreen><span class="nwt-button__content">Pantalla completa</span></button>
+</nav>
+
+<script src="deck.js"></script>
+</body>
+</html>

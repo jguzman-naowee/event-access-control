@@ -107,6 +107,19 @@ Es una **prohibición de ingreso a escenarios deportivos**, por las conductas de
 Un menor **puede ser sancionado**. Su registro exige el representante legal y tiene **reserva
 reforzada**: sus datos solo los ven los roles que los necesitan, y cada consulta queda auditada.
 
+### Estados sugeridos *(decisión de producto)*
+
+Los documentos solo definen **vigente** y **cumplida**. Sugerimos sumar estos, y mientras no se
+aprueben, solo la medida vigente bloquea:
+
+| Estado sugerido | ¿Bloquea? | Para qué | Qué haría falta |
+|---|---|---|---|
+| **Anotación** | No | Dejar una observación, como un reporte archivado | Nada: es interna del IVC |
+| **Advertencia** | No, pero es antecedente | Llamado de atención previo; cuenta para la reincidencia | Definir quién la emite |
+| **Reporte en trámite** | No | Reporte de una entidad deportiva que la autoridad aún no decide | Ya está en el modelo |
+| **Levantada** | Levanta el bloqueo antes de tiempo | Recurso o revocatoria del acto | Un nuevo acto administrativo |
+| **Veto sin fecha** | Sí, indefinido | Reincidencia grave | Soporte legal: hoy la ley fija meses |
+
 ### Correcciones y levantamiento anticipado *(exploratorio)*
 
 Los documentos no cubren cómo se corrige un registro con error o se levanta una medida antes de su
@@ -125,7 +138,10 @@ tarjeta de identidad (TI), pasaporte, PPT, PEP y RUMV (Decreto 1622 de 2022).
 
 ### Verificación con la Registraduría
 
-Cada documento se verifica contra el **Archivo Nacional de Identificación (ANI)** de la Registraduría:
+Cada documento se verifica contra el **Archivo Nacional de Identificación (ANI)** de la Registraduría.
+Es un **servicio paralelo y compartido**, tal como viene en el demo: lo consulta cualquier parte del
+sistema que necesite validar un documento (la venta, la asignación, la puerta, la radicación de una
+medida, el reporte de una entidad deportiva y el portal de la persona).
 
 - **Existe y está vigente.** Una cédula **cancelada** (por muerte o por doble cedulación) se deniega.
 - **Nombre oficial.** El nombre que envía la comercializadora se coteja con el del ANI. Un nombre
@@ -142,12 +158,21 @@ Cada documento se verifica contra el **Archivo Nacional de Identificación (ANI)
 - **Revocar el vínculo es un trámite formal, sin cortes a mitad de camino** *(decisión de producto)*.
   Desde la solicitud no se inician operaciones nuevas; las que están en curso terminan normalmente,
   y la revocación se hace efectiva cuando se cierra la última.
-- **Referencia biométrica** *(decisión de producto, sujeta a base legal)*: la foto contra la cual se
-  compara en la puerta. Ver *Confianza de identidad*.
+- **Referencia biométrica** *(decisión de producto)*: la foto contra la cual se compara en la puerta.
+  **Va en el producto como un módulo pegado pero desacoplable**: se activa por configuración, y si la
+  base legal no alcanza, se apaga sin afectar el resto. Ver *Confianza de identidad*.
 - **Confianza de identidad** *(exploratorio)*: cuánto confiamos en que la persona es quien dice ser.
 - **Historial de asistencia**: se construye con los ingresos reales (módulo 5).
-- **Perfil de afinidad** *(decisión de producto)*: se infiere solo de los datos (partidos, local o
-  visitante, sector). La persona no declara su club.
+- **Datos cruzados** *(decisión de producto)*: señales explicables que salen del historial de la
+  persona. **El club afín es una de ellas**, no la única:
+  - **Club afín**, con su certeza (por ejemplo, Club A, 86%). La persona no declara su club.
+  - **Tribuna habitual** (por ejemplo, la de su barra).
+  - **Frecuencia de asistencia** (partidos en los últimos meses).
+  - **Viajes de visitante.**
+  - **Con quién va:** si comparte boletas con personas que tienen una medida vigente.
+  - **Intentos fallidos en la puerta.**
+  Solo el **club afín** alimenta una regla de acceso (partidos sin hinchada visitante). Las demás
+  informan: a la vista policial y a la confianza de identidad.
 - **Regla de elegibilidad**: sanción vigente, documento vigente, límite de boletas, una boleta por
   persona por evento, sector visitante, partido sin hinchada visitante.
 - **Decisión de elegibilidad**: quién preguntó, sobre quién, para qué evento y en qué punto de
@@ -183,11 +208,11 @@ solo el documento, o el documento más el rostro.
 - **No es una sanción:** una confianza baja pide más verificación, pero nunca niega el acceso por sí
   sola. Negar es cosa de las medidas correctivas y de las reglas.
 - **La foto de referencia** se toma al aceptar la primera boleta, o en la puerta en el primer ingreso
-  del titular a cargo. Queda **sujeta a la base legal**: los documentos recibidos no usan biometría;
-  verifican identidad con el ANI. Ver *Preguntas abiertas*.
+  del titular a cargo. Vive en el **módulo biométrico desacoplable**: sin él, la verificación sigue
+  con el ANI y el documento, como en el demo.
 
-Confianza (¿es quien dice ser?), medida correctiva (¿puede entrar?) y afinidad (¿de qué club es?)
-son tres ejes separados.
+Confianza (¿es quien dice ser?), medida correctiva (¿puede entrar?) y datos cruzados (¿qué dicen
+sus datos?) son tres ejes separados.
 
 ---
 
@@ -239,8 +264,8 @@ Competencia → Evento → Partido
 ### Límite de boletas
 
 - **Máximo 5 boletas por aficionado** (Decreto 1622 de 2022, art. 2.17.16, num. 7).
-- **Más de 5** no se vende por el canal normal: requiere un **canal especial con verificación
-  reforzada (KYC)**. Por ejemplo, palcos o compras institucionales *(el flujo de ese canal está por definir)*.
+- **No hay compra de más de 5.** El SVN la deniega, y no se abre un canal especial.
+- **Cada boleta se asocia a una persona**: se compra hasta 5 y cada una queda nominalizada a un titular.
 
 ### Propietario y titular *(decisión de producto)*
 
@@ -420,18 +445,21 @@ monitor del PMU y de los reportes.
 
 ---
 
+## Decisiones del kick-off (28-sep-2026)
+
+- **Biometría: va**, como un módulo pegado pero desacoplable. Se activa por configuración y se apaga
+  sin afectar el resto.
+- **Más de 5 boletas: no.** Máximo 5 por aficionado, cada una asociada a una persona.
+- **Registraduría (ANI):** un servicio paralelo que consulta todo el que necesite validar un documento.
+
 ## Preguntas abiertas
 
-- **Biometría (a confirmar con legal).** Los documentos recibidos verifican identidad con el ANI y
-  el cotejo nominal, **sin biometría**. La foto de referencia y el rostro en la puerta son una
-  extensión nuestra. La Ley 1581 y el Decreto 1377 de 2013 prohíben condicionar una actividad a que
-  la persona entregue datos sensibles, salvo que una ley lo exija. Falta confirmar si el Decreto 1622
-  de 2022 u otra norma lo exige. El modelo contempla los dos casos:
-  - **Si hay norma:** la foto de referencia es obligatoria para todo titular.
-  - **Si no hay norma:** la foto es voluntaria, con consentimiento explícito; quien no la dé entra
-    con documento y más verificación en la puerta.
-- **Canal especial de más de 5 boletas:** quién lo opera y qué pide la verificación reforzada (KYC).
+- **Base legal para encender el módulo biométrico.** La Ley 1581 y el Decreto 1377 de 2013 prohíben
+  condicionar una actividad a que la persona entregue datos sensibles, salvo que una ley lo exija.
+  Con norma, la foto es obligatoria para todo titular; sin norma, es voluntaria con consentimiento
+  explícito, y quien no la dé entra con documento y más verificación.
+- **Estados sugeridos de la medida:** cuáles aprueba el IVC y con qué soporte.
 - **Documentos válidos:** el Excel cita el art. 2.17.3 y el art. 2.17.4 del Decreto 1622 para lo
   mismo; confirmar cuál.
 - **Correcciones y levantamiento anticipado de una medida:** no están en los documentos.
-- **Integración real con el ANI:** el demo la simula; falta el convenio y el mecanismo con la Registraduría.
+- **Convenio con la Registraduría:** el demo simula el ANI. El modelo ya está decidido; falta el trámite del convenio.
