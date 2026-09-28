@@ -124,7 +124,7 @@ Hojas: **Registro**, **Diccionario de datos** (41 campos con regla y soporte nor
 
 | Antes | Ahora, según los documentos |
 |---|---|
-| Tres fuentes (Policía, IVC, clubes), cada una con su base | **Una base de medidas correctivas en el SUID-IVC.** Las autoridades de policía emiten el acto, el IVC lo radica. Los clubes reportan su comercializadora |
+| Tres fuentes (Policía, IVC, clubes), cada una con su base | **Una base de medidas correctivas en el SUID-IVC.** Las autoridades de policía emiten el acto, el IVC lo radica. Las entidades deportivas reportan su comercializadora y, como decisión de producto, **reportan incidentes** a las otras dos |
 | Anotación, advertencia, sanción y veto | **Medida correctiva** con meses y multa; estado vigente o cumplida |
 | Alcance nacional, club, escenario o evento | **Nacional por ley** |
 | Saneamiento con aprobación de las tres entidades | **Se cumple sola** al vencer la vigencia |

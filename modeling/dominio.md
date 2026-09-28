@@ -51,9 +51,27 @@ genérico, nunca el expediente ni los hechos.
 | **Autoridades de policía** (inspecciones de policía, alcaldías) | **Emiten** la medida correctiva mediante un acto administrativo, en audiencia |
 | **IVC del SUID (Mindeporte)** | **Registra** la medida a partir del oficio de entrada (radicado en GESDOC) y la mantiene |
 | **Policía Nacional** | **Consulta**: recibe las alertas rojas de la puerta en el PMU y ve el detalle en la vista policial |
+| **Entidades deportivas** (clubes y entidades formales) | **Reportan** a la autoridad de policía y al IVC los incidentes de sus eventos *(decisión de producto)* |
 
-Hay **una sola base** de medidas correctivas, en el SUID-IVC. Los clubes no son fuente de
-restricciones: reportan qué comercializadora usan (módulo 4).
+Hay **una sola base** de medidas correctivas, en el SUID-IVC, y **solo una medida correctiva
+bloquea**. Las entidades deportivas no tienen una base propia: su camino es reportar y alinearse
+con lo que decidan la autoridad de policía y el IVC.
+
+### Reporte de entidad deportiva *(decisión de producto)*
+
+Los documentos no lo cubren, pero dejar fuera a las entidades deportivas sería un error: son las
+que ven los incidentes en sus estadios, a través de su logística.
+
+- **Qué reporta:** la persona (tipo y número de documento), el evento, la fecha, las **conductas del
+  catálogo** de la Ley 1453, la descripción y la **evidencia** (informe de logística, video, fotos).
+- **A quién llega:** a la **autoridad de policía** competente, que decide si abre el procedimiento,
+  y al **IVC**, que sigue el caso.
+- **No bloquea por sí solo.** Un reporte nunca niega una compra ni un ingreso: solo lo hace la
+  medida correctiva que resulte del procedimiento.
+- **Estados:** enviado → recibido → en trámite → **derivó en medida** (queda enlazado a la medida
+  que la autoridad emitió) o **archivado** (con su motivo).
+- **La entidad ve** el estado de sus propios reportes, y si derivaron en medida. No ve expedientes ajenos.
+- **Se alinea:** en sus estadios aplica las medidas vigentes de la base nacional, igual que todos.
 
 ### La medida correctiva
 
@@ -81,6 +99,8 @@ Es una **prohibición de ingreso a escenarios deportivos**, por las conductas de
     responsable y observaciones.
 - **Catálogo de conductas:** art. 97 (6 conductas), art. 98 (3) y agravantes (3).
 - **Historial:** cada registro y cada cambio queda con quién, cuándo y con qué soporte. No se edita.
+- **Reporte de entidad deportiva:** persona, evento, conductas, descripción, evidencia, estado y, si
+  derivó en medida, el enlace a ella.
 
 ### Menores de edad
 
@@ -365,7 +385,7 @@ monitor del PMU y de los reportes.
 | **Autoridad de policía** (inspección, alcaldía) | Emite la medida correctiva por acto administrativo |
 | **Profesional del IVC** (Mindeporte) | Radica la medida en el SUID desde el oficio de entrada y gestiona sus radicados |
 | **Policía Nacional** | Recibe las alertas rojas en el PMU y consulta en la vista policial |
-| **Club** | Carga cada semestre en el SVN qué comercializadora vende para su estadio; configura sus eventos; ve la auditoría integral de sus eventos |
+| **Club o entidad deportiva** | Carga cada semestre su comercializadora; configura sus eventos; **reporta incidentes** a la autoridad de policía y al IVC y sigue su estado; ve la auditoría integral de sus eventos |
 | **Mindeporte** (homologación) | Homologa comercializadoras y entrega sus llaves de API |
 | **Comercializadora** | Consulta el SVN antes de vender, asignar y transferir; vende y cobra por su canal |
 | **Comprador o propietario** | Tiene que ser elegible para comprar; compra hasta 5; invita, asigna y transfiere |
@@ -394,8 +414,9 @@ monitor del PMU y de los reportes.
 9. **Vence el plazo de asignación**: las boletas sin titular se pierden.
 10. **Día del evento**: cada torniquete, configurado para su partido, valida contra el documento y
     responde en semáforo. Los amarillos los decide el operador y quedan registrados; los rojos van al PMU.
-11. **Después del evento**: se sincroniza lo validado sin conexión, se actualiza el historial de
-    asistencia y los incidentes pueden terminar en medidas correctivas nuevas.
+11. **Después del evento**: se sincroniza lo validado sin conexión y se actualiza el historial de
+    asistencia. La entidad deportiva **reporta los incidentes**; la autoridad de policía decide si
+    abre el procedimiento, y si emite una medida, el IVC la radica.
 
 ---
 

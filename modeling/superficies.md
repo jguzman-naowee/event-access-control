@@ -2,7 +2,7 @@
 
 Quién usa qué, desde dónde, en qué momento y con qué datos. Complementa a [`dominio.md`](dominio.md).
 
-> Estado: **v2.1** (28-sep-2026), rehecha a partir del demo SVN (`content-supplies/demo-svn`, ver
+> Estado: **v2.2** (28-sep-2026), rehecha a partir del demo SVN (`content-supplies/demo-svn`, ver
 > [`fuentes.md`](fuentes.md)). Cada superficie dice si **ya existe en el demo**, si es **nueva** o si
 > es una *(decisión de producto)*.
 
@@ -29,7 +29,7 @@ Agrupadas por quién las opera.
 |---|---|---|---|---|---|
 | **Estado · Mindeporte** |||||
 | 1 | **Registro de medidas correctivas** | Profesional del IVC | Web de escritorio | Continuo, con cada oficio de entrada | Sí · *Panel Mindeporte* |
-| 2 | **Clubes y comercializadoras** | Clubes (cargan su reporte); Mindeporte (homologa) | Web de escritorio | Cada semestre | Sí · *Panel Mindeporte*, segunda tabla (solo la vista de Mindeporte) |
+| 2 | **Entidades deportivas y comercializadoras** | Clubes y entidades (reportan); Mindeporte (homologa) | Web de escritorio | Cada semestre, y después de cada evento | Parcial · *Panel Mindeporte*, segunda tabla; sin la vista de la entidad ni sus reportes de incidentes |
 | 3 | **Monitor PMU y auditoría** | Policía Nacional, Mindeporte, supervisor del evento | Pantallas del PMU y escritorio | El día del evento, y consulta posterior | Sí · *Monitor en vivo* |
 | **Operación del evento** |||||
 | 4 | **Backoffice de eventos** | Club u organizador, administrador del escenario | Web de escritorio | Semanas y días antes | **No**: los partidos vienen sembrados |
@@ -53,6 +53,7 @@ Agrupadas por quién las opera.
 formulario *Radicar nueva medida correctiva (oficio ER)*.
 
 **Qué hace:**
+- **Recibir los reportes de las entidades deportivas** y seguirlos hasta que deriven en medida o se archiven.
 - **Radicar** una medida a partir del oficio de entrada, con los campos del registro oficial:
   infractor, representante legal si es menor, hechos y conductas del catálogo, sanción y radicados de GESDOC.
 - **Consultar y buscar** por documento, nombre, ciudad o conducta.
@@ -68,9 +69,9 @@ formulario *Radicar nueva medida correctiva (oficio ER)*.
 
 ---
 
-## 2 · Clubes y comercializadoras
+## 2 · Entidades deportivas y comercializadoras
 
-**Quién:** los clubes cargan su reporte y Mindeporte homologa. **En el demo:** tabla *Reporte semestral de
+**Quién:** los clubes y entidades deportivas reportan, y Mindeporte homologa. **En el demo:** tabla *Reporte semestral de
 clubes e integración de tiqueteras*.
 
 **Qué hace:**
@@ -78,9 +79,13 @@ clubes e integración de tiqueteras*.
 - Mindeporte **condiciona la aprobación** a que esa comercializadora tenga la **certificación de
   interoperabilidad** activa con el SVN: pendiente → en pruebas → homologada.
 - Al homologar, se emite la **llave de API** de producción.
+- **Reportar incidentes** de sus eventos *(decisión de producto)*: persona, conductas del catálogo,
+  descripción y evidencia. El reporte llega a la autoridad de policía y al IVC, y la entidad sigue
+  su estado hasta que deriva en medida o se archiva. No bloquea por sí solo.
 
 **Lo que falta frente al demo:**
-- La **vista del club** para cargar su reporte: en el demo solo existe la vista de Mindeporte.
+- La **vista de la entidad deportiva**, para cargar su comercializadora y sus reportes de incidentes:
+  en el demo solo existe la vista de Mindeporte.
 - La **vigencia semestral**: qué pasa con una comercializadora cuando termina el semestre sin renovar.
 - La **revocación** de una llave.
 
@@ -206,6 +211,7 @@ Cuando la comercializadora recibe un no, solo le muestra un enlace al hincha:
 | Dato | IVC | Policía (PMU, vista policial) | Club / organizador | Comercializadora | Operador de puerta | Persona |
 |---|---|---|---|---|---|---|
 | Expediente de la medida (hechos, conducta, acto) | Sí | Sí | No | **No** | No | La suya |
+| Reportes de incidentes | Todos | Todos | Los suyos, con su estado | No | No | No |
 | Datos de menores | Con reserva reforzada | Con reserva reforzada | No | No | No | Su representante legal |
 | Resultado sí o no y código de motivo | Sí | Sí | No | Sí | Semáforo | La suya |
 | Documento de la persona | Sí | Sí | No | El que ella envió | El que lee | El suyo |
@@ -221,7 +227,7 @@ Cada consulta a un expediente o a datos de menores queda auditada.
 | Rol | Recorrido |
 |---|---|
 | **Profesional del IVC** | Recibe el oficio (GESDOC) → radica la medida (1) → la medida queda vigente y se cumple sola |
-| **Club** | Carga su comercializadora cada semestre (2) → configura escenario, partido y torniquetes (4) → sigue la auditoría de sus eventos (3) |
+| **Entidad deportiva** | Carga su comercializadora cada semestre (2) → configura escenario, partido y torniquetes (4) → reporta los incidentes de su evento (2) → sigue si derivaron en medida |
 | **Mindeporte** | Revisa el reporte → certifica la comercializadora en pruebas (6) → la homologa y entrega la llave (2) |
 | **Comercializadora** | Se integra en pruebas (6) → homologada, consulta el SVN en cada venta (6) → emite la boleta con token |
 | **Hincha** | Compra en la comercializadora → si recibe un no, consulta su estado (8) → entra por la puerta (5) |
@@ -240,7 +246,7 @@ Cada consulta a un expediente o a datos de menores queda auditada.
 | Días antes | Venta con consulta al SVN; invitaciones y transferencias; reclamaciones | 6, 7, 8, 9 |
 | Horas antes | Vence el plazo de asignación; cada puerta queda lista y configurada | 4, 5 |
 | Durante el evento | Ingresos con semáforo; rojos al PMU | 3, 5 |
-| Después del evento | Auditoría, reportes, medidas nuevas por incidentes | 1, 3 |
+| Después del evento | Auditoría; la entidad reporta incidentes; la autoridad decide y el IVC radica | 1, 2, 3 |
 
 ---
 
@@ -263,6 +269,7 @@ El demo ya prueba el recorrido central. Para pasar de demo a producto, por orden
 ## Decisiones de superficies (28-sep-2026)
 
 - **El club carga su reporte semestral** en el SVN (superficie 2).
+- **Las entidades deportivas reportan incidentes** a la autoridad de policía y al IVC y se alinean con lo que decidan; no tienen una base propia que bloquee.
 - **La auditoría es integral** para quien la ve: Mindeporte y Policía, toda; el club, la de sus eventos.
 - **Ante un amarillo, el operador decide en la puerta** y la decisión queda registrada. El rojo no se puede autorizar.
 - **Nosotros construimos y operamos todo**, incluido el portal de integración.
