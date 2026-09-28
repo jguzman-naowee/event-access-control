@@ -1,0 +1,5 @@
+# Insumos recibidos: el Excel, la base y hasta el código del demo traen nombres y documentos
+# asociados a sanciones (incluidos menores). Quedan locales hasta confirmar que son ficticios.
+content-supplies/
+__pycache__/
+.DS_Store
