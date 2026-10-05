@@ -1,0 +1,148 @@
+/* Auditoría (prefijo pa-). El marco del demo y del equipo es el de la puerta (pp-); acá va solo la vista. */
+
+.pa-app { background: var(--naotech-app-color-050); }
+.pa-app p, .pa-app h1, .pa-app h2, .pa-app h3, .pa-app ol, .pa-app ul { margin: 0; }
+.pa-sub { color: var(--naotech-app-color-700); }
+.pa-num { font-variant-numeric: tabular-nums; }
+
+/* ---------- Barra ---------- */
+
+.pa-barra { flex: none; display: flex; align-items: center; gap: var(--naotech-sizing-20); padding: var(--naotech-sizing-10) var(--naotech-sizing-32); background: var(--naotech-app-background); border-bottom: 1px solid var(--naotech-app-color-200); }
+.pa-barra__der { margin-left: auto; display: flex; align-items: center; gap: var(--naotech-sizing-12); min-height: 44px; }
+.pa-barra__rol { font-size: var(--naotech-sizing-16); font-weight: 700; }
+
+/* ---------- Cuerpo: registros a la izquierda, registro elegido fijo a la derecha ---------- */
+
+.pa-cuerpo { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 400px; }
+.pa-main { min-height: 0; display: flex; flex-direction: column; gap: var(--naotech-sizing-16); padding: var(--naotech-sizing-24) var(--naotech-sizing-32); }
+.pa-cab { display: flex; flex-direction: column; gap: var(--naotech-sizing-10); }
+.pa-cab__top { display: flex; align-items: center; justify-content: space-between; gap: var(--naotech-sizing-12); }
+.pa-app .pa-titulo { min-height: 0; margin-top: 2px; font-size: var(--naotech-sizing-20); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+.pa-app .pa-titulo .pp-escudo { height: 26px; }
+.pa-app .pa-cab__sub { margin-top: var(--naotech-sizing-4); font-size: var(--naotech-sizing-14); }
+.pa-exportar { display: inline-flex; align-items: center; gap: var(--naotech-sizing-8); height: 44px; padding: 0 var(--naotech-sizing-14); border: 1px solid var(--naotech-app-color-300); border-radius: var(--naotech-radius-pill); background: var(--naotech-app-background); color: var(--naotech-app-color-900); font: inherit; font-size: var(--naotech-sizing-14); font-weight: 700; cursor: pointer; --naotech-icon-dimension: var(--naotech-sizing-20); }
+.pa-exportar:hover { background: var(--naotech-app-color-100); }
+.pa-exportar:disabled { color: var(--naotech-app-color-700); background: var(--naotech-app-color-050); cursor: progress; }
+
+/* Cabecera del evento: foto del escenario a un lado, y título, exportar y filtros en la misma pieza. */
+.pa-hero { position: relative; flex: none; display: grid; grid-template-columns: minmax(0, 1fr) 208px; overflow: hidden; background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); border-radius: var(--naotech-radius-xl); }
+.pa-hero__foto { position: relative; background: var(--naotech-app-color-200); }
+.pa-hero__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.pa-hero__chip { position: absolute; left: var(--naotech-sizing-12); top: var(--naotech-sizing-12); display: inline-flex; align-items: center; gap: var(--naotech-sizing-6); height: 28px; padding: 0 var(--naotech-sizing-10); border-radius: var(--naotech-radius-pill); background: var(--naotech-app-background); color: var(--naotech-color-green-700); font-size: var(--naotech-sizing-12); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; box-shadow: var(--naotech-shadow-small); }
+.pa-hero__chip .pp-e__punto { background: var(--naotech-color-green-700); }
+.pa-hero__tiempos { position: absolute; left: var(--naotech-sizing-12); right: var(--naotech-sizing-12); bottom: var(--naotech-sizing-12); display: flex; flex-direction: column; gap: 2px; padding: var(--naotech-sizing-6) var(--naotech-sizing-10); border-radius: var(--naotech-radius-md); background: var(--naotech-app-background); font-size: var(--naotech-sizing-12); color: var(--naotech-app-color-700); }
+.pa-hero__tiempos > span { display: flex; white-space: nowrap; justify-content: space-between; gap: var(--naotech-sizing-8); }
+.pa-hero__tiempos b { color: var(--naotech-app-color-900); font-variant-numeric: tabular-nums; }
+.pa-hero__cuerpo { min-width: 0; display: flex; flex-direction: column; gap: var(--naotech-sizing-16); padding: var(--naotech-sizing-16) var(--naotech-sizing-20); }
+.pa-hero .pa-filtros { padding: 0; background: none; border: 0; border-radius: 0; }
+.pp-equipo--tablet .pa-hero { grid-template-columns: minmax(0, 1fr) 172px; }
+.pp-equipo--tablet .pa-hero__cuerpo { padding-inline: var(--naotech-sizing-16); }
+
+/* Filtros: controles nativos (el bundle no trae select), con la medida y los tokens de los campos del SDK. */
+.pa-filtros { flex: none; display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: var(--naotech-sizing-12); padding: var(--naotech-sizing-16); background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); border-radius: var(--naotech-radius-xl); }
+.pa-campo { position: relative; min-width: 0; display: flex; flex-direction: column; gap: var(--naotech-sizing-6); font-size: var(--naotech-sizing-12); font-weight: 700; color: var(--naotech-app-color-700); }
+.pa-campo select, .pa-campo input { box-sizing: border-box; width: 100%; height: 44px; padding: 0 var(--naotech-sizing-10); border: 1px solid var(--naotech-app-color-300); border-radius: var(--naotech-radius-lg); background: var(--naotech-app-background); color: var(--naotech-app-color-900); font: inherit; font-size: var(--naotech-sizing-14); font-weight: 400; text-overflow: ellipsis; }
+.pa-campo input { padding: 0 var(--naotech-sizing-12); }
+.pa-campo input::placeholder { color: var(--naotech-app-color-700); }
+.pa-campo input[aria-invalid] { border-color: var(--naotech-color-red-700); }
+.pa-campo__ayuda { position: absolute; top: 100%; left: 0; margin-top: 2px; font-weight: 400; color: var(--naotech-color-red-900); white-space: nowrap; }
+.pa-campo select:focus-visible, .pa-campo input:focus-visible, .pa-exportar:focus-visible, .pa-chip:focus-visible, .pa-fila:focus-visible, .pa-pag:focus-visible { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+.pa-fila:focus-visible { outline-offset: -2px; }
+
+.pa-resultados { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: var(--naotech-sizing-16); }
+
+/* Chips de resultado: 36 px visibles, el ::after completa los 44 del área táctil. */
+.pa-chips { flex: none; display: flex; flex-wrap: wrap; gap: var(--naotech-sizing-8); }
+.pa-chip { position: relative; display: inline-flex; align-items: center; gap: var(--naotech-sizing-8); height: 36px; padding: 0 var(--naotech-sizing-14); border: 1px solid var(--naotech-app-color-300); border-radius: var(--naotech-radius-pill); background: var(--naotech-app-background); color: var(--naotech-app-color-900); font: inherit; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+.pa-chip::after { content: ''; position: absolute; inset: -4px 0; }
+.pa-chip:hover { border-color: var(--naotech-app-color-500); }
+.pa-chip[aria-pressed='true'] { background: var(--naotech-app-color-900); border-color: var(--naotech-app-color-900); color: var(--naotech-color-white-alpha-100); }
+.pa-chip[aria-pressed='true'] .pa-punto--todos, .pa-chip[aria-pressed='true'] .pa-punto--medida { box-shadow: 0 0 0 1.5px var(--naotech-color-white-alpha-100); }
+
+/* Punto y tag por resultado. El rojo por medida va invertido: es el único que no se discute en la puerta. */
+.pa-punto { flex: none; width: 8px; height: 8px; border-radius: var(--naotech-radius-circle); background: var(--naotech-app-color-600); }
+.pa-punto--todos { background: var(--naotech-app-color-900); }
+.pa-punto--verde { background: var(--naotech-color-green-600); }
+.pa-punto--amarillo { background: var(--naotech-color-yellow-900); }
+.pa-punto--operativo { background: var(--naotech-color-red-600); }
+.pa-punto--medida { background: var(--naotech-color-red-900); }
+.pa-punto--policia { background: var(--naotech-color-blue-900); }
+.pa-punto--consulta { background: var(--naotech-app-color-600); }
+.pa-punto--venta { background: var(--naotech-app-color-700); }
+
+.pa-tag { display: inline-flex; align-items: center; height: 24px; padding: 0 var(--naotech-sizing-10); border: 1px solid transparent; border-radius: var(--naotech-radius-pill); font-size: var(--naotech-sizing-12); font-weight: 700; white-space: nowrap; }
+.pa-tag--verde { background: var(--naotech-color-green-100); border-color: var(--naotech-color-green-100); color: var(--naotech-color-green-900); }
+.pa-tag--amarillo { background: var(--naotech-color-yellow-100); border-color: var(--naotech-color-yellow-800); color: var(--naotech-app-color-900); }
+.pa-tag--operativo { background: var(--naotech-color-red-050); border-color: var(--naotech-color-red-300); color: var(--naotech-color-red-900); }
+.pa-tag--medida { background: var(--naotech-color-red-900); border-color: var(--naotech-color-red-900); color: var(--naotech-color-white-alpha-100); }
+.pa-tag--policia { background: color-mix(in srgb, var(--naotech-color-blue-900) 9%, var(--naotech-app-background)); border-color: color-mix(in srgb, var(--naotech-color-blue-900) 22%, var(--naotech-app-background)); color: var(--naotech-color-blue-900); }
+.pa-tag--consulta { background: var(--naotech-app-color-100); border-color: var(--naotech-app-color-300); color: var(--naotech-app-color-800); }
+.pa-tag--venta { background: var(--naotech-app-background); border-color: var(--naotech-app-color-300); color: var(--naotech-app-color-800); }
+
+/* ---------- Tabla ---------- */
+
+.pa-registros { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); border-radius: var(--naotech-radius-xl); }
+.pa-cols, .pa-fila { display: grid; grid-template-columns: 52px 146px 152px 100px 120px minmax(0, 1fr); gap: var(--naotech-sizing-12); align-items: center; padding: 0 var(--naotech-sizing-16); }
+.pa-cols { flex: none; padding-block: var(--naotech-sizing-12); border-bottom: 1px solid var(--naotech-app-color-200); font-size: var(--naotech-sizing-12); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--naotech-app-color-700); }
+.pa-lista { flex: 1; min-height: 0; overflow-y: auto; }
+.pa-fila { width: 100%; min-height: 56px; padding-block: var(--naotech-sizing-8); border: 0; border-bottom: 1px solid var(--naotech-app-color-100); box-shadow: inset 3px 0 0 transparent; background: var(--naotech-app-background); color: var(--naotech-app-color-900); font: inherit; font-size: var(--naotech-sizing-14); text-align: left; cursor: pointer; }
+.pa-fila:hover { background: var(--naotech-app-color-050); }
+.pa-fila[aria-pressed='true'] { background: color-mix(in srgb, var(--naotech-color-blue-900) 5%, var(--naotech-app-background)); box-shadow: inset 3px 0 0 var(--naotech-color-blue-900); }
+.pa-fila > span { min-width: 0; }
+.pa-fila > span:nth-child(3) { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pa-fila__hora { font-weight: 700; font-variant-numeric: tabular-nums; }
+.pa-fila__origen { color: var(--naotech-app-color-700); }
+.pa-cols .pa-fila__origen { color: inherit; }
+/* Detalle y quién en dos líneas: a este ancho una sola línea cortaba justo el quién. */
+.pa-fila__detalle { display: flex; flex-direction: column; gap: 2px; }
+.pa-fila__detalle > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pa-fila__detalle .pa-sub { font-size: 13px; }
+.pa-vacio { padding: var(--naotech-sizing-32) var(--naotech-sizing-16); text-align: center; font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pa-pie { flex: none; display: flex; align-items: center; gap: var(--naotech-sizing-8); padding: var(--naotech-sizing-6) var(--naotech-sizing-16); border-top: 1px solid var(--naotech-app-color-200); font-size: 13px; color: var(--naotech-app-color-700); }
+.pa-pie__pag { margin-left: auto; margin-right: var(--naotech-sizing-4); font-variant-numeric: tabular-nums; }
+.pa-pag { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--naotech-app-color-300); border-radius: var(--naotech-radius-lg); background: var(--naotech-app-background); color: var(--naotech-app-color-900); cursor: pointer; --naotech-icon-dimension: var(--naotech-sizing-16); }
+.pa-pag:disabled { color: var(--naotech-app-color-500); background: var(--naotech-app-color-050); cursor: not-allowed; }
+
+/* ---------- Registro elegido ---------- */
+
+.pa-panel-col { min-height: 0; display: flex; }
+.pa-detalle { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; background: var(--naotech-app-background); border-left: 1px solid var(--naotech-app-color-200); }
+.pa-detalle__cab { flex: none; display: flex; flex-direction: column; gap: var(--naotech-sizing-10); padding: var(--naotech-sizing-20) var(--naotech-sizing-24) var(--naotech-sizing-16); border-bottom: 1px solid var(--naotech-app-color-200); }
+.pa-detalle__top { display: flex; align-items: center; gap: var(--naotech-sizing-10); }
+.pa-detalle__id { margin-left: auto; font-size: var(--naotech-sizing-12); color: var(--naotech-app-color-700); font-variant-numeric: tabular-nums; }
+.pa-persona { display: flex; align-items: center; justify-content: flex-start; gap: var(--naotech-sizing-14); }
+.pa-persona__foto { flex: none; width: 96px; height: 120px; object-fit: cover; border-radius: var(--naotech-radius-md); border: 1px solid var(--naotech-app-color-200); background: var(--naotech-app-color-100); }
+.pa-persona__txt { min-width: 0; display: flex; flex-direction: column; gap: 0; }
+.pa-persona__txt .pa-sub { font-size: 13px; line-height: 1.2; }
+.pa-app .pa-detalle__h { min-height: 0; font-size: var(--naotech-sizing-20); font-weight: 700; line-height: 1.2; }
+.pa-datos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--naotech-sizing-10) var(--naotech-sizing-16); font-size: 13px; }
+.pa-dato { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.pa-dato__v { font-weight: 700; }
+.pa-detalle__cuerpo { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: var(--naotech-sizing-20); padding: var(--naotech-sizing-16) var(--naotech-sizing-24); }
+.pa-sec { display: flex; flex-direction: column; gap: var(--naotech-sizing-10); }
+.pa-sec__h { font-size: var(--naotech-sizing-12); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--naotech-app-color-700); }
+.pa-historia, .pa-consultas { padding: 0; list-style: none; display: flex; flex-direction: column; }
+.pa-hist { display: grid; grid-template-columns: 14px 44px minmax(0, 1fr); gap: var(--naotech-sizing-10); align-items: baseline; padding: var(--naotech-sizing-8) 0; border-bottom: 1px solid var(--naotech-app-color-100); font-size: 13px; }
+.pa-hist .pa-punto { width: 10px; height: 10px; align-self: center; }
+.pa-hist--sel .pa-punto { box-shadow: 0 0 0 3px color-mix(in srgb, var(--naotech-color-blue-900) 22%, transparent); }
+.pa-hist__hora { font-weight: 700; font-variant-numeric: tabular-nums; }
+.pa-hist__txt { display: flex; flex-direction: column; gap: 2px; }
+.pa-hist--sel .pa-hist__det { font-weight: 700; }
+.pa-consultas { gap: var(--naotech-sizing-8); }
+.pa-consultas li { display: flex; justify-content: space-between; gap: var(--naotech-sizing-12); font-size: 13px; }
+.pa-detalle__pie { flex: none; padding: var(--naotech-sizing-14) var(--naotech-sizing-24); border-top: 1px solid var(--naotech-app-color-200); background: var(--naotech-app-color-050); font-size: 13px; line-height: 1.4; color: var(--naotech-app-color-700); }
+
+
+/* ---------- Tablet: panel más angosto y sin columna de origen (sigue en el panel) ---------- */
+
+.pp-equipo--tablet .pa-barra { padding-inline: var(--naotech-sizing-24); }
+.pp-equipo--tablet .pa-cuerpo { grid-template-columns: minmax(0, 1fr) 340px; }
+.pp-equipo--tablet .pa-main { padding: var(--naotech-sizing-20) var(--naotech-sizing-24); gap: var(--naotech-sizing-14); }
+.pp-equipo--tablet .pa-cols, .pp-equipo--tablet .pa-fila { grid-template-columns: 48px 148px 136px 104px minmax(0, 1fr); gap: var(--naotech-sizing-10); }
+.pp-equipo--tablet .pa-fila__origen { display: none; }
+.pp-equipo--tablet .pa-filtros { grid-template-columns: 1fr 1fr 1.3fr; }
+.pp-equipo--tablet .pa-detalle__cab, .pp-equipo--tablet .pa-detalle__cuerpo, .pp-equipo--tablet .pa-detalle__pie { padding-inline: var(--naotech-sizing-20); }
+
+/* Lista de eventos (apps/eventos.js) antes de los registros: ocupa el alto que deja la barra. */
+.pa-app > .pp-e { flex: 1; }
+.pa-cab .pp-t__volver { flex: none; }

@@ -1,0 +1,208 @@
+/* API y portal de integración (prefijo ig-). El marco del demo y del equipo es el de la puerta (pp-); acá va solo el portal. */
+
+.ig-app { background: var(--naotech-app-color-050); min-height: 0; font-size: var(--naotech-sizing-14); }
+.ig-app p, .ig-app h1, .ig-app h2, .ig-app h3, .ig-app ol, .ig-app ul, .ig-app dl, .ig-app dd, .ig-app pre { margin: 0; }
+.ig-app h1, .ig-app h2, .ig-app h3 { min-height: 0; }
+.ig-app button, .ig-app input, .ig-app select, .ig-app textarea { font-family: inherit; }
+.ig-app code, .ig-app pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: var(--naotech-sizing-14); }
+.ig-sub { color: var(--naotech-app-color-700); font-size: var(--naotech-sizing-14); }
+.ig-num { font-variant-numeric: tabular-nums; }
+.ig-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ig-cortar { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; max-width: 100%; }
+.ig-h1 { font-size: var(--naotech-sizing-24); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+.ig-h2 { font-size: var(--naotech-sizing-18); font-weight: 700; line-height: 1.25; }
+.ig-h3 { font-size: var(--naotech-sizing-16); font-weight: 700; line-height: 1.3; }
+.ig-texto { font-size: var(--naotech-sizing-14); line-height: 1.55; color: var(--naotech-app-color-800); }
+.ig-texto code, .ig-cab code, .ig-aviso code { padding: 1px 6px; border-radius: var(--naotech-radius-sm); background: var(--naotech-app-color-100); color: var(--naotech-app-color-900); }
+.ig-eyebrow { font-size: var(--naotech-sizing-14); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--naotech-app-color-700); }
+.ig-ok { display: flex; align-items: center; gap: var(--naotech-sizing-8); color: var(--naotech-color-green-900); font-weight: 700; }
+.ig-falta { color: var(--naotech-color-red-900); }
+
+/* ---------- Barra y navegación ---------- */
+
+.ig-barra { flex: none; display: flex; align-items: center; gap: var(--naotech-sizing-16); min-height: calc(var(--naotech-sizing-48) + var(--naotech-sizing-4)); padding: var(--naotech-sizing-4) var(--naotech-sizing-32); background: var(--naotech-app-background); border-bottom: 1px solid var(--naotech-app-color-200); }
+.ig-barra .pp-marca__naowee svg { height: var(--naotech-sizing-20); }
+.ig-barra__sep { width: 1px; height: 24px; background: var(--naotech-app-color-300); }
+.ig-barra__ttl { font-size: var(--naotech-sizing-14); font-weight: 700; white-space: nowrap; }
+.ig-env { display: inline-flex; align-items: center; gap: var(--naotech-sizing-4); margin-left: var(--naotech-sizing-16); padding: var(--naotech-sizing-4); border: 1px solid var(--naotech-app-color-300); border-radius: var(--naotech-radius-pill); }
+.ig-env__l { padding: 0 var(--naotech-sizing-8) 0 var(--naotech-sizing-10); color: var(--naotech-app-color-700); font-size: var(--naotech-sizing-14); }
+.ig-env__b { height: 36px; padding: 0 var(--naotech-sizing-16); border: 0; border-radius: var(--naotech-radius-pill); background: transparent; color: var(--naotech-app-color-900); font-size: var(--naotech-sizing-14); font-weight: 700; cursor: pointer; position: relative; }
+.ig-env__b::after { content: ''; position: absolute; inset: -4px 0; }
+.ig-env__b:hover { background: var(--naotech-app-color-100); }
+.ig-env__b[aria-pressed='true'] { background: var(--naotech-app-color-900); color: var(--naotech-color-white-alpha-100); }
+.ig-usuario { margin-left: auto; white-space: nowrap; }
+.ig-usuario b { font-weight: 500; }
+.ig-monograma { flex: none; display: grid; place-items: center; width: var(--naotech-sizing-32); height: var(--naotech-sizing-32); border-radius: var(--naotech-radius-circle); background: var(--naotech-color-yellow-100); color: var(--naotech-app-color-900); font-size: var(--naotech-sizing-14); font-weight: 700; }
+
+.ig-cuerpo { flex: 1; min-height: 0; display: grid; grid-template-columns: 248px minmax(0, 1fr); }
+.ig-nav { display: flex; flex-direction: column; gap: var(--naotech-sizing-4); padding: var(--naotech-sizing-16); background: var(--naotech-app-background); border-right: 1px solid var(--naotech-app-color-200); }
+.ig-nav__i { position: relative; display: flex; align-items: center; gap: var(--naotech-sizing-12); min-height: 44px; padding: 0 var(--naotech-sizing-12); border: 0; border-radius: var(--naotech-radius-md); background: transparent; color: var(--naotech-app-color-800); font-size: var(--naotech-sizing-14); font-weight: 500; text-align: left; cursor: pointer; --naotech-icon-dimension: var(--naotech-sizing-18); }
+.ig-nav__i:hover { background: var(--naotech-app-color-100); }
+.ig-nav__i[aria-current='page'] { background: color-mix(in srgb, var(--naotech-color-blue-900) 8%, var(--naotech-app-background)); color: var(--naotech-color-blue-900); font-weight: 700; }
+.ig-nav__punto { margin-left: auto; width: 10px; height: 10px; border-radius: var(--naotech-radius-circle); background: var(--naotech-color-orange-600); }
+.ig-nav__pie { margin-top: auto; padding: var(--naotech-sizing-10) var(--naotech-sizing-12); font-size: var(--naotech-sizing-14); line-height: 1.45; color: var(--naotech-app-color-700); }
+.ig-main { min-height: 0; min-width: 0; display: flex; flex-direction: column; }
+
+/* ---------- Controles ---------- */
+
+.ig-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--naotech-sizing-8); height: 44px; padding: 0 var(--naotech-sizing-18); border: 1px solid var(--naotech-app-color-300); border-radius: var(--naotech-radius-md); background: var(--naotech-app-background); color: var(--naotech-app-color-900); font-size: var(--naotech-sizing-14); font-weight: 700; white-space: nowrap; cursor: pointer; --naotech-icon-dimension: var(--naotech-sizing-18); }
+.ig-btn:hover { background: var(--naotech-app-color-100); }
+.ig-btn--pri { background: var(--naotech-app-color-900); border-color: var(--naotech-app-color-900); color: var(--naotech-color-white-alpha-100); }
+.ig-btn--pri:hover { background: var(--naotech-app-color-800); }
+.ig-btn--rojo { background: var(--naotech-color-red-900); border-color: var(--naotech-color-red-900); color: var(--naotech-color-white-alpha-100); }
+.ig-btn--rojo:hover { background: var(--naotech-color-red-800); }
+.ig-btn--rojo-o { border-color: var(--naotech-color-red-900); color: var(--naotech-color-red-900); }
+.ig-btn--chico { padding: 0 var(--naotech-sizing-14); }
+.ig-btn:disabled { background: var(--naotech-app-color-200); border-color: var(--naotech-app-color-200); color: var(--naotech-app-color-700); cursor: not-allowed; }
+.ig-link { min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--naotech-color-blue-900); font-size: var(--naotech-sizing-14); font-weight: 700; text-align: left; cursor: pointer; }
+.ig-link:hover { text-decoration: underline; }
+.ig-fila-btn { display: flex; align-items: center; gap: var(--naotech-sizing-12); flex-wrap: wrap; }
+.ig-fila-btn--fin { justify-content: flex-end; }
+.ig-check { display: flex; align-items: center; gap: var(--naotech-sizing-10); min-height: 44px; font-size: var(--naotech-sizing-14); font-weight: 700; cursor: pointer; }
+.ig-check input { width: 20px; height: 20px; accent-color: var(--naotech-color-blue-900); }
+
+.ig-btn:focus-visible, .ig-link:focus-visible, .ig-env__b:focus-visible, .ig-nav__i:focus-visible, .ig-docnav__i:focus-visible, .ig-rtab:focus-visible, .ig-chip:focus-visible, .ig-fila:focus-visible, .ig-cerrar:focus-visible, .ig-copiar:focus-visible,
+.ig-busq input:focus-visible, .ig-punto select:focus-visible, .ig-check:focus-within { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+.ig-fila:focus-visible { outline-offset: -2px; }
+
+/* ---------- Página ---------- */
+
+.ig-pag { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: var(--naotech-sizing-16); padding: var(--naotech-sizing-24) var(--naotech-sizing-32) var(--naotech-sizing-32); }
+.ig-pag > * { flex: none; max-width: 1000px; width: 100%; box-sizing: border-box; }
+.ig-cab { display: flex; flex-direction: column; gap: var(--naotech-sizing-4); }
+.ig-cab--fila { flex-direction: row; align-items: center; gap: var(--naotech-sizing-12); }
+.ig-dos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--naotech-sizing-16); }
+.ig-card { display: flex; flex-direction: column; gap: var(--naotech-sizing-12); padding: var(--naotech-sizing-20); background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); border-radius: var(--naotech-radius-xl); }
+.ig-card--actual { border-color: var(--naotech-color-blue-900); box-shadow: 0 0 0 1px var(--naotech-color-blue-900); }
+.ig-card__cab { display: flex; align-items: center; gap: var(--naotech-sizing-12); }
+.ig-url { display: flex; flex-direction: column; gap: 2px; }
+.ig-url code { overflow-wrap: anywhere; color: var(--naotech-app-color-900); }
+.ig-llave { display: flex; align-items: center; justify-content: space-between; gap: var(--naotech-sizing-12); padding: var(--naotech-sizing-10) var(--naotech-sizing-14); border-radius: var(--naotech-radius-lg); background: var(--naotech-app-color-100); }
+.ig-llave code { overflow-wrap: anywhere; color: var(--naotech-app-color-900); }
+.ig-llave--rev code { text-decoration: line-through; color: var(--naotech-app-color-700); }
+.ig-llave--grande { padding: var(--naotech-sizing-14); }
+.ig-llave--grande code { font-size: var(--naotech-sizing-16); font-weight: 700; user-select: all; }
+.ig-dl { display: flex; gap: var(--naotech-sizing-24); }
+.ig-dl--3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ig-dl dt { color: var(--naotech-app-color-700); font-size: var(--naotech-sizing-14); }
+.ig-dl dd { font-weight: 700; }
+.ig-texto--aviso { padding: var(--naotech-sizing-8) var(--naotech-sizing-12); border-radius: var(--naotech-radius-lg); background: var(--naotech-color-yellow-100); color: var(--naotech-app-color-900); }
+
+.ig-aviso { display: flex; gap: var(--naotech-sizing-12); align-items: flex-start; padding: var(--naotech-sizing-12) var(--naotech-sizing-14); border-radius: var(--naotech-radius-lg); border: 1px solid transparent; font-size: var(--naotech-sizing-14); line-height: 1.45; --naotech-icon-dimension: var(--naotech-sizing-20); }
+.ig-aviso nwt-icon { flex: none; margin-top: 1px; }
+.ig-aviso p { margin-top: 2px; }
+.ig-aviso--info { background: color-mix(in srgb, var(--naotech-color-blue-900) 7%, var(--naotech-app-background)); border-color: color-mix(in srgb, var(--naotech-color-blue-900) 20%, var(--naotech-app-background)); color: var(--naotech-app-color-900); }
+.ig-aviso--info nwt-icon { color: var(--naotech-color-blue-900); }
+.ig-aviso--ok { background: var(--naotech-color-green-100); color: var(--naotech-color-green-900); }
+.ig-aviso--alerta { background: var(--naotech-color-yellow-100); border-color: var(--naotech-color-yellow-800); color: var(--naotech-app-color-900); }
+.ig-aviso--alerta nwt-icon { color: var(--naotech-color-orange-900); }
+.ig-aviso--error { background: var(--naotech-color-red-050); border-color: var(--naotech-color-red-300); color: var(--naotech-color-red-900); }
+.ig-lista-av { margin: var(--naotech-sizing-6) 0 0; padding-left: var(--naotech-sizing-20); }
+
+/* Tags */
+.ig-tag { display: inline-flex; align-items: center; align-self: flex-start; height: 28px; padding: 0 var(--naotech-sizing-12); border: 1px solid transparent; border-radius: var(--naotech-radius-pill); font-size: var(--naotech-sizing-14); font-weight: 700; white-space: nowrap; }
+.ig-tag--ok, .ig-tag--h-homologada, .ig-tag--k-activa { background: var(--naotech-color-green-100); border-color: var(--naotech-color-green-100); color: var(--naotech-color-green-900); }
+.ig-tag--no { background: var(--naotech-color-red-050); border-color: var(--naotech-color-red-300); color: var(--naotech-color-red-900); }
+.ig-tag--err, .ig-tag--h-suspendida, .ig-tag--k-revocada { background: var(--naotech-color-red-900); border-color: var(--naotech-color-red-900); color: var(--naotech-color-white-alpha-100); }
+.ig-tag--h-enpruebas, .ig-tag--k-porRevelar, .ig-tag--deg { background: var(--naotech-color-yellow-100); border-color: var(--naotech-color-yellow-800); color: var(--naotech-app-color-900); }
+.ig-tag--h-pendiente, .ig-tag--sin, .ig-tag--k-sin { background: var(--naotech-app-background); border-color: var(--naotech-app-color-300); color: var(--naotech-app-color-800); }
+.ig-tag--env { background: color-mix(in srgb, var(--naotech-color-blue-900) 9%, var(--naotech-app-background)); border-color: color-mix(in srgb, var(--naotech-color-blue-900) 24%, var(--naotech-app-background)); color: var(--naotech-color-blue-900); }
+
+/* ---------- Código ---------- */
+
+.ig-code { position: relative; border-radius: var(--naotech-radius-lg); background: var(--naotech-app-color-900); color: var(--naotech-app-color-100); }
+.ig-code pre { padding: var(--naotech-sizing-14) var(--naotech-sizing-16); padding-right: 120px; overflow-x: auto; line-height: 1.55; white-space: pre; }
+.ig-copiar { position: absolute; top: var(--naotech-sizing-6); right: var(--naotech-sizing-6); display: inline-flex; align-items: center; gap: var(--naotech-sizing-6); min-height: 44px; padding: 0 var(--naotech-sizing-12); border: 1px solid var(--naotech-app-color-600); border-radius: var(--naotech-radius-md); background: transparent; color: var(--naotech-app-color-100); font-size: var(--naotech-sizing-14); font-weight: 700; cursor: pointer; --naotech-icon-dimension: var(--naotech-sizing-16); }
+.ig-copiar:hover { background: var(--naotech-app-color-800); }
+.ig-copiar:focus-visible { outline-color: var(--naotech-color-white-alpha-100); }
+
+/* ---------- Documentación ---------- */
+
+.ig-doc { flex: 1; min-height: 0; display: grid; grid-template-columns: 260px minmax(0, 1fr); }
+.ig-docnav { display: flex; flex-direction: column; gap: var(--naotech-sizing-2); padding: var(--naotech-sizing-16); overflow-y: auto; border-right: 1px solid var(--naotech-app-color-200); background: var(--naotech-app-color-050); }
+.ig-docnav__i { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-height: 52px; padding: var(--naotech-sizing-6) var(--naotech-sizing-12); border: 0; border-radius: var(--naotech-radius-md); background: transparent; color: var(--naotech-app-color-900); font-size: var(--naotech-sizing-14); font-weight: 700; text-align: left; cursor: pointer; }
+.ig-docnav__i:hover { background: var(--naotech-app-color-100); }
+.ig-docnav__i[aria-current='page'] { background: var(--naotech-app-background); box-shadow: inset 3px 0 0 var(--naotech-color-blue-900); }
+.ig-ruta { display: flex; align-items: center; gap: var(--naotech-sizing-10); }
+.ig-ruta code { padding: 0; background: transparent; font-size: var(--naotech-sizing-16); font-weight: 700; }
+.ig-met { display: inline-flex; align-items: center; height: 28px; padding: 0 var(--naotech-sizing-10); border-radius: var(--naotech-radius-sm); font-size: var(--naotech-sizing-14); font-weight: 700; }
+.ig-met--post { background: var(--naotech-color-green-100); color: var(--naotech-color-green-900); }
+.ig-met--get { background: color-mix(in srgb, var(--naotech-color-blue-900) 9%, var(--naotech-app-background)); color: var(--naotech-color-blue-900); }
+.ig-sec { display: flex; flex-direction: column; gap: var(--naotech-sizing-10); }
+.ig-rtabs { display: flex; flex-wrap: wrap; gap: var(--naotech-sizing-4); border-bottom: 1px solid var(--naotech-app-color-200); }
+.ig-rtab { min-height: 44px; padding: 0 var(--naotech-sizing-14); border: 0; background: transparent; color: var(--naotech-app-color-700); font-size: var(--naotech-sizing-14); font-weight: 700; cursor: pointer; }
+.ig-rtab:hover { color: var(--naotech-app-color-900); }
+.ig-rtab[aria-selected='true'] { color: var(--naotech-app-color-900); box-shadow: inset 0 -3px 0 var(--naotech-color-orange-600); }
+
+/* ---------- Tablas del portal (docs, pruebas, servicio) ---------- */
+
+.ig-tabla { display: flex; flex-direction: column; background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); border-radius: var(--naotech-radius-xl); overflow: hidden; }
+.ig-fila-t { box-sizing: border-box; display: grid; gap: var(--naotech-sizing-14); align-items: center; padding: var(--naotech-sizing-10) var(--naotech-sizing-16); min-height: 52px; border-bottom: 1px solid var(--naotech-app-color-100); font-size: var(--naotech-sizing-14); }
+.ig-fila-t:last-child { border-bottom: 0; }
+.ig-fila-t--cab { min-height: 44px; font-weight: 700; color: var(--naotech-app-color-700); background: var(--naotech-app-color-050); }
+.ig-fila-t > span:not(.ig-barras) { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; min-width: 0; }
+.ig-fila-t code { overflow-wrap: anywhere; color: var(--naotech-app-color-900); }
+.ig-tabla--req .ig-fila-t { grid-template-columns: 210px 80px 120px minmax(0, 1fr); }
+.ig-tabla--cod .ig-fila-t { grid-template-columns: 250px minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+.ig-tabla--err .ig-fila-t { grid-template-columns: 60px 280px minmax(0, 1fr); }
+.ig-tabla--casos .ig-fila-t { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) 190px 130px; }
+.ig-tabla--serv .ig-fila-t { grid-template-columns: minmax(0, 1.4fr) 120px minmax(0, 1fr) 110px 90px; }
+.ig-barras { display: flex; align-items: flex-end; gap: 2px; height: 28px; }
+.ig-barras i { flex: 1; height: 100%; border-radius: 2px; background: var(--naotech-color-green-700); }
+.ig-barras .ig-bar--deg { background: var(--naotech-color-yellow-800); height: 70%; }
+.ig-barras .ig-bar--nota { background: var(--naotech-color-yellow-800); height: 85%; }
+.ig-incs { list-style: none; padding: 0; display: flex; flex-direction: column; }
+.ig-incs li { display: flex; gap: var(--naotech-sizing-12); align-items: flex-start; padding: var(--naotech-sizing-10) 0; border-bottom: 1px solid var(--naotech-app-color-100); }
+.ig-incs li:last-child { border-bottom: 0; }
+.ig-incs li > span:last-child { display: flex; flex-direction: column; gap: 2px; }
+.ig-pt { flex: none; margin-top: 6px; width: 10px; height: 10px; border-radius: var(--naotech-radius-circle); }
+.ig-pt--ok { background: var(--naotech-color-green-700); }
+.ig-pt--prox { background: var(--naotech-color-blue-900); }
+
+/* ---------- Registro de llamadas ---------- */
+
+.ig-log { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 380px; }
+.ig-log__main { min-height: 0; min-width: 0; display: flex; flex-direction: column; gap: var(--naotech-sizing-14); padding: var(--naotech-sizing-24) var(--naotech-sizing-24) var(--naotech-sizing-20) var(--naotech-sizing-32); }
+.ig-tabla--log { flex: 1; min-height: 0; }
+.ig-herr { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: var(--naotech-sizing-12); padding: var(--naotech-sizing-12) var(--naotech-sizing-16); border-bottom: 1px solid var(--naotech-app-color-200); }
+.ig-busq { position: relative; flex: 1 1 280px; display: flex; align-items: center; --naotech-icon-dimension: var(--naotech-sizing-18); }
+.ig-busq nwt-icon { position: absolute; left: var(--naotech-sizing-14); color: var(--naotech-app-color-700); pointer-events: none; }
+.ig-busq input, .ig-punto select { box-sizing: border-box; width: 100%; height: 44px; padding: 0 var(--naotech-sizing-12); border: 1px solid var(--naotech-app-color-300); border-radius: var(--naotech-radius-lg); background: var(--naotech-app-background); color: var(--naotech-app-color-900); font-size: var(--naotech-sizing-14); }
+.ig-busq input { padding-left: var(--naotech-sizing-40); }
+.ig-busq input::placeholder { color: var(--naotech-app-color-700); }
+.ig-punto { flex: 0 0 240px; }
+.ig-chips { flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: var(--naotech-sizing-8); }
+.ig-chip { position: relative; display: inline-flex; align-items: center; gap: var(--naotech-sizing-8); height: 36px; padding: 0 var(--naotech-sizing-14); border: 1px solid var(--naotech-app-color-300); border-radius: var(--naotech-radius-pill); background: var(--naotech-app-background); color: var(--naotech-app-color-900); font-size: var(--naotech-sizing-14); font-weight: 700; cursor: pointer; }
+.ig-chip::after { content: ''; position: absolute; inset: -4px 0; }
+.ig-chip:hover { border-color: var(--naotech-app-color-500); }
+.ig-chip__n { font-weight: 500; font-variant-numeric: tabular-nums; color: var(--naotech-app-color-700); }
+.ig-chip[aria-pressed='true'] { background: var(--naotech-app-color-900); border-color: var(--naotech-app-color-900); color: var(--naotech-color-white-alpha-100); }
+.ig-chip[aria-pressed='true'] .ig-chip__n { color: var(--naotech-app-color-200); }
+.ig-cols, .ig-fila { display: grid; gap: var(--naotech-sizing-12); align-items: center; padding: 0 var(--naotech-sizing-16); }
+.ig-cols--log, .ig-fila--log { grid-template-columns: 96px minmax(0, 1.2fr) 120px minmax(0, 1.3fr) 76px; }
+.ig-cols { flex: none; padding-block: var(--naotech-sizing-10); border-bottom: 1px solid var(--naotech-app-color-200); font-size: var(--naotech-sizing-14); font-weight: 700; color: var(--naotech-app-color-700); }
+.ig-lista { flex: 1; min-height: 0; overflow-y: auto; }
+.ig-fila { width: 100%; min-height: 64px; padding-block: var(--naotech-sizing-8); border: 0; border-bottom: 1px solid var(--naotech-app-color-100); box-shadow: inset 3px 0 0 transparent; background: var(--naotech-app-background); color: var(--naotech-app-color-900); font: inherit; font-size: var(--naotech-sizing-14); text-align: left; box-sizing: border-box; cursor: pointer; }
+.ig-fila:hover { background: var(--naotech-app-color-050); }
+.ig-fila[aria-pressed='true'] { background: color-mix(in srgb, var(--naotech-color-blue-900) 5%, var(--naotech-app-background)); box-shadow: inset 3px 0 0 var(--naotech-color-blue-900); }
+.ig-c { min-width: 0; display: flex; flex-direction: column; gap: 3px; align-items: flex-start; }
+.ig-cod { font-size: var(--naotech-sizing-14); overflow-wrap: anywhere; }
+.ig-vacio { display: flex; flex-direction: column; align-items: center; gap: var(--naotech-sizing-6); padding: var(--naotech-sizing-40) var(--naotech-sizing-24); text-align: center; }
+.ig-pie { flex: none; padding: var(--naotech-sizing-10) var(--naotech-sizing-16); border-top: 1px solid var(--naotech-app-color-200); color: var(--naotech-app-color-700); }
+
+.ig-detalle { min-height: 0; min-width: 0; display: flex; flex-direction: column; background: var(--naotech-app-background); border-left: 1px solid var(--naotech-app-color-200); }
+.ig-detalle--vacio { align-items: center; justify-content: center; padding: var(--naotech-sizing-32); text-align: center; }
+.ig-detalle__cab { flex: none; display: flex; flex-direction: column; gap: var(--naotech-sizing-8); padding: var(--naotech-sizing-14) var(--naotech-sizing-24); border-bottom: 1px solid var(--naotech-app-color-200); }
+.ig-detalle__top { display: flex; align-items: center; gap: var(--naotech-sizing-10); min-height: 44px; }
+.ig-cerrar { margin-left: auto; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: var(--naotech-radius-md); background: transparent; color: var(--naotech-app-color-700); cursor: pointer; --naotech-icon-dimension: var(--naotech-sizing-18); }
+.ig-cerrar:hover { background: var(--naotech-app-color-100); }
+.ig-detalle__cuerpo { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: var(--naotech-sizing-20); padding: var(--naotech-sizing-16) var(--naotech-sizing-24) var(--naotech-sizing-24); }
+.ig-detalle__cuerpo .ig-code pre { padding-right: var(--naotech-sizing-16); padding-top: 52px; }
+.ig-detalle__cuerpo .ig-copiar { top: var(--naotech-sizing-4); }
+.ig-detalle__pie { flex: none; padding: var(--naotech-sizing-12) var(--naotech-sizing-24); border-top: 1px solid var(--naotech-app-color-200); background: var(--naotech-app-color-050); line-height: 1.4; color: var(--naotech-app-color-700); }
+
+/* ---------- Modal de llave ---------- */
+
+.ig-fondo { position: absolute; inset: 0; z-index: 30; display: grid; place-items: center; padding: var(--naotech-sizing-24); background: color-mix(in srgb, var(--naotech-app-color-900) 55%, transparent); }
+.ig-modal { width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: var(--naotech-sizing-14); padding: var(--naotech-sizing-24); border-radius: var(--naotech-radius-xl); background: var(--naotech-app-background); box-shadow: var(--naotech-shadow-24); }
+.ig-modal--llave { max-width: 640px; }

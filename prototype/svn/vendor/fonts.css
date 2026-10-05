@@ -1,0 +1,20 @@
+@font-face {
+  font-family: -naotech-sdk-google-sans;
+  font-style: normal;
+  font-weight: 100 400;
+  src: url('./google-sans/GoogleSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: -naotech-sdk-google-sans;
+  font-style: normal;
+  font-weight: 500 600;
+  src: url('./google-sans/GoogleSans-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: -naotech-sdk-google-sans;
+  font-style: normal;
+  font-weight: 700 900;
+  src: url('./google-sans/GoogleSans-Bold.woff') format('woff');
+}

@@ -1,0 +1,187 @@
+/* Lo que el SDK no tiene (prefijo sv-): el gate y la transición. Todo en tokens. */
+
+/* En :root y con la familia completa: el SDK arma --naotech-sdk-font-family en :root, y cambiar solo la base en body no la recalcula. */
+:root {
+  --naotech-sdk-font-family-base: -naotech-sdk-google-sans;
+  --naotech-sdk-font-family: -naotech-sdk-google-sans, -apple-system, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--naotech-app-background);
+  color: var(--naotech-app-font-color);
+  font-family: var(--naotech-sdk-font-family);
+}
+p, h1, h2, h3, ul { margin: 0; }
+button { font-family: inherit; }
+
+
+/* ---------- Gate ---------- */
+
+.sv-gate {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--naotech-sizing-24);
+  padding: 112px var(--naotech-sizing-24) var(--naotech-sizing-40);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--naotech-app-color-100), var(--naotech-app-background));
+}
+.sv-gate::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--naotech-app-color-300) 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: 0.28;
+  pointer-events: none;
+}
+.sv-gate > * { position: relative; z-index: 1; }
+
+.sv-gate__top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: var(--naotech-sizing-24) var(--naotech-sizing-40);
+}
+.sv-gate__tenant { display: flex; align-items: center; gap: var(--naotech-sizing-8); color: var(--naotech-app-color-700); }
+.sv-gate__escudo { height: var(--naotech-sizing-48); width: auto; display: block; }
+.sv-gate__logo { --naotech-logo-width: 9rem; }
+
+.sv-gate__cab { display: flex; flex-direction: column; align-items: center; gap: var(--naotech-sizing-8); text-align: center; }
+.sv-gate__eyebrow { font-size: var(--naotech-sizing-14); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--naotech-primary-color-700); }
+.sv-gate__titulo {
+  font-size: var(--naotech-sizing-56);
+  line-height: 1.05;
+  font-weight: var(--naotech-font-weight-black);
+  letter-spacing: -0.01em;
+  background: linear-gradient(100deg, var(--naotech-app-color-900) 44%, var(--naotech-primary-color-600) 50%, var(--naotech-app-color-900) 56%);
+  background-size: 300% 100%;
+  background-position: 120% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sv-brillo 3.4s linear infinite;
+}
+@keyframes sv-brillo { from { background-position: 120% 0; } to { background-position: -20% 0; } }
+.sv-gate__modo { margin-top: var(--naotech-sizing-16); }
+
+.sv-gate__cuerpo { width: 100%; max-width: 1240px; display: flex; flex-direction: column; gap: var(--naotech-sizing-24); }
+.sv-gate__fila { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--naotech-sizing-16); }
+.sv-gate__grupo { display: flex; flex-direction: column; gap: var(--naotech-sizing-12); }
+.sv-gate__grupo-h { font-size: var(--naotech-sizing-12); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--naotech-app-color-700); text-align: center; }
+
+.sv-card {
+  position: relative;
+  flex: 0 0 216px;
+  min-height: 232px;
+  cursor: pointer;
+  border-radius: var(--naotech-radius-xxl);
+  --pvt-body-background-color: var(--naotech-app-background);
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+.sv-card--app { min-height: 216px; }
+/* Seis pasos: dos filas de tres, sin una card huérfana. */
+.sv-gate__fila--apps { max-width: 720px; margin: 0 auto; }
+.sv-card:hover, .sv-card:focus-visible { box-shadow: var(--naotech-shadow-large); transform: translateY(-2px); outline: none; }
+.sv-card:focus-visible { box-shadow: var(--naotech-primary-focus-shadow, var(--naotech-shadow-large)); }
+.sv-card .nwt-card__content, .sv-card > .nwt-card, .sv-card .nwt-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--naotech-sizing-10);
+  height: 100%;
+}
+.sv-card__desc { max-width: 21ch; color: var(--naotech-app-color-700); min-height: 2.8em; }
+.sv-card__roles { color: var(--naotech-primary-color-700); font-weight: 600; }
+.sv-card__prox { font-size: var(--naotech-sizing-12); font-weight: 700; color: var(--naotech-primary-color-700); position: absolute; top: var(--naotech-sizing-10); right: var(--naotech-sizing-10); }
+.sv-card--prox { opacity: 0.78; }
+.sv-card--prox:hover { opacity: 1; }
+/* En diseño: borde punteado y más suave; sigue siendo card porque ocupa su paso del flujo. */
+.sv-card--diseno { opacity: 0.85; outline: 2px dashed var(--naotech-app-color-300); outline-offset: -2px; }
+.sv-card--diseno:hover, .sv-card--diseno:focus-visible { opacity: 1; }
+.sv-card__num { position: absolute; top: var(--naotech-sizing-12); left: var(--naotech-sizing-16); font-size: var(--naotech-sizing-14); font-weight: 700; color: var(--naotech-app-color-500); }
+.sv-card__icono { font-size: 36px; color: var(--naotech-primary-color-600); }
+
+.sv-gate__pie { display: flex; flex-direction: column; align-items: center; gap: var(--naotech-sizing-4); margin-top: auto; color: var(--naotech-app-color-600); text-align: center; }
+
+.sv-chip { cursor: pointer; }
+.sv-chip--badge {
+  display: flex;
+  align-items: center;
+  gap: var(--naotech-sizing-8);
+  padding: var(--naotech-sizing-8) var(--naotech-sizing-12);
+  border-radius: var(--naotech-radius-pill);
+  background: var(--naotech-app-color-100);
+  color: var(--naotech-app-font-color);
+  font-size: var(--naotech-sizing-14);
+  font-weight: 500;
+  border: none;
+  transition: background 160ms ease, box-shadow 160ms ease;
+}
+.sv-chip--badge:hover, .sv-chip--badge:focus-visible {
+  background: var(--naotech-app-color-200);
+  box-shadow: var(--naotech-shadow-small);
+  outline: none;
+}
+.sv-chip__num { font-size: var(--naotech-sizing-12); font-weight: 700; color: var(--naotech-app-color-500); }
+.sv-chip--badge nwt-icon { display: inline-flex; width: 14px; height: 14px; align-items: center; justify-content: center; overflow: visible; }
+
+.sv-gate__proximamente { display: flex; flex-direction: column; gap: var(--naotech-sizing-12); align-items: center; width: 100%; max-width: 920px; margin: var(--naotech-sizing-24) auto 0; }
+.sv-gate__proximamente .sv-gate__fila { width: 100%; justify-content: center; }
+
+.sv-gate__modo { display: flex; justify-content: center; }
+
+.sv-revela { opacity: 0; }
+.sv-revela--in { animation: sv-sube 420ms cubic-bezier(0, 0, 0.2, 1) both; animation-delay: var(--sv-retraso, 0ms); }
+@keyframes sv-sube { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+.sv-zoom {
+  position: fixed;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  border-radius: var(--naotech-radius-xxl);
+  background: linear-gradient(135deg, var(--naotech-color-default-800), var(--naotech-color-gray-900));
+  transition: left 380ms cubic-bezier(0.4, 0, 1, 1), top 380ms cubic-bezier(0.4, 0, 1, 1), width 380ms cubic-bezier(0.4, 0, 1, 1), height 380ms cubic-bezier(0.4, 0, 1, 1), border-radius 380ms, opacity 280ms;
+}
+.sv-zoom__rotulo { color: var(--naotech-color-white-alpha-100); font-size: var(--naotech-sizing-48); font-weight: 900; letter-spacing: -0.02em; opacity: 0; transition: opacity 300ms 200ms; }
+.sv-zoom--crece .sv-zoom__rotulo { opacity: 1; }
+.sv-zoom--fuera { opacity: 0; }
+
+@media (max-width: 720px) {
+  .sv-gate { padding-top: 96px; }
+  .sv-gate__top { padding: var(--naotech-sizing-16); }
+  .sv-gate__titulo { font-size: var(--naotech-sizing-32); }
+  .sv-card { flex-basis: calc(50% - 8px); min-height: 200px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-gate__titulo { animation: none; background: none; color: var(--naotech-app-color-900); }
+  .sv-revela { opacity: 1; }
+  .sv-revela--in { animation: none; }
+}
+
+
+/* ---------- Mindeporte + IVC en las barras (DC-319) ---------- */
+
+.pp-alianza { flex: none; display: inline-flex; align-items: center; gap: var(--naotech-sizing-12); }
+.pp-alianza__sep { width: 1px; height: var(--naotech-sizing-24); background: var(--naotech-app-color-300); }
+.pp-alianza__min { display: block; height: var(--naotech-sizing-40); width: auto; }
+.pp-alianza__ivc { display: inline-flex; align-items: center; height: var(--naotech-sizing-28); padding: 0 var(--naotech-sizing-10); border-radius: var(--naotech-radius-md); background: var(--naotech-primary-color-050); color: var(--naotech-primary-color-800); font-size: var(--naotech-sizing-14); font-weight: 800; letter-spacing: .03em; }
+
+/* Lista de casos del panel (DC-353): divisores finos, sin cajas; la hereda toda app con .pp-panel__lista. */
+.pp-panel .pp-panel__lista { gap: 0; }
+.pp-panel .pp-panel__lista > nwt-detail-item { padding-block: var(--naotech-sizing-8); border-radius: var(--naotech-radius-md); }
+.pp-panel .pp-panel__lista > nwt-detail-item + nwt-detail-item { border-top: 1px solid var(--naotech-app-color-200); border-top-left-radius: 0; border-top-right-radius: 0; }
+.pp-panel .pp-panel__lista > nwt-detail-item:hover { background: var(--naotech-app-color-100); }
+.pp-caso__n { font-weight: 700; color: var(--naotech-primary-color-700); }

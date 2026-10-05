@@ -1,0 +1,1119 @@
+/* Lo que el SDK no tiene (prefijo pp-): marco de dispositivo, cámara y semáforo. Modo claro, todo en tokens. */
+
+.pp-demo {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--naotech-app-color-100);
+  color: var(--naotech-app-font-color);
+}
+.pp-toolbar { flex: none; }
+/* Columna: el logo de Naowee arriba y, debajo, el título y el subtítulo (DC-074). */
+.pp-toolbar__marca { display: flex; flex-direction: column; align-items: flex-start; gap: var(--naotech-sizing-6); }
+.pp-toolbar__marca nwt-logo-naowee { --naotech-logo-width: 7rem; }
+.pp-demo__cuerpo { flex: 1; min-height: 0; display: grid; grid-template-columns: 340px 1fr; }
+
+/* ---------- Panel de controles del demo (fuera del producto) ---------- */
+
+.pp-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--naotech-sizing-16);
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--naotech-sizing-20);
+  background: var(--naotech-app-color-050);
+  border-right: 1px solid var(--naotech-app-color-200);
+}
+.pp-panel > * { flex-shrink: 0; }
+.pp-panel__card { --pvt-body-background-color: var(--naotech-app-background); }
+.pp-panel__lista { display: flex; flex-direction: column; gap: var(--naotech-sizing-8); }
+/* El panel es del demo: texto a 14 px como mínimo, íconos adecuados. */
+.pp-panel .nwt-detail-item__icon { width: var(--naotech-sizing-28); height: var(--naotech-sizing-28); min-width: var(--naotech-sizing-28); --naotech-icon-dimension: var(--naotech-sizing-14); font-size: var(--naotech-sizing-14); }
+.pp-panel .nwt-detail-item__label, .pp-panel .nwt-icon-label > span, .pp-panel .nwt-tabs__label { font-size: var(--naotech-sizing-14); line-height: var(--naotech-sizing-20); }
+/* Los casos pasan a dos líneas en vez de cortarse (DC-313). */
+.pp-panel .nwt-detail-item__label { white-space: normal; min-width: 0; overflow-wrap: anywhere; }
+.pp-panel__pie { font-size: var(--naotech-sizing-12); line-height: var(--naotech-sizing-16); }
+.pp-panel .nwt-icon-label { --naotech-icon-dimension: var(--naotech-sizing-14); }
+.pp-panel__card [slot='header'] { font-size: var(--naotech-sizing-16); }
+.pp-panel__fila { display: flex; align-items: center; justify-content: space-between; gap: var(--naotech-sizing-12); padding: 0; }
+.pp-panel__pie { color: var(--naotech-app-color-700); }
+.pp-caso__punto { width: 12px; height: 12px; border-radius: var(--naotech-radius-circle); flex: none; background: var(--pp-punto); }
+.pp-caso__punto--verde, .pp-caso--verde { --pp-punto: var(--naotech-color-green-600); }
+.pp-caso__punto--amarillo, .pp-caso--amarillo { --pp-punto: var(--naotech-color-yellow-800); }
+.pp-caso__punto--rojo, .pp-caso--rojo { --pp-punto: var(--naotech-color-red-700); }
+.pp-caso__punto--rostro, .pp-caso--rostro { --pp-punto: var(--naotech-color-blue-800); }
+/* En el panel el punto va en línea con la etiqueta (DC-321). */
+.pp-panel .pp-caso__punto { display: inline-block; width: var(--naotech-sizing-10); height: var(--naotech-sizing-10); margin-right: var(--naotech-sizing-8); vertical-align: middle; }
+
+/* ---------- Escenario y equipos (mismo marco que la app del conductor de uaesp) ---------- */
+
+.pp-escenario { display: flex; flex-direction: column; min-height: 0; overflow: hidden; background: var(--naotech-app-color-100); }
+.pp-escena { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.pp-zoom {
+  position: absolute;
+  top: var(--naotech-sizing-14);
+  right: var(--naotech-sizing-14);
+  z-index: 2;
+  display: flex;
+  gap: var(--naotech-sizing-4);
+  padding: var(--naotech-sizing-4);
+  background: var(--naotech-app-background);
+  border: 1px solid var(--naotech-app-color-200);
+  border-radius: var(--naotech-radius-xl);
+  box-shadow: var(--naotech-shadow-medium);
+}
+/* Velocidad y zoom en una línea, sobre el equipo: escalar() reserva su alto para no taparlo. */
+.pp-controles { position: absolute; top: var(--naotech-sizing-14); right: var(--naotech-sizing-14); z-index: 2; display: flex; align-items: center; gap: var(--naotech-sizing-8); }
+.pp-controles .pp-zoom { position: static; }
+.pp-velocidad { padding: var(--naotech-sizing-4); background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); border-radius: var(--naotech-radius-xl); box-shadow: var(--naotech-shadow-medium); }
+.pp-velocidad__g { display: flex; gap: var(--naotech-sizing-4); }
+.pp-velocidad__b { height: 24px; padding: 0 var(--naotech-sizing-12); border: 0; border-radius: var(--naotech-radius-lg); background: transparent; color: var(--naotech-app-color-800); font: inherit; font-size: var(--naotech-sizing-14); font-weight: 700; white-space: nowrap; cursor: pointer; }
+.pp-velocidad__b:hover { background: var(--naotech-app-color-100); }
+.pp-velocidad__b[aria-pressed='true'] { background: var(--naotech-app-color-900); color: var(--naotech-color-white-alpha-100); }
+.pp-velocidad__b:focus-visible { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+/* Centrado absoluto: el equipo sin escalar es más ancho que el escenario y el grid lo corría a la derecha. */
+.pp-dispositivo { position: absolute; left: 50%; top: 50%; z-index: 10; transform-origin: center center; transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1), left 600ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+/* DC-157: el equipo cuelga 16 px bajo la línea de controles (14 + 34 + 16), con zoom o con la capa abierta. */
+.pp-escena--ctl .pp-dispositivo { top: 64px; transform-origin: center top; }
+.pp-equipo-envoltura { display: flex; flex-direction: column; align-items: center; }
+
+.pp-equipo { flex: none; overflow: hidden; background: var(--naotech-app-color-900); box-shadow: var(--naotech-shadow-large); }
+/* Alto único de los botones de acción por dispositivo (DC-215); iconos y teclas quedan fuera. */
+.pp-equipo { --pp-boton-alto: 56px; }
+.pp-equipo--tablet, .pp-equipo--consola { --pp-boton-alto: 64px; }
+.pp-equipo--celular { width: 390px; height: 824px; padding: 12px; border-radius: 40px; }
+.pp-equipo--tablet { width: 1180px; height: 820px; padding: 18px; border-radius: 36px; }
+.pp-equipo--consola { width: 1366px; height: 800px; padding: 14px; border-radius: 14px; }
+.pp-equipo, .pp-pantalla { box-sizing: border-box; }
+
+/* transform: el toast del SDK es fixed y así queda anclado a la pantalla, no a la página. */
+.pp-pantalla {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 30px;
+  background: var(--naotech-app-color-050);
+  transform: translateZ(0);
+}
+.pp-equipo--tablet .pp-pantalla { border-radius: 20px; }
+.pp-equipo--consola .pp-pantalla { border-radius: 4px; }
+
+.pp-estado {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--naotech-sizing-28);
+  padding: var(--naotech-sizing-10) var(--naotech-sizing-24) 0;
+  box-sizing: border-box;
+  background: var(--naotech-app-background);
+  color: var(--naotech-app-color-900);
+  font-size: var(--naotech-sizing-14);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.pp-estado__r { display: flex; align-items: center; gap: var(--naotech-sizing-6); }
+.pp-estado__sig { display: flex; align-items: flex-end; gap: 2px; height: 10px; }
+.pp-estado__sig i { display: block; width: 3px; border-radius: 1px; background: currentColor; }
+.pp-estado__sig i:nth-child(1) { height: 4px; }
+.pp-estado__sig i:nth-child(2) { height: 6px; }
+.pp-estado__sig i:nth-child(3) { height: 8px; }
+.pp-estado__sig i:nth-child(4) { height: 10px; opacity: 0.35; }
+.pp-estado__bat { position: relative; width: 22px; height: 11px; border: 1.5px solid currentColor; border-radius: 3px; box-sizing: border-box; }
+.pp-estado__bat::before { content: ''; position: absolute; left: 1.5px; top: 1.5px; bottom: 1.5px; width: 62%; border-radius: 1px; background: currentColor; }
+
+.pp-marca {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--naotech-sizing-8) var(--naotech-sizing-16);
+  background: var(--naotech-app-background);
+  border-bottom: 1px solid var(--naotech-app-color-200);
+}
+.pp-marca__naowee svg { display: block; height: var(--naotech-sizing-20); width: auto; }
+/* Celular: Mindeporte + IVC a la izquierda, más compactos para dejar sitio al chip y al menú (DC-320). */
+.pp-marca__izq { display: flex; align-items: center; gap: var(--naotech-sizing-8); min-width: 0; }
+.pp-marca .pp-alianza { gap: var(--naotech-sizing-8); }
+.pp-marca .pp-alianza__min { height: var(--naotech-sizing-28); }
+
+/* Pie de la consola: es un monitor en el torniquete. */
+.pp-soporte { display: flex; flex-direction: column; align-items: center; }
+.pp-soporte__cuello { width: 120px; height: 48px; background: linear-gradient(var(--naotech-app-color-700), var(--naotech-app-color-800)); }
+.pp-soporte__base { width: 360px; height: 16px; border-radius: 8px 8px 4px 4px; background: var(--naotech-app-color-800); box-shadow: var(--naotech-shadow-medium); }
+
+/* ---------- App del operador ---------- */
+
+.pp-app {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  color: var(--naotech-app-font-color);
+}
+
+.pp-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--naotech-sizing-12);
+  padding: var(--naotech-sizing-16) var(--naotech-sizing-20);
+  background: var(--naotech-app-background);
+  border-bottom: 1px solid var(--naotech-app-color-200);
+}
+.pp-barra__marca { display: none; }
+.pp-barra__lugar { flex: 1; min-width: 0; }
+.pp-barra__puerta { font-size: var(--naotech-sizing-18); font-weight: 700; }
+/* Partido en una línea, sin cortes: escudo + equipo · vs · escudo + equipo · hora. */
+.pp-barra__partido { display: flex; align-items: center; gap: var(--naotech-sizing-8); font-size: var(--naotech-sizing-14); line-height: var(--naotech-sizing-20); color: var(--naotech-app-color-700); white-space: nowrap; }
+.pp-equipo-nom { display: inline-flex; align-items: center; gap: var(--naotech-sizing-6); }
+.pp-vs { color: var(--naotech-app-color-500); }
+.pp-hora { padding-left: var(--naotech-sizing-8); border-left: 1px solid var(--naotech-app-color-300); }
+/* Celular: puerta y "En línea" en la primera fila, el partido completo debajo. */
+.pp-equipo--celular .pp-barra { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: var(--naotech-sizing-12); row-gap: var(--naotech-sizing-6); }
+.pp-equipo--celular .pp-barra__lugar { display: contents; }
+.pp-equipo--celular .pp-barra__puerta { grid-column: 1; grid-row: 1; }
+.pp-equipo--celular .pp-barra__partido { grid-column: 1 / -1; grid-row: 2; }
+.pp-escudo { height: 18px; width: auto; flex: none; }
+.pp-equipo--tablet .pp-barra, .pp-equipo--consola .pp-barra { justify-content: flex-start; gap: var(--naotech-sizing-20); }
+.pp-equipo--tablet .pp-barra__marca, .pp-equipo--consola .pp-barra__marca { display: flex; align-items: center; gap: var(--naotech-sizing-12); flex: none; }
+.pp-equipo--tablet .pp-barra__lugar, .pp-equipo--consola .pp-barra__lugar { flex: none; }
+.pp-equipo--tablet .pp-conexion, .pp-equipo--consola .pp-conexion { margin-left: auto; }
+
+.pp-conexion {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--naotech-sizing-6);
+  padding: var(--naotech-sizing-4) var(--naotech-sizing-10);
+  border-radius: var(--naotech-radius-pill);
+  font-size: var(--naotech-sizing-14);
+  font-weight: 700;
+  white-space: nowrap;
+  background: var(--naotech-color-green-050);
+  color: var(--naotech-color-green-800);
+}
+.pp-conexion::before { content: ''; width: 8px; height: 8px; border-radius: var(--naotech-radius-circle); background: currentColor; }
+.pp-conexion--off { background: var(--naotech-color-yellow-100); color: var(--naotech-app-color-900); }
+
+.pp-aviso {
+  display: flex;
+  gap: var(--naotech-sizing-8);
+  align-items: center;
+  padding: var(--naotech-sizing-8) var(--naotech-sizing-20);
+  background: var(--naotech-color-yellow-100);
+  color: var(--naotech-app-color-900);
+  font-size: var(--naotech-sizing-12);
+  border-bottom: 1px solid var(--naotech-color-yellow-600);
+}
+
+.pp-cuerpo { position: relative; flex: 1; min-height: 0; display: grid; }
+.pp-equipo--tablet .pp-cuerpo { grid-template-columns: 1fr 420px; }
+.pp-equipo--consola .pp-cuerpo { grid-template-columns: 1fr 460px; }
+
+/* Cámara simulada en tonos claros: el marco guía la distancia; el láser se apaga con reduced-motion. */
+.pp-camara {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* La foto va en un pseudo-elemento para que la linterna y el zoom no toquen el marco ni los tags. */
+.pp-camara::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(color-mix(in srgb, var(--naotech-app-background) 30%, transparent), color-mix(in srgb, var(--naotech-app-color-900) 25%, transparent)), url('../assets/fotos/scan.jpg') center 30% / cover no-repeat;
+  transform-origin: 38% 66%;
+  transition: filter 0.3s ease, transform 0.4s ease;
+}
+.pp-camara--luz::before { filter: brightness(1.4) contrast(1.08); }
+/* El zoom lleva el QR de la boleta al centro del marco. */
+.pp-camara--zoom::before { transform: translate(12%, -15%) scale(2); }
+.pp-equipo--tablet .pp-camara--zoom::before { transform: translate(10%, -40%) scale(2.4); }
+.pp-camara__guia {
+  position: relative;
+  width: 78%;
+  max-width: 460px;
+  aspect-ratio: 1.58;
+  border-radius: var(--naotech-radius-lg);
+  background: color-mix(in srgb, var(--naotech-app-background) 55%, transparent);
+  box-shadow: 0 0 0 9999px color-mix(in srgb, var(--naotech-app-color-500) 22%, transparent);
+}
+.pp-esquina { position: absolute; width: 36px; height: 36px; border: 0 solid var(--naotech-primary-color-600); }
+.pp-esquina--1 { top: 0; left: 0; border-top-width: 4px; border-left-width: 4px; border-top-left-radius: var(--naotech-radius-lg); }
+.pp-esquina--2 { top: 0; right: 0; border-top-width: 4px; border-right-width: 4px; border-top-right-radius: var(--naotech-radius-lg); }
+.pp-esquina--3 { bottom: 0; left: 0; border-bottom-width: 4px; border-left-width: 4px; border-bottom-left-radius: var(--naotech-radius-lg); }
+.pp-esquina--4 { bottom: 0; right: 0; border-bottom-width: 4px; border-right-width: 4px; border-bottom-right-radius: var(--naotech-radius-lg); }
+.pp-camara__laser {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: var(--naotech-primary-color-600);
+  box-shadow: 0 0 10px var(--naotech-primary-color-400);
+  animation: pp-laser 2.4s ease-in-out infinite;
+}
+@keyframes pp-laser { 0%, 100% { top: 8%; } 50% { top: 90%; } }
+.pp-camara__ayuda {
+  position: absolute;
+  bottom: var(--naotech-sizing-24);
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: var(--naotech-sizing-14);
+  font-weight: 500;
+  color: var(--naotech-app-color-800);
+}
+.pp-camara__herr { z-index: 2; position: absolute; top: var(--naotech-sizing-16); left: var(--naotech-sizing-16); right: var(--naotech-sizing-16); display: flex; justify-content: space-between; align-items: flex-start; gap: var(--naotech-sizing-8); }
+.pp-camara__estado, .pp-camara__botones { display: flex; flex-direction: column; gap: var(--naotech-sizing-8); }
+.pp-camara__estado { align-items: flex-start; }
+.pp-camara__botones { align-items: flex-end; }
+.pp-camara__tag { display: inline-flex; align-items: center; gap: var(--naotech-sizing-6); padding: var(--naotech-sizing-6) var(--naotech-sizing-12); border: 0; border-radius: var(--naotech-radius-pill); background: color-mix(in srgb, var(--naotech-color-white-alpha-100) 78%, transparent); color: var(--naotech-app-color-900); backdrop-filter: blur(4px); font-family: inherit; font-size: var(--naotech-sizing-12); font-weight: 600; white-space: nowrap; }
+.pp-camara__botones { flex-direction: row; }
+.pp-camara__ib { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: var(--naotech-radius-circle); background: color-mix(in srgb, var(--naotech-color-white-alpha-100) 78%, transparent); color: var(--naotech-app-color-900); backdrop-filter: blur(4px); cursor: pointer; }
+/* La lupa tiene el asa a un lado: se compensa 0,7 px para centrar la tinta, no la caja. */
+.pp-camara__ib[data-acc='zoom'] nwt-icon { transform: translateX(-0.7px); }
+.pp-camara__ib[aria-pressed='true'] { background: var(--naotech-primary-color-600); color: var(--naotech-color-white-alpha-100); }
+.pp-camara__ib:focus-visible { outline: 3px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+/* Contenedor visual de 24 px con glifo de 16; el botón conserva 44 px de área táctil (DC-193). */
+.pp-camara__ib nwt-icon { --nwt-icon-size: 16px; display: inline-flex; align-items: center; justify-content: center; flex: none; width: 24px; height: 24px; font-size: 16px; line-height: 24px; }
+.pp-camara__tag nwt-icon { --nwt-icon-size: 16px; font-size: 16px; }
+.pp-lateral__estado { display: flex; flex-wrap: wrap; gap: var(--naotech-sizing-8); margin-top: var(--naotech-sizing-12); }
+.pp-lateral__estado .pp-camara__tag { background: var(--naotech-app-color-100); backdrop-filter: none; }
+.pp-camara__punto { width: 8px; height: 8px; border-radius: var(--naotech-radius-circle); background: var(--naotech-color-green-700); }
+.pp-camara__punto--off { background: var(--naotech-app-color-500); }
+.pp-camara__punto--ocupado { background: var(--naotech-color-yellow-600); }
+.pp-camara__punto--apagado { background: var(--naotech-app-color-500); }
+.pp-camara__punto--alerta { background: var(--naotech-color-yellow-600); }
+/* Encendido (verde o ámbar) parpadea suave; apagado y sin conexión quedan fijos. */
+[data-equipo] .pp-camara__punto--ok, [data-equipo] .pp-camara__punto--ocupado { animation: pp-punto-vivo 1.8s ease-in-out infinite; }
+@keyframes pp-punto-vivo { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@media (prefers-reduced-motion: reduce) { [data-equipo] .pp-camara__punto { animation: none; } }
+
+.pp-acciones {
+  display: flex;
+  gap: var(--naotech-sizing-12);
+  align-items: center;
+  padding: var(--naotech-sizing-16) var(--naotech-sizing-20) var(--naotech-sizing-24);
+  background: var(--naotech-app-background);
+  border-top: 1px solid var(--naotech-app-color-200);
+}
+.pp-acciones > nwt-button { flex: 1; }
+
+/* Objetivos de 48 px en la puerta: se usa con prisa, a veces con guantes. */
+.pp-grande .nwt-button { height: var(--pp-boton-alto); min-height: var(--pp-boton-alto); width: 100%; --naotech-icon-dimension: 20px; }
+.pp-grande .nwt-button__content { font-size: 16px; }
+.pp-grande .nwt-button i, .pp-grande .nwt-button svg { font-size: 20px; width: 20px; height: 20px; }
+.pp-block, .pp-block .nwt-button { width: 100%; }
+
+/* ---------- Semáforo: una columna centrada sobre el color, sin tarjetas (canvas del semáforo) ---------- */
+
+.pp-r {
+  --pp-fondo: var(--naotech-color-green-800);
+  --pp-tinta: var(--naotech-color-white-alpha-100);
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background: var(--pp-fondo);
+  color: var(--pp-tinta);
+  animation: pp-entra 160ms ease-out;
+}
+@keyframes pp-entra { from { opacity: 0; } to { opacity: 1; } }
+.pp-r--verde { --pp-fondo: var(--naotech-color-green-800); }
+.pp-r--rojo { --pp-fondo: var(--naotech-color-red-900); }
+.pp-r--amarillo { --pp-fondo: var(--naotech-color-yellow-500); --pp-tinta: var(--naotech-app-color-900); }
+.pp-r--cargando { --pp-fondo: var(--naotech-color-default-800); }
+.pp-r--rostro { --pp-fondo: var(--naotech-color-blue-800); }
+
+.pp-r__top { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: var(--naotech-sizing-16); padding: var(--naotech-sizing-24); }
+.pp-r__palabra { margin: 0; font-size: 56px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; text-align: center; }
+.pp-r__rotulo { min-height: 72px; display: flex; flex-direction: column; align-items: center; gap: var(--naotech-sizing-4); text-align: center; }
+.pp-r__rotulo-l { display: flex; align-items: center; gap: var(--naotech-sizing-6); font-weight: 500; opacity: 0.85; }
+.pp-r__rotulo-l > span { font-size: 18px; }
+.pp-r__rotulo-l svg { width: 20px; height: 20px; flex: none; }
+.pp-r__dato { margin: 0; font-size: var(--naotech-sizing-20); font-weight: 700; line-height: 1.2; }
+.pp-r__doc { flex: 1; min-height: 96px; display: flex; align-items: center; justify-content: center; gap: var(--naotech-sizing-16); }
+.pp-r__fotos { display: flex; gap: var(--naotech-sizing-12); flex: none; }
+.pp-r__fotos .pp-r__foto { width: 96px; height: auto; aspect-ratio: 3 / 4; align-self: auto; }
+.pp-r__fotos .pp-r__foto--img img { position: absolute; inset: 0; }
+.pp-r__fotoc { display: flex; flex-direction: column; align-items: center; gap: var(--naotech-sizing-4); font-size: var(--naotech-sizing-12); font-weight: 600; }
+.pp-r__foto { position: relative; width: auto; min-width: 66px; aspect-ratio: 3 / 4; align-self: stretch; height: auto; max-height: 100%; flex: none; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; border-radius: 10px; border: 1.5px solid color-mix(in srgb, currentColor 45%, transparent); background: color-mix(in srgb, currentColor 12%, transparent); overflow: hidden; }
+.pp-r__foto svg { opacity: 0.8; }
+.pp-r__foto--sin { justify-content: center; gap: var(--naotech-sizing-4); font-size: var(--naotech-sizing-12); font-weight: 600; }
+.pp-r__datos { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.pp-r__tipo { font-size: var(--naotech-sizing-16); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.85; }
+.pp-r__nombre { font-size: var(--naotech-sizing-24); font-weight: 700; line-height: 1.2; }
+.pp-r__num { font-size: var(--naotech-sizing-16); font-weight: 500; opacity: 0.85; font-variant-numeric: tabular-nums; }
+.pp-r--rostro .pp-r__doc { flex-direction: column; gap: var(--naotech-sizing-12); text-align: center; }
+.pp-r--rostro .pp-r__datos { align-items: center; }
+.pp-r__notas { flex: none; display: flex; flex-direction: column; align-items: center; gap: var(--naotech-sizing-8); text-align: center; }
+.pp-r__nota { margin: 0; display: flex; flex-direction: row; align-items: center; justify-content: flex-start; text-align: left; padding: var(--naotech-sizing-10) var(--naotech-sizing-16); border-radius: var(--naotech-radius-md); background: rgba(0, 0, 0, 0.12); gap: var(--naotech-sizing-8); font-size: var(--naotech-sizing-14); font-weight: 500; line-height: 1.4; }
+.pp-r__nota svg { flex: none; width: 28px; height: 28px; }
+.pp-r__nota--fuerte { font-weight: 700; }
+
+.pp-r__acciones { margin-top: auto; flex: none; display: flex; flex-direction: column; gap: var(--naotech-sizing-12); padding: 0 var(--naotech-sizing-24) var(--naotech-sizing-24); }
+.pp-r__btn { width: 100%; height: var(--pp-boton-alto); display: flex; align-items: center; justify-content: center; gap: var(--naotech-sizing-10); border-radius: 14px; border: 1.5px solid transparent; background: var(--pp-tinta); color: var(--pp-fondo); font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer; }
+.pp-r__btn--sec { background: transparent; color: inherit; border-color: color-mix(in srgb, currentColor 60%, transparent); font-size: var(--naotech-sizing-16); font-weight: 600; }
+.pp-r__btn:disabled { cursor: default; opacity: 0.85; border-style: dashed; }
+.pp-r__btn:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+.pp-r__btn kbd { font-family: inherit; min-width: 30px; padding: 6px 9px; border-radius: 7px; border: 1.5px solid currentColor; font-size: var(--naotech-sizing-14); font-weight: 700; line-height: 1; text-align: center; }
+.pp-r__lector { display: none; }
+
+/* Cargando: loader blanco al centro, cancelar al pie */
+.pp-r__centro { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--naotech-sizing-24); padding: 0 var(--naotech-sizing-24); text-align: center; }
+.pp-r__giro { width: 64px; height: 64px; animation: pp-gira 900ms linear infinite; }
+@keyframes pp-gira { to { transform: rotate(360deg); } }
+.pp-r__texto { margin: 0; font-size: var(--naotech-sizing-18); font-weight: 600; line-height: 1.3; text-wrap: pretty; }
+
+/* Tablet y consola: mismas piezas, más grandes; acciones en un contenedor angosto */
+.pp-equipo--tablet .pp-r__palabra { font-size: 80px; }
+.pp-equipo--consola .pp-r__palabra { font-size: 96px; }
+.pp-equipo--tablet .pp-r__rotulo, .pp-equipo--consola .pp-r__rotulo { min-height: 76px; gap: 6px; }
+.pp-equipo--tablet .pp-r__dato, .pp-equipo--consola .pp-r__dato { font-size: var(--naotech-sizing-24); }
+.pp-equipo--tablet .pp-r__doc, .pp-equipo--consola .pp-r__doc { min-height: 120px; gap: var(--naotech-sizing-20); }
+.pp-equipo--tablet .pp-r__foto, .pp-equipo--consola .pp-r__foto { width: auto; min-width: 96px; height: auto; border-radius: 12px; }
+.pp-equipo--tablet .pp-r__num, .pp-equipo--consola .pp-r__num { font-size: var(--naotech-sizing-18); }
+/* Tablet y consola: las notas se acomodan en dos líneas como máximo, con ancho de lectura amplio (DC-075). */
+.pp-equipo--tablet .pp-r__notas, .pp-equipo--consola .pp-r__notas { width: 100%; }
+.pp-equipo--tablet .pp-r__nota, .pp-equipo--consola .pp-r__nota { max-width: 62ch; text-wrap: balance; }
+.pp-equipo--tablet .pp-r__acciones, .pp-equipo--consola .pp-r__acciones { padding: 0 200px var(--naotech-sizing-24); }
+.pp-equipo--tablet .pp-r__btn, .pp-equipo--consola .pp-r__btn { font-size: var(--naotech-sizing-18); }
+.pp-equipo--tablet .pp-r__btn--sec, .pp-equipo--consola .pp-r__btn--sec { font-size: 17px; }
+.pp-equipo--tablet .pp-r__giro, .pp-equipo--consola .pp-r__giro { width: 96px; height: 96px; }
+.pp-equipo--tablet .pp-r__texto, .pp-equipo--consola .pp-r__texto { font-size: var(--naotech-sizing-24); }
+.pp-equipo--consola .pp-r__lector { flex: none; display: flex; align-items: center; justify-content: center; gap: var(--naotech-sizing-10); margin: 0 var(--naotech-sizing-40); padding: var(--naotech-sizing-12) 0; border-top: 1px solid color-mix(in srgb, currentColor 28%, transparent); font-size: var(--naotech-sizing-14); font-weight: 600; opacity: 0.9; }
+
+/* Policía: piezas de la alerta roja (la vista policial no usa el semáforo del equipo) */
+.pp-resultado__icono { width: 88px; height: 88px; border-radius: var(--naotech-radius-circle); display: grid; place-items: center; font-size: 48px; background: color-mix(in srgb, currentColor 16%, transparent); }
+.pp-resultado__icono nwt-icon { font-size: 48px; }
+.pp-resultado__palabra { font-size: 64px; font-weight: 700; line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; }
+.pp-resultado__causa { font-size: var(--naotech-sizing-24); font-weight: 700; line-height: 1.2; }
+.pp-resultado__detalle { font-size: var(--naotech-sizing-18); line-height: 1.4; opacity: 0.92; }
+.pp-resultado__persona { display: flex; flex-direction: column; gap: var(--naotech-sizing-4); }
+.pp-resultado__nombre { font-size: var(--naotech-sizing-28); font-weight: 700; line-height: 1.15; }
+.pp-resultado__doc { font-size: var(--naotech-sizing-16); opacity: 0.85; }
+.pp-resultado__pie { margin-top: auto; display: flex; flex-direction: column; gap: var(--naotech-sizing-12); }
+.pp-resultado__nota { display: flex; gap: var(--naotech-sizing-8); align-items: flex-start; font-size: var(--naotech-sizing-14); line-height: 1.4; }
+.pp-boton-semaforo { min-height: 64px; border-radius: var(--naotech-radius-lg); border: 2px solid var(--naotech-app-color-900); font-size: var(--naotech-sizing-18); font-weight: 700; cursor: pointer; }
+.pp-boton-semaforo--claro { background: var(--naotech-color-white-alpha-100); color: var(--naotech-color-red-900); border-color: var(--naotech-color-white-alpha-100); width: 100%; }
+.pp-boton-semaforo:focus-visible { outline: 3px solid var(--naotech-app-color-900); outline-offset: 3px; }
+
+.pp-columna { display: flex; flex-direction: column; min-height: 0; }
+.pp-columna > .pp-camara { flex: 1; }
+
+.pp-motivos { display: flex; flex-wrap: wrap; gap: var(--naotech-sizing-8); }
+.pp-motivo {
+  padding: var(--naotech-sizing-12) var(--naotech-sizing-16);
+  border-radius: var(--naotech-radius-pill);
+  border: 2px solid var(--naotech-app-color-900);
+  background: transparent;
+  color: var(--naotech-app-color-900);
+  font-size: var(--naotech-sizing-16);
+  font-weight: 500;
+  cursor: pointer;
+}
+.pp-motivo[aria-pressed='true'] { background: var(--naotech-app-color-900); color: var(--naotech-color-yellow-500); }
+.pp-motivo.pp-motivo--claro { border-color: var(--naotech-color-white-alpha-100); color: var(--naotech-color-white-alpha-100); }
+.pp-motivo.pp-motivo--claro[aria-pressed='true'] { background: var(--naotech-color-white-alpha-100); color: var(--naotech-color-red-900); }
+
+/* ---------- Columna derecha: turno ---------- */
+
+.pp-lateral {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  background: var(--naotech-app-color-050);
+  border-left: 1px solid var(--naotech-app-color-200);
+}
+.pp-lateral__arriba { flex: none; display: flex; flex-direction: column; }
+.pp-lateral__listo {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--naotech-sizing-4);
+  padding: var(--naotech-sizing-16) var(--naotech-sizing-20);
+  font-size: var(--naotech-sizing-14);
+  color: var(--naotech-app-color-700);
+}
+.pp-lateral__listo strong { font-size: var(--naotech-sizing-20); color: var(--naotech-app-font-color); }
+
+.pp-turno { flex: 1 0 auto; padding: var(--naotech-sizing-20); border-top: 1px solid var(--naotech-app-color-200); display: flex; flex-direction: column; gap: var(--naotech-sizing-12); }
+/* Dentro de la hoja el título ya está en la cabecera y el aire lo pone ella (DC-189). */
+.pp-hoja .pp-turno { padding: var(--naotech-sizing-4) 0 0; border-top: 0; }
+.pp-hoja .pp-turno__h { display: none; }
+.pp-turno__h { font-size: var(--naotech-sizing-12); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--naotech-app-color-700); }
+.pp-turno__sub { font-size: var(--naotech-sizing-12); font-weight: 600; color: var(--naotech-app-color-700); }
+.pp-turno__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--naotech-sizing-8); }
+.pp-stat { padding: var(--naotech-sizing-12); border-radius: var(--naotech-radius-md); background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); }
+.pp-stat__v { font-size: var(--naotech-sizing-24); font-weight: 700; }
+.pp-stat__l { font-size: var(--naotech-sizing-12); color: var(--naotech-app-color-700); }
+.pp-historial { flex: 1 0 auto; min-height: 240px; display: flex; flex-direction: column; align-content: flex-start; gap: var(--naotech-sizing-4); padding: 0; list-style: none; }
+.pp-historial li { display: grid; grid-template-columns: 12px 1fr auto; gap: var(--naotech-sizing-10); align-items: center; font-size: var(--naotech-sizing-14); padding: var(--naotech-sizing-6) 0; border-bottom: 1px solid var(--naotech-app-color-200); }
+.pp-historial time { color: var(--naotech-app-color-600); font-variant-numeric: tabular-nums; }
+
+/* ---------- Consola: lector USB ---------- */
+
+.pp-lector { display: flex; flex-direction: column; min-height: 0; }
+.pp-lector__campo { padding: var(--naotech-sizing-20); display: flex; gap: var(--naotech-sizing-12); align-items: center; background: var(--naotech-app-background); border-bottom: 1px solid var(--naotech-app-color-200); }
+.pp-lector__campo input {
+  flex: 1;
+  height: var(--pp-boton-alto);
+  padding: 0 var(--naotech-sizing-16);
+  border-radius: var(--naotech-radius-md);
+  border: 2px solid var(--naotech-primary-color-600);
+  background: var(--naotech-app-background);
+  color: var(--naotech-app-font-color);
+  font: inherit;
+  font-size: var(--naotech-sizing-20);
+}
+.pp-lector__campo .nwt-button { height: var(--pp-boton-alto); min-height: var(--pp-boton-alto); }
+.pp-lector__campo input:focus { outline: 3px solid color-mix(in srgb, var(--naotech-primary-color-500) 30%, transparent); }
+.pp-lector__espera { flex: 1; display: grid; place-items: center; text-align: center; gap: var(--naotech-sizing-8); color: var(--naotech-app-color-700); background: var(--naotech-app-color-050); }
+.pp-lector__espera nwt-icon { font-size: 64px; color: var(--naotech-primary-color-600); }
+.pp-lector__espera .pp-resultado__causa { color: var(--naotech-app-font-color); }
+
+/* ---------- Teclado para digitar ---------- */
+
+.pp-hoja {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  gap: var(--naotech-sizing-16);
+  padding: var(--naotech-sizing-24) var(--naotech-sizing-20) var(--naotech-sizing-32);
+  background: var(--naotech-app-background);
+  border-radius: var(--naotech-radius-xl) var(--naotech-radius-xl) 0 0;
+  box-shadow: var(--naotech-shadow-24);
+  animation: pp-sube 180ms ease-out;
+}
+.pp-equipo--tablet .pp-hoja { left: auto; right: 0; width: 420px; }
+.pp-velo { position: absolute; inset: 0; z-index: 7; background: color-mix(in srgb, var(--naotech-app-color-900) 30%, transparent); }
+@keyframes pp-sube { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.pp-hoja__cab i.naotech-icon-close { font-size: 24px; width: 24px; height: 24px; --naotech-icon-dimension: 24px; }
+.pp-hoja__cab { display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: var(--naotech-sizing-18); }
+.pp-tipos { display: flex; gap: var(--naotech-sizing-8); flex-wrap: wrap; }
+.pp-pantallita { height: 56px; border-radius: var(--naotech-radius-md); background: var(--naotech-app-color-100); border: 1px solid var(--naotech-app-color-200); display: flex; align-items: center; padding: 0 var(--naotech-sizing-16); font-size: var(--naotech-sizing-28); font-weight: 700; letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
+.pp-pantallita:empty::before { content: 'Número de documento'; font-size: var(--naotech-sizing-16); font-weight: 400; letter-spacing: 0; color: var(--naotech-app-color-600); }
+.pp-teclas { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--naotech-sizing-8); }
+.pp-tecla { height: 56px; border: 1px solid var(--naotech-app-color-200); border-radius: var(--naotech-radius-md); background: var(--naotech-app-color-100); color: var(--naotech-app-font-color); font-size: var(--naotech-sizing-24); font-weight: 500; cursor: pointer; }
+.pp-tecla[data-tecla='ok'] { height: var(--pp-boton-alto); font-size: var(--naotech-sizing-20); }
+.pp-tecla:active { background: var(--naotech-app-color-200); }
+
+/* ---------- Vista policial ---------- */
+
+.pp-policia { position: absolute; inset: 0; display: grid; grid-template-rows: auto 1fr; }
+.pp-policia__barra { display: flex; align-items: center; gap: var(--naotech-sizing-20); padding: var(--naotech-sizing-16) var(--naotech-sizing-24); background: var(--naotech-app-background); border-bottom: 1px solid var(--naotech-app-color-200); }
+.pp-policia__grupo { display: flex; align-items: center; gap: var(--naotech-sizing-12); }
+.pp-policia__texto { font-size: var(--naotech-sizing-16); font-weight: 700; }
+.pp-policia__escudo { height: 28px; width: auto; flex: none; }
+.pp-policia__cuerpo { display: grid; grid-template-columns: 360px 1fr; min-height: 0; }
+.pp-policia__alerta { display: flex; flex-direction: column; gap: var(--naotech-sizing-16); padding: var(--naotech-sizing-24); background: var(--naotech-color-red-900); color: var(--naotech-color-white-alpha-100); }
+.pp-policia__detalle { overflow-y: auto; padding: var(--naotech-sizing-24); display: flex; flex-direction: column; gap: var(--naotech-sizing-24); background: var(--naotech-app-color-050); }
+.pp-seccion { display: flex; flex-direction: column; gap: var(--naotech-sizing-12); }
+.pp-seccion__h { font-size: var(--naotech-sizing-14); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--naotech-app-color-700); }
+.pp-medida { display: grid; grid-template-columns: auto 1fr auto; gap: var(--naotech-sizing-12); align-items: start; padding: var(--naotech-sizing-16); border-radius: var(--naotech-radius-md); background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); }
+.pp-medida__t { font-weight: 700; font-size: var(--naotech-sizing-16); }
+.pp-medida__s { font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); margin-top: var(--naotech-sizing-4); }
+.pp-senales { display: grid; grid-template-columns: 1fr 1fr; gap: var(--naotech-sizing-12); }
+.pp-senal { padding: var(--naotech-sizing-16); border-radius: var(--naotech-radius-md); background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); display: flex; flex-direction: column; gap: var(--naotech-sizing-6); }
+.pp-senal__l { font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-senal__v { font-size: var(--naotech-sizing-20); font-weight: 700; }
+.pp-senal__por { font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); line-height: 1.4; }
+.pp-senal--decide { border-color: var(--naotech-primary-color-600); box-shadow: inset 0 0 0 1px var(--naotech-primary-color-600); }
+.pp-senal__marca { font-size: var(--naotech-sizing-14); font-weight: 700; color: var(--naotech-primary-color-700); }
+.pp-principio { display: flex; gap: var(--naotech-sizing-12); padding: var(--naotech-sizing-16); border-radius: var(--naotech-radius-md); background: var(--naotech-color-blue-050); border: 1px solid var(--naotech-app-color-200); font-size: var(--naotech-sizing-14); line-height: 1.5; color: var(--naotech-app-color-900); }
+
+/* ---------- Toast dentro del dispositivo ---------- */
+
+/* El contenido del toast es fixed: dentro del marco escalado queda anclado al marco, no a la ventana. */
+.pp-toast { position: relative; z-index: 20; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-camara__laser { animation: none; top: 50%; }
+  .pp-r__giro { animation-duration: 3s; }
+  .pp-r, .pp-hoja { animation: none; }
+}
+
+/* ---------- Capa oculta: franja sin fondo debajo del equipo ---------- */
+
+.pp-c {
+  position: absolute;
+  left: 50%;
+  bottom: var(--naotech-sizing-20);
+  z-index: 2;
+  width: min(640px, calc(100% - 48px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--naotech-sizing-12);
+  opacity: 0;
+  transform: translate(-50%, 24px);
+  pointer-events: none;
+  transition: opacity 350ms ease, transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.pp-c__reloj { margin-top: calc(var(--naotech-sizing-12) * -1 + var(--naotech-sizing-6)); }
+.pp-escena--capa .pp-c { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+
+/* Carril: el dato baja del equipo a la línea y la respuesta sube, de a uno. */
+.pp-c__carril { position: relative; width: 100%; height: 56px; display: flex; justify-content: center; align-items: center; }
+.pp-c__carril::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  bottom: -8px;
+  width: 2px;
+  background: repeating-linear-gradient(180deg, var(--naotech-app-color-300) 0 4px, transparent 4px 8px);
+  background-size: 100% 8px;
+  background-position: 0 0;
+  transform: translateX(-50%);
+}
+.pp-c__carril--baja::before { animation: pp-c-linea-baja 1s linear infinite; }
+.pp-c__carril--sube::before { animation: pp-c-linea-sube 1s linear infinite; }
+.pp-c__carril--pausa::before { animation-play-state: paused; }
+.pp-c__carril--pausa .pp-c__dato { animation-play-state: paused; }
+@keyframes pp-c-linea-baja { 0% { background-position: 0 0; } 100% { background-position: 0 8px; } }
+@keyframes pp-c-linea-sube { 0% { background-position: 0 8px; } 100% { background-position: 0 0; } }
+.pp-c__dato {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  padding: var(--naotech-sizing-4) var(--naotech-sizing-12);
+  border-radius: var(--naotech-radius-pill);
+  background: var(--naotech-app-color-900);
+  color: var(--naotech-color-white-alpha-100);
+  font-size: var(--naotech-sizing-12);
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+.pp-c__dato--baja { animation-name: pp-c-baja; }
+.pp-c__dato--sube { animation-name: pp-c-sube; }
+@keyframes pp-c-baja { 0% { opacity: 0; transform: translate(-50%, -12px); } 20% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, 40px); } }
+@keyframes pp-c-sube { 0% { opacity: 0; transform: translate(-50%, 40px); } 20% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -12px); } }
+.pp-c__dato--ok, .pp-c__dato--verde { background: var(--naotech-color-green-700); }
+.pp-c__dato--falla, .pp-c__dato--rojo { background: var(--naotech-color-red-700); }
+.pp-c__dato--aviso, .pp-c__dato--amarillo { background: var(--naotech-color-yellow-500); color: var(--naotech-app-color-900); }
+.pp-c__dato--rostro { background: var(--naotech-color-blue-500); }
+
+.pp-c__pasos { display: flex; align-items: center; width: 100%; }
+.pp-c__punto { width: 10px; height: 10px; flex: none; border-radius: var(--naotech-radius-circle); background: var(--naotech-app-color-300); transition: background 250ms ease, box-shadow 250ms ease; }
+.pp-c__linea { flex: 1; height: 2px; background: var(--naotech-app-color-300); transition: background 250ms ease; }
+.pp-c__punto--hecho, .pp-c__linea--hecha { background: var(--naotech-app-color-900); }
+.pp-c__punto--activo { background: var(--naotech-primary-color-600); box-shadow: 0 0 0 4px color-mix(in srgb, var(--naotech-primary-color-600) 20%, transparent); }
+/* Definido el resultado, todos los pasos toman su color. */
+.pp-c__punto--verde, .pp-c__linea--verde { background: var(--naotech-color-green-700); }
+.pp-c__punto--rojo, .pp-c__linea--rojo { background: var(--naotech-color-red-700); }
+.pp-c__punto--amarillo, .pp-c__linea--amarillo { background: var(--naotech-color-yellow-800); }
+.pp-c__punto--rostro, .pp-c__linea--rostro { background: var(--naotech-color-blue-500); }
+
+.pp-c__label { display: flex; align-items: center; justify-content: center; gap: var(--naotech-sizing-8); height: 28px; font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-800); text-align: center; }
+.pp-c__logo { width: 28px; height: 28px; flex: none; border-radius: var(--naotech-radius-circle); display: grid; place-items: center; font-size: 9px; font-weight: 800; letter-spacing: 0.04em; background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-300); color: var(--naotech-app-color-900); }
+
+
+.pp-c__reloj { display: flex; align-items: center; gap: var(--naotech-sizing-10); }
+.pp-c__cifra { font-size: var(--naotech-sizing-28); font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.pp-c__play {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--naotech-radius-circle);
+  border: 1px solid var(--naotech-app-color-300);
+  background: var(--naotech-app-background);
+  color: var(--naotech-app-color-900);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.pp-c__play:focus-visible { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-c__dato { animation-name: none; opacity: 1; transform: translate(-50%, 16px); }
+}
+
+.pp-hoja__ayuda { font-size: var(--naotech-sizing-12); color: var(--naotech-app-color-700); text-align: center; }
+.pp-hoja__ayuda--error { color: var(--naotech-color-red-700); font-weight: 600; }
+
+/* Casos del panel: 14 px regular; va después del tope de 12 px y lo reemplaza (DC-059). */
+.pp-panel .nwt-detail-item__label { font-size: var(--naotech-sizing-14); font-weight: var(--naotech-font-weight-regular); line-height: var(--naotech-sizing-20); }
+
+/* Verificación en columna: en tablet y consola las fotos se achican para que todo quepa sin scroll */
+.pp-equipo--tablet .pp-r--rostro .pp-r__doc, .pp-equipo--consola .pp-r--rostro .pp-r__doc { min-height: 0; gap: var(--naotech-sizing-6); }
+/* Verificación de identidad: las fotos de referencia y cámara se comparan a simple vista, así que van más grandes en tablet y consola (DC-077). */
+.pp-equipo--tablet .pp-r--rostro .pp-r__foto, .pp-equipo--consola .pp-r--rostro .pp-r__foto { width: 104px; height: auto; }
+.pp-equipo--tablet .pp-r--rostro .pp-r__rotulo, .pp-equipo--consola .pp-r--rostro .pp-r__rotulo { min-height: 0; }
+
+/* Tablet y consola: una sola línea. Logo a la izquierda, puerta y partido a su lado, "En línea" centrado en la barra (DC-067). */
+.pp-equipo--tablet .pp-barra, .pp-equipo--consola .pp-barra { position: relative; }
+.pp-equipo--tablet .pp-barra .pp-conexion, .pp-equipo--consola .pp-barra .pp-conexion { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+
+/* Celular: "En línea" y el menú en la fila de marca, separados (DC-072). */
+.pp-marca__acciones { display: flex; align-items: center; gap: var(--naotech-sizing-12); }
+.pp-marca__sep { width: 1px; height: 24px; background: var(--naotech-app-color-300); }
+.pp-menu { width: 44px; height: 44px; display: grid; place-items: center; border: none; border-radius: var(--naotech-radius-circle); background: transparent; color: var(--naotech-app-color-900); cursor: pointer; }
+.pp-menu:hover { background: var(--naotech-app-color-100); }
+.pp-menu:focus-visible { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+
+/* Tablet y consola: puerta y partido alineados a la derecha, con el logo a la izquierda y "En línea" al centro (DC-076). */
+.pp-equipo--tablet .pp-barra__lugar, .pp-equipo--consola .pp-barra__lugar { margin-left: auto; text-align: right; }
+.pp-equipo--tablet .pp-barra__partido, .pp-equipo--consola .pp-barra__partido { justify-content: flex-end; }
+
+.pp-equipo--consola .pp-r--rostro .pp-r__foto { width: 84px; height: auto; }
+
+/* Vista policial: Naowee a la izquierda, escudo de la Policía centrado con el título (DC-078/079/080). */
+.pp-marca .pp-alianza__sep:first-child, .pp-policia__barra .pp-alianza__sep:first-child, .pa-barra .pp-alianza__sep:first-child { display: none; }
+.pp-policia__titulo { flex: 1; display: flex; align-items: center; gap: var(--naotech-sizing-12); }
+.pp-policia__escudo { height: 32px; width: auto; flex: none; }
+.pp-policia__titulo h2 { margin: 0; flex: none; line-height: 32px; }
+/* Club afín: escudo y nombre a la izquierda; barras y porcentaje a la derecha (DC-081/082). */
+.pp-senal--club { grid-column: 1 / -1; background: var(--naotech-primary-color-050); gap: var(--naotech-sizing-8); }
+.pp-club { display: flex; align-items: center; gap: var(--naotech-sizing-12); }
+.pp-club__escudo { height: 48px; width: auto; flex: none; }
+.pp-club__nombre { flex: 1; margin: 0; font-size: var(--naotech-sizing-24); font-weight: 700; }
+.pp-club__pct { display: flex; align-items: flex-end; gap: var(--naotech-sizing-12); }
+.pp-barras { display: flex; align-items: flex-end; gap: 3px; height: 34px; }
+.pp-barra-n { width: 7px; border-radius: 2px; background: var(--naotech-primary-color-300); }
+.pp-barra-n--on { background: var(--naotech-primary-color-700); }
+.pp-club__num { font-size: var(--naotech-sizing-40); font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--naotech-primary-color-800); font-variant-numeric: tabular-nums; }
+
+/* Cuenta regresiva al partido, junto a la hora (DC-083). */
+.pp-faltan { display: inline-flex; align-items: center; gap: var(--naotech-sizing-4); padding: 0 var(--naotech-sizing-8); border-radius: var(--naotech-radius-pill); background: var(--naotech-primary-color-100); color: var(--naotech-primary-color-800); font-weight: 600; }
+.pp-faltan b { font-variant-numeric: tabular-nums; font-weight: 800; }
+
+/* Toolbar: logo a la izquierda, título y subtítulo centrados, acción a la derecha (DC-084). */
+.pp-toolbar { position: relative; }
+.pp-toolbar__titulo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; }
+.pp-toolbar__titulo .nwt-title__content { align-items: center; }
+/* Cuenta al partido junto a la puerta: en celular a la derecha de la primera fila; en tablet y consola, pegada a la puerta (DC-083). */
+.pp-barra__fila { display: flex; align-items: center; gap: var(--naotech-sizing-12); }
+.pp-equipo--celular .pp-barra__fila { display: contents; }
+.pp-equipo--celular .pp-faltan { grid-column: 2; grid-row: 1; justify-self: end; }
+.pp-equipo--tablet .pp-barra__fila, .pp-equipo--consola .pp-barra__fila { justify-content: flex-end; }
+
+/* Alerta de la Policía: además de la puerta, la información del partido con los escudos (DC-085). */
+.pp-alerta__partido { display: flex; flex-direction: column; gap: var(--naotech-sizing-8); }
+.pp-alerta__equipos { margin: 0; display: flex; align-items: center; gap: var(--naotech-sizing-8); font-size: var(--naotech-sizing-18); font-weight: 700; white-space: nowrap; }
+.pp-alerta__equipos .pp-escudo { height: 28px; }
+.pp-alerta__equipos .pp-vs { color: color-mix(in srgb, currentColor 65%, transparent); font-weight: 500; }
+.pp-alerta__meta { margin: 0; font-size: var(--naotech-sizing-14); opacity: 0.9; }
+.pp-alerta__meta b { font-variant-numeric: tabular-nums; }
+
+.pp-faltan--alerta { align-self: flex-start; background: color-mix(in srgb, var(--naotech-color-white-alpha-100) 18%, transparent); color: var(--naotech-color-white-alpha-100); }
+
+/* Fotos reales del documento (verde, amarillo y rojo) y de la persona en la alerta de la Policía. */
+.pp-r__foto--img { padding: 0; overflow: hidden; background: none; }
+.pp-r__foto--img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+.pp-alerta__persona { display: flex; align-items: center; gap: var(--naotech-sizing-16); }
+.pp-alerta__foto { width: 72px; aspect-ratio: 3 / 4; height: auto; flex: none; object-fit: cover; object-position: center 20%; border-radius: var(--naotech-radius-md); border: 2px solid color-mix(in srgb, var(--naotech-color-white-alpha-100) 60%, transparent); }
+
+/* Todas las fotos de persona van en 3:4, en cualquier lugar donde aparezca. */
+.pp-r__foto, .pp-alerta__foto { aspect-ratio: 3 / 4; }
+
+/* Cuenta al partido sencilla, debajo y junto a la hora, sin chip (DC-087). */
+.pp-barra__partido { flex-wrap: wrap; row-gap: var(--naotech-sizing-2); }
+.pp-tiempo { display: inline-flex; align-items: center; gap: var(--naotech-sizing-8); white-space: nowrap; }
+.pp-tiempo .pp-faltan { padding: 0; background: none; border-radius: 0; font-weight: 500; color: var(--naotech-app-color-700); }
+.pp-tiempo .pp-faltan b { font-weight: 700; color: var(--naotech-app-color-900); }
+/* Ayuda de la cámara: fondo blanco translúcido, separado del borde inferior (DC-086). */
+.pp-camara__ayuda { bottom: var(--naotech-sizing-24); left: 50%; right: auto; transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); padding: var(--naotech-sizing-6) var(--naotech-sizing-14); border-radius: var(--naotech-radius-pill); background: color-mix(in srgb, var(--naotech-color-white-alpha-100) 78%, transparent); color: var(--naotech-app-color-900); backdrop-filter: blur(4px); }
+
+.pp-tiempo .pp-hora { padding-left: 0; border-left: none; }
+
+/* Documento: la foto siempre arriba, a 1,25x (100 px celular, 105 px tablet y consola), con los datos debajo (DC-088, DC-094). */
+.pp-r__doc { flex-direction: column; min-height: 0; gap: var(--naotech-sizing-8); text-align: center; }
+.pp-r__datos { align-items: center; text-align: center; }
+.pp-r__doc > .pp-r__fotos { align-self: center; }
+.pp-r__doc > .pp-r__foto { width: 100px; }
+.pp-equipo--tablet .pp-r__doc > .pp-r__foto, .pp-equipo--consola .pp-r__doc > .pp-r__foto { width: 105px; }
+.pp-equipo--tablet .pp-r__doc, .pp-equipo--consola .pp-r__doc { min-height: 0; gap: var(--naotech-sizing-8); }
+/* Nota del amarillo en columna: la campana arriba y el texto debajo, centrados (DC-089). */
+
+/* Reparto vertical para que todo entre sin scroll con la foto grande (DC-088). */
+.pp-equipo--celular .pp-r__top { padding-top: var(--naotech-sizing-8); }
+.pp-equipo--celular .pp-r__nota { line-height: 1.3; }
+.pp-equipo--celular .pp-r__rotulo { min-height: 0; margin-top: 6px; }
+.pp-equipo--celular .pp-r__notas { margin-top: var(--naotech-sizing-8); gap: var(--naotech-sizing-6); }
+.pp-equipo--celular .pp-r__acciones { padding-top: var(--naotech-sizing-8); padding-bottom: var(--naotech-sizing-16); gap: var(--naotech-sizing-8); }
+.pp-equipo--tablet .pp-r__top, .pp-equipo--consola .pp-r__top { padding-top: var(--naotech-sizing-16); }
+.pp-equipo--tablet .pp-r__rotulo, .pp-equipo--consola .pp-r__rotulo { min-height: 0; margin-top: 8px; }
+.pp-equipo--tablet .pp-r__notas, .pp-equipo--consola .pp-r__notas { flex-direction: row; justify-content: center; align-items: flex-start; gap: var(--naotech-sizing-40); margin-top: var(--naotech-sizing-10); }
+.pp-equipo--tablet .pp-r__acciones, .pp-equipo--consola .pp-r__acciones { padding-top: var(--naotech-sizing-8); padding-bottom: var(--naotech-sizing-16); gap: var(--naotech-sizing-8); }
+.pp-equipo--consola .pp-r__lector { padding: var(--naotech-sizing-8) 0; }
+
+/* Compactar el celular para que la foto grande arriba no haga desbordar (DC-088). */
+.pp-equipo--celular .pp-r__top { padding-top: var(--naotech-sizing-16); }
+.pp-equipo--celular .pp-r__rotulo { min-height: 56px; margin-top: 8px; }
+.pp-equipo--celular .pp-r__notas { margin-top: var(--naotech-sizing-8); gap: var(--naotech-sizing-6); }
+
+/* Nota del amarillo en dos líneas: lo importante arriba, hora y puerta debajo con menos peso (DC-095). */
+.pp-r__nota-sub { display: block; font-size: var(--naotech-sizing-16); font-weight: 500; opacity: 0.8; }
+.pp-r__nota > span:not(.pp-r__nota-linea) { min-width: 0; font-size: var(--naotech-sizing-18); }
+/* Una sola frase: no se parte; si no cabe, puntos suspensivos (DC-343). */
+.pp-r__nota-linea { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pp-r__nota--fuerte { justify-content: center; text-align: center; }
+
+/* Cada título de sección o de señal lleva su ícono a la izquierda (DC-100). */
+.pp-seccion__h, .pp-senal__l { display: flex; align-items: center; gap: var(--naotech-sizing-8); }
+.pp-seccion__h nwt-icon, .pp-senal__l nwt-icon { flex: none; font-size: 16px; --naotech-icon-dimension: 16px; color: var(--naotech-app-color-600); }
+
+/* Alerta de la Policía con la misma composición que el rojo del operador: columna centrada, sin tarjetas ni icono grande (DC-092, DC-097, DC-098). */
+.pp-policia__cuerpo { grid-template-columns: 440px 1fr; }
+.pp-policia__alerta { --pp-fondo: var(--naotech-color-red-900); --pp-tinta: var(--naotech-color-white-alpha-100); align-items: stretch; gap: var(--naotech-sizing-16); padding: var(--naotech-sizing-32) var(--naotech-sizing-32) var(--naotech-sizing-32); overflow-y: auto; }
+.pp-policia__alerta .pp-r__palabra { font-size: 56px; white-space: nowrap; }
+.pp-policia__alerta .pp-r__rotulo { min-height: 0; margin-top: 0; }
+.pp-policia__alerta .pp-r__doc { min-height: 0; gap: var(--naotech-sizing-12); }
+.pp-policia__alerta .pp-r__doc > .pp-r__foto { width: 105px; }
+.pp-policia__alerta .pp-alerta__equipos { justify-content: center; font-size: var(--naotech-sizing-16); }
+.pp-policia__alerta .pp-alerta__equipos .pp-escudo { height: 24px; }
+.pp-alerta__falta { margin-left: var(--naotech-sizing-8); font-size: var(--naotech-sizing-14); font-weight: 500; opacity: 0.8; }
+.pp-alerta__accion { margin-top: auto; display: flex; flex-direction: column; gap: var(--naotech-sizing-12); padding-top: var(--naotech-sizing-16); }
+.pp-alerta__accion .pp-resultado__nota, .pp-alerta__accion .pp-resultado__causa { justify-content: center; text-align: center; }
+.pp-alerta__accion .pp-motivos { justify-content: center; }
+
+/* Rojo por medida: notas sin ícono, dentro de un contenedor rojo claro (DC-103/104). */
+
+/* Vista policial: Naowee a la izquierda; a la derecha, en este orden: Policía Nacional, escudo, En línea (DC-105). */
+.pp-policia__barra { justify-content: space-between; }
+.pp-policia__grupo { margin-left: auto; display: flex; align-items: center; gap: var(--naotech-sizing-12); }
+
+/* ---------- Tablero del evento (Policía): primera pantalla, antes del perfil ---------- */
+
+.pp-t { display: grid; grid-template-columns: minmax(0, 1fr) 380px; min-height: 0; }
+.pp-equipo--consola .pp-t { grid-template-columns: minmax(0, 1fr) 420px; }
+.pp-t__main { overflow-y: auto; padding: var(--naotech-sizing-20) var(--naotech-sizing-24); display: flex; flex-direction: column; gap: var(--naotech-sizing-16); background: var(--naotech-app-color-050); }
+.pp-t__caja, .pp-t__evento, .pp-t__kpi { background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); border-radius: var(--naotech-radius-lg); }
+.pp-t__evento { display: flex; align-items: center; gap: var(--naotech-sizing-24); padding: var(--naotech-sizing-16) var(--naotech-sizing-20); }
+.pp-t__evento .pp-alerta__equipos { font-size: var(--naotech-sizing-18); }
+.pp-t__evento .pp-alerta__equipos .pp-escudo { height: 22px; }
+.pp-t__lugar { margin: var(--naotech-sizing-4) 0 0; font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-t__cuenta { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-t__cuenta b { font-size: var(--naotech-sizing-20); color: var(--naotech-app-color-900); font-variant-numeric: tabular-nums; }
+.pp-t__kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--naotech-sizing-12); }
+.pp-t__kpi { display: flex; flex-direction: column; gap: var(--naotech-sizing-4); padding: var(--naotech-sizing-14) var(--naotech-sizing-16); }
+.pp-t__kpi-l, .pp-t__kpi-s { font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-t__kpi-v { font-size: var(--naotech-sizing-28); font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.pp-t__kpi--aviso .pp-t__kpi-v { color: var(--naotech-color-orange-700); }
+.pp-t__kpi--rojo { background: var(--naotech-color-red-050); border-color: color-mix(in srgb, var(--naotech-color-red-700) 30%, transparent); }
+.pp-t__kpi--rojo .pp-t__kpi-l, .pp-t__kpi--rojo .pp-t__kpi-s, .pp-t__kpi--rojo .pp-t__kpi-v { color: var(--naotech-color-red-900); }
+.pp-t__caja { padding: var(--naotech-sizing-16) var(--naotech-sizing-20); display: flex; flex-direction: column; gap: var(--naotech-sizing-10); }
+.pp-t__h { margin: 0; font-size: var(--naotech-sizing-16); font-weight: 700; display: flex; align-items: baseline; gap: var(--naotech-sizing-10); }
+.pp-t__h span { font-size: var(--naotech-sizing-14); font-weight: 400; color: var(--naotech-app-color-700); }
+.pp-t__grafica { height: 96px; display: flex; align-items: flex-end; gap: 5px; border-bottom: 1px solid var(--naotech-app-color-200); }
+/* Flujo en azul, no en el primario: el naranja se confundía con los rojos de la columna vecina. */
+.pp-t__barra { flex: 1; border-radius: 3px 3px 0 0; background: var(--naotech-color-blue-100); }
+.pp-t__barra--ahora { background: var(--naotech-color-blue-900); }
+.pp-t__eje { display: flex; justify-content: space-between; font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); font-variant-numeric: tabular-nums; }
+.pp-t__tabla { width: 100%; border-collapse: collapse; font-size: var(--naotech-sizing-14); }
+.pp-t__tabla th, .pp-t__tabla td { padding: var(--naotech-sizing-6) var(--naotech-sizing-4); border-bottom: 1px solid var(--naotech-app-color-100); text-align: left; }
+.pp-t__tabla thead th { font-size: var(--naotech-sizing-14); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--naotech-app-color-700); border-bottom-color: var(--naotech-app-color-200); }
+.pp-t__tabla thead th:nth-child(n+3) { text-align: right; }
+.pp-t__tabla tbody th { font-weight: 500; white-space: nowrap; }
+.pp-t__punto { display: inline-block; width: 8px; height: 8px; margin-right: var(--naotech-sizing-8); border-radius: var(--naotech-radius-circle); background: var(--naotech-color-green-600); }
+.pp-t__punto--off { background: var(--naotech-color-red-600); }
+.pp-t__flujo { width: 40%; }
+.pp-t__flujo > span { vertical-align: middle; }
+.pp-t__pista { display: inline-block; width: calc(100% - 44px); height: 6px; border-radius: 3px; background: var(--naotech-app-color-200); margin-right: var(--naotech-sizing-8); }
+.pp-t__pista span { display: block; height: 6px; border-radius: 3px; background: var(--naotech-color-blue-900); }
+@media (prefers-reduced-motion: no-preference) { .pp-t__pista span { transition: width 1.2s ease; } }
+.pp-t__off { font-weight: 700; color: var(--naotech-color-red-900); }
+.pp-t__num { text-align: right; font-variant-numeric: tabular-nums; }
+.pp-t__num--aviso { color: var(--naotech-color-orange-700); }
+.pp-t__num--rojo { font-weight: 700; color: var(--naotech-color-red-900); }
+
+/* Panel de alertas: fijo a la derecha, de arriba a abajo, siempre visible. */
+.pp-t__panel { display: flex; flex-direction: column; min-height: 0; background: var(--naotech-app-background); border-left: 1px solid var(--naotech-app-color-200); }
+.pp-t__panel-cab { display: flex; flex-direction: column; gap: var(--naotech-sizing-12); padding: var(--naotech-sizing-16) var(--naotech-sizing-20); border-bottom: 1px solid var(--naotech-app-color-200); }
+.pp-t__panel-cab .pp-t__h { justify-content: space-between; }
+.pp-t__sonando { margin: 0; display: flex; align-items: center; gap: var(--naotech-sizing-8); padding: var(--naotech-sizing-8) var(--naotech-sizing-12); border-radius: var(--naotech-radius-md); background: var(--naotech-color-red-050); color: var(--naotech-color-red-900); font-size: var(--naotech-sizing-14); font-weight: 700; }
+.pp-t__filtros { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: var(--naotech-sizing-4); padding: var(--naotech-sizing-4); border-radius: var(--naotech-radius-md); background: var(--naotech-app-color-100); }
+.pp-t__filtro { flex: 1 0 auto; padding: 0 var(--naotech-sizing-8); height: 36px; border: 0; border-radius: var(--naotech-radius-sm); background: transparent; color: var(--naotech-app-color-700); font-size: var(--naotech-sizing-14); font-weight: 700; cursor: pointer; white-space: nowrap; }
+.pp-t__filtro[aria-selected="true"] { background: var(--naotech-app-background); color: var(--naotech-app-color-900); box-shadow: var(--naotech-shadow-small); }
+.pp-t__lista { flex: 1; overflow-y: auto; padding: var(--naotech-sizing-14) var(--naotech-sizing-20); display: flex; flex-direction: column; gap: var(--naotech-sizing-12); }
+.pp-t__vacio { margin: var(--naotech-sizing-24) 0; text-align: center; font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-t__pie { margin: 0; padding: var(--naotech-sizing-12) var(--naotech-sizing-20); border-top: 1px solid var(--naotech-app-color-200); font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+
+.pp-t__alerta { --t-fondo: var(--naotech-app-background); --t-tinta: var(--naotech-app-color-900); --t-sub: var(--naotech-app-color-700); --t-borde: var(--naotech-app-color-200); --t-punto: var(--naotech-app-color-500);
+  display: flex; flex-direction: column; gap: var(--naotech-sizing-10); padding: var(--naotech-sizing-14); border-radius: var(--naotech-radius-lg); background: var(--t-fondo); color: var(--t-tinta); border: 1px solid var(--t-borde); }
+.pp-t__alerta--nueva { --t-fondo: var(--naotech-color-red-900); --t-tinta: var(--naotech-color-white-alpha-100); --t-sub: var(--naotech-color-red-100); --t-borde: var(--naotech-color-red-900); --t-punto: var(--naotech-color-white-alpha-100); }
+.pp-t__alerta--atencion { --t-fondo: var(--naotech-color-red-050); --t-borde: color-mix(in srgb, var(--naotech-color-red-700) 30%, transparent); --t-punto: var(--naotech-color-red-900); }
+.pp-t__alerta p { margin: 0; }
+.pp-t__alerta-top { display: flex; align-items: center; gap: var(--naotech-sizing-8); font-size: var(--naotech-sizing-14); color: var(--t-sub); }
+.pp-t__estado { padding: 2px var(--naotech-sizing-8); border-radius: var(--naotech-radius-pill); font-size: var(--naotech-sizing-14); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--naotech-app-color-200); color: var(--naotech-app-color-900); }
+.pp-t__alerta--nueva .pp-t__estado { background: var(--naotech-color-white-alpha-100); color: var(--naotech-color-red-900); }
+.pp-t__alerta--atencion .pp-t__estado { background: var(--naotech-color-red-900); color: var(--naotech-color-white-alpha-100); }
+.pp-t__tiempo { margin-left: auto; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pp-t__origen { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pp-t__estado { flex: none; }
+.pp-t__puerta { font-size: var(--naotech-sizing-18); font-weight: 700; }
+.pp-t__doc { font-size: var(--naotech-sizing-14); color: var(--t-sub); }
+.pp-t__pasos { margin: 0; padding: var(--naotech-sizing-8) 0 0; list-style: none; display: flex; flex-direction: column; gap: var(--naotech-sizing-4); border-top: 1px solid color-mix(in srgb, var(--t-tinta) 18%, transparent); font-size: var(--naotech-sizing-14); }
+.pp-t__pasos li { display: grid; grid-template-columns: 8px 40px minmax(0, 1fr); gap: var(--naotech-sizing-8); align-items: baseline; }
+.pp-t__pasos li::before { content: ''; width: 7px; height: 7px; border-radius: var(--naotech-radius-circle); background: var(--t-punto); align-self: center; }
+.pp-t__paso-hora { font-weight: 700; font-variant-numeric: tabular-nums; }
+.pp-t__quien { color: var(--t-sub); }
+.pp-t__acciones { display: flex; gap: var(--naotech-sizing-8); }
+.pp-t__btn { flex: 1; min-height: 44px; border: 0; border-radius: var(--naotech-radius-md); background: var(--naotech-app-color-900); color: var(--naotech-color-white-alpha-100); font: inherit; font-size: var(--naotech-sizing-14); font-weight: 700; cursor: pointer; }
+.pp-t__alerta--nueva .pp-t__btn { background: var(--naotech-color-white-alpha-100); color: var(--naotech-color-red-900); }
+.pp-t__btn--sec, .pp-t__alerta--nueva .pp-t__btn--sec { background: transparent; color: var(--t-tinta); border: 1px solid color-mix(in srgb, var(--t-tinta) 35%, transparent); }
+.pp-t__btn:focus-visible, .pp-t__filtro:focus-visible, .pp-t__volver:focus-visible { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+
+/* Perfil: vuelve al tablero desde la barra. */
+.pp-t__volver { display: inline-flex; align-items: center; gap: var(--naotech-sizing-6); min-height: 44px; padding: 0 var(--naotech-sizing-12); border: 1px solid var(--naotech-app-color-200); border-radius: var(--naotech-radius-md); background: var(--naotech-app-background); color: var(--naotech-app-color-900); font: inherit; font-size: var(--naotech-sizing-14); font-weight: 700; cursor: pointer; }
+/* Barra del tablero y del perfil: Naowee (y Volver) pegados a la izquierda. */
+.pp-policia__grupo--izq { margin-left: 0; }
+
+/* Selector "En vivo | Auditoría" de la Policía; el ::after lleva el área táctil a 44 px sin agrandar la barra. */
+
+/* ---------- Eventos (Policía): lista de cards por fecha, antes del tablero ---------- */
+
+.pp-e { overflow-y: auto; min-height: 0; padding: 0 0 var(--naotech-sizing-32); display: flex; flex-direction: column; gap: 0; background: var(--naotech-app-color-050); }
+.pp-e__cab { padding: var(--naotech-sizing-24) var(--naotech-sizing-32) 0; }
+.pp-e__h1 { margin: 0; font-size: var(--naotech-sizing-32); font-weight: 800; letter-spacing: -0.02em; }
+.pp-e__sub { margin: var(--naotech-sizing-4) 0 0; font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-e__barra { display: flex; align-items: center; gap: var(--naotech-sizing-16); flex-wrap: wrap; padding: var(--naotech-sizing-20) var(--naotech-sizing-32) var(--naotech-sizing-24); }
+.pp-e__filtros { flex: none; background: var(--naotech-app-color-100); }
+.pp-e__filtros .pp-t__filtro { flex: none; padding: 0 var(--naotech-sizing-14); height: 40px; font-size: var(--naotech-sizing-14); }
+.pp-e__buscar { flex: 1; min-width: 240px; display: flex; align-items: center; gap: var(--naotech-sizing-8); height: 48px; padding: 0 var(--naotech-sizing-14); border: 1px solid var(--naotech-app-color-200); border-radius: var(--naotech-radius-md); background: var(--naotech-app-background); color: var(--naotech-app-color-700); }
+.pp-e__buscar:focus-within { border-color: var(--naotech-primary-color-600); box-shadow: 0 0 0 3px color-mix(in srgb, var(--naotech-primary-color-600) 20%, transparent); }
+.pp-e__buscar input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: transparent; font: inherit; font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-900); }
+.pp-e__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+/* Cada estado es una franja de lado a lado: en vivo verde muy tenue, próximos azul claro y pasados sin fondo. */
+.pp-e__grupo { display: flex; flex-direction: column; gap: var(--naotech-sizing-12); padding: var(--naotech-sizing-20) var(--naotech-sizing-32) var(--naotech-sizing-24); border-top: 1px solid var(--naotech-app-color-200); }
+.pp-e__grupo--vivo { background: color-mix(in srgb, var(--naotech-color-green-100) 45%, var(--naotech-app-background)); border-top-color: color-mix(in srgb, var(--naotech-color-green-700) 25%, transparent); }
+.pp-e__grupo--proximo { background: color-mix(in srgb, var(--naotech-color-blue-100) 55%, var(--naotech-app-background)); border-top-color: color-mix(in srgb, var(--naotech-color-blue-700) 22%, transparent); }
+.pp-e__grupo--pasado { background: transparent; }
+.pp-e__grupo[hidden], .pp-e__card[hidden] { display: none; }
+.pp-e__fecha { margin: 0; display: flex; align-items: center; gap: var(--naotech-sizing-10); font-size: var(--naotech-sizing-18); font-weight: 700; }
+.pp-e__fecha span { min-width: 24px; height: 26px; padding: 0 var(--naotech-sizing-6); display: inline-grid; place-items: center; line-height: 1; border-radius: var(--naotech-radius-pill); background: var(--naotech-app-color-200); font-size: var(--naotech-sizing-14); }
+.pp-e__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--naotech-sizing-14); }
+.pp-equipo--consola .pp-e__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pp-e__vacio { margin: var(--naotech-sizing-32) 0; text-align: center; color: var(--naotech-app-color-700); }
+
+/* El estado manda el color del calendario y del chip: vivo verde, próximo azul, pasado gris. */
+.pp-e__card { --e-color: var(--naotech-color-blue-700); --e-suave: var(--naotech-color-blue-100);
+  display: flex; flex-direction: column; overflow: hidden; border-radius: var(--naotech-radius-lg); background: var(--naotech-app-background); border: 1px solid var(--naotech-app-color-200); }
+.pp-e__card--vivo { --e-color: var(--naotech-color-green-700); --e-suave: var(--naotech-color-green-100); border-color: color-mix(in srgb, var(--naotech-color-green-700) 35%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--naotech-color-green-700) 20%, transparent); }
+.pp-e__card--pasado { --e-color: var(--naotech-app-color-600); --e-suave: var(--naotech-app-color-100); }
+.pp-e__foto { position: relative; height: 128px; background: var(--naotech-app-color-200); }
+.pp-e__foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pp-e__card--pasado .pp-e__foto img { filter: saturate(0.35); }
+.pp-e__chip { position: absolute; left: var(--naotech-sizing-12); top: var(--naotech-sizing-12); display: inline-flex; align-items: center; gap: var(--naotech-sizing-6); height: 32px; padding: 0 var(--naotech-sizing-10); border-radius: var(--naotech-radius-pill); background: var(--naotech-app-background); color: var(--e-color); font-size: var(--naotech-sizing-14); font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; box-shadow: var(--naotech-shadow-small); }
+.pp-e__punto { width: 8px; height: 8px; border-radius: var(--naotech-radius-circle); background: var(--e-color); }
+.pp-e__card--vivo .pp-e__punto { animation: pp-e-late 1.6s ease-in-out infinite; }
+@keyframes pp-e-late { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--naotech-color-green-700) 45%, transparent); } 50% { box-shadow: 0 0 0 5px transparent; } }
+.pp-e__ir { position: absolute; right: var(--naotech-sizing-12); top: var(--naotech-sizing-12); width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: var(--naotech-radius-circle); background: var(--naotech-app-background); color: var(--naotech-app-color-900); box-shadow: var(--naotech-shadow-small); cursor: pointer; }
+.pp-e__card--vivo .pp-e__ir { background: var(--naotech-app-color-900); color: var(--naotech-color-white-alpha-100); }
+.pp-e__ir:hover { transform: translate(1px, -1px); }
+.pp-e__ir:focus-visible, .pp-e__buscar input:focus-visible { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+/* El calendario monta sobre el borde de la foto, como las fichas de las referencias. */
+.pp-e__cuerpo { display: flex; align-items: stretch; gap: var(--naotech-sizing-14); padding: var(--naotech-sizing-14) var(--naotech-sizing-16) 0; }
+/* Sin pie de alertas el cuerpo cierra la card: respira abajo (DC-205). */
+.pp-e__cuerpo:last-child { padding-bottom: var(--naotech-sizing-14); }
+/* El calendario va en la misma línea que los datos, sin flotar sobre la foto. */
+.pp-e__cal { position: relative; flex: none; width: 72px; display: flex; flex-direction: column; align-items: center; overflow: hidden; border-radius: var(--naotech-radius-md); border: 1px solid var(--naotech-app-color-200); background: var(--naotech-app-background); }
+.pp-e__mes { width: 100%; padding: var(--naotech-sizing-4) 0; text-align: center; background: var(--e-color); color: var(--naotech-color-white-alpha-100); font-size: var(--naotech-sizing-14); font-weight: 800; letter-spacing: 0.06em; }
+.pp-e__dia { flex: 1; display: flex; align-items: center; padding-top: var(--naotech-sizing-2); font-size: 30px; font-weight: 800; line-height: 1.1; color: var(--e-color); font-variant-numeric: tabular-nums; }
+.pp-e__hora { width: 100%; padding: var(--naotech-sizing-2) 0 var(--naotech-sizing-6); border-top: 1px solid var(--naotech-app-color-100); text-align: center; font-size: var(--naotech-sizing-14); font-weight: 700; color: var(--naotech-app-color-800); font-variant-numeric: tabular-nums; }
+.pp-e__info { flex: 1; min-width: 0; padding-top: 0; display: flex; flex-direction: column; gap: var(--naotech-sizing-2); }
+.pp-e__info p { margin: 0; }
+.pp-e__nota { align-self: flex-start; padding: 1px var(--naotech-sizing-8); border-radius: var(--naotech-radius-pill); background: var(--e-suave); color: var(--naotech-app-color-900); font-size: var(--naotech-sizing-14); font-weight: 600; }
+.pp-e__nota b { font-variant-numeric: tabular-nums; }
+.pp-e__titulo { margin: var(--naotech-sizing-4) 0 0; font-size: var(--naotech-sizing-20); font-weight: 800; letter-spacing: -0.01em; }
+.pp-e__comp { font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-e__lugar { display: flex; align-items: center; gap: var(--naotech-sizing-6); font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-800); }
+.pp-e__pie { margin: var(--naotech-sizing-12) var(--naotech-sizing-16) var(--naotech-sizing-14); padding-top: var(--naotech-sizing-10); display: flex; flex-direction: column; gap: var(--naotech-sizing-8); border-top: 1px solid var(--naotech-app-color-100); }
+.pp-e__dato { margin: 0; font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); font-variant-numeric: tabular-nums; }
+.pp-e__dato-n { font-weight: 800; color: var(--naotech-app-color-900); }
+.pp-e__estados { display: flex; align-items: center; gap: var(--naotech-sizing-6); flex-wrap: wrap; }
+.pp-e__al-l { margin-right: var(--naotech-sizing-2); font-size: var(--naotech-sizing-14); font-weight: 700; color: var(--naotech-app-color-800); }
+.pp-e__al { display: inline-flex; align-items: center; height: 28px; padding: 0 var(--naotech-sizing-8); border-radius: var(--naotech-radius-pill); font-size: var(--naotech-sizing-14); font-weight: 700; font-variant-numeric: tabular-nums; border: 1px solid transparent; }
+.pp-e__al--nueva { background: var(--naotech-color-red-900); color: var(--naotech-color-white-alpha-100); }
+.pp-e__al--atencion { background: var(--naotech-color-red-050); color: var(--naotech-color-red-900); border-color: color-mix(in srgb, var(--naotech-color-red-700) 30%, transparent); }
+.pp-e__al--cerrada { background: var(--naotech-app-color-100); color: var(--naotech-app-color-800); }
+.pp-e__al--cero { background: var(--naotech-app-background); color: var(--naotech-app-color-700); border-color: var(--naotech-app-color-200); }
+@media (prefers-reduced-motion: reduce) { .pp-e__card--vivo .pp-e__punto { animation: none; } .pp-e__ir:hover { transform: none; } }
+
+/* ---------- Asignar una alerta (DC-114): modal sobre el tablero y el perfil ---------- */
+
+.pp-t__espera { display: flex; align-items: center; gap: var(--naotech-sizing-6); margin: 0; font-size: var(--naotech-sizing-12); font-weight: 700; color: var(--t-tinta); }
+.pp-velo--modal { z-index: 9; }
+.pp-modal { position: absolute; z-index: 10; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(560px, calc(100% - 48px)); max-height: calc(100% - 48px); overflow-y: auto; display: flex; flex-direction: column; gap: var(--naotech-sizing-16); padding: var(--naotech-sizing-20) var(--naotech-sizing-24); border-radius: var(--naotech-radius-xl); background: var(--naotech-app-background); color: var(--naotech-app-color-900); box-shadow: var(--naotech-shadow-24); outline: 0; }
+.pp-modal p, .pp-modal h2 { margin: 0; }
+.pp-modal__cab { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--naotech-sizing-12); }
+.pp-modal__t { font-size: var(--naotech-sizing-20); font-weight: 800; }
+.pp-modal__s { margin-top: var(--naotech-sizing-4); font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-modal__x { flex: none; width: 44px; height: 44px; margin: -6px -10px 0 0; display: grid; place-items: center; border: 0; border-radius: var(--naotech-radius-circle); background: transparent; color: var(--naotech-app-color-900); cursor: pointer; }
+.pp-modal__x:hover { background: var(--naotech-app-color-100); }
+.pp-m__puerta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--naotech-sizing-8); }
+.pp-m__dato { display: flex; flex-direction: column; gap: 2px; padding: var(--naotech-sizing-8) var(--naotech-sizing-12); border-radius: var(--naotech-radius-md); background: var(--naotech-app-color-050); border: 1px solid var(--naotech-app-color-100); font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-m__dato b { font-size: var(--naotech-sizing-16); color: var(--naotech-app-color-900); font-variant-numeric: tabular-nums; }
+.pp-m__aviso { display: flex; align-items: center; gap: var(--naotech-sizing-8); padding: var(--naotech-sizing-10) var(--naotech-sizing-12); border-radius: var(--naotech-radius-md); background: color-mix(in srgb, var(--naotech-color-blue-900) 8%, var(--naotech-app-background)); color: var(--naotech-color-blue-900); font-size: var(--naotech-sizing-14); font-weight: 700; }
+.pp-m__agentes { margin: 0; padding: 0; border: 0; min-width: 0; display: flex; flex-direction: column; }
+.pp-m__agentes legend { padding: 0 0 var(--naotech-sizing-6); font-size: var(--naotech-sizing-14); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--naotech-app-color-700); }
+.pp-m__agente { display: flex; align-items: center; gap: var(--naotech-sizing-12); min-height: 52px; padding: var(--naotech-sizing-6) 0; border-bottom: 1px solid var(--naotech-app-color-100); cursor: pointer; }
+.pp-m__agente input { flex: none; width: 22px; height: 22px; margin: 0; accent-color: var(--naotech-app-color-900); cursor: pointer; }
+.pp-m__agente input:focus-visible { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+.pp-m__agente--off { cursor: not-allowed; color: var(--naotech-app-color-700); }
+.pp-m__quien { flex: 1; min-width: 0; display: flex; flex-direction: column; font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-m__quien b { font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-900); }
+.pp-m__agente--off .pp-m__quien b { color: var(--naotech-app-color-700); }
+.pp-m__cerca { flex: none; font-size: var(--naotech-sizing-14); font-weight: 700; color: var(--naotech-app-color-700); }
+.pp-m__cerca--0 { color: var(--naotech-color-green-900); }
+.pp-modal__nota { font-size: var(--naotech-sizing-14); color: var(--naotech-app-color-700); }
+.pp-modal__pie { display: flex; justify-content: flex-end; gap: var(--naotech-sizing-8); }
+.pp-m__btn { min-height: 48px; padding: 0 var(--naotech-sizing-20); border: 1px solid var(--naotech-app-color-900); border-radius: var(--naotech-radius-md); background: var(--naotech-app-color-900); color: var(--naotech-color-white-alpha-100); font: inherit; font-size: var(--naotech-sizing-14); font-weight: 700; cursor: pointer; }
+.pp-m__btn--sec { background: var(--naotech-app-background); color: var(--naotech-app-color-900); border-color: var(--naotech-app-color-300); }
+.pp-m__btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.pp-m__btn:focus-visible, .pp-modal__x:focus-visible { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+
+/* ---------- Comentarios de diseño del 29-sep (DC-143 a DC-151) ---------- */
+
+/* Dispositivo del panel del demo como dos botones: el activo con relleno, el otro transparente (DC-143). */
+#tabs-disp .nwt-tabs__list { gap: var(--naotech-sizing-8); padding: 0; border: 0; }
+#tabs-disp .nwt-tabs__divider, #tabs-disp .nwt-tabs__indicator { display: none; }
+#tabs-disp .nwt-tabs__tab { height: var(--naotech-sizing-36); min-height: 0; border-radius: var(--naotech-radius-md); border: 1px solid var(--naotech-app-color-300); background: transparent; color: var(--naotech-app-color-900); }
+#tabs-disp .nwt-tabs__tab--active { border-color: var(--naotech-primary-color-800); background: var(--naotech-primary-color-800); color: var(--naotech-color-white-alpha-100); }
+#tabs-disp .nwt-tabs__tab--active .nwt-tabs__label { color: inherit; }
+#tabs-disp .nwt-tabs__tab:focus-visible { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+
+/* Volver solo con icono, cuadrado de 44 px (DC-145). */
+.pp-t__volver--ico { width: 44px; padding: 0; justify-content: center; flex: none; }
+
+/* "Abiertos" al lado del contador de puertas (DC-144). */
+.pp-t__lugar { display: flex; align-items: center; flex-wrap: wrap; gap: var(--naotech-sizing-8); }
+
+/* Título arriba y su label debajo (DC-147). */
+.pp-t__h, .pp-t__h span { line-height: 1.3; }
+.pp-t__h { flex-direction: column; align-items: flex-start; gap: var(--naotech-sizing-2); }
+
+/* Una sola línea de copy, con la campana repicando (DC-146). */
+.pp-t__sonando { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pp-t__sonando svg { flex: none; transform-origin: 50% 10%; animation: pp-campana 2.4s ease-in-out infinite; }
+@keyframes pp-campana { 0%, 40%, 100% { transform: rotate(0); } 8% { transform: rotate(16deg); } 16% { transform: rotate(-14deg); } 24% { transform: rotate(10deg); } 32% { transform: rotate(-6deg); } }
+
+/* "En línea" centrado en la barra superior de la Policía (DC-148). */
+.pp-policia__barra { position: relative; }
+.pp-policia__barra .pp-conexion { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+
+/* Lo nuevo parpadea: "N nueva" y el chip "En vivo" (DC-149, DC-150). */
+.pp-e__al--nueva:not(.pp-e__al--cero) { animation: pp-parpadeo 0.9s ease-in-out infinite; }
+.pp-e__card--vivo .pp-e__chip { animation: pp-parpadeo 1.6s ease-in-out infinite; }
+@keyframes pp-parpadeo { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+/* El dato va debajo del tag, alineado con el resto de la columna (DC-202). */
+.pp-e__fila { display: flex; flex-direction: column; align-items: flex-start; gap: var(--naotech-sizing-4); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-t__sonando svg, .pp-e__al--nueva, .pp-e__card--vivo .pp-e__chip { animation: none; }
+}
+
+/* ---------- Splash de entrada y flash de captura (DC-156) ---------- */
+
+.pp-splash { position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--naotech-sizing-16); background: var(--naotech-app-background); pointer-events: all; animation: pp-splash 1500ms ease both; }
+/* DC-173: splash rojo (red-800, 6,2:1 con blanco), logo en blanco y un código de barras que se llena; sin loader. */
+.pp-splash-app { gap: var(--naotech-sizing-24); background: var(--naotech-color-red-800); color: var(--naotech-color-white-alpha-100); }
+.pp-splash__logo { display: block; width: 190px; }
+.pp-splash__logo svg { display: block; width: 100%; height: auto; }
+.pp-splash__logo svg * { fill: currentColor; }
+.pp-splash__n { font-size: var(--naotech-sizing-16); font-weight: 700; letter-spacing: 0.02em; }
+.pp-splash__codigo { position: relative; display: block; width: 200px; height: 64px; }
+.pp-splash__codigo svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pp-splash__base { opacity: 0.3; }
+.pp-splash__lleno { animation: pp-llena 1100ms cubic-bezier(0.4, 0, 0.2, 1) both; animation-delay: inherit; }
+.pp-splash__codigo::after { content: ''; position: absolute; top: -6px; bottom: -6px; left: 0; width: 2px; border-radius: 1px; background: currentColor; animation: pp-barrido 1100ms cubic-bezier(0.4, 0, 0.2, 1) both; animation-delay: inherit; }
+@keyframes pp-llena { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes pp-barrido { from { left: 0; } to { left: calc(100% - 2px); } }
+.pp-splash-flash { background: var(--naotech-color-white-alpha-100); pointer-events: none; animation: pp-flash 420ms ease-out both; }
+@keyframes pp-splash { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes pp-flash { 0% { opacity: 0; } 15% { opacity: 0.95; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pp-splash-app, .pp-splash__lleno, .pp-splash__codigo::after { animation: none; } .pp-splash__codigo::after { display: none; } }
+
+/* Semáforo (DC-159): padding 24, gap 16 entre bloques y la foto ocupa el alto que sobre. Va al final para ganar a los ajustes por equipo. */
+.pp-equipo .pp-r__top { flex: 1; min-height: 0; gap: var(--naotech-sizing-16); padding: var(--naotech-sizing-24); }
+.pp-equipo .pp-r__rotulo, .pp-equipo .pp-r__notas { margin: 0; }
+.pp-equipo .pp-r__rotulo { min-height: 0; }
+.pp-equipo .pp-r__doc { flex: 1; min-height: 0; gap: var(--naotech-sizing-16); }
+.pp-equipo .pp-r__doc > .pp-r__foto { align-self: center; flex: 1 1 0; width: auto; min-width: 0; max-width: 100%; min-height: 100px; height: auto; }
+.pp-equipo .pp-r__acciones { padding: 0 var(--naotech-sizing-24) var(--naotech-sizing-24); gap: var(--naotech-sizing-16); }
+.pp-equipo--tablet .pp-r__acciones, .pp-equipo--consola .pp-r__acciones { padding-inline: 200px; }
+
+/* DC-171: en tablet y consola el resultado va en dos columnas (foto grande a la izquierda, datos a la derecha) con 24 px alrededor.
+   .pp-r__top y .pp-r__doc se disuelven para que sus hijos caigan en la misma grilla; va antes de los ajustes finos por equipo. */
+.pp-equipo .pp-r--cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto auto minmax(0, 1fr) auto auto; column-gap: var(--naotech-sizing-24); padding: var(--naotech-sizing-24); overflow: hidden; }
+.pp-equipo .pp-r--cols .pp-r__top, .pp-equipo .pp-r--cols .pp-r__doc { display: contents; }
+.pp-equipo .pp-r--cols .pp-r__palabra { grid-column: 2; grid-row: 1; text-align: left; font-size: 72px; margin-bottom: var(--naotech-sizing-16); }
+.pp-equipo .pp-r--cols .pp-r__rotulo { grid-column: 2; grid-row: 2; align-items: flex-start; text-align: left; }
+.pp-equipo .pp-r--cols .pp-r__datos { grid-column: 2; grid-row: 4; align-items: flex-start; text-align: left; margin-top: var(--naotech-sizing-16); }
+.pp-equipo .pp-r--cols .pp-r__notas { grid-column: 2; grid-row: 5; align-self: start; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: var(--naotech-sizing-8); margin-top: var(--naotech-sizing-16); }
+.pp-equipo .pp-r--cols .pp-r__nota { max-width: none; }
+.pp-equipo .pp-r--cols .pp-r__acciones { grid-column: 2; grid-row: 6; padding: var(--naotech-sizing-16) 0 0; margin: 0; }
+.pp-equipo .pp-r--cols .pp-r__lector { grid-column: 2; grid-row: 7; margin: var(--naotech-sizing-16) 0 0; }
+.pp-equipo--consola .pp-r--cols .pp-r__palabra { font-size: 80px; }
+/* La foto ocupa toda la columna izquierda; la imagen va en absoluto para no empujar el alto de la grilla. */
+.pp-equipo .pp-r--cols .pp-r__doc > .pp-r__foto, .pp-equipo .pp-r--cols .pp-r__doc > .pp-r__fotos { grid-column: 1; grid-row: 1 / 8; width: auto; height: auto; min-width: 0; min-height: 0; max-width: none; aspect-ratio: auto; align-self: stretch; }
+.pp-equipo .pp-r--cols .pp-r__doc > .pp-r__foto { border-radius: 16px; }
+.pp-equipo .pp-r--cols .pp-r__foto--img img { position: absolute; inset: 0; }
+.pp-equipo .pp-r--cols .pp-r__fotos { display: flex; gap: var(--naotech-sizing-16); border-radius: 0; }
+.pp-equipo .pp-r--cols .pp-r__fotoc { flex: 1 1 0; min-width: 0; min-height: 0; height: 100%; font-size: var(--naotech-sizing-14); gap: var(--naotech-sizing-8); }
+.pp-equipo .pp-r--cols .pp-r__fotoc .pp-r__foto { flex: 1; width: 100%; min-width: 0; min-height: 0; max-width: none; aspect-ratio: auto; }
+
+/* DC-165: en el celular cada label del rojo cabe en una sola línea. */
+.pp-equipo--celular .pp-r--rojo .pp-r__nota { padding: var(--naotech-sizing-8) var(--naotech-sizing-10); }
+
+/* DC-169: con la capa abierta la franja cuelga del equipo (escalar() fija --capa-top), no del fondo. */
+.pp-escena--capa .pp-c { top: var(--capa-top); bottom: auto; }
+
+/* DC-168: bajo 900 px el demo apila; el panel es un desplegable y el escenario ocupa la pantalla. */
+.pp-panel__toggle { display: none; }
+@media (max-width: 900px) {
+  .pp-demo { height: auto; min-height: 100svh; overflow: visible; }
+  .pp-demo__cuerpo { display: flex; flex-direction: column; }
+  .pp-panel { overflow: visible; padding: var(--naotech-sizing-8) var(--naotech-sizing-16); border-right: 0; border-bottom: 1px solid var(--naotech-app-color-200); }
+  .pp-panel__toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 44px; padding: 0 var(--naotech-sizing-4); border: 0; background: transparent; color: var(--naotech-app-color-900); font: inherit; font-size: var(--naotech-sizing-16); font-weight: 700; cursor: pointer; }
+  .pp-panel__toggle:focus-visible { outline: 2px solid var(--naotech-primary-color-600); outline-offset: 2px; }
+  .pp-panel__toggle svg { transition: transform 200ms ease; }
+  .pp-panel--abierto .pp-panel__toggle svg { transform: rotate(180deg); }
+  .pp-panel:not(.pp-panel--abierto) > :not(.pp-panel__toggle) { display: none; }
+  .pp-panel nwt-detail-item { min-height: 44px; }
+  .pp-panel__lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .pp-escenario { flex: none; height: max(600px, calc(100svh - 168px)); }
+  .pp-toolbar__marca nwt-logo-naowee { --naotech-logo-width: 5.5rem; }
+}
+@media (max-width: 560px) {
+  .pp-toolbar__titulo { display: none; }
+}
+
+/* DC-348: el lockup Mindeporte + IVC ocupa el lugar grande del splash; Naowee va pequeño a 32 px del borde inferior. */
+.pp-splash__logo { width: auto; }
+.pp-splash__naowee { position: absolute; left: 50%; bottom: 32px; transform: translateX(-50%); display: block; height: 22px; color: var(--naotech-color-white-alpha-100); }
+.pp-splash__naowee svg { display: block; height: 100%; width: auto; }
+.pp-splash__naowee svg * { fill: currentColor; }
+
+/* DC-350: logo y texto arriba (32 px del borde, texto de 20 px); el giro queda al centro del resto. */
+.pp-r--cargando .pp-r__centro { justify-content: flex-start; padding-top: var(--naotech-sizing-32); gap: var(--naotech-sizing-16); }
+.pp-r__cabeza { display: flex; flex-direction: column; align-items: center; gap: var(--naotech-sizing-16); }
+.pp-r--cargando .pp-r__texto, .pp-equipo .pp-r--cargando .pp-r__texto { font-size: 20px; }
+.pp-r--cargando .pp-r__giro { margin-block: auto; }
+
+/* DC-352: las dos fotos crecen a lo ancho a partes iguales y el rótulo de debajo va a 18 px. */
+.pp-equipo .pp-r--rostro:not(.pp-r--cols) .pp-r__doc > .pp-r__fotos { align-self: stretch; width: 100%; gap: var(--naotech-sizing-16); }
+.pp-equipo .pp-r--rostro:not(.pp-r--cols) .pp-r__fotos .pp-r__fotoc { flex: 1 1 0; min-width: 0; }
+.pp-equipo .pp-r--rostro:not(.pp-r--cols) .pp-r__fotos .pp-r__foto { width: 100%; min-width: 0; height: auto; aspect-ratio: 3 / 4; }
+.pp-equipo .pp-r--rostro .pp-r__fotoc { font-size: 18px; }
+
+/* DC-349: el icon button de Mi turno mide lo mismo que Digitar documento (alto del botón vecino, cuadrado). */
+.pp-acciones > nwt-icon-button, .pp-acciones > nwt-icon-button .nwt-icon-button__content { flex: none; width: var(--pp-boton-alto); height: var(--pp-boton-alto); min-width: var(--pp-boton-alto); min-height: var(--pp-boton-alto); }
