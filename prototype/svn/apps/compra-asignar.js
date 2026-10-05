@@ -39,7 +39,7 @@
     }
     return st.pca;
   }
-  function yo(st) { return st.persona || (st.caso && st.caso.persona) || { nombre: 'Laura Restrepo Gil', doc: 'CC 1.036.482.117' }; }
+  function yo(st) { return st.persona || (st.caso && st.caso.persona) || { nombre: 'Andrés Felipe Restrepo Gil', doc: 'CC 1.036.482.117' }; }
 
   // Segunda boleta: del st si ya existe; si no, un valor coherente con la localidad.
   function segunda(st) {
@@ -207,7 +207,7 @@
         btnS('ace-listo', 'Ver cómo le queda a ' + e(ella), { cls: 'pca-sbtn--pri' }) + '</section>';
     } else if (vista === 'rechazada') {
       pieza = '<section class="pca-pieza pca-pieza--res" role="status"><div class="pca-res"><span class="pca-res__ic">' + svg('x', 26, 2.4) + '</span><h2 class="pca-h">Rechazaste la boleta</h2><p class="pca-p">' + e(ella) + ' puede asignarla a otra persona antes del ' + LIMITE + '</p></div>' +
-        btnS('ace-deshacer', 'Volver a la invitación', { izq: 'deshacer' }) + '<button type="button" class="pca-sbtn" data-acc="ace-vista-laura">Ver la vista de ' + e(ella) + '</button></section>';
+        btnS('ace-deshacer', 'Volver a la invitación', { izq: 'deshacer' }) + '<button type="button" class="pca-sbtn" data-acc="ace-vista-titular">Ver la vista de ' + e(ella) + '</button></section>';
     } else {
       pieza = '<section class="pca-pieza pca-pieza--res" role="alert"><div class="pca-res"><span class="pca-res__ic pca-res__ic--s2">' + svg('aviso', 26) + '</span><h2 class="pca-h">No es posible aceptar esta boleta</h2><p class="pca-p">Por privacidad no mostramos el motivo. Puedes consultar tu estado en tu portal de estado.</p></div>' +
         btnS('ace-deshacer', 'Volver a la invitación') + '</section>';
@@ -241,7 +241,7 @@
         var r = st.segunda.rechazada; m.noPosible = false;
         if (r) { st.segunda = { estado: 'invitada', a: r, rechazada: null }; }
         ctx.repintar(); foco(ctx, 'ppal');
-      } else if (acc === 'ace-vista-laura') { ctx.ir('listo');
+      } else if (acc === 'ace-vista-titular') { ctx.ir('listo');
       } else if (acc === 'ace-listo') { ctx.ir('listo'); }
     }
   });

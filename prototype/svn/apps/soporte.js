@@ -63,9 +63,9 @@ window.PANTALLAS = window.PANTALLAS || {};
         boletas: [{ cod: 'EC-MIL-0377', est: 'asignada', tit: 'CC •••• 8339', prop: 'Propietario CC •••• 8339', sector: 'Occidental · Fila D · Silla 4',
           traza: [['21 sep · 18:02', 'Consulta 1 · ¿Puede comprar?', 'ok', 'Autorizado · Graderío'], ['21 sep · 18:03', 'Token emitido', 'info', 'tk •••• 51C0'], ['21 sep · 18:05', 'Asignada a su propietaria', 'ok', 'Consulta 3 · Autorizado'], ['29 sep · 09:21', 'Reclamación abierta', 'info', 'Sin ingresos todavía']] }],
         historial: [{ t: 'Hoy · 09:21', x: 'Reclamación recibida por el canal web', q: 'Mariana Cárdenas Ríos' }, { t: 'Hoy · 09:40', x: 'Caso tomado', q: 'Marcela Duque' }] },
-      { id: 'R-2026-0181', tipo: 'medida', estado: 'abierta', quien: { n: 'Julián Andrés Posada', doc: 'CC 71.894.4471' }, ev: EV.car, recibida: 'Ayer · 16:30',
+      { id: 'R-2026-0181', tipo: 'medida', estado: 'abierta', quien: { n: 'Julián Andrés Posada', doc: 'CC 71.894.447' }, ev: EV.car, recibida: 'Ayer · 16:30',
         dice: 'No me dejaron comprar la boleta y yo nunca he tenido problemas. Quiero saber por qué.',
-        boletas: [{ cod: 'Intento de compra · 28 sep', est: 'sin boleta', tit: '—', prop: 'CC •••• 4471', sector: 'Oriental · General',
+        boletas: [{ cod: 'Intento de compra · 28 sep', est: 'sin boleta', tit: '—', prop: 'CC •••• 4447', sector: 'Oriental · General',
           traza: [['28 sep · 15:08', 'Consulta 1 · ¿Puede comprar?', 'no', 'Denegado'], ['28 sep · 15:08', 'Código de motivo', 'no', 'Medida restrictiva vigente'], ['28 sep · 15:08', 'Qué vio la comercializadora', 'info', 'Solo «no es posible continuar» y el enlace al portal']] }],
         historial: [{ t: 'Ayer · 16:30', x: 'Reclamación recibida por el canal web', q: 'Julián Andrés Posada' }] },
       { id: 'R-2026-0178', tipo: 'identidad', estado: 'abierta', quien: { n: 'Camilo Torres Díaz', doc: 'CC 1.000.000.017' }, ev: EV.car, recibida: 'Ayer · 11:05',
@@ -104,9 +104,9 @@ window.PANTALLAS = window.PANTALLAS || {};
   // Quien recibe se valida igual que en la compra: documento vigente, medida, una boleta por persona y por evento.
   var DEST = {
     '1017889214': { n: 'Daniela Gómez Arias', ok: true },
-    '1036482117': { n: 'Laura Restrepo Gil', ok: true },
+    '1036482117': { n: 'Andrés Felipe Restrepo Gil', ok: true },
     '1152708339': { n: 'Mariana Cárdenas Ríos', ok: false, cod: 'Ya tiene boleta para este evento' },
-    '718944471': { n: 'Julián Andrés Posada', ok: false, cod: 'Medida restrictiva vigente' }
+    '71894447': { n: 'Julián Andrés Posada', ok: false, cod: 'Medida restrictiva vigente' }
   };
 
   var FILTROS = [['todas', 'Todas'], ['abierta', 'Abiertas'], ['en gestión', 'En gestión'], ['resuelta', 'Resueltas'], ['rechazada', 'Rechazadas']];
@@ -276,7 +276,7 @@ window.PANTALLAS = window.PANTALLAS || {};
         tarjeta('Probar', '<div class="pp-panel__lista">' + PROBAR.map(function (p) {
           return '<nwt-detail-item actionable icon="' + p[1] + '" nwt-theme="' + p[2] + '" data-acc="g-caso" data-id="' + p[0] + '">' + esc(p[3]) + '</nwt-detail-item>';
         }).join('') + '</div>') +
-        tarjeta('Transferir', '<div class="pp-panel__lista"><nwt-detail-item actionable icon="negative" nwt-theme="negative" data-acc="g-dest" data-id="718944471">Destino con medida vigente</nwt-detail-item>' +
+        tarjeta('Transferir', '<div class="pp-panel__lista"><nwt-detail-item actionable icon="negative" nwt-theme="negative" data-acc="g-dest" data-id="71894447">Destino con medida vigente</nwt-detail-item>' +
           '<nwt-detail-item actionable icon="caution" nwt-theme="warning" data-acc="g-dest" data-id="1152708339">Destino con boleta para el evento</nwt-detail-item></div>') +
         tarjeta('Condiciones', '<div class="pp-panel__lista" id="sp-reloj"></div>') +
         '<p class="nwt-smalltext-font-regular pp-panel__pie">Datos e información de prueba.</p></aside>';

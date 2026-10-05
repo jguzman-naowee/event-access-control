@@ -39,5 +39,5 @@
     });
   }
 
-  window.SPLASH = { app: app, flash: flash, ver: ver };
+  window.SPLASH = { app: app, flash: flash, ver: ver, codigo: codigo };
 })();

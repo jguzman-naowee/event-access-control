@@ -46,9 +46,9 @@ window.COMPRA.registrar = window.COMPRA.registrar || function (id, def) { window
   ];
   var CARGO = 7500, MAX = 5;
   var P = {
-    laura: { nombre: 'Laura Restrepo Gil', tipo: 'CC', num: '1.036.482.117' },
+    andres: { nombre: 'Andrés Felipe Restrepo Gil', tipo: 'CC', num: '1.036.482.117' },
     santiago: { nombre: 'Santiago Mejía Correa', tipo: 'CC', num: '1.037.664.905' },
-    julian: { nombre: 'Julián Andrés Posada', tipo: 'CC', num: '71.894.4471' },
+    julian: { nombre: 'Julián Andrés Posada', tipo: 'CC', num: '71.894.447' },
     mariana: { nombre: 'Mariana Cárdenas Ríos', tipo: 'CC', num: '1.152.708.339' },
     paula: { nombre: 'Paula Andrea Henao Restrepo', tipo: 'CC', num: '1.040.221.908' },
     rosa: { nombre: 'Rosa Elena Cortés Vega', tipo: 'CC', num: '43.118.920' },
@@ -62,23 +62,23 @@ window.COMPRA.registrar = window.COMPRA.registrar || function (id, def) { window
 
   // Los 11 casos de C1-Casos. `c` = consulta que corta; `paso` = dónde corta; `ve` = qué ve la persona.
   var CASOS = [
-    { id: 'feliz', corto: 'Compra sin problemas', punto: 'verde', c: 0, paso: 'No corta', persona: P.laura, invitado: P.santiago, ve: 'En Pago, «Pagando como Laura Restrepo Gil» y sin volver a pedir el documento. Luego sus boletas con QR.' },
+    { id: 'feliz', corto: 'Compra sin problemas', punto: 'verde', c: 0, paso: 'No corta', persona: P.andres, invitado: P.santiago, ve: 'En Pago, «Pagando como Andrés Felipe Restrepo Gil» y sin volver a pedir el documento. Luego sus boletas con QR.' },
     { id: 'medida-id', corto: 'Bloqueo por medida', punto: 'rojo', c: 1, paso: 'Medidas · DB', codigo: 'Medida restrictiva vigente', persona: P.julian, invitado: P.santiago, ve: 'Resultado de la validación, sin motivo, con enlace a su portal. No llega al pago.' },
     { id: 'limite-id', corto: 'Límite al identificarse', punto: 'rojo', c: 1, paso: 'Límite', codigo: 'Límite de venta excedido', persona: P.mariana, previas: 4, loc: 'ori', invitado: P.santiago, ve: 'La regla de 5 por persona y «Cambiar la cantidad». Con 1 boleta sí pasa.' },
     { id: 'limite-carrera', corto: 'Límite al pagar', punto: 'rojo', c: 2, paso: 'Límite', codigo: 'Límite de venta excedido', persona: P.mariana, carrera: 4, loc: 'ori', invitado: P.santiago, ve: 'Pasa la consulta 1; al pagar, la misma regla y «no se hizo ningún cobro». Reserva liberada.' },
     { id: 'identidad', corto: 'Nombre no coincide', punto: 'rojo', c: 1, paso: 'Registraduría', codigo: 'Identidad no coincide', persona: P.paula, invitado: P.santiago, ve: 'Revisar los datos: 3 intentos y luego el Resultado genérico. Corrigiendo los datos sí pasa.' },
     { id: 'doc-invalido', corto: 'Cédula no válida', punto: 'rojo', c: 1, paso: 'Registraduría', codigo: 'Documento no válido', persona: P.rosa, invitado: P.santiago, ve: 'Resultado de la validación, sin motivo. No llega al pago.' },
     { id: 'cambio-medida', corto: 'Medida durante el pago', punto: 'rojo', c: 2, paso: 'Medidas · DB', codigo: 'Medida restrictiva vigente', persona: P.kevin, invitado: P.santiago, ve: 'Pasa la consulta 1; al pagar, resultado sin motivo, «no se cobró» y «reserva liberada».' },
-    { id: 'acomp-medida', corto: 'Acompañante con medida', punto: 'rojo', c: 3, paso: 'Medidas · DB', persona: P.laura, invitado: P.julian, ve: 'Laura: «No es posible asignar esta boleta a esta persona», sin motivo. 1 válida y 1 sin titular.' },
-    { id: 'acomp-boleta', corto: 'Acompañante con boleta', punto: 'rojo', c: 3, paso: 'Una por evento', persona: P.laura, invitado: P.daniela, ve: 'Igual que el anterior (código propuesto).' },
-    { id: 'acomp-afinidad', corto: 'Acompañante sin afinidad', punto: 'rojo', c: 3, paso: 'Afinidad y sector', sinVisitante: true, persona: P.laura, invitado: P.cristian, ve: 'Igual que el anterior. El partido va sin hinchada visitante y Sur queda cerrada.' },
-    { id: 'afinidad-no-concluyente', corto: 'Afinidad dudosa: pasa', punto: 'verde', c: 0, paso: 'Deja pasar', noConcluyente: true, persona: P.laura, invitado: P.tomas, ve: 'Aceptar boleta, como en el camino feliz. El motivo queda en la auditoría.' }
+    { id: 'acomp-medida', corto: 'Acompañante con medida', punto: 'rojo', c: 3, paso: 'Medidas · DB', persona: P.andres, invitado: P.julian, ve: 'Andrés: «No es posible asignar esta boleta a esta persona», sin motivo. 1 válida y 1 sin titular.' },
+    { id: 'acomp-boleta', corto: 'Acompañante con boleta', punto: 'rojo', c: 3, paso: 'Una por evento', persona: P.andres, invitado: P.daniela, ve: 'Igual que el anterior (código propuesto).' },
+    { id: 'acomp-afinidad', corto: 'Acompañante sin afinidad', punto: 'rojo', c: 3, paso: 'Afinidad y sector', sinVisitante: true, persona: P.andres, invitado: P.cristian, ve: 'Igual que el anterior. El partido va sin hinchada visitante y Sur queda cerrada.' },
+    { id: 'afinidad-no-concluyente', corto: 'Afinidad dudosa: pasa', punto: 'verde', c: 0, paso: 'Deja pasar', noConcluyente: true, persona: P.andres, invitado: P.tomas, ve: 'Aceptar boleta, como en el camino feliz. El motivo queda en la auditoría.' }
   ];
   // Vista «Quien recibe la boleta» (DC-234): arranca en la invitación, en el celular del invitado. `c: 3` = corta al aceptar.
   var RECIBE = [
-    { id: 'rec-pendiente', corto: 'Invitación por aceptar', punto: 'verde', c: 0, paso: 'Invitación pendiente', recibe: 'pendiente', persona: P.laura, invitado: P.santiago, ve: 'Ve quién lo invita y la boleta. Puede Aceptar (se revalida) o Rechazar.' },
-    { id: 'rec-rechazada', corto: 'Invitación rechazada', punto: 'verde', c: 0, paso: 'Rechazada', recibe: 'rechazada', persona: P.laura, invitado: P.santiago, ve: 'Ve «Rechazaste la boleta»; Laura puede asignarla a otra persona. Puede volver a la invitación.' },
-    { id: 'rec-noposible', corto: 'Aceptación bloqueada', punto: 'rojo', c: 3, paso: 'Medidas · SVN', recibe: 'pendiente', aceptaFalla: true, persona: P.laura, invitado: P.julian, ve: 'Al aceptar se revalida y sale «No es posible aceptar esta boleta», sin motivo.' }
+    { id: 'rec-pendiente', corto: 'Invitación por aceptar', punto: 'verde', c: 0, paso: 'Invitación pendiente', recibe: 'pendiente', persona: P.andres, invitado: P.santiago, ve: 'Ve quién lo invita y la boleta. Puede Aceptar (se revalida) o Rechazar.' },
+    { id: 'rec-rechazada', corto: 'Invitación rechazada', punto: 'verde', c: 0, paso: 'Rechazada', recibe: 'rechazada', persona: P.andres, invitado: P.santiago, ve: 'Ve «Rechazaste la boleta»; Andrés puede asignarla a otra persona. Puede volver a la invitación.' },
+    { id: 'rec-noposible', corto: 'Aceptación bloqueada', punto: 'rojo', c: 3, paso: 'Medidas · SVN', recibe: 'pendiente', aceptaFalla: true, persona: P.andres, invitado: P.julian, ve: 'Al aceptar se revalida y sale «No es posible aceptar esta boleta», sin motivo.' }
   ];
   CASOS.forEach(function (c, i) { c.n = i + 1; });
   RECIBE.forEach(function (c, i) { c.n = i + 1; });

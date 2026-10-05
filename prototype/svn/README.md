@@ -98,7 +98,7 @@ Los demás perfiles responden *Disponible próximamente*: ninguna card queda mud
 | Sin conexión | Valida con el paquete del evento y cuenta lo pendiente por sincronizar; el rojo queda en cola |
 | Condiciones | Cada switch (Sin conexión, Módulo biométrico, Torniquete) baja un toast breve y mueve su punto sobre la cámara: Conexión, Biométrico, Torniquete |
 | Capa oculta | En cada validación el equipo se achica y aparece debajo una franja sin fondo: los 6 pasos en una línea (lectura, ANI · Registraduría, boleta, Policía, medidas del SVN y decisión: 2 consultas externas y 4 del SVN; el IVC solo radica las medidas, no se consulta), el sistema que responde y su label, el tag del resultado, y al final el reloj con play/pausa. En Slow motion dura 1 s por paso (6 s) y representa 1,5 s reales. En cada paso baja un dato del equipo a la línea y sube la respuesta, de a uno, con el color de lo que dio. Al definirse el resultado, todos los pasos toman ese color, y 2 s después la franja se va. Solo en Slow motion: en Tiempo real no aparece y el equipo conserva su tamaño |
-| Digitar | Teclado numérico con los 7 tipos de documento. Un número que termine en `4471` da rojo |
+| Digitar | Teclado numérico con los 7 tipos de documento. Un número que termine en `4447` da rojo |
 
 El panel izquierdo es **del demo, no del producto**: dispara lo que llegaría por la cámara o el lector.
 Está hecho solo con componentes del SDK (`nwt-toolbar`, `nwt-title`, `nwt-alert`, `nwt-card`, `nwt-tabs`,

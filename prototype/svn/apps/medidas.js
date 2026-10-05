@@ -746,7 +746,7 @@ window.PANTALLAS = window.PANTALLAS || {};
         case 'g-duplicado': prepararRad(4, function (x) { x.v.entrada = '2025-E-041872'; }); return;
         case 'g-futura': prepararRad(3, function (x) { x.v.ejecutoria = '2026-10-15'; }); return;
         case 'g-menor': b.q = ''; b.filtro = 'menores'; seleccionarMedida('MC-2026-0802'); irVista('base'); return;
-        case 'g-julian': b.q = '71.894.4471'; b.filtro = 'todas'; seleccionarMedida('MC-2025-0831'); irVista('base'); return;
+        case 'g-julian': b.q = '71.894.447'; b.filtro = 'todas'; seleccionarMedida('MC-2025-0831'); irVista('base'); return;
         case 'g-reporte': st.rep = { sel: 'R-2026-0412', filtro: 'todos', q: '', entidad: '', periodo: 'todo', archivando: false, motivo: '', nota: '' }; irVista('reportes'); return;
       }
       pintar();

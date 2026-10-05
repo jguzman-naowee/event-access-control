@@ -23,7 +23,7 @@
 
 .pt-body { flex: 1; min-height: 0; overflow-y: auto; padding: var(--naotech-sizing-16); display: flex; flex-direction: column; gap: var(--naotech-sizing-14); }
 .pt-body > * { flex-shrink: 0; }
-.pt-h1 { font-size: var(--naotech-sizing-24); line-height: 1.2; font-weight: 800; text-wrap: balance; }
+.pt-h1 { font-size: var(--naotech-sizing-24); line-height: 1.2; letter-spacing: -0.02em; font-weight: 800; text-wrap: balance; }
 .pt-h2 { font-size: var(--naotech-sizing-16); line-height: 1.3; font-weight: 700; }
 .pt-h2--s { font-size: var(--naotech-sizing-14); color: var(--pt-mute); text-transform: uppercase; letter-spacing: .04em; }
 .pt-p { font-size: var(--naotech-sizing-16); line-height: 1.45; }

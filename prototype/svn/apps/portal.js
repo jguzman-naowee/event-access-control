@@ -29,7 +29,7 @@ window.PANTALLAS = window.PANTALLAS || {};
   /* ---------- Datos ficticios: cada persona ve solo lo suyo ---------- */
 
   var PERS = {
-    '1036482117': { tipo: 'CC', num: '1.036.482.117', nombre: 'Laura Restrepo Gil', medidas: [], foto: true,
+    '1036482117': { tipo: 'CC', num: '1.036.482.117', nombre: 'Andrés Felipe Restrepo Gil', medidas: [], foto: true,
       boletas: [
         { id: 'b1', evento: 'Nacional vs. Medellín', fecha: '28 sep 2026 · 19:00', lugar: 'Estadio Atanasio Girardot', sitio: 'Oriental Baja · Fila E · Silla 18', estado: 'usada', nota: 'Entró el 28 sep por la Puerta 4' },
         { id: 'b2', evento: 'América vs. Once Caldas', fecha: '3 oct 2026 · 16:00', lugar: 'Estadio Olímpico Pascual Guerrero', sitio: 'Occidental · Fila C · Silla 9', estado: 'asignada', nota: 'A tu nombre' },
@@ -37,7 +37,7 @@ window.PANTALLAS = window.PANTALLAS || {};
         { id: 'b4', evento: 'Millonarios vs. América', fecha: '29 sep 2026 · 20:00', lugar: 'Estadio El Campín', sitio: 'Norte · General', estado: 'transferida', nota: 'La pasaste a Santiago M. · CC •••• 4905 el 27 sep' }
       ],
       vinculos: [{ id: 'v1', nombre: 'Graderío', desde: '12 ago 2026', dato: 'Documento y resultado de la validación' }, { id: 'v2', nombre: 'Taquilla oficial · Atanasio Girardot', desde: '2 mar 2026', dato: 'Documento y resultado de la validación' }] },
-    '718944471': { tipo: 'CC', num: '71.894.4471', nombre: 'Julián Andrés Posada', persona: 'p1', medidas: [], boletas: [],
+    '71894447': { tipo: 'CC', num: '71.894.447', nombre: 'Julián Andrés Posada', persona: 'p1', medidas: [], boletas: [],
       vinculos: [{ id: 'v1', nombre: 'Graderío', desde: '9 sep 2026', dato: 'Documento y resultado de la validación' }] },
     '4518227': { tipo: 'CE', num: '4.518.227', nombre: 'Daniela Restrepo Gil', persona: 'p6', boletas: [], vinculos: [] },
     '1152708339': { tipo: 'CC', num: '1.152.708.339', nombre: 'Mariana Cárdenas Ríos', persona: 'p0', boletas: [
@@ -49,15 +49,15 @@ window.PANTALLAS = window.PANTALLAS || {};
   };
 
   var CASOS = [
-    { id: 'sin', n: 1, corto: 'Persona sin medidas', punto: 'verde', form: { tipo: 'CC', num: '1.036.482.117', nombre: 'Laura Restrepo Gil' },
-      ve: 'Laura Restrepo Gil: Sin medidas vigentes, cuatro boletas en distintos estados y dos vínculos con foto de referencia.' },
-    { id: 'vigente', n: 2, corto: 'Con medida vigente', punto: 'rojo', form: { tipo: 'CC', num: '71.894.4471', nombre: 'Julián Andrés Posada' },
+    { id: 'sin', n: 1, corto: 'Persona sin medidas', punto: 'verde', form: { tipo: 'CC', num: '1.036.482.117', nombre: 'Andrés Felipe Restrepo Gil' },
+      ve: 'Andrés Felipe Restrepo Gil: Sin medidas vigentes, cuatro boletas en distintos estados y dos vínculos con foto de referencia.' },
+    { id: 'vigente', n: 2, corto: 'Con medida vigente', punto: 'rojo', form: { tipo: 'CC', num: '71.894.447', nombre: 'Julián Andrés Posada' },
       ve: 'Julián Andrés Posada: la medida con autoridad, acto, desde y hasta, y los días que faltan. Una medida cumplida aparte.' },
     { id: 'vencer', n: 3, corto: 'Medida por vencer', punto: 'amarillo', form: { tipo: 'CE', num: '4.518.227', nombre: 'Daniela Restrepo Gil' },
       ve: 'Vence en 6 días. Con «Adelantar el reloj» el estado pasa solo a Sin medidas vigentes, sin trámite.' },
     { id: 'menor', n: 4, corto: 'Menor · representante legal', punto: 'rojo', form: { tipo: 'CC', num: '43.512.876', nombre: 'Gloria Patricia Hoyos Marín', menor: true, docMenor: '1.021.774.331' },
       ve: 'Entra la madre y ve solo el estado de su hijo, con un aviso de que consulta como representante.' },
-    { id: 'compra', n: 5, corto: 'Desde un bloqueo de la compra', punto: 'rojo', directo: true, desde: { donde: 'Graderío', evento: 'Nacional vs. Medellín · 28 sep' }, form: { tipo: 'CC', num: '71.894.4471', nombre: 'Julián Andrés Posada' },
+    { id: 'compra', n: 5, corto: 'Desde un bloqueo de la compra', punto: 'rojo', directo: true, desde: { donde: 'Graderío', evento: 'Nacional vs. Medellín · 28 sep' }, form: { tipo: 'CC', num: '71.894.447', nombre: 'Julián Andrés Posada' },
       ve: 'Llega del enlace «consulta tu estado en el portal» de la compra rechazada; ya viene identificado.' },
     { id: 'reg', n: 6, corto: 'Documento no vigente', punto: 'amarillo', form: { tipo: 'CC', num: '1.000.000.017', nombre: 'Camilo Torres Díaz' },
       ve: 'El no no es una medida: el documento no aparece vigente en la Registraduría. Dice qué hacer.' },
@@ -241,7 +241,7 @@ window.PANTALLAS = window.PANTALLAS || {};
       var atrasBtn = atras ? '<button type="button" class="pt-ib" data-acc="atras" aria-label="Volver">' + ico('atras', 24) + '</button>' : '';
       var salirBtn = st.sujeto ? '<button type="button" class="pt-ib pt-ib--salir" data-acc="salir-portal" aria-label="Salir del portal">' + ico('salir', 22) + '</button>' : '';
       var centro = atras ? '<span class="pt-top__t">Portal de la persona</span>' :
-        '<span class="pt-top__t">Portal de la persona</span><img class="pt-top__logo" src="assets/mindeporte.svg" alt="Ministerio del Deporte">';
+        '<img class="pt-top__logo" src="assets/mindeporte.svg" alt="Ministerio del Deporte"><span class="pt-top__t">Portal de la persona</span>';
       return '<header class="pt-top">' + atrasBtn + '<div class="pt-top__centro">' + centro + '</div>' + salirBtn + '</header>';
     }
     function nav() {
@@ -344,6 +344,9 @@ window.PANTALLAS = window.PANTALLAS || {};
     }
 
     function onClick(ev) {
+      // El check del menor queda marcado: un clic en la etiqueta solo lo marca; desmarcar es solo clic directo en el check (DC-378).
+      var lab = ev.target.closest('label.pt-check'), chk = lab && lab.querySelector('input[data-k="menor"]');
+      if (chk && ev.target !== chk) { ev.preventDefault(); if (!chk.checked) { chk.checked = true; chk.dispatchEvent(new Event('change', { bubbles: true })); } return; }
       var cas = ev.target.closest('[data-caso]');
       if (cas) { elegirCaso(cas.dataset.caso); return; }
       var z = ev.target.closest('[data-zoom]');
@@ -361,7 +364,7 @@ window.PANTALLAS = window.PANTALLAS || {};
         case 'otros': st.pantalla = 'otros'; st.otros = st.error || st.otros; pintar(true); return;
         case 'otro': st.otros = st.otros === d.id ? null : d.id; break;
         case 'hechos': st.abierto.hechos = !st.abierto.hechos; break;
-        case 'salir-portal': st = nuevo(casoPorId(guardado.caso)); st.sujeto = null; st.pantalla = 'id'; st.desde = null; pintar(true); return;
+        case 'salir-portal': var formPrevio = st.form; st = nuevo(casoPorId(guardado.caso)); st.form = formPrevio; st.sujeto = null; st.pantalla = 'id'; st.desde = null; pintar(true); return;
         case 'reloj': st.off = st.off > 0 ? 0 : (function () { var m = medidasDe(st.sujeto).filter(function (x) { return x.v.vigente; })[0]; return m ? m.v.dias + 1 : 0; })(); pintar(false); return;
       }
       pintar(false);
@@ -378,7 +381,7 @@ window.PANTALLAS = window.PANTALLAS || {};
       st.form[d.k] = el.type === 'checkbox' ? el.checked : el.value;
       st.error = null;
       if (d.k === 'menor') {
-        st.form.num = el.checked ? '43.512.876' : '1.036.482.117'; st.form.nombre = el.checked ? 'Gloria Patricia Hoyos Marín' : 'Laura Restrepo Gil'; st.form.tipo = 'CC'; st.form.docMenor = el.checked ? '1.021.774.331' : '';
+        st.form.num = el.checked ? '43.512.876' : '1.036.482.117'; st.form.nombre = el.checked ? 'Gloria Patricia Hoyos Marín' : 'Andrés Felipe Restrepo Gil'; st.form.tipo = 'CC'; st.form.docMenor = el.checked ? '1.021.774.331' : '';
       }
       pintar(false);
     }

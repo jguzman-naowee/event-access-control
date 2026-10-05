@@ -91,7 +91,7 @@ window.PANTALLAS = window.PANTALLAS || {};
     // [punto, tipo doc, últimos 4, resultado, código, http, ms]
     var SEMILLA = [
       ['compra1', 'CC', '2884', 'autorizado', null, 200, 412], ['compra2', 'CC', '2884', 'autorizado', null, 200, 538], ['boleta', 'CC', '2884', 'autorizado', null, 201, 187],
-      ['compra1', 'CC', '4471', 'denegado', 'MEDIDA_RESTRICTIVA_VIGENTE', 200, 377], ['compra1', 'CC', '9120', 'denegado', 'LIMITE_VENTA_EXCEDIDO', 200, 391], ['recibir', 'CC', '4310', 'autorizado', null, 200, 295],
+      ['compra1', 'CC', '4447', 'denegado', 'MEDIDA_RESTRICTIVA_VIGENTE', 200, 377], ['compra1', 'CC', '9120', 'denegado', 'LIMITE_VENTA_EXCEDIDO', 200, 391], ['recibir', 'CC', '4310', 'autorizado', null, 200, 295],
       ['estado', '', '', 'autorizado', null, 200, 64], ['compra1', 'CC', '6672', 'denegado', 'IDENTIDAD_NO_COINCIDE', 200, 1108], ['compra1', 'CC', '6672', 'autorizado', null, 200, 436],
       ['compra2', 'CC', '6672', 'autorizado', null, 200, 502], ['boleta', 'CC', '6672', 'autorizado', null, 201, 203], ['transferir', 'CC', '5518', 'autorizado', null, 200, 341],
       ['compra1', 'TI', '9406', 'autorizado', null, 200, 421], ['recibir', 'CC', '2208', 'denegado', 'MEDIDA_RESTRICTIVA_VIGENTE', 200, 318], ['compra1', 'CE', '2279', 'denegado', 'DOCUMENTO_NO_VALIDO', 200, 884],

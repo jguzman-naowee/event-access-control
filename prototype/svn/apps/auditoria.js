@@ -71,7 +71,7 @@ window.PANTALLAS = window.PANTALLAS || {};
 
     function guion() {
       var probar = [
-        ['r-medida', 'negative', 'Historia de CC •••• 4471'],
+        ['r-medida', 'negative', 'Historia de CC •••• 4447'],
         ['r-cerrada', 'positive', 'Alerta cerrada · CC •••• 7730'],
         ['r-venta', 'informative', 'Solo ventas del evento']
       ].map(function (p) { return '<nwt-detail-item actionable icon="history" nwt-theme="' + p[1] + '" data-acc="' + p[0] + '">' + esc(p[2]) + '</nwt-detail-item>'; }).join('');
@@ -155,9 +155,9 @@ window.PANTALLAS = window.PANTALLAS || {};
         return { quien: r.quien + ' · abrió el perfil', cuando: r.hora };
       }).reverse().concat([{ quien: USTED[rolId] + ' (usted) · este detalle', cuando: 'ahora' }]);
       // La foto es la del documento de esa persona: se toma de su lectura en puerta; las consultas y ventas heredan la suya.
-      var FOTO = { verde: 'verde', amarillo: 'amarillo', operativo: 'rojo', medida: 'rojo' };
+      var FOTO = { verde: 'verde', amarillo: 'amarillo', operativo: 'sospechoso-otro', medida: 'sospechoso-sin' };
       var lecturas = R.filter(function (r) { return r.doc === d.doc && FOTO[r.tipo]; });
-      var propia = lecturas.filter(function (r) { return FOTO[r.tipo] === 'rojo'; })[0] || lecturas[0];
+      var propia = lecturas.filter(function (r) { return r.tipo === 'medida' || r.tipo === 'operativo'; })[0] || lecturas[0];
       var foto = propia ? FOTO[propia.tipo] : '';
       // El tag ya dice qué pasó: el título deja solo lo que el tag no dice (DC-126).
       var partes = d.detalle.split(' · '), titulo = partes.length > 1 && TIPO[d.tipo].tag.indexOf(partes[0]) === 0 ? partes.slice(1).join(' · ') : d.detalle;
@@ -315,9 +315,9 @@ window.PANTALLAS = window.PANTALLAS || {};
         case 'exportar': exportar(); break;
         case 'pagina': mostrarToast('Solo la página 1', 'El prototipo trae los registros más recientes del evento.', 'informative', 'info'); break;
         case 'cerrar-toast': st.toast = null; pintar(); break;
-        case 'r-medida': elegir(null, porDetalle('CC •••• 4471', 'No entró')); break;
+        case 'r-medida': elegir(null, porDetalle('CC •••• 4447', 'No entró')); break;
         case 'r-cerrada': elegir('policia', porDetalle('CC •••• 7730', 'Alerta cerrada')); break;
-        case 'r-venta': elegir('venta', porDetalle('CC •••• 4471', 'Venta bloqueada')); break;
+        case 'r-venta': elegir('venta', porDetalle('CC •••• 4447', 'Venta bloqueada')); break;
       }
     }
 
