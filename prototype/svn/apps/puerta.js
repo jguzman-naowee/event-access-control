@@ -452,7 +452,7 @@ window.PANTALLAS = window.PANTALLAS || {};
         var par = g.nombre.split(' '), ini = par[par.length - 2].charAt(0) + par[par.length - 1].charAt(0);
         return '<label class="pp-m__agente' + (g.ocupado ? ' pp-m__agente--off' : '') + '"><input type="checkbox" data-agente="' + g.id + '"' + (on ? ' checked' : '') + (g.ocupado || tomo ? ' disabled' : '') + '>' +
           '<nwt-avatar nwt-size="large" nwt-color="blue" aria-hidden="true">' + ini + (g.foto ? '<img class="pp-m__foto" src="' + g.foto + '" alt="" onerror="this.remove()">' : '') + '</nwt-avatar>' +
-          '<span class="pp-m__quien"><b>' + esc(g.nombre) + '</b><span>' + esc(g.ocupado || g.puesto) + '</span></span><span class="pp-m__cerca pp-m__cerca--' + c + '">' + CERCA[c] + '</span></label>';
+          '<span class="pp-m__quien"><b>' + esc(g.nombre) + '</b><span>' + esc(g.ocupado || g.puesto) + '</span><span class="pp-m__cerca pp-m__cerca--' + c + '">' + CERCA[c] + '</span></span></label>';
       }).join('');
       var aviso = tomo ? '<p class="pp-m__aviso" role="status">' + SVG(I.escudo, 16) + 'Ya la tomó ' + esc(quienTomo ? quienTomo.quien : 'un agente') + ' · ' + esc(quienTomo ? quienTomo.hora : '') + '. No hace falta asignarla.</p>' : '';
       var n = m.sel.length;

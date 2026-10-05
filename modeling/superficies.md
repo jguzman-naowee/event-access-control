@@ -2,7 +2,13 @@
 
 Quién usa qué, desde dónde, en qué momento y con qué datos. Complementa a [`dominio.md`](dominio.md).
 
-> Estado: **v2.3** (28-sep-2026), rehecha a partir del demo SVN (`content-supplies/demo-svn`, ver
+> **Parte 1 · lo que pide el IVC (Fuente 2, 30-sep-2026).** Es la **gestión de infractores**
+> (HU-26.3): registrar, validar y dar seguimiento a las medidas correctivas en el SUID. Es el módulo 1
+> y la superficie 1. **Hasta ahí pide el IVC y ahí está su interés.** Todo lo demás (compra, boletería,
+> puerta, PMU, homologación, portal de la persona) es la **Parte 2**: sale de la Fuente 1 (demo SVN) y
+> de nuestras decisiones de producto, y todavía no tiene una HU del IVC detrás.
+>
+> Estado: **v2.4** (30-sep-2026), rehecha a partir del demo SVN (`content-supplies/demo-svn`, ver
 > [`fuentes.md`](fuentes.md)). Cada superficie dice si **ya existe en el demo**, si es **nueva** o si
 > es una *(decisión de producto)*.
 
@@ -11,6 +17,9 @@ Quién usa qué, desde dónde, en qué momento y con qué datos. Complementa a [
 ## Principio
 
 El SVN es infraestructura del Estado: **valida, registra y audita**. No vende boletas.
+
+- **La base de medidas es del SVN.** El IVC las radica (superficie 1); ni la compra ni la puerta lo consultan
+  en cada validación *(decisión de producto, 1-oct-2026)*.
 
 - **Lo que ve el hincha lo pone la comercializadora.** Ella envía el documento y el nombre que
   capturó, y recibe sí o no con un código de motivo. Es una **consulta ciega**: nunca ve el expediente.
@@ -29,7 +38,7 @@ nosotros las ampliamos; *Nuestra* son las que identificamos nosotros. Todas las 
 | # | Superficie | Quién la usa | Dispositivo | Cuándo | Origen |
 |---|---|---|---|---|---|
 | **Estado · Mindeporte** |||||
-| 1 | **Registro de medidas correctivas** | Profesional del IVC | Web de escritorio | Continuo, con cada oficio de entrada | **Del demo** · *Panel Mindeporte*; sumamos el registro completo, historial y reserva de menores |
+| 1 | **Registro de medidas correctivas** · *Parte 1* | Profesional del IVC | Web de escritorio | Continuo, con cada oficio de entrada | **Del demo** · *Panel Mindeporte*; sumamos el registro completo, historial y reserva de menores |
 | 2 | **Entidades deportivas y comercializadoras** | Clubes y entidades (reportan); Mindeporte (homologa) | Web de escritorio | Cada semestre, y después de cada evento | **Del demo** · *Panel Mindeporte*, segunda tabla; sumamos la vista de la entidad y sus reportes de incidentes |
 | 3 | **Monitor PMU y auditoría** | Policía Nacional, Mindeporte, supervisor del evento | Pantallas del PMU y escritorio | El día del evento, y consulta posterior | **Del demo** · *Monitor en vivo*; sumamos filtros y vistas por rol |
 | **Operación del evento** |||||
@@ -50,19 +59,30 @@ nosotros las ampliamos; *Nuestra* son las que identificamos nosotros. Todas las 
 
 ## 1 · Registro de medidas correctivas
 
-**Quién:** profesional del IVC. **En el demo:** tabla *Base centralizada de medidas correctivas* y el
-formulario *Radicar nueva medida correctiva (oficio ER)*.
+**Parte 1 · lo que pide el IVC (HU-26.3).** Es la única superficie con una HU detrás; las otras ocho
+son la Parte 2.
+
+**Quién:** profesional del IVC (Mindeporte con permisos para registrar, revisar, modificar o consultar).
+**En el demo:** tabla *Base centralizada de medidas correctivas* y el formulario *Radicar nueva medida
+correctiva (oficio ER)*.
 
 **Qué hace:**
 - **Recibir los reportes de las entidades deportivas** y seguirlos hasta que deriven en medida o se archiven.
 - **Radicar** una medida a partir del oficio de entrada, con los campos del registro oficial:
   infractor, representante legal si es menor, hechos y conductas del catálogo, sanción y radicados de GESDOC.
 - **Consultar y buscar** por documento, nombre, ciudad o conducta.
-- **Ver el estado calculado**: vigente con los días que le quedan, o cumplida. Nadie lo digita.
+- **Validar el registro** (Fuente 2): el profesional lo pasa de **Recibido** a **Validado**, o lo
+  devuelve **Por subsanar** a la inspección de policía. Al validarse, la restricción pasa a **Activa**.
+- **Ver los dos estados**: el del registro y el de la restricción (Inactiva, Activa, Cumplida), con los
+  días que le quedan a la activa. Solo el primero lo mueve el profesional; el segundo se calcula.
+- **Cargar en masa** con la plantilla, con reporte de inconsistencias, además del formulario individual.
+- **Ficha única de la persona**, con todas sus restricciones y su historial, y control de duplicados.
 
 **Lo que falta frente al demo:**
-- El formulario del demo pide menos campos que el registro oficial: faltan fecha de nacimiento,
-  representante legal completo, agravantes, fecha de los hechos y los radicados de financiera y jurídica.
+- El formulario del demo pide menos campos que el registro oficial: pasa de 41 a **55 campos** (Fuente
+  2), con nombres y apellidos separados, dirección estructurada, equipos local y visitante, fecha del
+  acto y el estado de registro. Faltan también representante legal completo, agravantes y los
+  radicados de contabilidad y jurídica.
 - **Historial** de cada medida y **correcciones** *(exploratorio)*.
 - Los datos de menores con **reserva reforzada**: la tabla del demo los muestra igual que los de un adulto.
 
@@ -111,6 +131,16 @@ en tiempo real de transacciones*.
 - **Separar las vistas por rol**: la Policía necesita las alertas y el supervisor, el flujo por puerta.
 - La **vista del club**: la auditoría integral de sus propios eventos.
 
+**Decisiones de producto, 29-sep-2026** *(decisión de producto)*:
+- **Monitor PMU y Auditoría son dos apps separadas**, cada una con su lista de eventos y su vista interna
+  (tablero / registros); no hay selector que las una. Se entra a cada una desde el gate.
+- **La Policía no toma la alerta: la asigna.** Desde la alerta se abre un modal con la información de la
+  puerta (flujo, ingresados, avisos, rojos) y los agentes ordenados por cercanía; a los elegidos les llega la
+  notificación y la alerta deja de sonar en el PMU. Sigue *Nueva* hasta que un agente la toma; ahí pasa a
+  *En atención*. Si un agente la toma antes de que se asigne, pasa directo a *En atención* y el modal avisa.
+- **La auditoría usa términos de lo que pasó**, no de colores: *Entró*, *Entró con aviso*, *No entró · boleta*,
+  *No entró · medida*.
+
 **Endpoints:** `GET /api/transacciones`, `GET /api/info`.
 
 ---
@@ -139,8 +169,10 @@ pestaña *Control de acceso* de *SVN Móvil*.
 - **Configurar el torniquete** para un partido, o dejar la detección automática.
 - **Leer**, con la cámara (linterna y zoom), la cédula digital (QR o MRZ), la cédula tradicional
   (PDF417 o reverso) o el QR de la boleta; o digitar el número.
-- **Responder con semáforo**: verde entra; amarillo (otro partido, sin boleta, ya usada) **lo decide
-  el operador ahí mismo**, y su decisión queda registrada; rojo no entra y **alerta al PMU**.
+- **Responder con semáforo**: verde entra; amarillo (medida recién levantada o indicativos cruzados)
+  **entra igual y genera un aviso** al supervisor y a la Policía; rojo operativo (boleta de otro
+  partido, ya usada, vencida, falsa, o sin boleta) no entra y **el operador elige si llama a la
+  Policía**; rojo por medida no entra y **alerta al PMU**.
 - Mostrar el estado de conexión (*en línea*).
 
 **Lo que falta frente al demo:**
@@ -148,8 +180,9 @@ pestaña *Control de acceso* de *SVN Móvil*.
 - La **vista policial** *(decisión de producto)*: el demo dice "remitir al PMU", pero no da a la
   Policía una vista con el detalle. Mostraría medidas vigentes y cumplidas con sus conductas,
   reincidencia, afinidad y alertas de la validación, **sin un puntaje único de peligrosidad**.
-- **La decisión del operador ante un amarillo**: dejar entrar o no, con el motivo. Se registra en la
-  auditoría con el operador, la puerta y la hora. El demo hoy solo muestra el mensaje.
+- **El aviso del amarillo** *(decisión de producto)*: la persona entra y el sistema avisa al supervisor y a
+  la vista policial, con la causa. Se registra en la auditoría. En el demo el amarillo era de boletas
+  y solo mostraba un mensaje.
 - El **contrato del gateway** para torniquetes de terceros *(decisión de producto)*: primero la app
   web móvil; el contrato se publica desde el día uno.
 
@@ -227,12 +260,12 @@ Cada consulta a un expediente o a datos de menores queda auditada.
 
 | Rol | Recorrido |
 |---|---|
-| **Profesional del IVC** | Recibe el oficio (GESDOC) → radica la medida (1) → la medida queda vigente y se cumple sola |
+| **Profesional del IVC** | Recibe el oficio (GESDOC) → registra la medida (1) → la valida o la devuelve por subsanar → al validarla queda activa y se cumple sola |
 | **Entidad deportiva** | Carga su comercializadora cada semestre (2) → configura escenario, partido y torniquetes (4) → reporta los incidentes de su evento (2) → sigue si derivaron en medida |
 | **Mindeporte** | Revisa el reporte → certifica la comercializadora en pruebas (6) → la homologa y entrega la llave (2) |
 | **Comercializadora** | Se integra en pruebas (6) → homologada, consulta el SVN en cada venta (6) → emite la boleta con token |
 | **Hincha** | Compra en la comercializadora → si recibe un no, consulta su estado (8) → entra por la puerta (5) |
-| **Operador de puerta** | Configura el torniquete para su partido (5) → lee documento o boleta → ante un amarillo decide y queda registrado |
+| **Operador de puerta** | Configura el torniquete para su partido (5) → lee documento o boleta → el amarillo entra con aviso; ante un rojo operativo decide si llama a la Policía |
 | **Policía** | Sigue el monitor en el PMU (3) → recibe cada rojo con la puerta y la hora → atiende en la puerta |
 
 ---
@@ -267,10 +300,28 @@ El demo ya prueba el recorrido central. Para pasar de demo a producto, por orden
 
 ---
 
+## Flujo de la demo (30-sep-2026)
+
+Pedido del cliente: la demo se cuenta en este orden. Los números de superficie no cambian.
+
+| Paso | Qué se muestra | Superficie del modelo | Ruta del prototipo |
+|---|---|---|---|
+| 1 | Organizar el evento | 4 · Backoffice de eventos | `#/backoffice` |
+| 2 | Vender la boleta *(en diseño)* | 6 y 7 · API y componentes embebibles | `#/compra` (reservada) |
+| 3 | Control de acceso en puerta | 5 · Acceso en puerta | `#/puerta` |
+| 4 | App de la Policía | 3 · Monitor PMU | `#/policia` |
+| 5 | IVC | 1 · Registro de medidas | `#/medidas` |
+| 6 | Auditoría (transversal, al final) | 3 · Auditoría | `#/auditoria` |
+
+Fuera del flujo, como *próximamente*: 2 · Entidades y comercializadoras, 6 · portal de integración técnico,
+8 · Portal de la persona y 9 · Consola de soporte.
+
+---
+
 ## Decisiones de superficies (28-sep-2026)
 
 - **El club carga su reporte semestral** en el SVN (superficie 2).
 - **Las entidades deportivas reportan incidentes** a la autoridad de policía y al IVC y se alinean con lo que decidan; no tienen una base propia que bloquee.
 - **La auditoría es integral** para quien la ve: Mindeporte y Policía, toda; el club, la de sus eventos.
-- **Ante un amarillo, el operador decide en la puerta** y la decisión queda registrada. El rojo no se puede autorizar.
+- **El amarillo no bloquea:** la persona entra y se avisa al supervisor y a la Policía. **El rojo operativo** (problema de boleta) no entra y el operador elige si llama a la Policía; **el rojo por medida** no se puede autorizar.
 - **Nosotros construimos y operamos todo**, incluido el portal de integración.

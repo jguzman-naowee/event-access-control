@@ -4,7 +4,9 @@ Qué documentos mandan sobre el modelo y qué dice cada uno. **Donde un document
 modelo, gana el documento.** Lo que los documentos no cubren queda en el modelo como decisión de
 producto y se marca así: *(decisión de producto)*.
 
-> Recibido el 25-sep-2026. Vive en `content-supplies/demo-svn/`, **fuera de git** (`.gitignore`): el
+> Fuente 1 recibida el 25-sep-2026; Fuente 2 (HU del MVP) el 30-sep-2026, ver §3.
+>
+> Fuente 1: Vive en `content-supplies/demo-svn/`, **fuera de git** (`.gitignore`): el
 > Excel, la base y hasta el código del demo traen nombres y documentos asociados a sanciones,
 > incluidos menores. Acá solo queda su estructura.
 >
@@ -107,7 +109,59 @@ Hojas: **Registro**, **Diccionario de datos** (41 campos con regla y soporte nor
 
 ---
 
-## 3 · Marco normativo citado
+## 3 · Fuente 2 — HU del MVP (30-sep-2026)
+
+Tres archivos en `content-supplies/insumos-hu/` (también fuera de git). Son una capa **más
+estrecha** que la Fuente 1: no describen el SVN entero, solo el **backoffice de gestión de
+infractores** del IVC (HU-26.3, versión 04 del 22-sep, aprobada por la Dirección Técnica de IVC).
+Donde la Fuente 2 contradice a la 1 sobre ese backoffice, **gana la 2** (es más reciente y es el MVP).
+
+**Es la Parte 1 del proyecto, y hasta ahí llega lo que pide el IVC.** La línea se marca así en todos
+los documentos del modelo:
+
+| | Parte 1 · lo que pide el IVC | Parte 2 · el resto del SVN |
+|---|---|---|
+| Fuente | Fuente 2 (HU-26.3) | Fuente 1 (demo SVN) y decisiones de producto |
+| Módulo | 1 · Medidas correctivas | 2 a 5 |
+| Superficie | 1 · Registro de medidas correctivas | 2 a 9 |
+| Quién la pide | Dirección Técnica de IVC | Nadie todavía: la construimos nosotros y falta validarla con el IVC |
+
+| Archivo | Qué es |
+|---|---|
+| `HU-26.3-GESTIÓN DE INFRACTORES_…docx` | La historia de usuario: requerimiento, 5 capacidades, exclusiones y 1 criterio de aceptación |
+| `BASE DE DATOS SANCIONATORIOS_…xlsx` | Versión 55 campos de la base (antes 41): registro, diccionario con reglas y catálogos |
+| `Prototipo_Formulario_SVN_…xlsx` | Maqueta del formulario de registro, con los 55 campos agrupados en 6 bloques |
+
+### Scope de la HU-26.3
+
+| Capacidad | Incluye | Regla clave |
+|---|---|---|
+| Acceso | Entrada por la autenticación del SUID, con privilegio del módulo | Un solo actor: funcionario autorizado de Mindeporte |
+| Registro | Individual (formulario), masivo (plantilla Excel) o por integración | Si es menor, se habilita el bloque del representante. La carga masiva devuelve un reporte de inconsistencias |
+| Administración de restricciones | ID único por registro, varias restricciones por persona, ficha única con el historial | No hay duplicados por persona + acto + vigencia. Las cumplidas no se borran |
+| Estados | **Registro**: Recibido → Validado / Por subsanar. **Restricción**: Inactiva → Activa → Cumplida | Activa solo cuando el registro queda Validado. Cumplida un día después del fin de vigencia, en automático |
+| Calidad y auditoría | Incompletos, duplicados, fechas incoherentes; usuario, fecha, hora, estado anterior y nuevo; reportes de calidad | Inactiva sola al vencer, sin eliminar el expediente |
+
+**Fuera de alcance (lo dice la HU):** imponer comparendos o medidas, audiencias y recursos; el
+Formulario Único de Comparendo; cobro, recaudo o contabilidad de multas; vender o emitir boletería;
+validar el ingreso físico al estadio.
+
+### Reglas nuevas del diccionario (55 campos)
+
+- **Menor de edad** se calcula con la fecha de los **hechos**, no con la de hoy.
+- **Fecha de los hechos**: ni actual ni futura, y anterior a la del acto administrativo.
+- **Fin de vigencia** = día siguiente a la ejecutoria + meses de sanción. Mínimo **6 meses**.
+- **Origen de la obligación** obligatorio (uno o varios); **agravantes** opcionales.
+- Rangos por conducta: 6–36 meses (art. 97, conductas 1 a 6), 36–60 (agresión física), agresión verbal
+  sin restricción en la primera vez (reincidencia 12–36), 24–48 (daño); con agravante 12–72.
+- **Competición → equipos**: el listado de local y visitante depende de la competición (36 clubes
+  DIMAYOR); "Otro" habilita Copa Libertadores, Sudamericana u otro manual, para clubes extranjeros.
+- **Dirección estructurada** (urbana o rural, con abreviaturas) consolidada sola; si el país no es Colombia, texto libre.
+- Radicados de GESDOC: entrada, respuesta, **contabilidad** (antes "financiera") y jurídica.
+
+---
+
+## 4 · Marco normativo citado
 
 | Norma | Qué fija, según los documentos |
 |---|---|

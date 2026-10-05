@@ -5,7 +5,13 @@ Control de acceso nacional a eventos deportivos, principalmente fútbol profesio
 Deporte. Gestiona el flujo boleta-persona completo: desde antes de la compra hasta el ingreso al
 estadio. Funciona como producto digital y como API.
 
-> Estado: **v1** (25-sep-2026). Las fuentes de verdad están en [`fuentes.md`](fuentes.md): donde
+> **Parte 1 · lo que pide el IVC (Fuente 2, 30-sep-2026).** Es la **gestión de infractores**
+> (HU-26.3): registrar, validar y dar seguimiento a las medidas correctivas en el SUID. Es el módulo 1
+> y la superficie 1. **Hasta ahí pide el IVC y ahí está su interés.** Todo lo demás (compra, boletería,
+> puerta, PMU, homologación, portal de la persona) es la **Parte 2**: sale de la Fuente 1 (demo SVN) y
+> de nuestras decisiones de producto, y todavía no tiene una HU del IVC detrás.
+>
+> Estado: **v1.1** (30-sep-2026). Las fuentes de verdad están en [`fuentes.md`](fuentes.md): donde
 > contradicen este modelo, ganan ellas. Lo que no cubren va marcado *(decisión de producto)*, y lo
 > que todavía no es decisión, *(exploratorio)*.
 
@@ -34,7 +40,7 @@ genérico, nunca el expediente ni los hechos.
 
 | # | Módulo | De qué se encarga |
 |---|---|---|
-| 1 | **Medidas correctivas** | La base nacional de personas con prohibición de ingreso, en el SUID-IVC |
+| 1 | **Medidas correctivas** · *Parte 1* | La base nacional de personas con prohibición de ingreso, en el SUID-IVC |
 | 2 | **Identidad y elegibilidad** (el core) | Personas, verificación con la Registraduría, afinidad y la decisión de sí o no |
 | 3 | **Escenarios y eventos** | Escenario, sectores, puertas, puestos, competencia, evento, partido y su configuración |
 | 4 | **Boletería y asignación** | Comercializadoras homologadas, cupos, órdenes, boletas, invitaciones y transferencias |
@@ -42,7 +48,23 @@ genérico, nunca el expediente ni los hechos.
 
 ---
 
-## 1 · Medidas correctivas
+## 1 · Medidas correctivas · Parte 1
+
+> **Este módulo es todo lo que pide el IVC** (HU-26.3). Lo que sigue (módulos 2 a 5) es la Parte 2.
+
+### Hasta dónde llega la Parte 1
+
+| Está en la Parte 1 | Queda fuera (lo dice la HU) |
+|---|---|
+| Registrar decisiones en firme: individual, masivo o por integración | Imponer comparendos o medidas, audiencias y recursos |
+| Validar la completitud formal, sin reabrir la decisión de la autoridad | El Formulario Único de Comparendo |
+| Dos estados separados: el del registro y el de la restricción | Cobro, recaudo o contabilidad de las multas |
+| Ficha única por persona, con historial; sin duplicados | Vender, emitir o transferir boletería |
+| Vencimiento automático y auditoría de cada cambio | Validar el ingreso físico al estadio |
+
+**Lo que la Parte 1 no resuelve y la Parte 2 sí:** el **reporte de la entidad deportiva** (abajo), la
+consulta ciega, el token, la puerta y el semáforo. La HU dice que el sistema "valida el acceso", pero
+esa validación no es parte de ella.
 
 ### Quién emite y quién registra
 
@@ -82,9 +104,30 @@ Es una **prohibición de ingreso a escenarios deportivos**, por las conductas de
   **meses de sanción**. El fin de vigencia se calcula, no se digita.
 - **Alcance: nacional.** Rige en todos los escenarios del país donde haya espectáculos deportivos
   profesionales con público (Decreto 079 de 2012, art. 6, par. 4).
-- **Estado automático:** **vigente** mientras no pase el fin de vigencia; después, **cumplida**. La
-  persona queda habilitada sola, sin trámite.
-- Puede llevar **multa** (valor de la sanción, en pesos).
+- **Dos estados separados** (HU-26.3):
+  - **Registro y seguimiento** (lo maneja el profesional del IVC): **Recibido** (radicado y recibido)
+    → **Validado** (cumple los requisitos) o **Por subsanar** (no cumple y se devuelve a la
+    inspección de policía).
+  - **Restricción** (lo que bloquea): **Inactiva** mientras el registro está Recibido o Por subsanar;
+    **Activa** en cuanto queda Validado; **Cumplida** un día después del fin de vigencia, en automático.
+- **Solo la restricción Activa bloquea.** Una medida Recibida o Por subsanar todavía no produce efectos.
+- Al cumplirse, la persona queda habilitada sola, sin trámite. **Nada se elimina**: la cumplida queda
+  inactiva, con su soporte y su historial.
+- Puede llevar **multa** (valor de la sanción, en pesos). Su cobro no es parte del SVN.
+
+### Reglas del registro (Fuente 2)
+
+- **Mínimo 6 meses**, dentro del rango de la conducta: art. 97 (conductas 1 a 6), 6–36; agresión
+  física, 36–60; agresión verbal, sin restricción la primera vez y 12–36 si reincide; daño, 24–48; con
+  agravante, 12–72.
+- **Fecha de los hechos:** ni actual ni futura, y anterior a la del acto administrativo.
+- **Menor de edad:** se calcula a la **fecha de los hechos**.
+- **Duplicados:** no se acepta otro registro equivalente (misma persona, mismo acto y mismo periodo);
+  una persona puede tener varias restricciones distintas.
+- **Origen de la obligación:** obligatorio, uno o varios. **Agravantes:** opcionales.
+- **Competición y equipos:** el listado de local y visitante depende de la competición (36 clubes de
+  DIMAYOR); "Otro" deja registrar clubes extranjeros a mano.
+- **Carga masiva:** valida estructura, obligatoriedad y consistencia, y devuelve un reporte de inconsistencias.
 
 ### Entidades
 
@@ -94,11 +137,14 @@ Es una **prohibición de ingreso a escenarios deportivos**, por las conductas de
   - **Representante legal:** obligatorio si el infractor es menor de edad (Ley 1098 de 2006).
   - **Hechos:** fecha, evento, competición, ciudad, **conductas** (catálogo, selección múltiple),
     **agravantes** y descripción breve.
-  - **Sanción:** acto administrativo, fecha de ejecutoria, meses, fin de vigencia, valor, estado.
-  - **Gestión interna:** radicados de GESDOC (entrada, respuesta, financiera, jurídica), profesional
-    responsable y observaciones.
+  - **Sanción:** fecha y número del acto administrativo, fecha de ejecutoria, meses, fin de vigencia,
+    valor, estado de la restricción.
+  - **Gestión interna:** fecha y radicado de entrada, respuesta, radicados de contabilidad y jurídica
+    (todos de GESDOC), profesional responsable del IVC, **estado de registro y seguimiento** y observaciones.
+  - Son **55 campos** en 6 bloques (Fuente 2); la dirección es estructurada, urbana o rural.
 - **Catálogo de conductas:** art. 97 (6 conductas), art. 98 (3) y agravantes (3).
-- **Historial:** cada registro y cada cambio queda con quién, cuándo y con qué soporte. No se edita.
+- **Historial:** cada registro y cada cambio queda con quién, cuándo, hora, **estado anterior y estado
+  nuevo**, y con qué soporte. No se edita. La persona tiene una **ficha única** con todo su historial.
 - **Reporte de entidad deportiva:** persona, evento, conductas, descripción, evidencia, estado y, si
   derivó en medida, el enlace a ella.
 
@@ -109,8 +155,8 @@ reforzada**: sus datos solo los ven los roles que los necesitan, y cada consulta
 
 ### Estados sugeridos *(decisión de producto)*
 
-Los documentos solo definen **vigente** y **cumplida**. Sugerimos sumar estos, y mientras no se
-aprueben, solo la medida vigente bloquea:
+La Fuente 2 ya definió los dos ejes de estado (arriba). Sugerimos sumar estos, y mientras no se
+aprueben, solo la restricción **Activa** bloquea:
 
 | Estado sugerido | ¿Bloquea? | Para qué | Qué haría falta |
 |---|---|---|---|
@@ -375,14 +421,17 @@ Se valida **siempre cruzando con el documento**:
 | Color | Qué significa | Qué pasa |
 |---|---|---|
 | **Verde** | Entra | Se marca la boleta como usada |
-| **Amarillo** | Boleta de otro partido, sin boleta asociada o boleta ya usada | **El operador decide** si entra o no, con su motivo; queda registrado |
-| **Rojo** | Medida correctiva vigente | No entra y **se notifica al PMU** de la Policía Nacional. Nadie en la puerta lo puede autorizar |
+| **Amarillo** | Persona con una medida **recién levantada**, con **indicativos cruzados** (por ejemplo, va con personas con medida vigente) o con un **posible riesgo en este partido** (por ejemplo, posible hincha de otro equipo) | **Entra igual**. Es un **aviso**: el operador ve que llegó y el supervisor y la Policía quedan enterados; no bloquea ni pide decisión *(decisión de producto, 28-sep-2026)* |
+| **Rojo operativo** | Problema de boleta: de otro partido, ya usada, vencida, falsa, o sin boleta | No entra. **La Policía es opcional**: el operador elige si la llama, y queda registrado. No hay alerta automática al PMU *(decisión de producto, 28-sep-2026)* |
+| **Rojo por medida** | Medida correctiva vigente | No entra y **se notifica al PMU** de la Policía Nacional. Nadie en la puerta lo puede autorizar |
 
 ### Entidades
 
 - **Dispositivo**: tiene un tipo, está en una puerta y se configura para un partido.
 - **Validación**: la persona, el método, la puerta, la hora, el color, el motivo y si se notificó al PMU.
-- **Decisión del operador**: ante un amarillo, si dejó entrar o no, el motivo, el operador, la puerta y la hora.
+- **Riesgo por afinidad** *(decisión de producto, 28-sep-2026)*: si el perfil de afinidad marca a una persona en riesgo para el partido, el operador la **aparta y la orienta con pedagogía persuasiva**, y luego entra. Es una **señal inferida, no una certeza**: se redacta en condicional (*posible riesgo*), **nunca niega el acceso**, queda en la auditoría y la persona puede apelar (ver *Salvaguardas de la afinidad*).
+- **Aviso**: el amarillo genera un aviso informativo (no una alerta) con la causa, la puerta y la hora; llega al supervisor y a la vista policial.
+- **Decisión del operador**: en un rojo operativo, si llamó o no a la Policía, con el operador, la puerta y la hora.
 - **Ingreso**: impide el doble ingreso y alimenta el historial de asistencia.
 
 ### Sin conexión (contingencia) *(decisión de producto)*
@@ -417,7 +466,7 @@ monitor del PMU y de los reportes.
 | **Titular** | Acepta la invitación, tiene que ser elegible y es quien entra |
 | **Soporte** | Atiende reclamaciones y transfiere la propiedad de boletas congeladas |
 | **Administrador del escenario** | Mantiene sectores, puertas, sillas y dispositivos |
-| **Operador de puerta** | Opera la validación y decide los amarillos; su decisión queda registrada |
+| **Operador de puerta** | Opera la validación; en un rojo operativo decide si llama a la Policía, y queda registrado |
 | **Supervisor del evento** | Sigue los ingresos y las alertas en vivo |
 | **Administrador de la plataforma** | Gestiona actores, credenciales y configuración |
 | **Persona** | Consulta su estado y apela |
@@ -427,8 +476,9 @@ monitor del PMU y de los reportes.
 ## Flujo completo
 
 1. **Cada semestre**: el club carga su comercializadora en el SVN y Mindeporte la homologa.
-2. **Continuo**: las autoridades de policía emiten medidas correctivas; el IVC las radica en el SUID.
-   Cada medida vence sola al cumplir sus meses.
+2. **Continuo · Parte 1**: las autoridades de policía emiten medidas correctivas; el IVC las recibe,
+   las registra y las **valida** (o las devuelve por subsanar). Al validarse, la restricción queda
+   Activa y vence sola al cumplir sus meses.
 3. **Preparación del evento**: escenario, sectores, puertas y puestos; se configura el evento y los torniquetes, y se reparten los cupos.
 4. **Antes de la compra**: la comercializadora consulta el SVN con el documento y el nombre del
    comprador. El SVN verifica con el ANI, revisa medidas vigentes y el límite de 5, y responde sí o no.
@@ -438,7 +488,7 @@ monitor del PMU y de los reportes.
 8. **Revisión continua**: una medida nueva anula o congela solo las boletas de esa persona.
 9. **Vence el plazo de asignación**: las boletas sin titular se pierden.
 10. **Día del evento**: cada torniquete, configurado para su partido, valida contra el documento y
-    responde en semáforo. Los amarillos los decide el operador y quedan registrados; los rojos van al PMU.
+    responde en semáforo. Los amarillos entran y generan un aviso; los rojos operativos los resuelve el operador (con la Policía opcional) y los rojos por medida van al PMU.
 11. **Después del evento**: se sincroniza lo validado sin conexión y se actualiza el historial de
     asistencia. La entidad deportiva **reporta los incidentes**; la autoridad de policía decide si
     abre el procedimiento, y si emite una medida, el IVC la radica.
@@ -459,6 +509,10 @@ monitor del PMU y de los reportes.
   Con norma, la foto es obligatoria para todo titular; sin norma, es voluntaria con consentimiento
   explícito, y quien no la dé entra con documento y más verificación.
 - **Estados sugeridos de la medida:** cuáles aprueba el IVC y con qué soporte.
+- **Medida Recibida o Por subsanar (Parte 2):** la HU dice que no produce efectos. Confirmar que ni la
+  compra ni la puerta la tratan como roja, ni siquiera como aviso amarillo.
+- **Integración (Parte 1):** la HU nombra el registro "por integración" pero no dice con qué sistema
+  (¿GESDOC, las inspecciones de policía?).
 - **Documentos válidos:** el Excel cita el art. 2.17.3 y el art. 2.17.4 del Decreto 1622 para lo
   mismo; confirmar cuál.
 - **Correcciones y levantamiento anticipado de una medida:** no están en los documentos.
