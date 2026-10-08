@@ -10,18 +10,19 @@ window.SVN_DATOS = {
     { id: 'persona', nombre: 'Persona y soporte' }
   ],
   apps: [
-    // Orden = flujo de la demo (30-sep-2026); `paso` es el número visible en el gate y `n` la superficie del modelo.
-    { paso: 1, n: 4, id: 'backoffice', grupo: 'evento', nombre: 'Backoffice de eventos', disp: 'Escritorio', icono: 'calendar', roles: ['organizador'], ruta: '#/backoffice' },
-    { paso: 2, n: '6 y 7', id: 'compra', grupo: 'integracion', nombre: 'Vender la boleta', disp: 'Celular · escritorio', icono: 'payment', roles: ['persona', 'comercializadora'], ruta: '#/compra' },
-    { paso: 3, n: 5, id: 'puerta', grupo: 'evento', nombre: 'Acceso en puerta', disp: 'Celular · tablet · consola', icono: 'qr-code', roles: ['operador', 'policia'], ruta: '#/puerta' },
-    { paso: 4, n: 3, id: 'pmu', grupo: 'estado', nombre: 'Monitor PMU', disp: 'Tablet · escritorio', icono: 'view-grid', roles: ['policia', 'supervisor'], ruta: '#/policia' },
-    { paso: 5, n: 1, id: 'registro', grupo: 'estado', nombre: 'Registro de medidas', disp: 'Escritorio', icono: 'file', roles: ['ivc'], ruta: '#/medidas' },
+    // Orden y `paso` del gate según los comentarios de diseño (8-oct-2026); el 6 queda libre a propósito (se pidió 7, 8 y 9).
+    // `oculta` solo las saca del gate por aplicación: portal y soporte siguen con su ruta y sus roles. `n` = superficie del modelo.
+    { paso: 1, n: 1, id: 'registro', grupo: 'estado', nombre: 'Registro de medidas', disp: 'Escritorio', icono: 'file', roles: ['ivc'], ruta: 'ivc/index.html' },
+    { paso: 2, n: 6, id: 'integracion', grupo: 'integracion', nombre: 'API y portal de integración', disp: 'Portal web', icono: 'link', roles: ['comercializadora'], ruta: '#/integracion' },
+    { paso: 3, n: 2, id: 'entidades', grupo: 'estado', nombre: 'Entidades y comercializadoras', disp: 'Escritorio', icono: 'official-stores', roles: ['club', 'mindeporte'], ruta: '#/entidades' },
+    { paso: 4, n: 4, id: 'backoffice', grupo: 'evento', nombre: 'Backoffice de eventos', disp: 'Escritorio', icono: 'calendar', roles: ['organizador'], ruta: '#/backoffice' },
+    { paso: 5, n: '6 y 7', id: 'compra', grupo: 'integracion', nombre: 'Vender la boleta', disp: 'Celular · escritorio', icono: 'payment', roles: ['persona', 'comercializadora'], ruta: '#/compra' },
+    { paso: 7, n: 5, id: 'puerta', grupo: 'evento', nombre: 'Acceso en puerta', disp: 'Celular · tablet · consola', icono: 'qr-code', roles: ['operador', 'policia'], ruta: '#/puerta' },
+    { paso: 8, n: 3, id: 'pmu', grupo: 'estado', nombre: 'Monitor PMU', disp: 'Tablet · escritorio', icono: 'view-grid', roles: ['policia', 'supervisor'], ruta: '#/policia' },
     // Policía primero: la card de la app entra con roles[0] y el diseño aprobado es el de la Policía.
-    { paso: 6, n: 3, id: 'auditoria', grupo: 'estado', nombre: 'Auditoría', disp: 'Escritorio', icono: 'history', roles: ['policia', 'mindeporte'], ruta: '#/auditoria' },
-    { paso: 7, n: 8, id: 'portal', grupo: 'persona', nombre: 'Portal de la persona', disp: 'Web móvil', icono: 'user', roles: ['persona'], ruta: '#/portal' },
-    { paso: 8, n: 9, id: 'soporte', grupo: 'persona', nombre: 'Consola de soporte', disp: 'Escritorio', icono: 'helper', roles: ['soporte'], ruta: '#/soporte' },
-    { paso: 9, n: 2, id: 'entidades', grupo: 'estado', nombre: 'Entidades y comercializadoras', disp: 'Escritorio', icono: 'official-stores', roles: ['club', 'mindeporte'], ruta: '#/entidades' },
-    { paso: 10, n: 6, id: 'integracion', grupo: 'integracion', nombre: 'API y portal de integración', disp: 'Portal web', icono: 'link', roles: ['comercializadora'], ruta: '#/integracion' }
+    { paso: 9, n: 3, id: 'auditoria', grupo: 'estado', nombre: 'Auditoría', disp: 'Escritorio', icono: 'history', roles: ['policia', 'mindeporte'], ruta: '#/auditoria' },
+    { oculta: true, n: 8, id: 'portal', grupo: 'persona', nombre: 'Portal de la persona', disp: 'Web móvil', icono: 'user', roles: ['persona'], ruta: '#/portal' },
+    { oculta: true, n: 9, id: 'soporte', grupo: 'persona', nombre: 'Consola de soporte', disp: 'Escritorio', icono: 'helper', roles: ['soporte'], ruta: '#/soporte' }
   ],
 
   // Roles de dominio.md. `ruta` solo en los que ya tienen pantalla.
@@ -32,7 +33,7 @@ window.SVN_DATOS = {
     { id: 'persona', rol: 'Persona', ini: 'PE', color: 'orange', desc: 'Consulta su estado y sus boletas.', app: 'portal', ruta: '#/portal' },
     { id: 'operador', rol: 'Operador de puerta', ini: 'OP', color: 'orange', desc: 'Lee documentos y boletas; decide los amarillos.', app: 'puerta', ruta: '#/puerta' },
     { id: 'policia', rol: 'Policía Nacional', ini: 'PN', color: 'blue', desc: 'Sigue el evento en vivo, atiende los rojos y consulta la auditoría.', app: 'pmu', ruta: '#/policia' },
-    { id: 'ivc', rol: 'Profesional del IVC', ini: 'IV', color: 'purple', desc: 'Radica las medidas desde el oficio.', app: 'registro', ruta: '#/medidas' },
+    { id: 'ivc', rol: 'Profesional del IVC', ini: 'IV', color: 'purple', desc: 'Radica las medidas desde el oficio.', app: 'registro', ruta: 'ivc/index.html' },
     { id: 'mindeporte', rol: 'Mindeporte', ini: 'MD', color: 'amber', desc: 'Consulta la auditoría; homologa comercializadoras.', app: 'auditoria', ruta: '#/auditoria' },
     { id: 'supervisor', rol: 'Supervisor del evento', ini: 'SE', color: 'teal', desc: 'Sigue ingresos y alertas en vivo.', app: 'pmu' },
     { id: 'club', rol: 'Club o entidad', ini: 'CL', color: 'green', desc: 'Reporta su comercializadora e incidentes.', app: 'entidades', ruta: '#/entidades' },
@@ -157,7 +158,7 @@ window.SVN_DATOS = {
     ]
   },
 
-  // Superficie 1 · Registro de medidas. Fechas en ISO: el fin y el estado se calculan en apps/medidas.js.
+  // Superficie 1 · Registro de medidas. Fechas en ISO: el estado lo calcula el portal.
   ivc: {
     usuario: { nombre: 'Carolina Vélez Ortiz', cargo: 'Profesional del IVC · Mindeporte' },
     hoy: '2026-09-29',

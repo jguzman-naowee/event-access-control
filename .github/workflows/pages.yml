@@ -3,7 +3,7 @@ name: Publicar prototipo SVN en Pages
 on:
   push:
     branches: [main]
-    paths: ['prototype/svn/**', '.github/workflows/pages.yml']
+    paths: ['prototype/svn/**', 'prototype-ivc-base', '.github/workflows/pages.yml']
   workflow_dispatch:
 
 permissions:
@@ -23,9 +23,19 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
+      # El SVN va en la raíz y el demo del IVC (submódulo) en /ivc/, sin .git.
+      - name: Armar el sitio
+        run: |
+          mkdir _site
+          cp -R prototype/svn/. _site/
+          mkdir _site/ivc
+          cp -R prototype-ivc-base/. _site/ivc/
+          rm -rf _site/ivc/.git _site/ivc/.gitignore
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: prototype/svn
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

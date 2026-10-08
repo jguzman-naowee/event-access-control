@@ -9,7 +9,6 @@
     '#/puerta': { pantalla: 'puerta', tema: 'light', rol: 'operador' },
     '#/policia': { pantalla: 'policia', tema: 'light', rol: 'policia' },
     '#/auditoria': { pantalla: 'auditoria', tema: 'light', rol: 'policia' },
-    '#/medidas': { pantalla: 'medidas', tema: 'light', rol: 'ivc' },
     '#/backoffice': { pantalla: 'backoffice', tema: 'light', rol: 'organizador' },
     '#/compra': { pantalla: 'compra', tema: 'light', rol: 'persona' },
     '#/portal': { pantalla: 'portal', tema: 'light', rol: 'persona' },
@@ -26,7 +25,10 @@
     try { return sessionStorage.getItem('svn.rol'); } catch (e) { return null; }
   }
 
-  function ir(hash) { if (location.hash === hash) { pintar(); } else { location.hash = hash; } }
+  // Una ruta sin # sale del SVN hacia otra página del sitio (el demo del IVC en ivc/).
+  function ir(hash) {
+    if (hash.charAt(0) !== '#') { location.href = hash; } else if (location.hash === hash) { pintar(); } else { location.hash = hash; }
+  }
 
   function aviso(titulo, mensaje) {
     var t = document.getElementById('aviso');

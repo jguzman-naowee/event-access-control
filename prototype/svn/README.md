@@ -7,16 +7,16 @@ and feel de Naowee. Modelo de cada superficie en [`../../modeling/desing-views/`
 
 Doble clic en `index.html`. Funciona sin servidor.
 
-- `#/`: gate **¿Quién puede entrar al evento hoy?**, por aplicación (abre primero, numerado por el paso del flujo) o por rol (ordenado por el mismo flujo) (mismo patrón que `uaesp-rutas-alta`).
+- `#/`: gate **¿Quién puede entrar al evento hoy?**, por aplicación (abre primero, numerado por `paso` en `datos.js`: 1 a 5 y 7 a 9, el 6 queda libre a propósito; Portal de la persona y Consola de soporte no salen ahí pero siguen en `#/portal` y `#/soporte`, 8-oct-2026) o por rol (ordenado por el mismo flujo) (mismo patrón que `uaesp-rutas-alta`).
 
-Rutas en el orden del flujo de la demo (30-sep-2026):
+Rutas en el orden del flujo de la demo (30-sep-2026); el gate las numera distinto desde el 8-oct (ver `datos.js`):
 
 1. `#/backoffice`: backoffice de eventos (superficie 4), organizador, en escritorio y tablet. Barra mínima y cinco pestañas que hacen de título
   (**Escenario**, **Evento y partidos**, **Configuración**, **Cupos**, **Listo para abrir**) con la acción principal a la derecha; el evento en curso va en una línea bajo las pestañas, con *Cambiar de evento*.
   Escenario: mapa esquemático, sector (nombre, tipo, aforo), puertas y tabla de dispositivos con filtro. Evento y partidos: lista con búsqueda y estados, detalle editable
   (solo lectura en curso o cerrado), partidos con hora obligatoria para publicar. Las vistas se registran en `BACKOFFICE.registrar` (contrato al inicio de `apps/backoffice.js`); una pestaña sin vista dice *En preparación*.
 
-2. `#/compra`: **Vender la boleta** (paso 2; superficies 6 y 7), solo en celular, sobre una comercializadora ficticia (*graderío*).
+2. `#/compra`: **Vender la boleta** (paso 5 del gate; superficies 6 y 7), solo en celular, sobre una comercializadora ficticia (*graderío*).
   Pantallas en orden: **Evento y boletas** → **Identificarse** (consulta 1) → **Pago** (consulta 2, con «Pagando como») → **Compra aprobada** (2 s, verde, todo el equipo) →
   **Tus boletas** (todas las boletas; `listo` es el id interno) → por boleta sin titular, **Asignar esta boleta** abre la vista inmersiva de asignar
   (consulta 3) y vuelve a Tus boletas; **Aceptar** es la vista del acompañante. Cada consulta corre en la franja de la capa (a la persona se le presenta como consulta a DB):
@@ -48,11 +48,8 @@ Rutas en el orden del flujo de la demo (30-sep-2026):
   *En atención*. También pasa que un agente la toma antes (a los 20 s en la Puerta 6, o con el botón del panel del demo).
   *Ver perfil* o *Cerrar con resultado* abre el perfil de esa alerta, y *Tablero del evento* vuelve.
 
-5. `#/medidas`: registro de medidas correctivas (superficie 1), profesional del IVC, en escritorio y tablet. Barra mínima y dos pestañas
-  que hacen de título: **Base de medidas** (búsqueda y filtros con conteo en la cabecera de la tabla, orden en su última columna, expediente a la derecha, que se puede cerrar; los datos de un menor
-  piden motivo y la apertura entra al historial) y **Reportes de entidades** (bandeja con estados, enlazar a una medida o
-  archivar con motivo). **Radicar medida** es una vista aparte (botón en la cabecera de ambas, con *Volver*): 5 pasos con
-  resumen en vivo; el fin y el estado se calculan desde la ejecutoria y los meses. El logo de Mindeporte (`assets/mindeporte.svg`, vector de Wikimedia Commons) es referencia para el demo, no para producción. El panel del demo trae atajos a cada caso.
+5. `ivc/`: registro de medidas correctivas (superficie 1), profesional del IVC. Es el demo del IVC (submódulo `prototype-ivc-base`,
+  publicado en `/ivc/`); la app del gate abre su login. Reemplazó a la pantalla `#/medidas` del SVN.
 
 6. `#/auditoria`: auditoría (superficie 3), en escritorio y tablet, app aparte del Monitor. Arranca en la misma lista de
   eventos (`apps/eventos.js`); al entrar, una cabecera con la foto del escenario, el tiempo del operativo y del partido,
@@ -119,11 +116,10 @@ marca.js       el logo de Naowee (copiado de uaesp-rutas-alta) para nwt-logo-nao
 svn.css        gate y transición (prefijo sv-)
 apps/puerta.*  superficie 5: operador y vista policial (prefijo pp-)
 apps/auditoria.*  superficie 3: auditoría (prefijo pa-); reusa el marco del demo y del equipo de pp-
-apps/medidas.*    superficie 1: registro de medidas (prefijo pm-); reusa el marco del demo y del equipo de pp-
 apps/backoffice.*  superficie 4: marco, Escenario y Evento y partidos (prefijo pb-, clases base en el CSS)
 apps/backoffice-evento.*  superficie 4: Configuración, Cupos y Listo para abrir (prefijo pbe-)
-apps/compra.*  paso 2 del flujo (superficies 6 y 7, prefijo pc-): estado, casos, consultas, Evento/Identificarse/Pago/Listo; reusa el marco del demo y del equipo de pp-
-apps/compra-asignar.*  paso 2: Asignar (vista inmersiva por boleta) y Aceptar (prefijo pca-); se registra en `COMPRA`
+apps/compra.*  paso 5 del gate (superficies 6 y 7, prefijo pc-): estado, casos, consultas, Evento/Identificarse/Pago/Listo; reusa el marco del demo y del equipo de pp-
+apps/compra-asignar.*  paso 5: Asignar (vista inmersiva por boleta) y Aceptar (prefijo pca-); se registra en `COMPRA`
 apps/portal.*  superficie 8: portal de la persona (prefijo pt-); reusa el marco del demo y del equipo de pp-
 apps/soporte.*  superficie 9: consola de soporte (prefijo sp-); reusa el marco del demo y del monitor de pp-
 apps/entidades.*  superficie 2: entidades y comercializadoras (prefijo en-); reusa el marco del demo y del equipo de pp-

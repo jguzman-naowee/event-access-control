@@ -1,0 +1,3 @@
+[submodule "prototype-ivc-base"]
+	path = prototype-ivc-base
+	url = https://github.com/jguzman-naowee/ivc-control-acceso-demo.git
